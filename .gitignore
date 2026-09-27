@@ -1,0 +1,53 @@
+# ---- Secrets (never commit) ----
+API-Credentials.md
+**/API-Credentials.md
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.mobileprovision
+*.keystore
+*.jks
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+google-services.json
+GoogleService-Info.plist
+service-account*.json
+secrets/
+.secrets/
+
+# ---- Dependencies / builds ----
+node_modules/
+dist/
+build/
+.next/
+out/
+.turbo/
+coverage/
+*.tsbuildinfo
+.expo/
+.expo-shared/
+apps/mobile/ios/
+apps/mobile/android/
+*.apk
+*.aab
+*.ipa
+
+# ---- Local / OS ----
+.DS_Store
+*.log
+.vscode/
+.idea/
+tmp/
+.cache/
+
+# ---- Runtime data ----
+data/local/
+benchmark/runs/raw/
