@@ -1,0 +1,992 @@
+{
+  "generatedAtUtc": "2026-09-27T16:40:00Z",
+  "disclaimer": "Preliminary availability signals only. RDAP 404 means the registry had no record at check time; it is not a reservation, and premium/registry-reserved names can still be unavailable. DNS NXDOMAIN alone is NOT proof of availability (tivela.com and kolero.com are registered but have no nameservers). This is not legal or trademark clearance.",
+  "rdapBootstrap": {
+    "source": "https://data.iana.org/rdap/dns.json",
+    "publication": "2026-09-16T19:00:03Z",
+    "ai": "https://rdap.nic.ai/",
+    "app": "https://pubapi.registry.google/rdap/",
+    "note": ".co and .io not listed in bootstrap at check time"
+  },
+  "tooling": {
+    "rdap": "WebFetch (shell egress to RDAP hosts blocked by proxy: CONNECT 403)",
+    "dns": "python dnspython NS queries, used only as a pre-screen across ~900 generated candidates"
+  },
+  "selected": {
+    "name": "Telvey",
+    "primaryDomain": "telvey.com",
+    "alsoFree": [
+      "telvey.ai",
+      "telvey.app",
+      "telvey.io",
+      "telvey.dev",
+      "gettelvey.com"
+    ],
+    "inconclusive": [
+      "telvey.co"
+    ]
+  },
+  "rdap": [
+    {
+      "domain": "lorway.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/lorway.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:00:17Z",
+        "2026-09-27T16:02:00Z"
+      ],
+      "result": "registered",
+      "detail": "created 1998-02-10, registrar NameSecure L.L.C."
+    },
+    {
+      "domain": "vedi.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/vedi.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:00:17Z",
+        "2026-09-27T16:02:00Z"
+      ],
+      "result": "registered",
+      "detail": "created 2002-03-23, registrar GoDaddy.com, LLC"
+    },
+    {
+      "domain": "alongo.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/alongo.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:00:17Z",
+        "2026-09-27T16:02:00Z"
+      ],
+      "result": "registered",
+      "detail": "created 2001-01-20, registrar IONOS SE"
+    },
+    {
+      "domain": "loqa.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/loqa.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:00:17Z",
+        "2026-09-27T16:02:00Z"
+      ],
+      "result": "registered",
+      "detail": "created 2002-06-08, registrar OpusDNS GmbH"
+    },
+    {
+      "domain": "kivo.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/kivo.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:00:17Z",
+        "2026-09-27T16:02:00Z"
+      ],
+      "result": "registered",
+      "detail": "created 1998-07-27, registrar NameCheap, Inc."
+    },
+    {
+      "domain": "molva.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/molva.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:00:17Z",
+        "2026-09-27T16:02:00Z"
+      ],
+      "result": "inconclusive",
+      "detail": "WebFetch proxy rate-limited (HTTP 429); not retried"
+    },
+    {
+      "domain": "telvey.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/telvey.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "telvey.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/telvey.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "telvey.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/telvey.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404 (rdap.identitydigital.services). rdap.nic.ai (IANA bootstrap entry) was unreachable from the fetch proxy: DNS resolution failure"
+    },
+    {
+      "domain": "waytale.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/waytale.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "registered",
+      "detail": "created 2025-08-18, registrar Namecheap Inc."
+    },
+    {
+      "domain": "loreyon.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/loreyon.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "loreyon.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/loreyon.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "loreyon.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/loreyon.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "wendalong.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/wendalong.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "wendalong.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/wendalong.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "wendalong.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/wendalong.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "tivela.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/tivela.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "registered",
+      "detail": "created 2016-09-13, registrar Cronon GmbH (DNS returns NXDOMAIN: registered without nameservers)"
+    },
+    {
+      "domain": "tivela.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/tivela.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "tivela.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/tivela.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:15:00Z",
+        "2026-09-27T16:19:04Z"
+      ],
+      "result": "inconclusive",
+      "detail": "RDAP HTTP 404, but DNS at 16:19Z shows NS on Hostinger parking with SOA serial 2026092401: likely registered within the last few days, before RDAP updated"
+    },
+    {
+      "domain": "wendivo.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/wendivo.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "wendivo.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/wendivo.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "wendivo.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/wendivo.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "hushway.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/hushway.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "registered",
+      "detail": "created 2024-07-22, registrar DropCatch.com 907 LLC"
+    },
+    {
+      "domain": "hushway.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/hushway.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "hushway.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/hushway.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "registered",
+      "detail": "created 2026-07-31, registrar Porkbun LLC"
+    },
+    {
+      "domain": "telvey.io",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/telvey.io",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "telvey.co",
+      "method": "rdap",
+      "endpoint": "https://rdap.nic.co/domain/telvey.co",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "inconclusive",
+      "detail": "rdap.nic.co unreachable (DNS failure from fetch proxy); .co not in the IANA RDAP bootstrap. DNS NS lookup = NXDOMAIN"
+    },
+    {
+      "domain": "sayonder.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/sayonder.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "sayonder.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/sayonder.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "sayonder.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/sayonder.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "amblo.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/amblo.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "amblo.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/amblo.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "registered",
+      "detail": "created 2007-06-14, registrar GoDaddy.com, LLC"
+    },
+    {
+      "domain": "amblo.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/amblo.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "registered",
+      "detail": "created 2026-02-15, registrar CloudFlare, Inc."
+    },
+    {
+      "domain": "waytale.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/waytale.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "registered",
+      "detail": "created 2024-11-17, registrar GoDaddy.com, LLC"
+    },
+    {
+      "domain": "waytale.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/waytale.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "kolero.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/kolero.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "registered",
+      "detail": "created 2025-08-11, registrar SNAPNAMES 48, LLC (DNS NXDOMAIN)"
+    },
+    {
+      "domain": "kolero.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/kolero.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "kolero.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/kolero.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "voceway.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/voceway.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "inconclusive",
+      "detail": "WebFetch proxy rate-limited (HTTP 429); DNS NXDOMAIN"
+    },
+    {
+      "domain": "voceway.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/voceway.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "voceway.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/voceway.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:19:04Z",
+        "2026-09-27T16:23:40Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "telvey.dev",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/telvey.dev",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:24:42Z",
+        "2026-09-27T16:30:39Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "gettelvey.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/gettelvey.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:24:42Z",
+        "2026-09-27T16:30:39Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "tellaround.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/tellaround.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:24:42Z",
+        "2026-09-27T16:30:39Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "tellaround.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/tellaround.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:24:42Z",
+        "2026-09-27T16:30:39Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "tellaround.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/tellaround.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:24:42Z",
+        "2026-09-27T16:30:39Z"
+      ],
+      "result": "not_found",
+      "detail": "HTTP 404"
+    },
+    {
+      "domain": "telvey.com",
+      "method": "rdap",
+      "endpoint": "https://rdap.verisign.com/com/v1/domain/telvey.com",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:30:39Z",
+        "2026-09-27T16:35:23Z"
+      ],
+      "result": "not_found",
+      "detail": "re-check, HTTP 404"
+    },
+    {
+      "domain": "telvey.ai",
+      "method": "rdap",
+      "endpoint": "https://rdap.identitydigital.services/rdap/domain/telvey.ai",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:30:39Z",
+        "2026-09-27T16:35:23Z"
+      ],
+      "result": "not_found",
+      "detail": "re-check, HTTP 404"
+    },
+    {
+      "domain": "telvey.app",
+      "method": "rdap",
+      "endpoint": "https://pubapi.registry.google/rdap/domain/telvey.app",
+      "checkedAtUtcWindow": [
+        "2026-09-27T16:30:39Z",
+        "2026-09-27T16:35:23Z"
+      ],
+      "result": "not_found",
+      "detail": "re-check, HTTP 404"
+    }
+  ],
+  "dnsPrescreen": [
+    {
+      "domain": "telvey.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "telvey.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "telvey.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "telvey.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "telvey.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "loreyon.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "loreyon.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "loreyon.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "loreyon.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "loreyon.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "wendalong.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "wendalong.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "wendalong.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "wendalong.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "wendalong.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "wendivo.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:40Z"
+    },
+    {
+      "domain": "wendivo.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "wendivo.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "wendivo.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "wendivo.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "sayonder.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "sayonder.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "sayonder.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "sayonder.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:41Z"
+    },
+    {
+      "domain": "sayonder.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "voceway.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "voceway.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "voceway.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "voceway.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "voceway.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tellaround.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tellaround.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tellaround.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tellaround.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tellaround.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "hushway.com",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "hushway.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "hushway.app",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "hushway.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "hushway.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "amblo.com",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "amblo.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "amblo.app",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "amblo.co",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "amblo.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tivela.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tivela.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tivela.app",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tivela.co",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:42Z"
+    },
+    {
+      "domain": "tivela.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "kolero.com",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "kolero.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "kolero.app",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "kolero.co",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "kolero.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "waytale.com",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "waytale.ai",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "waytale.app",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "waytale.co",
+      "dns": "NS_PRESENT",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    },
+    {
+      "domain": "waytale.io",
+      "dns": "NXDOMAIN",
+      "method": "dns_ns",
+      "resolver": "8.8.8.8 via dnspython",
+      "checkedAtUtc": "2026-09-27T16:23:43Z"
+    }
+  ]
+}
