@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img"><title>Telvey app icon</title><desc>iOS master icon: full-bleed, opaque; the OS applies the corner mask.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#16606F"/><stop offset="1" stop-color="#082A31"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+  <stop offset="0" stop-color="#FF6A4D" stop-opacity="0.28"/><stop offset="1" stop-color="#FF6A4D" stop-opacity="0"/></radialGradient>
+</defs><rect width="1024" height="1024" fill="url(#bg)"/><circle cx="512" cy="512" r="300" fill="url(#glow)"/><g transform="translate(512 500) scale(5.4) translate(-60 -60)"><path d="M66.6 22.58 A38 38 0 0 0 22 60 L22 98 L60 98 A38 38 0 0 0 96.14 48.26" fill="none" stroke="#F7F4EE" stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="60" r="12" fill="#FF6A4D"/></g>
+</svg>
