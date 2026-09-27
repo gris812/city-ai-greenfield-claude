@@ -1,0 +1,358 @@
+{
+  "asOf": "2026-09-27",
+  "method": "Live web research via official app-store listings, vendor pages and press. Store ratings/downloads are point-in-time snapshots on the retrievedAt date. 'n/a' = not found; never estimated.",
+  "competitors": [
+    {
+      "id": "google-maps-gemini",
+      "name": "Google Maps with Gemini (Ask Maps, Gemini in navigation, Lens in Maps)",
+      "type": "platform",
+      "threat": "critical",
+      "whatItDoes": "Conversational place Q&A (Ask Maps), hands-free Gemini while driving/walking/cycling: questions about route, places near you/destination, neighborhood ('What neighborhood am I in?'), landmark-based turn guidance, Lens 'what is this place and why is it popular?'.",
+      "discoveryModel": "dynamic, user-initiated (pull); landmark cues are navigation-only, not storytelling",
+      "voiceAI": "Gemini; hands-free voice; Gemini Live available in Android Auto (beta)",
+      "platforms": ["Android", "iOS", "Android Auto", "CarPlay (Ask Maps)", "Google built-in vehicles"],
+      "businessModel": "free, ad/ecosystem-funded",
+      "pricing": "free",
+      "traction": [
+        {"signal": "Ask Maps launched US + India on Android and iOS, works with CarPlay, Android Auto and Google-equipped vehicles", "date": "2026-03-12", "sourceUrl": "https://techcrunch.com/2026/03/12/google-maps-is-getting-an-ai-ask-maps-feature-and-upgraded-immersive-navigation/"},
+        {"signal": "Gemini in navigation + landmark-based navigation announced", "date": "2025-11-05", "sourceUrl": "https://blog.google/products-and-platforms/products/maps/gemini-navigation-features-landmark-lens/"},
+        {"signal": "Gemini in walking/cycling navigation rolling out worldwide on iOS and Android wherever Gemini is available", "date": "2026-02", "sourceUrl": "https://alternativeto.net/news/2026/2/google-maps-expands-gemini-s-hand-free-ai-navigation-to-walking-and-cycling-worldwide/"},
+        {"signal": "Hands-on review: strong neighborhood/local trivia, weak at route edits", "date": "2026-02-17", "sourceUrl": "https://www.techbrew.com/stories/2026/02/17/google-gemini-navigation-test"}
+      ],
+      "weaknessesVsUs": ["Pull-only: no evidence of proactive, continuous narration or a silence policy", "Optimized for task completion (find, route, ETA) not storytelling", "No persistent 'already discussed' journey memory as a product surface", "No persona choice"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "gemini-android-auto",
+      "name": "Gemini in Android Auto (incl. Gemini Live)",
+      "type": "platform",
+      "threat": "high",
+      "whatItDoes": "Replaces Google Assistant in Android Auto; answers about businesses along route via Google Maps; Gemini Live (beta) for open-ended conversation while driving incl. destination trivia.",
+      "discoveryModel": "dynamic, user-initiated",
+      "voiceAI": "Gemini / Gemini Live, 45 languages",
+      "platforms": ["Android Auto", "Android Automotive (Google built-in)"],
+      "businessModel": "free (bundled)",
+      "pricing": "free",
+      "traction": [{"signal": "Rolling out globally to Android Auto users, 45 languages", "date": "2025-11/2026", "sourceUrl": "https://blog.google/products-and-platforms/platforms/android/android-auto-gemini-tips/"}],
+      "weaknessesVsUs": ["User must start the conversation; not a proactive guide", "No trajectory-ahead significance ranking or silence budget", "Android-only in car"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "apple-siri-maps",
+      "name": "Apple Siri AI (iOS 27, Gemini-based) + Apple Maps + Visual Intelligence",
+      "type": "platform",
+      "threat": "high",
+      "whatItDoes": "Redesigned conversational Siri with on-screen awareness (iOS 27, released Sept 2026); Camera 'Siri' mode identifies objects; Maps adds Local Lists / trending places. No confirmed proactive landmark narration found.",
+      "discoveryModel": "user-initiated",
+      "voiceAI": "Siri AI (built with Google Gemini)",
+      "platforms": ["iOS", "CarPlay"],
+      "businessModel": "free (bundled)",
+      "pricing": "free",
+      "traction": [
+        {"signal": "Siri AI unveiled WWDC 2026, ships with iOS 27 in fall 2026", "date": "2026-06-08", "sourceUrl": "https://qz.com/apple-siri-ai-google-gemini-wwdc-2026-060826"},
+        {"signal": "iOS 27 released; Siri mode in Camera via Visual Intelligence; Maps Local Lists", "date": "2026-09-23", "sourceUrl": "https://www.macrumors.com/2026/09/23/50-new-things-iphone-can-do-ios-27/"},
+        {"signal": "iOS 27 Maps feature list contains no Siri landmark/route-narration feature", "date": "2026-09", "sourceUrl": "https://www.macrumors.com/guide/ios-27-maps/"}
+      ],
+      "weaknessesVsUs": ["No evidence of proactive location storytelling", "Apple-only", "Also a gatekeeper: CarPlay voice-conversational category requires Apple entitlement"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT (voice mode, location sharing, CarPlay)",
+      "type": "platform",
+      "threat": "high",
+      "whatItDoes": "Optional precise/approximate device location for local answers (Mar 2026); ChatGPT Voice in CarPlay (iOS 26.4+, audio-only answers, no wake word).",
+      "discoveryModel": "user-initiated",
+      "voiceAI": "OpenAI realtime voice",
+      "platforms": ["iOS", "Android", "Web", "CarPlay"],
+      "businessModel": "freemium subscription",
+      "pricing": "n/a (not re-verified for this doc)",
+      "traction": [
+        {"signal": "Location sharing rolling out to all consumer plans on iOS/web", "date": "2026-03-31", "sourceUrl": "https://www.seroundtable.com/chatgpt-location-sharing-41128.html"},
+        {"signal": "ChatGPT Voice in CarPlay; requires iOS 26.4; no text/imagery in responses; no wake word", "date": "2026-03-31", "sourceUrl": "https://www.macrumors.com/2026/03/31/openai-chatgpt-carplay/"}
+      ],
+      "weaknessesVsUs": ["No continuous location stream / trajectory; not proactive", "No journey memory tied to geography", "General-purpose, hallucination risk on local facts vs our GroundingCheck"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "autio",
+      "name": "Autio (formerly HearHere)",
+      "type": "direct",
+      "threat": "high",
+      "whatItDoes": "GPS-triggered library of 20,000+ human-produced 2-3 min stories (some celebrity-narrated) played as you drive; notifies when nearby unheard stories exist.",
+      "discoveryModel": "scripted library, location-triggered",
+      "voiceAI": "none (pre-recorded)",
+      "platforms": ["iOS", "Android", "CarPlay", "Ford/Lincoln in-vehicle (2026)"],
+      "businessModel": "subscription/pass; OEM bundle",
+      "pricing": "iOS IAP: 14-day $14.99; 30-day $15.99-29.99; 1-year $35.99-49.99; 3-year $39.99-69.99. Also included in Roadtrippers Premium ($59.99/yr) and Ford/Lincoln connectivity package ($14.99/mo, first year free on Ford).",
+      "traction": [
+        {"signal": "iOS 4.8 stars, 4.3K ratings; Editors' Choice", "date": "2026-09-27", "sourceUrl": "https://apps.apple.com/us/app/autio-road-trip-travel-app/id1300494609"},
+        {"signal": "Google Play 3.5 stars, 62 reviews, 10K+ downloads, last update 2024-11-07", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=autio.audio.travel.guide.stories&hl=en_US"},
+        {"signal": "$5.9M seed extension led by iHeartMedia; $10.7M total raised; 230,000+ registered users", "date": "2023-03-29", "sourceUrl": "https://techcrunch.com/2023/03/29/kevin-costners-location-based-audio-storytelling-app-autio-raises-5-6m/"},
+        {"signal": "Embedded in 2025+ Ford Explorer/Expedition, Lincoln Aviator/Navigator, 2024+ Nautilus", "date": "2026-08-04", "sourceUrl": "https://www.forbes.com/sites/edgarsten/2026/08/04/ford-lincoln-add-on-board-autio-tour-guide/"}
+      ],
+      "weaknessesVsUs": ["Coverage limited to authored stories (US-centric)", "No Q&A / conversation", "No walking/landmark-standing depth", "Android app quality complaints (billing, audio ducking)"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "voicemap",
+      "name": "VoiceMap",
+      "type": "direct",
+      "threat": "medium",
+      "whatItDoes": "Marketplace of 2,100+ GPS-triggered audio walks/drives by local storytellers in 600+ destinations, 80 countries; offline; some AI-generated content labelled.",
+      "discoveryModel": "scripted tours",
+      "voiceAI": "limited (labelled AI content)",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "pay-per-tour",
+      "pricing": "$3.99-19.99 per tour (iOS IAP)",
+      "traction": [
+        {"signal": "iOS 4.8 stars, 3.4K ratings", "date": "2026-09-27", "sourceUrl": "https://apps.apple.com/us/app/voicemap-audio-tours-guides/id852027939"},
+        {"signal": "Google Play 4.6 stars, 1.9K reviews, 100K+ downloads", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=me.voicemap.android&hl=en"}
+      ],
+      "weaknessesVsUs": ["Fixed routes; nothing off-route", "No conversation", "Per-tour purchase friction"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "guidealong",
+      "name": "GuideAlong",
+      "type": "direct",
+      "threat": "medium",
+      "whatItDoes": "100+ GPS-triggered narrated driving tours (national parks, scenic drives), offline, CarPlay.",
+      "discoveryModel": "scripted tours",
+      "voiceAI": "none",
+      "platforms": ["iOS", "Android", "CarPlay"],
+      "businessModel": "pay-per-tour / bundles",
+      "pricing": "$14.99-39.99 per tour (iOS IAP); Yellowstone+Grand Teton bundle $19.99 (secondary source)",
+      "traction": [
+        {"signal": "iOS 4.9 stars, 16K ratings (listing shows last update 2024-05-21)", "date": "2026-09-27", "sourceUrl": "https://apps.apple.com/us/app/guidealong-gps-audio-tours/id1460032075"}
+      ],
+      "weaknessesVsUs": ["Only works on authored routes", "No Q&A", "Content refresh cadence unclear"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "shaka-guide",
+      "name": "Shaka Guide",
+      "type": "direct",
+      "threat": "medium",
+      "whatItDoes": "105+ GPS audio driving/walking tours (Hawaii, 55 national-park tours, scenic drives), offline, human-narrated.",
+      "discoveryModel": "scripted tours",
+      "voiceAI": "none",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "pay-per-tour / bundles",
+      "pricing": "per-tour; ~$18.99 cited by secondary source (not verified on official page)",
+      "traction": [
+        {"signal": "Google Play 4.8 stars, 2,310 reviews, 100,000+ downloads, updated 2026-08-20", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=com.shakaguide.android&hl=en_US"},
+        {"signal": "105+ tours catalogue", "date": "2026-09-27", "sourceUrl": "https://www.shakaguide.com/"}
+      ],
+      "weaknessesVsUs": ["Destination-bound", "No conversation or dynamic content"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "smartguide",
+      "name": "SmartGuide",
+      "type": "direct + B2B",
+      "threat": "medium",
+      "whatItDoes": "Audio tours for 800+ destinations with AI-generated voiceovers, offline maps; B2B CMS/white-label for tour operators, DMOs, attractions.",
+      "discoveryModel": "scripted tours (AI-voiced)",
+      "voiceAI": "AI TTS narration, AI translation",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "consumer IAP + B2B SaaS",
+      "pricing": "B2B EUR 98 / 195 / 390 / 780 per month by annual passenger volume (<3k/<10k/<30k/<100k); AI translation EUR 200 per language",
+      "traction": [
+        {"signal": "Google Play 4.7 stars, 6,250+ reviews, 1M+ downloads, updated 2026-08-26; reviews criticize AI pronunciation", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=org.smart_guide.smartguide.T_00007"},
+        {"signal": "Customers include Thames River Sightseeing, Deutsche Bahn, RegioJet; 10,000 audio tours; 100,000 POIs", "date": "2026-09-27", "sourceUrl": "https://www.smartguide.app/tour-operators"},
+        {"signal": "EUR 1M grant for AI/AR enhancements", "date": "n/a", "sourceUrl": "https://blog.smart-guide.org/en/smartguide-allows-guiding-tourists-better-with-ai-and-ar-enhancements-supported-by-1-million-grant"}
+      ],
+      "weaknessesVsUs": ["Tours not conversation", "AI voice quality complaints", "Walking-first, no driving regime"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "izi-travel",
+      "name": "izi.TRAVEL",
+      "type": "direct + B2B (museums)",
+      "threat": "low-medium",
+      "whatItDoes": "Open platform: 25,000 audio tours in 2,500 cities/137 countries, 3,000 museums; GPS autoplay, QR, AI itinerary.",
+      "discoveryModel": "scripted tours + museum guides",
+      "voiceAI": "AI itinerary only",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "free w/ ads + membership; free publishing for institutions (per vendor)",
+      "pricing": "n/a (membership price not published on fetched pages)",
+      "traction": [{"signal": "Google Play 1M+ downloads; 2.3 stars, 15K reviews (complaints about ads/membership)", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=travel.opas.client"}],
+      "weaknessesVsUs": ["Inconsistent UGC quality", "Poor rating/monetization UX", "No conversation"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "gpsmycity",
+      "name": "GPSmyCity",
+      "type": "direct",
+      "threat": "low",
+      "whatItDoes": "Thousands of self-guided walking tours/articles in 1,800+ cities; text read aloud; paid upgrade unlocks navigation.",
+      "discoveryModel": "scripted tours",
+      "voiceAI": "basic read-aloud",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "freemium IAP",
+      "pricing": "n/a on fetched listing",
+      "traction": [{"signal": "Google Play 4.3 stars, 2.86K reviews, 500K+ downloads, updated 2026-08-18", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=com.gpsmycity.iwtmaster&hl=en_US&gl=US"}],
+      "weaknessesVsUs": ["Text-first, not voice-first", "No driving", "No AI"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "bloomberg-connects",
+      "name": "Bloomberg Connects (Connects: Arts+Culture)",
+      "type": "indirect (museums)",
+      "threat": "low (but blocks museum B2B)",
+      "whatItDoes": "Free guides to 1,000+ museums, galleries, gardens; audio/text, lookup numbers, 61+ languages.",
+      "discoveryModel": "institution-authored",
+      "voiceAI": "none found",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "philanthropy-funded; free to users",
+      "pricing": "free",
+      "traction": [{"signal": "iOS 4.8 stars, 7.4K ratings; 1000+ institutions; updated 2026-09-02", "date": "2026-09-27", "sourceUrl": "https://apps.apple.com/us/app/connects-arts-culture/id1476456847"}],
+      "weaknessesVsUs": ["Indoor/institution-only", "Not location-continuous"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "le-walk",
+      "name": "Le Walk",
+      "type": "direct",
+      "threat": "medium",
+      "whatItDoes": "Cinematic GPS-synced audio walking experiences with soundscapes; Paris, Versailles, Florence, Rome (expansion planned); 22 languages.",
+      "discoveryModel": "scripted premium experiences",
+      "voiceAI": "n/a",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "paid experiences (price not in press release)",
+      "pricing": "n/a",
+      "traction": [{"signal": "$4.1M seed (Adverb Ventures, Lerer Hippeau); 110,000 beta downloads; 20,000+ tours completed", "date": "2025-09-19", "sourceUrl": "https://www.prnewswire.com/news-releases/le-walk-a-tour-guide-in-your-headphones-raises-4-1m-seed-led-by-adverb-ventures-and-lerer-hippeau-302561276.html"}],
+      "weaknessesVsUs": ["Few cities, authored", "No driving, no conversation"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "ai-native-small",
+      "name": "AI-native narration apps (RoadWhisper, Roadguide, Road Trip: Voice Tour Guide AI, Nextour, Narrativ)",
+      "type": "direct (closest concept)",
+      "threat": "low today / signals commoditization",
+      "whatItDoes": "Generate stories on the fly from OSM/LLM as you drive or walk. RoadWhisper: background driving narration, 6 styles, OSM data. Roadguide: family road-trip facts at fixed intervals. Nextour: camera landmark recognition, personas, voice Q&A. Narrativ: AI themed city tours with live AI conversation (premium).",
+      "discoveryModel": "dynamic (AI-generated)",
+      "voiceAI": "LLM + TTS; some voice Q&A (Nextour, Narrativ premium)",
+      "platforms": ["iOS", "Android"],
+      "businessModel": "freemium / credits / passes",
+      "pricing": "RoadWhisper free up to 1,000 stories/day, $2.99/mo premium; Road Trip Voice Tour Guide AI credits $0.99 (7 visits) - $54.99 (600 visits); Narrativ from EUR 14.99 / 3 days; Roadguide free; Nextour free",
+      "traction": [
+        {"signal": "RoadWhisper: Google Play 100+ downloads, 8 reviews, updated 2026-07-22", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=com.roadwhisper&hl=en_AU"},
+        {"signal": "RoadWhisper pricing and no CarPlay/Q&A", "date": "2026-09-27", "sourceUrl": "https://roadwhisper.org/"},
+        {"signal": "Nextour: 1K+ downloads, 38 reviews", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=com.tripxai.nextour&hl=en"},
+        {"signal": "Narrativ: 100+ downloads, EUR 14.99/3 days, 1,657 cities", "date": "2026-09-27", "sourceUrl": "https://play.google.com/store/apps/details?id=com.narrativ.travelhistorian"},
+        {"signal": "Road Trip: Voice Tour Guide AI (NexSwiss) credit packs; last update 2025-01-20", "date": "2026-09-27", "sourceUrl": "https://apps.apple.com/us/app/road-trip-voice-tour-guide-ai/id1671354231"},
+        {"signal": "Roadguide: free iOS, interval-based facts (10-60 min)", "date": "2026-09-27", "sourceUrl": "https://roadguide.app/"}
+      ],
+      "weaknessesVsUs": ["Radial/interval triggers, no trajectory-ahead reasoning", "No grounding validation described", "Little traction; no CarPlay/AA", "No cross-regime transitions"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "roadtrippers",
+      "name": "Roadtrippers (Autopilot AI)",
+      "type": "indirect (planning)",
+      "threat": "medium (distribution partner or rival)",
+      "whatItDoes": "Road-trip planner; Premium includes Autopilot AI trip planning, RV routing, offline maps and Autio access.",
+      "discoveryModel": "pre-trip planning",
+      "voiceAI": "AI planning (text)",
+      "platforms": ["iOS", "Android", "Web"],
+      "businessModel": "subscription tiers",
+      "pricing": "Basic $35.99/yr or $11.99/mo; Pro $49.99/yr or $16.99/mo; Premium $59.99/yr or $19.99/mo",
+      "traction": [{"signal": "Tier pricing and Autio bundle", "date": "2026-09-27", "sourceUrl": "https://support.roadtrippers.com/hc/en-us/articles/360000831566-What-features-are-included-with-Roadtrippers-memberships"}],
+      "weaknessesVsUs": ["Planning, not in-drive companion", "Delegates audio storytelling to Autio"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "layla",
+      "name": "Layla (AI travel agent)",
+      "type": "indirect (planning)",
+      "threat": "low",
+      "whatItDoes": "Chat-based AI trip planner/agent.",
+      "discoveryModel": "pre-trip planning",
+      "voiceAI": "LLM chat",
+      "platforms": ["Web", "iOS", "Android"],
+      "businessModel": "freemium / booking",
+      "pricing": "n/a",
+      "traction": [{"signal": "5M+ users, 30M messages, 2M itineraries; strategic round from United Airlines Ventures, Baidu Capital, INCE", "date": "2026-03-17", "sourceUrl": "https://finance.yahoo.com/news/layla-surpasses-1-billion-trips-165400507.html"}],
+      "weaknessesVsUs": ["No in-journey location-aware audio"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "trucker-path",
+      "name": "Trucker Path",
+      "type": "indirect (trucker incumbent / channel)",
+      "threat": "low (channel opportunity)",
+      "whatItDoes": "Truck GPS, parking, fuel, weigh stations, HOS reminders; CarPlay.",
+      "discoveryModel": "utility",
+      "voiceAI": "none found",
+      "platforms": ["iOS", "Android", "CarPlay"],
+      "businessModel": "subscription + fleet",
+      "pricing": "Diamond $29.99/mo or $249.99/yr",
+      "traction": [
+        {"signal": "Pricing", "date": "2026-09-27", "sourceUrl": "https://truckerpath.com/pricing/trucker-path-individual"},
+        {"signal": "450,000+ MAU = ~30% of US Class 8 truckers (June 2016, dated)", "date": "2016-06", "sourceUrl": "https://en.wikipedia.org/wiki/Trucker_Path"}
+      ],
+      "weaknessesVsUs": ["No companionship/storytelling"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "oem-assistants",
+      "name": "OEM in-car assistants (Mercedes MBUX Virtual Assistant + Google; Ford/Lincoln + Autio)",
+      "type": "platform / channel",
+      "threat": "medium",
+      "whatItDoes": "MBUX: conversational POI search with follow-ups using Google Maps data (250M places), starting with new CLA. Ford/Lincoln embed Autio stories.",
+      "discoveryModel": "user-initiated (MBUX); scripted library (Ford/Autio)",
+      "voiceAI": "Google Gemini/Cloud (MBUX)",
+      "platforms": ["in-vehicle"],
+      "businessModel": "bundled / connectivity subscription",
+      "pricing": "Ford/Lincoln connectivity $14.99/mo, $149.95/yr, $745/7yr",
+      "traction": [
+        {"signal": "Mercedes-Google partnership announced; CLA first", "date": "2025-01-14", "sourceUrl": "https://www.eweek.com/news/mercedes-gemini-ai-navigation/"},
+        {"signal": "Ford/Lincoln Autio integration", "date": "2026-08-04", "sourceUrl": "https://www.forbes.com/sites/edgarsten/2026/08/04/ford-lincoln-add-on-board-autio-tour-guide/"}
+      ],
+      "weaknessesVsUs": ["Brand-locked; slow update cycles", "Proof that OEMs buy location storytelling (channel)"],
+      "retrievedAt": "2026-09-27"
+    },
+    {
+      "id": "meta-glasses",
+      "name": "Ray-Ban Meta glasses (Meta AI landmark identification)",
+      "type": "indirect (device)",
+      "threat": "low-medium (future)",
+      "whatItDoes": "Point glasses at a landmark and ask Meta AI; audio answer. Reported in early-access beta.",
+      "discoveryModel": "user-initiated, camera-based",
+      "voiceAI": "Meta AI",
+      "platforms": ["Meta glasses"],
+      "businessModel": "hardware",
+      "pricing": "n/a",
+      "traction": [{"signal": "Landmark tour-guide feature in early access beta (article undated in fetch)", "date": "n/a", "sourceUrl": "https://www.phonearena.com/news/ask-your-glasses-ray-ban-meta-smart-glasses-to-double-as-your-virtual-tour-guide_id156181"}],
+      "weaknessesVsUs": ["Hardware-bound; not driving"],
+      "retrievedAt": "2026-09-27"
+    }
+  ],
+  "featureMatrix": {
+    "columns": ["dynamicAnyPlace", "proactiveNarration", "voiceQA", "drivingMode", "trajectoryAhead", "walkingMode", "journeyMemory", "explicitSilencePolicy", "selectablePersonas", "carPlayOrAndroidAuto", "offline", "globalCoverage"],
+    "legend": "Y = yes (sourced); P = partial; N = no/not found; ? = unknown",
+    "rows": {
+      "ourProduct(target)":        ["Y","Y","Y","Y","Y","Y","Y","Y","Y","P (planned; entitlement needed)","P (prefetch only)","Y"],
+      "google-maps-gemini":        ["Y","N","Y","Y","P (route Q&A)","Y","?","N","N","Y","P","Y"],
+      "gemini-android-auto":       ["Y","N","Y","Y","P","N","?","N","N","Y","N","Y"],
+      "apple-siri-maps":           ["P","N","Y","Y","N","P","?","N","N","Y","P","Y"],
+      "chatgpt":                   ["P","N","Y","P (CarPlay)","N","P","P (chat memory)","N","N","Y (CarPlay)","N","Y"],
+      "autio":                     ["N","Y","N","Y","P (nearby notify)","N","P (unheard)","?","N","Y (CarPlay)","?","P (US-centric)"],
+      "voicemap":                  ["N","Y (on route)","N","P","N","Y","N","N","N","?","Y","P"],
+      "guidealong":                ["N","Y (on route)","N","Y","N","P","N","N","N","Y","Y","P"],
+      "shaka-guide":               ["N","Y (on route)","N","Y","N","Y","N","N","N","?","Y","P"],
+      "smartguide":                ["N","Y (on route)","N","N","N","Y","N","N","N","?","Y","P"],
+      "izi-travel":                ["N","Y (on route)","N","N","N","Y","N","N","N","?","Y","P"],
+      "roadwhisper":               ["Y","Y","N","Y","N (radial)","N","?","P (cooldown)","P (6 styles)","N","N","Y"],
+      "nextour":                   ["Y","P","Y","N","N","Y","?","N","Y","?","N","Y"],
+      "narrativ":                  ["Y","Y (tour stops)","P (premium)","N","N","Y","?","N","P (themes)","?","Y","Y"]
+    }
+  },
+  "platformRisk": [
+    {"actor": "Google", "status": "Shipped: Gemini in Maps navigation (driving, walking, cycling), Ask Maps (US/India), Gemini in Android Auto incl. Gemini Live, landmark-based guidance, Lens in Maps.", "gapRemaining": "Proactive, paced, story-quality narration with silence policy; persona; cross-session journey memory.", "likelihoodToCloseGap12mo": "medium-high (assumption)", "sources": ["https://techcrunch.com/2026/03/12/google-maps-is-getting-an-ai-ask-maps-feature-and-upgraded-immersive-navigation/", "https://blog.google/products-and-platforms/platforms/android/android-auto-gemini-tips/"]},
+    {"actor": "Apple", "status": "Siri AI (Gemini-based) in iOS 27; Visual Intelligence in Camera; no Maps narration found. Controls CarPlay entitlements.", "gapRemaining": "Location-proactive narration.", "likelihoodToCloseGap12mo": "low-medium (assumption)", "sources": ["https://www.macrumors.com/2026/09/23/50-new-things-iphone-can-do-ios-27/"]},
+    {"actor": "OpenAI", "status": "Location sharing + CarPlay voice. No continuous location stream.", "gapRemaining": "Background location, proactive triggering, map grounding.", "likelihoodToCloseGap12mo": "medium (assumption)", "sources": ["https://www.macrumors.com/2026/03/31/openai-chatgpt-carplay/"]}
+  ]
+}

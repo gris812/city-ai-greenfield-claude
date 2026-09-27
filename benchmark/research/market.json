@@ -1,0 +1,59 @@
+{
+  "asOf": "2026-09-27",
+  "currency": "USD",
+  "principle": "Bottom-up: segment population x usage/penetration x price. Every input is either 'sourced' (with URL + retrievedAt) or 'assumption' (with rationale). Third-party market-size headlines are context only.",
+  "inputs": {
+    "us_domestic_person_trips_2025": {"value": 2.40e9, "type": "sourced", "note": "U.S. Travel Association Fall 2025 forecast table; 2026f 2.45B; leisure 1.96B (2025)", "sourceUrl": "https://www.ustravel.org/sites/default/files/2025-10/US_Travel-Forecast_2025_Fall_v3.pdf", "retrievedAt": "2026-09-27"},
+    "us_domestic_leisure_spend_2026f": {"value": 909e9, "type": "sourced", "sourceUrl": "https://www.ustravel.org/research/travel-forecasts", "retrievedAt": "2026-09-27"},
+    "us_memorial_day_2026_car_travelers": {"value": 39.1e6, "type": "sourced", "note": "Single holiday weekend, 87% of 45M travelers; used as a hard lower bound for unique US road-trippers", "sourceUrl": "https://newsroom.aaa.com/2026/05/45-million-americans-planning-memorial-day-weekend-getaways/", "retrievedAt": "2026-09-27"},
+    "us_unique_adult_road_trippers_per_year": {"value": 120e6, "low": 90e6, "high": 150e6, "type": "assumption", "rationale": "No sourced count of unique people taking >=1 leisure car trip of 50+ miles per year was found. Must exceed 39.1M on one weekend; 1.96B leisure person-trips/yr implies many repeat trips. 120M is roughly 45% of US adults; test with a survey."},
+    "us_inbound_international_visits_2025": {"value": 68.3e6, "type": "sourced", "note": "-5.5% vs 2024; overseas-only 34.3M; 2026f 70.6M. These are visits, not unique persons.", "sourceUrl": "https://www.hotelnewsresource.com/article140416.html", "retrievedAt": "2026-09-27"},
+    "global_international_arrivals_2025": {"value": 1.52e9, "type": "sourced (secondary)", "note": "+4% YoY; UN Tourism figure cited by Forbes (UN Tourism page returned 403)", "sourceUrl": "https://www.forbes.com/sites/greatspeculations/2026/02/24/global-tourism-hits-15-billion-travelers-as-airlines-post-record-revenue/", "retrievedAt": "2026-09-27"},
+    "bls_heavy_tractor_trailer_jobs_2025": {"value": 2221200, "type": "sourced", "note": "Median pay $58,640 (May 2025); +4% 2025-35", "sourceUrl": "https://www.bls.gov/ooh/transportation-and-material-moving/heavy-and-tractor-trailer-truck-drivers.htm", "retrievedAt": "2026-09-27"},
+    "ata_truck_drivers_2024": {"value": 3.58e6, "type": "sourced", "note": "Broader definition (all truck drivers)", "sourceUrl": "https://www.trucking.org/economics-and-industry-data", "retrievedAt": "2026-09-27"},
+    "long_haul_share_of_heavy_drivers": {"value": 0.5, "low": 0.35, "high": 0.65, "type": "assumption", "rationale": "No authoritative long-haul/OTR share found in BLS or ATRI releases fetched; 50% is a placeholder."},
+    "hos_max_driving_hours_per_shift": {"value": 11, "type": "sourced", "note": "Property-carrying; 14-hour window; 60/70 h in 7/8 days", "sourceUrl": "https://www.fmcsa.dot.gov/regulations/hours-service/summary-hours-service-regulations", "retrievedAt": "2026-09-27"},
+    "us_adults_using_ai": {"value": 0.64, "type": "sourced", "note": "Menlo Ventures survey of 5,067 US adults, July 2026; daily use 25%", "sourceUrl": "https://www.globenewswire.com/news-release/2026/09/16/3363086/0/en/menlo-ventures-report-consumer-ai-spend-tripled-to-40b-this-year-even-as-user-growth-barely-budged.html", "retrievedAt": "2026-09-27"},
+    "ai_users_paying_for_ai": {"value": 0.55, "type": "sourced", "note": "Among AI users (~90M Americans); typical payer spends $20-49/mo", "sourceUrl": "https://menlovc.com/perspective/2026-the-state-of-consumer-ai/", "retrievedAt": "2026-09-27"},
+    "podcast_monthly_12plus": {"value": 0.58, "type": "sourced", "note": "167M Americans 12+; 57% have ever used a gen-AI assistant", "sourceUrl": "https://podnews.net/press-release/infinite-dial-us-2026", "retrievedAt": "2026-09-27"},
+    "in_car_listening_past_month": {"value": {"amfm": 0.73, "online_audio": 0.48, "podcasts": 0.37, "podcasts_18_34": 0.55}, "type": "sourced", "sourceUrl": "https://radioink.com/2026/03/13/infinite-dial-2026-radios-biggest-audience-is-going-digital/", "retrievedAt": "2026-09-27"},
+    "freemium_d35_conversion_median": {"value": 0.021, "type": "sourced", "note": "Hard paywall 10.7%; all categories (no travel cut)", "sourceUrl": "https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026", "retrievedAt": "2026-09-27"},
+    "destination_orgs_destinations_international": {"value": 658, "type": "sourced (Wikipedia infobox)", "note": "Body text says 575; worldwide membership, not all DMOs", "sourceUrl": "https://en.wikipedia.org/wiki/Destination_Marketing_Association_International", "retrievedAt": "2026-09-27"},
+    "us_rental_new_vehicle_purchases_2025": {"value": 1.16e6, "type": "sourced", "note": "Fleet purchases, not fleet size; US rental revenue $40.6B (2025 proj.)", "sourceUrl": "https://www.autorentalnews.com/news/us-car-rental-revenue-crosses-40-billion", "retrievedAt": "2026-09-27"},
+    "us_new_light_vehicle_sales_2025": {"value": 16.2e6, "type": "sourced", "sourceUrl": "https://www.nada.org/nada/nada-headlines/december-2025-market-beat-new-light-vehicle-sales-totaled-162-million-units", "retrievedAt": "2026-09-27"},
+    "price_annual_sub": {"value": 39.99, "type": "assumption", "rationale": "Anchored to Autio 1-yr $35.99-49.99 and Roadtrippers $35.99-59.99/yr"},
+    "price_trip_pass": {"value": 9.99, "type": "assumption", "rationale": "Below Autio 14-day $14.99 and Narrativ EUR 14.99/3 days"},
+    "price_driver_monthly": {"value": 9.99, "type": "assumption", "rationale": "One third of Trucker Path Diamond $29.99/mo (a utility); companionship is discretionary"},
+    "price_dmo_annual": {"value": 12000, "type": "assumption", "rationale": "Above SmartGuide EUR 98-780/mo (~EUR 1.2k-9.4k/yr) because we include dynamic coverage + analytics"},
+    "price_rental_per_vehicle_month": {"value": 1.0, "type": "assumption"},
+    "price_fleet_per_driver_month": {"value": 3.0, "type": "assumption"},
+    "price_oem_per_vehicle_one_time": {"value": 3.0, "type": "assumption"},
+    "store_fee_net": {"value": 0.85, "type": "sourced", "note": "Apple Small Business Program 15%; Google Play 15% on subscriptions", "sourceUrl": "https://developer.apple.com/app-store/subscriptions/", "retrievedAt": "2026-09-27"}
+  },
+  "consumer": [
+    {"segment": "US leisure road-trippers", "tam": {"formula": "120M unique adults x $39.99/yr", "usd": 4.80e9, "range": [3.60e9, 6.00e9]}, "sam": {"formula": "TAM users x 64% AI users x 55% pay for AI = 42.2M x $39.99", "users": 42.2e6, "usd": 1.69e9}, "somYear3": {"formula": "0.25% of SAM users (range 0.15-0.5%)", "payingUsers": 105600, "usd": 4.2e6, "range": [2.5e6, 8.4e6]}},
+    {"segment": "Inbound international visitors to US (travellers, walking + driving)", "tam": {"formula": "68.3M visits x 1 pass x $9.99", "usd": 0.68e9}, "sam": {"formula": "50% English-comfortable (assumption) x 35.2% AI payers", "visits": 12.0e6, "usd": 0.12e9}, "somYear3": {"formula": "0.2% of all visits buy a pass (range 0.1-0.4%)", "passes": 136600, "usd": 1.4e6, "range": [0.7e6, 2.7e6]}},
+    {"segment": "US long-haul truck drivers", "tam": {"formula": "2.22M (BLS) x 50% long-haul x $9.99 x 12", "users": 1.11e6, "usd": 133e6}, "sam": {"formula": "x 35.2% AI payers", "users": 391000, "usd": 47e6}, "somYear3": {"formula": "2% of SAM (range 1-4%)", "payingUsers": 7800, "usd": 0.94e6, "range": [0.47e6, 1.87e6]}},
+    {"segment": "Locals exploring own city", "tam": null, "note": "Not sized: no defensible usage or WTP input. Likely high-engagement, low-WTP; treat as free-tier/retention audience."},
+    {"segment": "Global (non-US) travellers", "tam": null, "note": "Context only: 1.52B international arrivals (2025). Product is global by design but US is the acceptance geography; localization (TTS/LLM quality per language) not yet benchmarked."}
+  ],
+  "b2b": [
+    {"segment": "Tourism boards / DMOs (white-label)", "tamFormula": "658 Destinations International members x $12k/yr", "tamUsd": 7.9e6, "note": "Members only; total DMO count (US + global) unknown -> understated. Small market; mainly a distribution channel."},
+    {"segment": "Car rental (in-app/in-car guide)", "tamFormula": "1.16M rental vehicles purchased/yr (proxy for fleet) x $1 x 12", "tamUsd": 13.9e6, "note": "Fleet size not sourced; real fleet larger than annual purchases."},
+    {"segment": "Fleet / trucking driver-wellbeing", "tamFormula": "2.22M heavy-truck drivers x $3 x 12", "tamUsd": 80e6, "note": "Requires evidence that companionship reduces turnover/fatigue; FMCSA hands-free rules apply."},
+    {"segment": "Automotive OEM licensing", "tamFormula": "16.2M US new light vehicles x $3 one-time", "tamUsd": 48.6e6, "note": "Comparable: Autio in Ford/Lincoln bundled in $14.99/mo connectivity package. Long sales cycles."},
+    {"segment": "Hotels / concierge", "tamUsd": null, "note": "Not sized; no sourced count/price input."}
+  ],
+  "summary": {
+    "consumerTamUsd": 5.61e9,
+    "consumerSamUsd": 1.86e9,
+    "consumerSomYear3Usd": 6.5e6,
+    "consumerSomYear3RangeUsd": [3.7e6, 13.0e6],
+    "b2bTamUsd_sized": 150.4e6,
+    "caveat": "Grossed before store fees (net ~85%). SOM depends on penetration assumptions with no category-specific benchmark; Autio reached 230K registered users (not payers) ~5 years after founding."
+  },
+  "contextHeadlines": [
+    {"claim": "Self-guided audio tour market $2.86B (2025) -> $5.71B (2034), CAGR 7.99%", "publisher": "Verified Market Reports", "sourceUrl": "https://www.verifiedmarketreports.com/product/self-guided-audio-tour-market/", "retrievedAt": "2026-09-27", "caveat": "Paid syndicated report; methodology not visible; definitions (hardware rental vs apps) unclear. Not used in bottom-up."},
+    {"claim": "Consumer AI spend $40B in 2026, up from $12B in 2025; 2B global AI users", "publisher": "Menlo Ventures", "sourceUrl": "https://www.globenewswire.com/news-release/2026/09/16/3363086/0/en/menlo-ventures-report-consumer-ai-spend-tripled-to-40b-this-year-even-as-user-growth-barely-budged.html", "retrievedAt": "2026-09-27", "caveat": "VC-authored survey; spend concentrated in power users (14% of payers = 60% of spend)."}
+  ]
+}
