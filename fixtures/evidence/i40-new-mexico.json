@@ -1,0 +1,450 @@
+[
+ {
+  "placeId": "fx:i40:albuquerque",
+  "placeName": "Albuquerque",
+  "facts": [
+   {
+    "id": "fx:i40:albuquerque#f1",
+    "placeId": "fx:i40:albuquerque",
+    "kind": "identity",
+    "text": "Albuquerque is the most populous city in New Mexico.",
+    "entities": [
+     "Albuquerque",
+     "New Mexico"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Albuquerque,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:albuquerque#f2",
+    "placeId": "fx:i40:albuquerque",
+    "kind": "date",
+    "text": "It was founded in 1706.",
+    "entities": [],
+    "numbers": [
+     "1706"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Albuquerque,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:i40:laguna",
+  "placeName": "Laguna Pueblo",
+  "facts": [
+   {
+    "id": "fx:i40:laguna#f1",
+    "placeId": "fx:i40:laguna",
+    "kind": "identity",
+    "text": "Laguna Pueblo is the home of the Laguna people in west-central New Mexico.",
+    "entities": [
+     "Laguna Pueblo",
+     "Laguna",
+     "New Mexico"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Laguna_Pueblo",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:laguna#f2",
+    "placeId": "fx:i40:laguna",
+    "kind": "architecture",
+    "text": "Its mission church, San José de la Laguna, was built between 1699 and 1701.",
+    "entities": [
+     "San José de la Laguna"
+    ],
+    "numbers": [
+     "1699",
+     "1701"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Laguna_Pueblo",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:i40:acoma",
+  "placeName": "Acoma Pueblo (Sky City)",
+  "facts": [
+   {
+    "id": "fx:i40:acoma#f1",
+    "placeId": "fx:i40:acoma",
+    "kind": "identity",
+    "text": "Acoma Pueblo, known as Sky City, stands on a 365-foot mesa.",
+    "entities": [
+     "Acoma Pueblo",
+     "Sky City"
+    ],
+    "numbers": [
+     "365"
+    ],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Acoma_Pueblo",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:acoma#f2",
+    "placeId": "fx:i40:acoma",
+    "kind": "culture",
+    "text": "The Acoma people have lived in the area for over 2,000 years.",
+    "entities": [
+     "Acoma"
+    ],
+    "numbers": [
+     "2,000"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Acoma_Pueblo",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:i40:mount-taylor",
+  "placeName": "Mount Taylor",
+  "facts": [
+   {
+    "id": "fx:i40:mount-taylor#f1",
+    "placeId": "fx:i40:mount-taylor",
+    "kind": "identity",
+    "text": "Mount Taylor is a stratovolcano in northwestern New Mexico.",
+    "entities": [
+     "Mount Taylor",
+     "New Mexico"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Mount_Taylor_(New_Mexico)",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:mount-taylor#f2",
+    "placeId": "fx:i40:mount-taylor",
+    "kind": "quantity",
+    "text": "Its summit rises to 11,305 feet (3,446 metres).",
+    "entities": [],
+    "numbers": [
+     "11,305",
+     "3,446"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Mount_Taylor_(New_Mexico)",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:i40:grants",
+  "placeName": "Grants",
+  "facts": [
+   {
+    "id": "fx:i40:grants#f1",
+    "placeId": "fx:i40:grants",
+    "kind": "identity",
+    "text": "Grants is the county seat of Cibola County, New Mexico.",
+    "entities": [
+     "Grants",
+     "Cibola County",
+     "New Mexico"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Grants,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:grants#f2",
+    "placeId": "fx:i40:grants",
+    "kind": "event",
+    "text": "Paddy Martinez, a Navajo shepherd, discovered uranium ore near Haystack Mesa, sparking a mining boom that lasted until the 1980s.",
+    "entities": [
+     "Paddy Martinez",
+     "Navajo",
+     "Haystack Mesa"
+    ],
+    "numbers": [
+     "1980"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Grants,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:i40:el-malpais",
+  "placeName": "El Malpais National Monument",
+  "facts": [
+   {
+    "id": "fx:i40:el-malpais#f1",
+    "placeId": "fx:i40:el-malpais",
+    "kind": "identity",
+    "text": "El Malpais National Monument protects a volcanic landscape in western New Mexico.",
+    "entities": [
+     "El Malpais National Monument",
+     "New Mexico"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/El_Malpais_National_Monument",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:el-malpais#f2",
+    "placeId": "fx:i40:el-malpais",
+    "kind": "date",
+    "text": "It was established on December 31, 1987.",
+    "entities": [],
+    "numbers": [
+     "31",
+     "1987"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/El_Malpais_National_Monument",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:el-malpais#f3",
+    "placeId": "fx:i40:el-malpais",
+    "kind": "quantity",
+    "text": "It covers 114,276 acres.",
+    "entities": [],
+    "numbers": [
+     "114,276"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/El_Malpais_National_Monument",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:i40:thoreau",
+  "placeName": "Thoreau",
+  "facts": [
+   {
+    "id": "fx:i40:thoreau#f1",
+    "placeId": "fx:i40:thoreau",
+    "kind": "identity",
+    "text": "Thoreau is a small community in McKinley County, New Mexico.",
+    "entities": [
+     "Thoreau",
+     "McKinley County",
+     "New Mexico"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Thoreau,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": true
+ },
+ {
+  "placeId": "fx:i40:continental-divide",
+  "placeName": "Continental Divide (Campbell Pass)",
+  "facts": [
+   {
+    "id": "fx:i40:continental-divide#f1",
+    "placeId": "fx:i40:continental-divide",
+    "kind": "identity",
+    "text": "Along Interstate 40 east of Gallup, the highway crosses the Continental Divide of the Americas at Campbell Pass.",
+    "entities": [
+     "Interstate 40",
+     "Gallup",
+     "Continental Divide of the Americas",
+     "Campbell Pass"
+    ],
+    "numbers": [
+     "40"
+    ],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Continental_Divide,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:continental-divide#f2",
+    "placeId": "fx:i40:continental-divide",
+    "kind": "nature",
+    "text": "Campbell Pass is a low point along the Continental Divide.",
+    "entities": [
+     "Campbell Pass",
+     "Continental Divide"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Continental_Divide,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:continental-divide#f3",
+    "placeId": "fx:i40:continental-divide",
+    "kind": "quantity",
+    "text": "The nearby community sits at about 7,228 feet (2,203 metres).",
+    "entities": [],
+    "numbers": [
+     "7,228",
+     "2,203"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Continental_Divide,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:i40:gallup",
+  "placeName": "Gallup",
+  "facts": [
+   {
+    "id": "fx:i40:gallup#f1",
+    "placeId": "fx:i40:gallup",
+    "kind": "identity",
+    "text": "Gallup is the county seat of McKinley County, New Mexico.",
+    "entities": [
+     "Gallup",
+     "McKinley County",
+     "New Mexico"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Gallup,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:gallup#f2",
+    "placeId": "fx:i40:gallup",
+    "kind": "date",
+    "text": "It was founded in 1881.",
+    "entities": [],
+    "numbers": [
+     "1881"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Gallup,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:i40:gallup#f3",
+    "placeId": "fx:i40:gallup",
+    "kind": "culture",
+    "text": "Historic U.S. Route 66 runs through the center of town, while Interstate 40 passes along its north side.",
+    "entities": [
+     "U.S. Route 66",
+     "Interstate 40"
+    ],
+    "numbers": [
+     "66",
+     "40"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Gallup,_New_Mexico",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ }
+]

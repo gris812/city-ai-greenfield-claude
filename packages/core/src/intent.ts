@@ -38,7 +38,7 @@ function ru(pattern: string): RegExp {
   return new RegExp(`${B}(?:${pattern})${E}`, 'iu');
 }
 
-const NEARBY_EN = /\b(where('s| is)?( the)? (nearest|closest)|find( me)?( a| the| some)?|is there( a| any)?|any|looking for|i need( a)?|take me to( a| the)? nearest|nearest|closest)\b/i;
+const NEARBY_EN = /\b(where (can|do|could) (i|we) (get|find|buy)|where('s| is)?( the)? (nearest|closest)|find( me)?( a| the| some)?|is there( a| any)?|any|looking for|i need( a)?|take me to( a| the)? nearest|nearest|closest)\b/i;
 const NEARBY_RU = ru('где (?:ближайш\\p{L}*|найти|тут|здесь)|найди\\p{L}*|найти|ближайш\\p{L}*|есть (?:ли )?(?:тут|рядом|поблизости)|нужн\\p{L}*|поищи|ищу');
 
 const RULES: Rule[] = [

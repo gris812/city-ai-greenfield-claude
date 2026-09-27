@@ -1,0 +1,491 @@
+[
+ {
+  "placeId": "fx:chi:art-institute",
+  "placeName": "Art Institute of Chicago",
+  "facts": [
+   {
+    "id": "fx:chi:art-institute#f1",
+    "placeId": "fx:chi:art-institute",
+    "kind": "identity",
+    "text": "The Art Institute of Chicago is one of the oldest and largest art museums in the United States.",
+    "entities": [
+     "Art Institute of Chicago",
+     "United States"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:art-institute#f2",
+    "placeId": "fx:chi:art-institute",
+    "kind": "date",
+    "text": "It was founded in 1879.",
+    "entities": [],
+    "numbers": [
+     "1879"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:art-institute#f3",
+    "placeId": "fx:chi:art-institute",
+    "kind": "architecture",
+    "text": "Its Beaux-Arts building on Michigan Avenue opened in 1893.",
+    "entities": [
+     "Beaux-Arts",
+     "Michigan Avenue"
+    ],
+    "numbers": [
+     "1893"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:art-institute#f4",
+    "placeId": "fx:chi:art-institute",
+    "kind": "trivia",
+    "text": "The two bronze lions at the Michigan Avenue entrance were sculpted by Edward Kemeys.",
+    "entities": [
+     "Michigan Avenue",
+     "Edward Kemeys"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:art-institute#f5",
+    "placeId": "fx:chi:art-institute",
+    "kind": "person",
+    "text": "The Modern Wing, designed by Renzo Piano, opened in 2009.",
+    "entities": [
+     "Modern Wing",
+     "Renzo Piano"
+    ],
+    "numbers": [
+     "2009"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:cloud-gate",
+  "placeName": "Cloud Gate",
+  "facts": [
+   {
+    "id": "fx:chi:cloud-gate#f1",
+    "placeId": "fx:chi:cloud-gate",
+    "kind": "identity",
+    "text": "Cloud Gate is a public sculpture by Anish Kapoor in Millennium Park.",
+    "entities": [
+     "Cloud Gate",
+     "Anish Kapoor",
+     "Millennium Park"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Cloud_Gate",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:cloud-gate#f2",
+    "placeId": "fx:chi:cloud-gate",
+    "kind": "quantity",
+    "text": "It is made of 168 stainless steel plates welded together.",
+    "entities": [],
+    "numbers": [
+     "168"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Cloud_Gate",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:cloud-gate#f3",
+    "placeId": "fx:chi:cloud-gate",
+    "kind": "date",
+    "text": "It was formally dedicated on May 15, 2006.",
+    "entities": [],
+    "numbers": [
+     "15",
+     "2006"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Cloud_Gate",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:millennium-park",
+  "placeName": "Millennium Park",
+  "facts": [
+   {
+    "id": "fx:chi:millennium-park#f1",
+    "placeId": "fx:chi:millennium-park",
+    "kind": "identity",
+    "text": "Millennium Park is a public park in the Loop community area of Chicago.",
+    "entities": [
+     "Millennium Park",
+     "Loop",
+     "Chicago"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Millennium_Park",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:millennium-park#f2",
+    "placeId": "fx:chi:millennium-park",
+    "kind": "date",
+    "text": "It opened on July 16, 2004.",
+    "entities": [],
+    "numbers": [
+     "16",
+     "2004"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Millennium_Park",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:cultural-center",
+  "placeName": "Chicago Cultural Center",
+  "facts": [
+   {
+    "id": "fx:chi:cultural-center#f1",
+    "placeId": "fx:chi:cultural-center",
+    "kind": "identity",
+    "text": "The Chicago Cultural Center opened in 1897 as the city's central library.",
+    "entities": [
+     "Chicago Cultural Center"
+    ],
+    "numbers": [
+     "1897"
+    ],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Chicago_Cultural_Center",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:cultural-center#f2",
+    "placeId": "fx:chi:cultural-center",
+    "kind": "architecture",
+    "text": "Its Preston Bradley Hall is crowned by a Tiffany glass dome about 38 feet across.",
+    "entities": [
+     "Preston Bradley Hall",
+     "Tiffany"
+    ],
+    "numbers": [
+     "38"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Chicago_Cultural_Center",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:willis-tower",
+  "placeName": "Willis Tower",
+  "facts": [
+   {
+    "id": "fx:chi:willis-tower#f1",
+    "placeId": "fx:chi:willis-tower",
+    "kind": "identity",
+    "text": "Willis Tower, formerly the Sears Tower, is a skyscraper in the Chicago Loop.",
+    "entities": [
+     "Willis Tower",
+     "Sears Tower",
+     "Chicago Loop"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Willis_Tower",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:willis-tower#f2",
+    "placeId": "fx:chi:willis-tower",
+    "kind": "date",
+    "text": "It was completed in 1973.",
+    "entities": [],
+    "numbers": [
+     "1973"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Willis_Tower",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:field-museum",
+  "placeName": "Field Museum",
+  "facts": [
+   {
+    "id": "fx:chi:field-museum#f1",
+    "placeId": "fx:chi:field-museum",
+    "kind": "identity",
+    "text": "The Field Museum is a natural history museum in Chicago.",
+    "entities": [
+     "Field Museum",
+     "Chicago"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:field-museum#f2",
+    "placeId": "fx:chi:field-museum",
+    "kind": "date",
+    "text": "It was founded in 1893.",
+    "entities": [],
+    "numbers": [
+     "1893"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:navy-pier",
+  "placeName": "Navy Pier",
+  "facts": [
+   {
+    "id": "fx:chi:navy-pier#f1",
+    "placeId": "fx:chi:navy-pier",
+    "kind": "identity",
+    "text": "Navy Pier is a pier on the Chicago shoreline of Lake Michigan.",
+    "entities": [
+     "Navy Pier",
+     "Chicago",
+     "Lake Michigan"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Navy_Pier",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:navy-pier#f2",
+    "placeId": "fx:chi:navy-pier",
+    "kind": "date",
+    "text": "It opened in 1916.",
+    "entities": [],
+    "numbers": [
+     "1916"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Navy_Pier",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:buckingham-fountain",
+  "placeName": "Buckingham Fountain",
+  "facts": [
+   {
+    "id": "fx:chi:buckingham-fountain#f1",
+    "placeId": "fx:chi:buckingham-fountain",
+    "kind": "identity",
+    "text": "Buckingham Fountain is a large fountain in the center of Grant Park.",
+    "entities": [
+     "Buckingham Fountain",
+     "Grant Park"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Buckingham_Fountain",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:buckingham-fountain#f2",
+    "placeId": "fx:chi:buckingham-fountain",
+    "kind": "date",
+    "text": "It was dedicated in 1927.",
+    "entities": [],
+    "numbers": [
+     "1927"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Buckingham_Fountain",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:chi:chicago",
+  "placeName": "Chicago",
+  "facts": [
+   {
+    "id": "fx:chi:chicago#f1",
+    "placeId": "fx:chi:chicago",
+    "kind": "identity",
+    "text": "Chicago is the most populous city in the state of Illinois.",
+    "entities": [
+     "Chicago",
+     "Illinois"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:chicago#f2",
+    "placeId": "fx:chi:chicago",
+    "kind": "date",
+    "text": "It was incorporated as a city in 1837.",
+    "entities": [],
+    "numbers": [
+     "1837"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:chi:chicago#f3",
+    "placeId": "fx:chi:chicago",
+    "kind": "nature",
+    "text": "The city lies on the southwestern shore of Lake Michigan.",
+    "entities": [
+     "Lake Michigan"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Chicago",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ }
+]

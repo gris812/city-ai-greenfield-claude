@@ -251,7 +251,9 @@ export type SuppressionReason =
   | 'recently_rejected'
   | 'utility_kind'
   | 'too_close_to_pass' // not enough time to tell even a short story
-  | 'evidence_thin';
+  | 'evidence_thin'
+  /** Radial modes: a city/town/region the user is inside and that exceeds the radial reach — ambient context, told on crossing into it while moving. */
+  | 'enclosing_area';
 
 export interface ScoredCandidate {
   place: PlaceCandidate;
@@ -468,7 +470,12 @@ export type MomentDecision =
   | { kind: 'start_story'; target: ScoredCandidate; mode: StoryMode; angle: StoryAngle; durationBudgetS: number; maxWords: number; preempt: boolean }
   | { kind: 'continue_story' }
   | { kind: 'resume_story'; decision: Extract<ResumeDecision, { action: 'resume' }> }
-  | { kind: 'abandon_story'; decision: Extract<ResumeDecision, { action: 'abandon' }> };
+  | { kind: 'abandon_story'; decision: Extract<ResumeDecision, { action: 'abandon' }> }
+  /**
+   * Weak evidence (acceptance A4): a worthwhile place we cannot tell a grounded story about.
+   * One short orientation line (name + kind + spatial cue), no facts, no "tell me more" offer.
+   */
+  | { kind: 'orientation'; target: ScoredCandidate; allowFollowUp: false };
 
 // ─────────────────────────────────────────────────────────── conversation
 

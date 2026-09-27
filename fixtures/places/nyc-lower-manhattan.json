@@ -1,0 +1,251 @@
+[
+ {
+  "id": "fx:nyc:911-memorial",
+  "name": "National September 11 Memorial & Museum",
+  "kind": "memorial",
+  "location": {
+   "lat": 40.71167,
+   "lng": -74.01361
+  },
+  "extentM": 110,
+  "significance": 0.97,
+  "tags": [
+   "september_11",
+   "world_trade_center_site",
+   "memorial"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "National_September_11_Memorial_%26_Museum"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:one-wtc",
+  "name": "One World Trade Center",
+  "kind": "building",
+  "location": {
+   "lat": 40.71306,
+   "lng": -74.01333
+  },
+  "extentM": 50,
+  "significance": 0.95,
+  "tags": [
+   "skyscraper",
+   "world_trade_center_site"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "One_World_Trade_Center"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/One_World_Trade_Center",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:oculus",
+  "name": "World Trade Center Transportation Hub (Oculus)",
+  "kind": "landmark",
+  "location": {
+   "lat": 40.7115,
+   "lng": -74.0111
+  },
+  "extentM": 60,
+  "significance": 0.82,
+  "tags": [
+   "architecture",
+   "world_trade_center_site"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "World_Trade_Center_station_(PATH)"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/World_Trade_Center_station_(PATH)",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:st-pauls",
+  "name": "St. Paul's Chapel",
+  "kind": "religious_site",
+  "location": {
+   "lat": 40.71132,
+   "lng": -74.0092
+  },
+  "extentM": 30,
+  "significance": 0.8,
+  "tags": [
+   "colonial_era",
+   "september_11"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "St._Paul%27s_Chapel"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/St._Paul%27s_Chapel",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:liberty-park",
+  "name": "Liberty Park",
+  "kind": "park",
+  "location": {
+   "lat": 40.7102,
+   "lng": -74.014
+  },
+  "extentM": 50,
+  "significance": 0.5,
+  "tags": [
+   "park"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:statue-of-liberty",
+  "name": "Statue of Liberty",
+  "kind": "monument",
+  "location": {
+   "lat": 40.68925,
+   "lng": -74.0445
+  },
+  "extentM": 100,
+  "significance": 0.99,
+  "tags": [
+   "monument",
+   "harbor"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Statue_of_Liberty"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:empire-state",
+  "name": "Empire State Building",
+  "kind": "building",
+  "location": {
+   "lat": 40.74844,
+   "lng": -73.98566
+  },
+  "extentM": 60,
+  "significance": 0.97,
+  "tags": [
+   "skyscraper",
+   "art_deco"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Empire_State_Building"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Empire_State_Building",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:brooklyn-bridge",
+  "name": "Brooklyn Bridge",
+  "kind": "bridge",
+  "location": {
+   "lat": 40.7061,
+   "lng": -73.9969
+  },
+  "extentM": 900,
+  "significance": 0.94,
+  "tags": [
+   "bridge",
+   "harbor"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Brooklyn_Bridge"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Brooklyn_Bridge",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:coffee-1",
+  "name": "Corner coffee bar",
+  "kind": "food",
+  "location": {
+   "lat": 40.7112,
+   "lng": -74.0125
+  },
+  "extentM": 0,
+  "significance": 0.3,
+  "tags": [
+   "coffee"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:nyc:pharmacy-1",
+  "name": "Pharmacy",
+  "kind": "shop",
+  "location": {
+   "lat": 40.7109,
+   "lng": -74.0102
+  },
+  "extentM": 0,
+  "significance": 0.25,
+  "tags": [
+   "pharmacy"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ }
+]

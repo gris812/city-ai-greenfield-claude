@@ -48,7 +48,9 @@ export const DIRECTOR = {
   /** A 'here' major feature may bypass the cadence gap after this fraction of it has elapsed. */
   HERE_GAP_FRACTION: 0.5,
   /** Deferral: a candidate that is still early with poor timing waits for a better moment. */
-  DEFER_TIMING_BELOW: 0.5,
+  DEFER_TIMING_BELOW: 0.75,
+  /** Orientation needs the same bar as a story (margin 0 = identical threshold). */
+  ORIENTATION_SCORE_MARGIN: 0,
   /** Recent-angle memory (last N stories) for angle variety. */
   RECENT_ANGLES: 2,
   REEVALUATE_MS: {
@@ -151,6 +153,20 @@ export function storyBudget(ctx: JourneyContext, target: ScoredCandidate, guide:
   return { durationBudgetS: duration, maxWords: Math.round(duration * policy.wordsPerSecond), mode };
 }
 
+/** Best NEAR candidate whose ONLY suppression is thin evidence and whose score clears the bar. */
+export function orientationCandidate(scored: readonly ScoredCandidate[], threshold: number, nearRadiusM = Infinity): ScoredCandidate | null {
+  let best: ScoredCandidate | null = null;
+  for (const c of scored) {
+    if (c.eligible || c.suppressedBy.length !== 1 || c.suppressedBy[0] !== 'evidence_thin') continue;
+    // Orientation is about what is around you now, not a list of distant names.
+    const gap = (c.geometry.alongTrackM ?? c.geometry.distanceM) - c.place.extentM;
+    if (c.geometry.relative !== 'here' && gap > nearRadiusM) continue;
+    if (c.score + DIRECTOR.ORIENTATION_SCORE_MARGIN < threshold) continue;
+    if (!best || c.score > best.score || (c.score === best.score && c.place.id < best.place.id)) best = c;
+  }
+  return best;
+}
+
 function isMajorHere(c: ScoredCandidate): boolean {
   return c.geometry.relative === 'here' && c.place.significance >= DIRECTOR.PREEMPT_MIN_SIGNIFICANCE;
 }
@@ -225,7 +241,13 @@ export function decideMoment(ctx: JourneyContext, scored: readonly ScoredCandida
   // Deferral: still early with poor timing → wait for a better moment (it isn't going anywhere).
   const ready = eligible.filter((c) => !(c.components.early === 1 && (c.components.timing ?? 1) < DIRECTOR.DEFER_TIMING_BELOW));
   const pick = ready[0] ?? null;
-  if (!pick || pick.score < threshold) return { kind: 'silence', reason: 'nothing_worth_it', reevaluateInMs: re, best: pick ?? best };
+  if (!pick || pick.score < threshold) {
+    // A4: a worthwhile place with thin evidence gets one orientation line — never a story —
+    // and only when no grounded story is available right now.
+    const thin = orientationCandidate(scored, threshold, policy.nearRadiusM);
+    if (thin) return { kind: 'orientation', target: thin, allowFollowUp: false };
+    return { kind: 'silence', reason: 'nothing_worth_it', reevaluateInMs: re, best: pick ?? best };
+  }
 
   const b = storyBudget(ctx, pick, opts.guide);
   return { kind: 'start_story', target: pick, mode: b.mode, angle: chooseAngle(ctx, pick, opts), durationBudgetS: b.durationBudgetS, maxWords: b.maxWords, preempt: false };

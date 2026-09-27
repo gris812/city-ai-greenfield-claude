@@ -1,0 +1,1610 @@
+{
+ "generatedBy": "@city/replay",
+ "note": "SIMULATED replay over synthetic traces and fixture POI packs (D-005).",
+ "summary": {
+  "scenario": "golden-gate",
+  "acceptance": [
+   "A2",
+   "A7",
+   "A6"
+  ],
+  "trace": "golden-gate-drive-walk",
+  "synthetic": true,
+  "guide": "emil",
+  "locale": "en-US",
+  "durationS": 1086,
+  "frames": 1087,
+  "storiesStarted": 4,
+  "orientations": 1,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 39,
+    "id": "fx:sf:golden-gate-bridge",
+    "name": "Golden Gate Bridge",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 5764,
+    "reachM": 12160
+   },
+   {
+    "t": 190,
+    "id": "fx:sf:san-francisco",
+    "name": "San Francisco",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 9164,
+    "reachM": 9628
+   },
+   {
+    "t": 324,
+    "id": "fx:sf:presidio",
+    "name": "Presidio of San Francisco",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 2786,
+    "reachM": 8840
+   },
+   {
+    "t": 570,
+    "id": "fx:sf:fort-point",
+    "name": "Fort Point",
+    "kind": "story",
+    "regime": "stationary",
+    "distanceM": 451,
+    "reachM": 1169
+   },
+   {
+    "t": 646,
+    "id": "fx:sf:welcome-center",
+    "name": "Golden Gate Bridge Welcome Center",
+    "kind": "orientation",
+    "regime": "walking",
+    "distanceM": 13,
+    "reachM": 611
+   }
+  ],
+  "silenceRatio": 0.908,
+  "maxSilentGapS": 437,
+  "regimeTransitions": [
+   {
+    "t": 9,
+    "from": "unknown",
+    "to": "urban_driving"
+   },
+   {
+    "t": 565,
+    "from": "urban_driving",
+    "to": "stationary"
+   },
+   {
+    "t": 629,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 899,
+    "from": "walking",
+    "to": "stationary"
+   }
+  ],
+  "regimeSequence": [
+   "urban_driving",
+   "stationary",
+   "walking",
+   "stationary"
+  ],
+  "densitySequence": [
+   "sparse",
+   "suburban",
+   "sparse",
+   "suburban"
+  ],
+  "providerQueries": {
+   "discovery": 8,
+   "densityProbe": 12,
+   "total": 20,
+   "perHour": 66.3,
+   "emptyResults": 1,
+   "framesPerQuery": 54.4
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 5,
+   "completed": 4,
+   "mentions": 1
+  },
+  "rejections": {
+   "fx:sf:alcatraz": {
+    "name": "Alcatraz Island",
+    "reasons": {
+     "off_course": 545,
+     "too_close_to_pass": 86,
+     "behind": 184
+    }
+   },
+   "fx:sf:coit-tower": {
+    "name": "Coit Tower",
+    "reasons": {
+     "off_course": 541,
+     "beyond_lookahead": 157,
+     "behind": 148
+    }
+   },
+   "fx:sf:fort-point": {
+    "name": "Fort Point",
+    "reasons": {
+     "off_course": 305,
+     "too_close_to_pass": 34,
+     "behind": 175,
+     "already_discussed": 516
+    }
+   },
+   "fx:sf:palace-fine-arts": {
+    "name": "Palace of Fine Arts",
+    "reasons": {
+     "beyond_lookahead": 17,
+     "off_course": 392,
+     "behind": 148
+    }
+   },
+   "fx:sf:vista-point-north": {
+    "name": "Vista Point",
+    "reasons": {
+     "beyond_lookahead": 105,
+     "evidence_thin": 545,
+     "off_course": 316,
+     "too_close_to_pass": 38,
+     "behind": 300
+    }
+   },
+   "fx:sf:welcome-center": {
+    "name": "Golden Gate Bridge Welcome Center",
+    "reasons": {
+     "off_course": 157,
+     "beyond_lookahead": 247,
+     "evidence_thin": 1067,
+     "too_close_to_pass": 186,
+     "already_discussed": 440
+    }
+   },
+   "fx:sf:presidio": {
+    "name": "Presidio of San Francisco",
+    "reasons": {
+     "off_course": 10,
+     "already_discussed": 762,
+     "too_close_to_pass": 44
+    }
+   },
+   "fx:sf:golden-gate-bridge": {
+    "name": "Golden Gate Bridge",
+    "reasons": {
+     "already_discussed": 1047,
+     "too_close_to_pass": 182
+    }
+   },
+   "fx:sf:san-francisco": {
+    "name": "San Francisco",
+    "reasons": {
+     "already_discussed": 896,
+     "too_close_to_pass": 135,
+     "enclosing_area": 242
+    }
+   },
+   "fx:sf:cafe-1": {
+    "name": "Bridge cafe",
+    "reasons": {
+     "utility_kind": 522,
+     "evidence_thin": 522
+    }
+   }
+  }
+ },
+ "stories": [
+  {
+   "t": 39,
+   "kind": "story",
+   "placeId": "fx:sf:golden-gate-bridge",
+   "name": "Golden Gate Bridge",
+   "placeKind": "bridge",
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 21.9,
+   "courseDeg": 141,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "right",
+   "distanceM": 5764,
+   "alongTrackM": 5554,
+   "crossTrackM": 1542,
+   "etaS": 192,
+   "reachM": 12160,
+   "score": 0.935,
+   "mode": "short",
+   "angle": "hidden_detail",
+   "preempt": false,
+   "durationBudgetS": 48,
+   "maxWords": 115,
+   "words": 77,
+   "playedS": 30.6,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "ahead on your right, about 3 miles",
+   "text": "Ahead on your right, about 3 miles: Golden Gate Bridge. The Golden Gate Bridge is a suspension bridge spanning the Golden Gate strait. Its color, International Orange, was chosen by consulting architect Irving Morrow to complement the surroundings and stay visible in fog. It opened on May 27, 1937. Its main span is 4,200 feet (1,280 metres) long. Joseph Strauss was the chief engineer of the project. Its towers rise 746 feet (227 metres). That's the story.",
+   "rejected": [
+    {
+     "id": "fx:sf:alcatraz",
+     "name": "Alcatraz Island",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:sf:coit-tower",
+     "name": "Coit Tower",
+     "reasons": [
+      "off_course",
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:sf:fort-point",
+     "name": "Fort Point",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:sf:vista-point-north",
+     "name": "Vista Point",
+     "reasons": [
+      "beyond_lookahead",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:sf:welcome-center",
+     "name": "Golden Gate Bridge Welcome Center",
+     "reasons": [
+      "off_course",
+      "beyond_lookahead",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 190,
+   "kind": "story",
+   "placeId": "fx:sf:san-francisco",
+   "name": "San Francisco",
+   "placeKind": "city",
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 19.9,
+   "courseDeg": 172,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 9164,
+   "alongTrackM": 7925,
+   "crossTrackM": -4596,
+   "etaS": 97,
+   "reachM": 9628,
+   "score": 0.919,
+   "mode": "short",
+   "angle": "turning_point",
+   "preempt": false,
+   "durationBudgetS": 48,
+   "maxWords": 115,
+   "words": 34,
+   "playedS": 13.5,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about a mile",
+   "text": "Straight ahead, about a mile: San Francisco. San Francisco is a city at the northern end of the San Francisco Peninsula. The Spanish established a presidio and mission here in 1776. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:sf:alcatraz",
+     "name": "Alcatraz Island",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:sf:coit-tower",
+     "name": "Coit Tower",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:sf:golden-gate-bridge",
+     "name": "Golden Gate Bridge",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:palace-fine-arts",
+     "name": "Palace of Fine Arts",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:sf:vista-point-north",
+     "name": "Vista Point",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:sf:welcome-center",
+     "name": "Golden Gate Bridge Welcome Center",
+     "reasons": [
+      "beyond_lookahead",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 324,
+   "kind": "story",
+   "placeId": "fx:sf:presidio",
+   "name": "Presidio of San Francisco",
+   "placeKind": "park",
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 19.8,
+   "courseDeg": 171,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 2786,
+   "alongTrackM": 2688,
+   "crossTrackM": -734,
+   "etaS": 55,
+   "reachM": 8840,
+   "score": 0.818,
+   "mode": "short",
+   "angle": "origin",
+   "preempt": false,
+   "durationBudgetS": 48,
+   "maxWords": 115,
+   "words": 56,
+   "playedS": 22.2,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about half a mile",
+   "text": "Straight ahead, about half a mile: Presidio of San Francisco. The Presidio is a park and former military post at the northern tip of the San Francisco Peninsula. The Spanish established the presidio in 1776. On October 1, 1994, it was transferred to the National Park Service, ending 219 years of military use. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:sf:alcatraz",
+     "name": "Alcatraz Island",
+     "reasons": [
+      "off_course",
+      "too_close_to_pass"
+     ]
+    },
+    {
+     "id": "fx:sf:coit-tower",
+     "name": "Coit Tower",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:sf:golden-gate-bridge",
+     "name": "Golden Gate Bridge",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:palace-fine-arts",
+     "name": "Palace of Fine Arts",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:sf:san-francisco",
+     "name": "San Francisco",
+     "reasons": [
+      "too_close_to_pass",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:vista-point-north",
+     "name": "Vista Point",
+     "reasons": [
+      "behind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:sf:welcome-center",
+     "name": "Golden Gate Bridge Welcome Center",
+     "reasons": [
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 570,
+   "kind": "story",
+   "placeId": "fx:sf:fort-point",
+   "name": "Fort Point",
+   "placeKind": "historic_site",
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "courseDeg": 201,
+   "trajectory": "radial",
+   "relative": "beside",
+   "side": null,
+   "distanceM": 451,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": null,
+   "reachM": 1169,
+   "score": 0.698,
+   "mode": "full",
+   "angle": "people",
+   "preempt": false,
+   "durationBudgetS": 120,
+   "maxWords": 300,
+   "words": 80,
+   "playedS": 30.5,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "right beside you, about a quarter mile",
+   "text": "Right beside you, about a quarter mile: Fort Point. Fort Point is a masonry fort directly beneath the southern approach of the Golden Gate Bridge. Chief engineer Joseph Strauss redesigned the bridge so that the fort would be preserved. The U.S. Army began building the current fort in 1853, and its first cannon was mounted in 1861. It became a National Historic Site on October 16, 1970. It connects with Golden Gate Bridge, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:sf:cafe-1",
+     "name": "Bridge cafe",
+     "reasons": [
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:sf:golden-gate-bridge",
+     "name": "Golden Gate Bridge",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:presidio",
+     "name": "Presidio of San Francisco",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:san-francisco",
+     "name": "San Francisco",
+     "reasons": [
+      "enclosing_area",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:welcome-center",
+     "name": "Golden Gate Bridge Welcome Center",
+     "reasons": [
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 646,
+   "kind": "orientation",
+   "placeId": "fx:sf:welcome-center",
+   "name": "Golden Gate Bridge Welcome Center",
+   "placeKind": "landmark",
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.4,
+   "courseDeg": 341,
+   "trajectory": "radial",
+   "relative": "here",
+   "side": "center",
+   "distanceM": 13,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": 0,
+   "reachM": 611,
+   "score": 0.482,
+   "words": 9,
+   "playedS": 3.4,
+   "grounded": true,
+   "text": "Right here: Golden Gate Bridge Welcome Center, a landmark.",
+   "rejected": [
+    {
+     "id": "fx:sf:cafe-1",
+     "name": "Bridge cafe",
+     "reasons": [
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:sf:fort-point",
+     "name": "Fort Point",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:golden-gate-bridge",
+     "name": "Golden Gate Bridge",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:presidio",
+     "name": "Presidio of San Francisco",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:san-francisco",
+     "name": "San Francisco",
+     "reasons": [
+      "enclosing_area",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:sf:welcome-center",
+     "name": "Golden Gate Bridge Welcome Center",
+     "reasons": [
+      "evidence_thin"
+     ]
+    }
+   ]
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "regime": "unknown",
+   "density": "sparse",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "beyond_lookahead": 14,
+    "evidence_thin": 15,
+    "utility_kind": 4
+   },
+   "policy": {
+    "nearRadiusM": 600,
+    "lookAheadBaseM": 400,
+    "lookAheadMaxM": 2400,
+    "minGapS": 45,
+    "speakThreshold": 1.01,
+    "maxStoryS": 120,
+    "significanceFloor": 0.1
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 9,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 9.1,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 1,
+    "off_course": 10,
+    "evidence_thin": 15,
+    "below_significance_floor": 11,
+    "too_close_to_pass": 1,
+    "utility_kind": 4,
+    "beyond_lookahead": 2
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 39,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 21.9,
+   "decision": "start_story",
+   "target": "fx:sf:golden-gate-bridge",
+   "eligible": 4,
+   "suppressed": {
+    "off_course": 9,
+    "behind": 2,
+    "evidence_thin": 11,
+    "too_close_to_pass": 1,
+    "utility_kind": 2,
+    "beyond_lookahead": 8
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 40,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 22,
+   "decision": "continue_story",
+   "eligible": 3,
+   "suppressed": {
+    "off_course": 9,
+    "behind": 2,
+    "evidence_thin": 11,
+    "too_close_to_pass": 1,
+    "utility_kind": 2,
+    "beyond_lookahead": 8,
+    "already_discussed": 1
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 70,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 21.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:sf:san-francisco",
+   "bestScore": 0.913,
+   "eligible": 3,
+   "suppressed": {
+    "off_course": 10,
+    "behind": 3,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "beyond_lookahead": 5,
+    "already_discussed": 1
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 130,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 21.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:sf:san-francisco",
+   "bestScore": 0.919,
+   "eligible": 3,
+   "suppressed": {
+    "off_course": 13,
+    "behind": 4,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "beyond_lookahead": 3,
+    "already_discussed": 1
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 135,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 21.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:sf:san-francisco",
+   "bestScore": 0.919,
+   "eligible": 3,
+   "suppressed": {
+    "off_course": 13,
+    "behind": 4,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "beyond_lookahead": 4,
+    "already_discussed": 1
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 190,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 19.9,
+   "decision": "start_story",
+   "target": "fx:sf:san-francisco",
+   "eligible": 3,
+   "suppressed": {
+    "off_course": 3,
+    "already_discussed": 1,
+    "evidence_thin": 2,
+    "beyond_lookahead": 1
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 191,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 20,
+   "decision": "continue_story",
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 3,
+    "already_discussed": 2,
+    "evidence_thin": 2,
+    "beyond_lookahead": 1
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 204,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 20,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:sf:presidio",
+   "bestScore": 0.829,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 3,
+    "already_discussed": 2,
+    "evidence_thin": 2,
+    "beyond_lookahead": 1
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 264,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 20,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:sf:presidio",
+   "bestScore": 0.829,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 3,
+    "too_close_to_pass": 3,
+    "already_discussed": 2,
+    "evidence_thin": 2,
+    "beyond_lookahead": 1
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 315,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 19.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:sf:presidio",
+   "bestScore": 0.828,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 3,
+    "too_close_to_pass": 2,
+    "already_discussed": 2,
+    "behind": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 324,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 19.8,
+   "decision": "start_story",
+   "target": "fx:sf:presidio",
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 3,
+    "too_close_to_pass": 2,
+    "already_discussed": 2,
+    "behind": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 325,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 19.8,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 3,
+    "too_close_to_pass": 2,
+    "already_discussed": 3,
+    "behind": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 347,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 20.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:sf:fort-point",
+   "bestScore": 0.685,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 3,
+    "too_close_to_pass": 2,
+    "already_discussed": 3,
+    "behind": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 405,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 11,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 13,
+    "too_close_to_pass": 3,
+    "behind": 10,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "already_discussed": 3
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 417,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 10.7,
+   "decision": "silence",
+   "reason": "safety_hold",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 14,
+    "off_course": 14,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "too_close_to_pass": 2,
+    "already_discussed": 3
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 421,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 7.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 14,
+    "off_course": 14,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "too_close_to_pass": 2,
+    "already_discussed": 3
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 467,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 0.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 14,
+    "off_course": 14,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "too_close_to_pass": 2,
+    "already_discussed": 3
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 527,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 14,
+    "off_course": 14,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "too_close_to_pass": 2,
+    "already_discussed": 3
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 565,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": "fx:sf:fort-point",
+   "bestScore": 0.698,
+   "eligible": 1,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 3,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 570,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "start_story",
+   "target": "fx:sf:fort-point",
+   "eligible": 1,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 3,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 571,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "continue_story",
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 4,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 601,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 4,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 629,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 4,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 637,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 4,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 646,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.4,
+   "decision": "orientation",
+   "target": "fx:sf:welcome-center",
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 4,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 647,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 5,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 695,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 5,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 755,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.5,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 5,
+    "enclosing_area": 1
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 815,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 11,
+    "already_discussed": 5
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 875,
+   "regime": "walking",
+   "density": "suburban",
+   "speedMps": 1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 12,
+    "already_discussed": 5
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 0.42,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 899,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 12,
+    "already_discussed": 5
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 904,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 12,
+    "already_discussed": 5
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 964,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 12,
+    "already_discussed": 5
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1024,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 12,
+    "already_discussed": 5
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1084,
+   "regime": "stationary",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "utility_kind": 4,
+    "evidence_thin": 16,
+    "beyond_lookahead": 12,
+    "already_discussed": 5
+   },
+   "policy": {
+    "nearRadiusM": 350,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1950,
+    "minGapS": 90,
+    "speakThreshold": 0.45,
+    "maxStoryS": 150,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  }
+ ]
+}

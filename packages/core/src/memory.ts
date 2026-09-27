@@ -34,6 +34,15 @@ export function recordStoryStarted(m: JourneyMemory, place: PlaceLike, angle: St
   };
 }
 
+/** A short mention (orientation line): marks the place as discussed without a story/angle. */
+export function recordMention(m: JourneyMemory, place: PlaceLike, at: Millis): JourneyMemory {
+  if (m.discussed[place.id]) return m;
+  return {
+    ...m,
+    discussed: { ...m.discussed, [place.id]: { placeId: place.id, placeName: place.name, at, depth: 'mention', completed: true, kind: place.kind, tags: [...place.tags] } },
+  };
+}
+
 export function recordStoryCompleted(m: JourneyMemory, placeId: string, _at: Millis): JourneyMemory {
   const d = m.discussed[placeId];
   if (!d) return { ...m, storiesCompleted: m.storiesCompleted + 1 };
