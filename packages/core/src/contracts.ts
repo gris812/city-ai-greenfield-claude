@@ -59,6 +59,33 @@ export interface RegimeState {
   turnRateDegPerS: number;
   /** Longitudinal acceleration estimate (m/s²), negative = braking. */
   accelMps2: number;
+  /**
+   * Internal rolling window + stop-and-go memory used by `updateRegime`.
+   * Optional so external producers (tests, clients) may omit it; JSON-safe.
+   */
+  track?: RegimeTrack | null;
+}
+
+/** One accepted (non-jump) fix as kept by the regime tracker. */
+export interface RegimeSample {
+  t: Millis;
+  lat: number;
+  lng: number;
+  /** Speed sample used for smoothing (device speed when sane, else derived). */
+  v: number;
+  accuracyM: number;
+  courseDeg: number | null;
+}
+
+export interface RegimeTrack {
+  /** Accepted fixes within the tracker window (oldest first). */
+  samples: RegimeSample[];
+  /** Consecutive rejected fixes (GPS jumps); a long streak forces a re-anchor. */
+  rejectStreak: number;
+  /** Last time the regime was a driving regime (stop-and-go memory). */
+  lastDrivingAt: Millis | null;
+  /** Count of fixes rejected as jumps over the whole session (diagnostics). */
+  rejectedTotal: number;
 }
 
 export interface DensityState {
@@ -237,6 +264,16 @@ export interface ScoredCandidate {
   components: Record<string, number>;
 }
 
+/**
+ * Provider-agnostic place source (Google Places, Wikidata geosearch, fixtures…).
+ * Implementations should include features whose extent intersects the query circle
+ * (distance − extentM ≤ radiusM), and must not apply product ranking.
+ * Type only — implementations live outside core (I/O).
+ */
+export interface PlaceSource {
+  query(q: DiscoveryQuery): Promise<PlaceCandidate[]>;
+}
+
 export interface DiscoveryQuery {
   /** Centre and radius the PlaceSource should cover (a superset of the corridor). */
   center: LatLng;
@@ -369,6 +406,9 @@ export interface DiscussedEntry {
   depth: 'mention' | 'story' | 'followup';
   completed: boolean;
   angle?: StoryAngle;
+  /** Place kind and tags at the time of discussion (continuity / callbacks). */
+  kind?: PlaceKind;
+  tags?: string[];
 }
 
 export interface JourneyMemory {
@@ -395,7 +435,8 @@ export interface SafetyState {
 export interface JourneyContext {
   sessionId: Id;
   now: Millis;
-  position: GeoFix;
+  /** Last accepted fix; null until the first usable fix arrives (→ silence 'no_fix'). */
+  position: GeoFix | null;
   regime: RegimeState;
   density: DensityState;
   route: RouteHint | null;
