@@ -1,0 +1,40 @@
+{
+  "name": "@city/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Telvey API: Fastify HTTP + WebSocket session runtime, Postgres, Redis (D-011).",
+  "main": "./src/server.ts",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "migrate": "tsx src/cli/migrate.ts",
+    "admin:bootstrap": "tsx src/cli/admin-bootstrap.ts",
+    "retention": "tsx src/cli/retention.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@city/core": "workspace:*",
+    "@city/providers": "workspace:*",
+    "@city/replay": "workspace:*",
+    "@fastify/cors": "^11.0.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/websocket": "^11.2.0",
+    "@simplewebauthn/server": "^13.2.0",
+    "fastify": "^5.6.0",
+    "ioredis": "^5.8.0",
+    "jose": "^6.1.0",
+    "pino": "^9.9.0",
+    "postgres": "^3.4.7",
+    "tsx": "^4.19.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.18.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0",
+    "ws": "^8.18.0"
+  }
+}

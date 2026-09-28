@@ -1,0 +1,423 @@
+/* ─── Now telling card ─────────────────────────────────────────── */
+.np {
+  --g: var(--color-ida);
+  --g-ink: var(--color-ida-ink);
+  --g-soft: var(--color-ida-soft);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius-xl);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow-2);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+}
+.np[data-guide='emil'] {
+  --g: var(--color-emil);
+  --g-ink: var(--color-emil-ink);
+  --g-soft: var(--color-emil-soft);
+}
+.np-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.np-titles {
+  min-width: 0;
+}
+.np-over {
+  color: var(--g-ink);
+}
+:root[data-theme='dark'] .np-over,
+[data-theme='dark'] .np-over {
+  color: var(--g-soft);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .np-over {
+    color: var(--g-soft);
+  }
+}
+.np-title {
+  font-size: 21px;
+  line-height: 27px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.np-progress {
+  display: flex;
+  gap: 4px;
+  height: 6px;
+}
+.np-tick {
+  position: relative;
+  flex-basis: 0;
+  background: var(--surface-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.np-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--g);
+  border-radius: 3px;
+  transition: width 240ms linear;
+}
+.np-meta {
+  color: var(--text-2);
+}
+.np-state {
+  justify-self: start;
+}
+.np-transcript {
+  margin: 2px 0 0;
+  font-family: var(--font-story);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 29px;
+  color: var(--text);
+  max-height: calc(29px * 5);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.np-bridge {
+  color: var(--text-2);
+}
+.np-degraded {
+  color: var(--color-warn);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.np-degraded::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .np-degraded {
+    color: var(--color-amber-400);
+  }
+}
+[data-theme='dark'] .np-degraded {
+  color: var(--color-amber-400);
+}
+.np-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 2px;
+}
+.np-primary {
+  min-width: 120px;
+}
+.np-compact {
+  padding: 14px;
+  border-radius: var(--radius-lg);
+}
+.np-compact .np-transcript {
+  font-size: 17px;
+  line-height: 26px;
+  max-height: calc(26px * 4);
+}
+.np-compact .np-title {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* ─── Quiet stretch ─────────────────────────────────────────────── */
+.quiet {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  padding: 18px 18px 26px;
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+.quiet-mark {
+  color: var(--idle);
+  padding-top: 2px;
+}
+.quiet-detail {
+  margin-top: 6px;
+}
+.horizon {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 12px;
+  height: 2px;
+  background-image: radial-gradient(circle, var(--idle) 1px, transparent 1.5px);
+  background-size: 10px 2px;
+  animation: breath var(--dur-breath) var(--ease-gentle) infinite;
+}
+@keyframes breath {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ─── Mic ───────────────────────────────────────────────────────── */
+.mic {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 0;
+  background: var(--color-ember-500);
+  color: var(--color-ink);
+  box-shadow: 0 6px 20px rgb(255 106 77 / 0.35);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  flex: none;
+}
+.mic svg {
+  position: relative;
+}
+.mic-halo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-ember-500);
+  opacity: 0;
+  pointer-events: none;
+}
+.mic.is-listening .mic-halo {
+  animation: pulse var(--dur-listening-pulse) var(--ease-standard) infinite;
+}
+.mic.is-listening .mic-halo-2 {
+  animation-delay: calc(var(--dur-listening-pulse) / 2);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+/* ─── Drive HUD (theme=drive: all text ≥ 28px, AAA contrast) ────── */
+.drive-hud {
+  background: var(--bg);
+  color: var(--text);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
+  padding: 20px;
+  min-height: 100%;
+  font-family: var(--font-ui);
+}
+.drive-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.drive-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  background: var(--signal);
+  color: var(--on-signal);
+  font-weight: 750;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+}
+.drive-chip-sim {
+  background: transparent;
+  color: var(--signal);
+  box-shadow: inset 0 0 0 2px var(--signal);
+  letter-spacing: 0;
+}
+.drive-lines {
+  align-self: center;
+  display: grid;
+  gap: 10px;
+}
+.drive-hero {
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.drive-dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--voice);
+  margin-right: 12px;
+  vertical-align: 6px;
+}
+.drive-secondary {
+  font-size: 28px;
+  line-height: 34px;
+  color: var(--text-2);
+  font-weight: 550;
+}
+.drive-mic {
+  display: grid;
+  place-items: center;
+  padding-bottom: 8px;
+}
+.drive-hud .mic {
+  background: var(--voice);
+  color: var(--bg);
+}
+
+/* ─── Device frame (marketing showcase) ─────────────────────────── */
+.phone {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+.phone-screen {
+  width: min(320px, 100%);
+  aspect-ratio: 9 / 19;
+  border-radius: 44px;
+  border: 10px solid #131a1d;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-2);
+  display: flex;
+  flex-direction: column;
+}
+.phone-screen::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 84px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  background: #131a1d;
+  z-index: 3;
+}
+.phone-cap {
+  text-align: center;
+  max-width: 300px;
+}
+
+/* ─── Listening sheet ───────────────────────────────────────────── */
+.listen {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--color-petrol-800);
+  color: #fff;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 18px;
+  padding: 32px 24px calc(32px + env(safe-area-inset-bottom));
+  text-align: center;
+  animation: fade-in var(--dur-base) var(--ease-enter);
+}
+.listen-inline {
+  position: relative;
+  inset: auto;
+  flex: 1;
+  border-radius: 0;
+}
+.listen-disc {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+}
+.listen-core {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--color-ember-500);
+  color: var(--color-ink);
+}
+.listen-halo {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-ember-400);
+  animation: pulse var(--dur-listening-pulse) var(--ease-standard) infinite;
+}
+.listen-halo-2 {
+  animation-delay: calc(var(--dur-listening-pulse) / 2);
+}
+.listen-transcript {
+  font-size: 26px;
+  line-height: 34px;
+  font-weight: 600;
+  max-width: 560px;
+  overflow-wrap: anywhere;
+}
+.listen-hint {
+  color: var(--color-petrol-300);
+  font-size: 15px;
+  line-height: 22px;
+  max-width: 420px;
+}
+.listen-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.listen-btn {
+  background: var(--color-paper);
+  color: var(--color-petrol-800);
+}
+.listen-btn-ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.3);
+}
+.listen form {
+  display: flex;
+  gap: 8px;
+  width: min(480px, 100%);
+}
+.listen input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgb(255 255 255 / 0.25);
+  background: rgb(255 255 255 / 0.08);
+  color: #fff;
+  padding: 0 18px;
+}
+.listen input::placeholder {
+  color: var(--color-petrol-300);
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
