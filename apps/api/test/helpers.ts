@@ -8,7 +8,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import WebSocket from 'ws';
 import type { ContextFrame, GeoFix } from '@city/core';
-import { FakeNearbySearch, FakeSpeechSynthesizer, FakeTextGenerator, type ProviderSet } from '@city/providers';
+import { FakeNearbySearch, FakeRealtimeTokenIssuer, FakeSpeechRecognizer, FakeSpeechSynthesizer, FakeTextGenerator, type ProviderSet } from '@city/providers';
 import { loadTrace } from '@city/replay';
 import { buildApp } from '../src/app.js';
 import { loadConfig } from '../src/config.js';
@@ -99,7 +99,7 @@ export async function startTestApp(o: TestAppOptions = {}): Promise<TestApp> {
     fixtures: true,
     telemetryFlushMs: 200,
     ...o.overrides,
-    providers: { story: [fakes.story], intent: [fakes.intent], tts: [fakes.tts], stt: [], nearby: [fakes.nearby], ...o.providers, ...(o.overrides?.providers ?? {}) },
+    providers: { story: [fakes.story], intent: [fakes.intent], tts: [fakes.tts], stt: [new FakeSpeechRecognizer()], realtime: [new FakeRealtimeTokenIssuer()], nearby: [fakes.nearby], ...o.providers, ...(o.overrides?.providers ?? {}) },
   });
   const app = await buildApp(deps, { logger: false, rateLimit: false });
   await app.listen({ port: 0, host: '127.0.0.1' });

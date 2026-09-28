@@ -1,0 +1,15 @@
+**/node_modules
+**/.next
+**/dist
+**/coverage
+**/*.tsbuildinfo
+.git
+.env
+.env.*
+!.env.example
+API-Credentials.md
+**/API-Credentials.md
+data
+benchmark/runs/raw
+apps/mobile/ios
+apps/mobile/android

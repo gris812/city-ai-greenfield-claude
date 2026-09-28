@@ -18,7 +18,6 @@ export function createSql(url: string, opts: { max?: number } = {}): Sql {
     idle_timeout: 30,
     connect_timeout: 5,
     onnotice: () => {},
-    types: { bigint: postgres.BigInt },
   }) as unknown as Sql;
 }
 

@@ -1,0 +1,40 @@
+{
+ "startedAt": "2026-09-28T02:42:01.825Z",
+ "pricesRetrievedAt": "2026-09-27",
+ "keysPresent": {
+  "openai": false,
+  "gemini": false,
+  "anthropic": false,
+  "googleMaps": false
+ },
+ "configured": {
+  "story": [],
+  "intent": [],
+  "tts": [],
+  "stt": [],
+  "realtime": [],
+  "places": [
+   "wikimedia"
+  ],
+  "knowledge": [
+   "wikimedia"
+  ],
+  "nearby": []
+ },
+ "skipped": [
+  "openai: no key (OPENAI_API_KEY)",
+  "gemini: no key (GEMINI_API_KEY)",
+  "anthropic: no key (ANTHROPIC_API_KEY)",
+  "googleMaps: no key (GOOGLE_MAPS_SERVER_KEY)"
+ ],
+ "fakesIncluded": false,
+ "note": "Latencies are from this machine/network; costs are list-price estimates (pricing.ts), not invoices.",
+ "modelCheck": {},
+ "story": [],
+ "tts": [],
+ "stt": [],
+ "realtime": [],
+ "totalEstimatedUsd": 0,
+ "calls": 0,
+ "finishedAt": "2026-09-28T02:42:01.826Z"
+}

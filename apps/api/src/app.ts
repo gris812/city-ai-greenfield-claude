@@ -22,7 +22,6 @@ export async function buildApp(deps: AppDeps, opts: BuildAppOptions = {}): Promi
     logger: opts.logger === false ? false : loggerOptions(deps.config.logLevel),
     trustProxy: true,
     bodyLimit: 1024 * 1024,
-    disableRequestLogging: false,
   });
   await app.register(cors, { origin: deps.config.corsOrigins, credentials: false, methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'] });
   if (opts.rateLimit !== false) {

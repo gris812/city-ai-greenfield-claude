@@ -58,3 +58,11 @@ Server → client: `directive` messages carrying a core `Directive` (`play`, `st
 | `GET/PUT /v1/admin/config/budgets` | owner | provider budgets & kill switches (audited) |
 | `GET /v1/admin/audit` | owner | audit log |
 | `GET/POST/DELETE /v1/admin/users…` | owner | admin invites, roles, device revocation |
+
+## Implementation notes (apps/api, additive to the contract above)
+- **Envelope.** Every server directive is sent as `{type:'directive', seq, turn, ref?, at, directive}`. `turn` identifies the conversation turn (null = ambient narration); clients drop audio for turns older than the latest `stop_audio`. `ref` is set on `say` directives: report its end with `audio_progress {planId: ref, state:'finished'}` so the server can resume an interrupted story immediately (C1).
+- **WS extras.** On connect the server sends `{type:'hello', sessionId, lastDirectiveSeq}`. Client may send `ack {seq}` (cumulative) and `resume {lastDirectiveSeq}`; utterances may carry `utteranceId` (idempotency — a retried id never re-runs a tool, E3).
+- **Additive REST.** `POST /v1/sessions/:id/audio_progress` (REST twin of the WS message), `GET /v1/sessions/:id/directives?after=N` (REST twin of `resume`), `POST /v1/realtime/usage {sessionId, provider, model, userAudioS, assistantAudioS, connectMs?}` (realtime minutes → cost ledger), `POST /v1/stt?sessionId=…&submit=1` also runs the transcript as an utterance and returns directives.
+- **Audio URLs** are `/v1/audio/<40-hex>.mp3` (or `.wav` for Gemini TTS). A `play` directive lists every segment URL immediately; segments after 0 are synthesized in the background and the audio route waits for them. A 404 means "speak `segments[i].text` with on-device TTS" (F4). `audioUrl: null` means the same for the whole plan.
+- `/v1/nearby` returns `{provider, fake, category, results, invalidDropped, answer, map}`.
+- Admin: `POST /v1/admin/users/invites {email, role}` (owner) returns a one-time code for `register/options|verify`; `DELETE /v1/admin/users/:id` disables an admin and revokes their devices.

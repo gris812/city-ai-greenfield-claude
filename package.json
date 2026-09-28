@@ -10,7 +10,8 @@
     "test": "pnpm -r --if-present test",
     "replay": "pnpm --filter @city/replay run replay",
     "build": "pnpm -r --if-present build",
-    "gen:traces": "tsx scripts/gen-traces.ts"
+    "gen:traces": "tsx scripts/gen-traces.ts",
+    "bench:providers": "tsx scripts/bench/providers.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

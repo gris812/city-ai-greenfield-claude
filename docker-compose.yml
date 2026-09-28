@@ -1,0 +1,86 @@
+# Single-VPS deployment (D-015): caddy (TLS) → api / web, postgres, redis.
+# Secrets come from .env (git-ignored); see docs/DEPLOY.md.
+name: telvey
+
+services:
+  caddy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    ports: ["80:80", "443:443", "443:443/udp"]
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:-localhost}
+      API_DOMAIN: ${API_DOMAIN:-api.localhost}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [api, web]
+
+  api:
+    build: { context: ., dockerfile: apps/api/Dockerfile }
+    image: ${API_IMAGE:-ghcr.io/owner/telvey-api:latest}
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      NODE_ENV: production
+      PORT: "8080"
+      DATABASE_URL: postgres://city:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}@postgres:5432/city
+      REDIS_URL: redis://redis:6379/0
+      AUDIO_DIR: /data/audio
+      API_BASE_URL: https://${API_DOMAIN:-api.localhost}
+      PUBLIC_BASE_URL: https://${APP_DOMAIN:-localhost}
+      WEBAUTHN_RP_ID: ${APP_DOMAIN:-localhost}
+      WEBAUTHN_ORIGIN: https://${APP_DOMAIN:-localhost}
+    volumes: [audio:/data/audio]
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    expose: ["8080"]
+
+  web:
+    # Next.js app (public site, /app WebApp/PWA, /admin console) — Dockerfile owned by apps/web.
+    # NEXT_PUBLIC_* values are inlined at build time, so they are build args, not runtime env.
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: https://${API_DOMAIN:-api.localhost}
+        NEXT_PUBLIC_SITE_URL: https://${SITE_DOMAIN:-localhost}
+        NEXT_PUBLIC_GOOGLE_MAPS_WEB_KEY: ${GOOGLE_MAPS_WEB_KEY:-}
+        BUILD_SHA: ${BUILD_SHA:-dev}
+    image: ${WEB_IMAGE:-ghcr.io/owner/telvey-web:latest}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+    expose: ["3000"]
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: city
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: city
+    volumes: [pg:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U city -d city"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "512mb", "--maxmemory-policy", "allkeys-lru"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pg: {}
+  audio: {}
+  caddy_data: {}
+  caddy_config: {}

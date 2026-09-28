@@ -390,6 +390,14 @@ export class SessionRuntime {
 
   private ingest(frame: ContextFrame): void {
     const t0 = performance.now();
+    if (this.state.lastSeq < 0 && this.state.position === null) {
+      // First frame anchors the journey clock in the client's time domain (simulated/replayed
+      // traces may be hours away from server time).
+      const first = Math.min(frame.clientTime, ...frame.fixes.map((f) => f.t));
+      if (Number.isFinite(first)) {
+        this.state = { ...newJourney({ sessionId: this.info.id, now: first, guideId: this.guide.id, locale: this.info.locale, simulated: this.info.simulated }), memory: this.state.memory };
+      }
+    }
     const before = this.state;
     const next = ingestFrame(before, { ...frame, sessionId: this.info.id });
     if (next === before) return;
@@ -431,7 +439,8 @@ export class SessionRuntime {
     const callCtx = { sessionId: this.info.id };
 
     // Density probe (throttled, cached).
-    if (shouldRefreshDensity(this.densRec, ctx) && this.reducedAllows()) {
+    // Reduced mode skips the density probe entirely: the scarce provider budget goes to discovery.
+    if (!this.d.kv.reduced && shouldRefreshDensity(this.densRec, ctx)) {
       const pq = densityProbeQueryFor(ctx);
       this.stats.densityProbes++;
       this.lastDiscoveryServerAt = this.clock();
