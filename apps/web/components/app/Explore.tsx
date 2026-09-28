@@ -23,6 +23,14 @@ export function Explore() {
   const [textDraft, setTextDraft] = useState('');
   const sheetRef = useRef<HTMLDivElement>(null);
   const [sheetH, setSheetH] = useState(240);
+  const [wide, setWide] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 960px)');
+    setWide(mq.matches);
+    const on = (e: MediaQueryListEvent) => setWide(e.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
   const simulated = s.driver.mode === 'trace' || s.driver.mode === 'manual';
   const drive = theme === 'drive';
   const guideName = s.settings.guideId === 'emil' ? 'Emil' : 'Ida';
@@ -128,11 +136,9 @@ export function Explore() {
           zoom={ZOOM[s.regime] ?? 15}
           draggable={s.driver.mode === 'manual'}
           onDrag={(p) => store.dragTo(p)}
-          padBottom={drive ? 0 : sheetH}
+          pad={drive ? (wide ? { top: 20, bottom: 20, left: 20, right: 540 } : { top: 70, bottom: sheetH, left: 20, right: 20 }) : wide ? { top: 30, bottom: 30, left: 500, right: 400 } : { top: 70, bottom: sheetH, left: 10, right: 10 }}
         />
-      </div>
-
-      {drive ? (
+        {drive ? (
         <div className="drive-layer" ref={sheetRef}>
           <DriveHud
             hero={driveHero}
@@ -145,14 +151,17 @@ export function Explore() {
             onMicUp={micUp}
           />
         </div>
-      ) : (
+        ) : null}
+      </div>
+
+      {drive ? null : (
         <div className="sheet" ref={sheetRef}>
           <div className="sheet-inner">
-            <p className="sheet-status t-caption" aria-live="polite">
-              <span>
+            <p className="sheet-status t-caption" aria-live="polite" hidden={s.driver.mode === 'idle' || !s.ready}>
+              <span className="sheet-regime">
                 {t.regime[s.regime]} · {t.density[s.density]}
               </span>
-              {s.silence && !s.nowPlaying ? <span className="muted-3"> · {t.silence[s.silence] ?? s.silence}</span> : null}
+              {s.silence && !s.nowPlaying ? <span className="sheet-silence">{t.silence[s.silence] ?? s.silence}</span> : null}
             </p>
             {!s.ready ? (
               <div className="card sheet-card skeleton" aria-busy="true">
@@ -160,9 +169,8 @@ export function Explore() {
               </div>
             ) : s.driver.mode === 'idle' ? (
               <StartCard />
-            ) : s.nowPlaying ? (
-              <NowPlayingCard view={s.nowPlaying} t={t} onPause={() => store.pauseStory()} onResume={() => store.resumeStory()} onSkip={() => store.skip()} onNotThatOne={() => store.notThatOne()} />
-            ) : s.caption ? (
+            ) : s.caption && s.nowPlaying?.status !== 'playing' ? (
+              <>
               <section className="caption card" data-testid="caption">
                 <GuideAvatar id={s.settings.guideId} size={36} />
                 <div>
@@ -171,6 +179,10 @@ export function Explore() {
                   {s.caption.mode && s.caption.mode !== 'server' ? <p className="t-caption muted-3">{s.caption.mode === 'device' ? t.deviceVoice : t.textOnly}</p> : null}
                 </div>
               </section>
+                {s.nowPlaying ? <NowPlayingCard compact view={s.nowPlaying} t={t} onPause={() => store.pauseStory()} onResume={() => store.resumeStory()} onSkip={() => store.skip()} onNotThatOne={() => store.notThatOne()} /> : null}
+              </>
+            ) : s.nowPlaying ? (
+              <NowPlayingCard view={s.nowPlaying} t={t} onPause={() => store.pauseStory()} onResume={() => store.resumeStory()} onSkip={() => store.skip()} onNotThatOne={() => store.notThatOne()} />
             ) : (
               <QuietCard t={t} reason={s.silence} guideName={guideName} detail={quietDetail} />
             )}
@@ -235,6 +247,10 @@ export function Explore() {
                 {t.send}
               </button>
             </form>
+          ) : !drive ? (
+            <button type="button" className="listen-type" onClick={() => store.typeInstead()}>
+              Type instead
+            </button>
           ) : null}
         </ListeningSheet>
       ) : null}

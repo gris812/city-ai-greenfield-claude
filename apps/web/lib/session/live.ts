@@ -80,7 +80,7 @@ export class LiveTransport implements Transport {
     this.lastSeq = 0;
     this.connect();
     this.flushTimer = setInterval(() => this.flush(), 1000);
-    this.pingTimer = setInterval(() => this.send({ type: 'ping', at: Date.now() }), 20_000);
+    this.pingTimer = setInterval(() => this.send({ type: 'ping', t: Date.now() }), 20_000);
     if (opts.talkativeness !== 0) this.setTalkativeness(opts.talkativeness);
   }
 
@@ -113,7 +113,7 @@ export class LiveTransport implements Transport {
         if (seq !== null) {
           if (seq <= this.lastSeq) return; // E3: never replay an already-applied directive
           this.lastSeq = seq;
-          this.send({ type: 'ack', directiveSeq: seq });
+          this.send({ type: 'ack', seq });
         }
         this.deliver(d, seq ?? this.lastSeq);
       } else if (msg.type === 'error') {

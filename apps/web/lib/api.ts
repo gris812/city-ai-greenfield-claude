@@ -118,7 +118,7 @@ export function parseDirectives(x: unknown): Array<{ directive: Directive; seq: 
   for (const item of arr) {
     if (!item || typeof item !== 'object') continue;
     const o = item as Record<string, unknown>;
-    if (o.directive && typeof o.directive === 'object') out.push({ directive: o.directive as Directive, seq: typeof o.directiveSeq === 'number' ? o.directiveSeq : null });
+    if (o.directive && typeof o.directive === 'object') out.push({ directive: o.directive as Directive, seq: typeof o.seq === 'number' ? o.seq : typeof o.directiveSeq === 'number' ? o.directiveSeq : null });
     else if (typeof o.type === 'string') out.push({ directive: o as unknown as Directive, seq: typeof o.directiveSeq === 'number' ? o.directiveSeq : null });
   }
   return out;

@@ -421,3 +421,12 @@
     opacity: 1;
   }
 }
+.listen-type {
+  border: 0;
+  background: transparent;
+  color: var(--color-petrol-300);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 15px;
+  padding: 6px;
+}

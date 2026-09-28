@@ -23,8 +23,8 @@ export interface MapViewProps {
   zoom: number;
   draggable: boolean;
   onDrag?: (p: LatLng) => void;
-  /** Extra bottom padding (px) for the sheet covering the map. */
-  padBottom: number;
+  /** Padding (px) for UI covering the map (sheet, panels). */
+  pad: { top: number; bottom: number; left: number; right: number };
 }
 
 const PALETTE = {
@@ -60,6 +60,15 @@ function baseStyle(theme: MapTheme): StyleSpecification {
 }
 
 type GeoData = Parameters<GeoJSONSource['setData']>[0];
+/** Pad for UI chrome, but never so much that the viewport collapses (small screens). */
+function padFor(pad: MapViewProps['pad'], extra: number) {
+  const w = typeof window !== 'undefined' ? window.innerWidth : 1280;
+  const h = typeof window !== 'undefined' ? window.innerHeight : 800;
+  const clampV = (v: number) => Math.min(v, h * 0.55);
+  const clampH = (v: number) => Math.min(v, w * 0.55);
+  return { top: clampV(pad.top + extra / 2), bottom: clampV(pad.bottom + extra / 2), left: clampH(pad.left + extra / 2), right: clampH(pad.right + extra / 2) };
+}
+
 const EMPTY = { type: 'FeatureCollection', features: [] } as GeoData;
 
 function puckElement(): HTMLDivElement {
@@ -109,6 +118,7 @@ export default function MapView(p: MapViewProps) {
       });
       m.touchZoomRotate.disableRotation();
       map.current = m;
+      (window as unknown as { __telveyMap?: MlMap }).__telveyMap = m; // debug/e2e hook (no data beyond what is on screen)
       m.on('error', (e) => {
         if (String((e as { error?: Error }).error?.message ?? '').match(/tile|fetch|Failed/i)) setTileError(true);
       });
@@ -140,10 +150,6 @@ export default function MapView(p: MapViewProps) {
     const m = map.current;
     if (!m || !ready) return;
     const pal = PALETTE[p.theme];
-    if (!config.mapStyleUrl) {
-      m.setPaintProperty('bg', 'background-color', pal.bg);
-      for (const [k, v] of Object.entries(rasterPaint(p.theme))) m.setPaintProperty('osm', k, v);
-    }
     m.setPaintProperty('route-band', 'line-color', pal.route);
     m.setPaintProperty('route-band', 'line-opacity', pal.routeOpacity);
     m.setPaintProperty('route-core', 'line-color', pal.route);
@@ -152,7 +158,23 @@ export default function MapView(p: MapViewProps) {
     for (const id of ['focus-halo', 'focus-dot']) m.setPaintProperty(id, 'circle-color', pal.focus);
     m.setPaintProperty('focus-ring', 'circle-stroke-color', pal.focus);
     box.current?.setAttribute('data-map-theme', p.theme);
+    if (!config.mapStyleUrl) {
+      try {
+        m.setPaintProperty('bg', 'background-color', pal.bg);
+        for (const [k, v] of Object.entries(rasterPaint(p.theme))) m.setPaintProperty('osm', k, v);
+      } catch (e) {
+        console.warn('[map] base theme update failed', e);
+      }
+    }
+    m.triggerRepaint();
   }, [p.theme, ready]);
+
+  // No tiles (offline / blocked): let the CSS dot grid show through so the map reads as intentional.
+  useEffect(() => {
+    const m = map.current;
+    if (!m || !ready || config.mapStyleUrl) return;
+    m.setPaintProperty('bg', 'background-opacity', tileError ? 0 : 1);
+  }, [tileError, ready]);
 
   // route band
   useEffect(() => {
@@ -187,7 +209,7 @@ export default function MapView(p: MapViewProps) {
     const key = p.focus ? `${p.focus.location.lat},${p.focus.location.lng}` : null;
     if (key && key !== lastFocus.current && p.puck && p.theme !== 'drive') {
       const b = new lib.LngLatBounds([p.puck.lng, p.puck.lat], [p.puck.lng, p.puck.lat]).extend([p.focus!.location.lng, p.focus!.location.lat]);
-      m.fitBounds(b, { padding: { top: 90, left: 60, right: 60, bottom: p.padBottom + 40 }, maxZoom: 17, duration: 900 });
+      m.fitBounds(b, { padding: padFor(p.pad, 60), maxZoom: 17, duration: 900 });
     }
     lastFocus.current = key;
   }, [p.focus, ready, p.theme]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -208,7 +230,7 @@ export default function MapView(p: MapViewProps) {
     if (rs.length > 0 && p.puck) {
       const b = new lib.LngLatBounds([p.puck.lng, p.puck.lat], [p.puck.lng, p.puck.lat]);
       for (const r of rs) b.extend([r.location.lng, r.location.lat]);
-      m.fitBounds(b, { padding: { top: 90, left: 50, right: 120, bottom: p.padBottom + 30 }, maxZoom: 17, duration: 700 });
+      m.fitBounds(b, { padding: padFor(p.pad, 50), maxZoom: 17, duration: 700 });
     }
   }, [p.results, ready]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -230,13 +252,15 @@ export default function MapView(p: MapViewProps) {
     puck.current.getElement().classList.toggle('puck-noheading', p.puck.headingDeg === null);
     puck.current.setRotation(p.puck.headingDeg ?? 0);
     if (!p.focus && !(p.results && p.results.length) && !p.draggable) {
-      m.easeTo({ center: [p.puck.lng, p.puck.lat], zoom: p.zoom, duration: 600, padding: { top: 60, bottom: p.padBottom, left: 0, right: 0 } });
+      const pd = padFor(p.pad, 0);
+      // Use an offset (not camera padding, which persists and would stack with fitBounds padding).
+      m.easeTo({ center: [p.puck.lng, p.puck.lat], zoom: p.zoom, duration: 600, offset: [(pd.left - pd.right) / 2, (pd.top - pd.bottom) / 2] });
     }
   }, [p.puck, p.zoom, p.draggable, ready]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="mapview">
-      <div ref={box} className="mapview-canvas" data-testid="map" />
+      <div ref={box} className={`mapview-canvas${tileError && !config.mapStyleUrl ? ' no-tiles' : ''}`} data-testid="map" />
       {tileError && !config.mapStyleUrl ? <p className="map-tile-note t-caption">Map tiles unavailable offline · overlays still live</p> : null}
     </div>
   );

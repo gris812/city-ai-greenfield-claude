@@ -117,10 +117,13 @@
   flex: 1;
   min-height: 0;
 }
-.mapview,
-.mapview-canvas {
+.mapview {
   position: absolute;
   inset: 0;
+}
+.mapview-canvas {
+  width: 100%;
+  height: 100%;
 }
 .mapview-canvas {
   background: var(--bg);
@@ -130,9 +133,8 @@
 }
 .map-tile-note {
   position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 30px;
+  right: 10px;
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   color: var(--text-2);
   padding: 4px 10px;
@@ -140,6 +142,11 @@
   z-index: 2;
   white-space: nowrap;
   pointer-events: none;
+}
+@media (max-width: 959px) {
+  .map-tile-note {
+    display: none;
+  }
 }
 .maplibregl-ctrl-attrib {
   font-size: 11px;
@@ -223,6 +230,30 @@
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-1);
   font-weight: 560;
+}
+.sheet-status:not(:has(.sheet-silence)) {
+  display: none;
+}
+.sheet-silence::before {
+  content: ' · ';
+}
+@media (min-width: 640px) {
+  .sheet-regime {
+    display: none;
+  }
+  .sheet-silence::before {
+    content: '';
+  }
+}
+@media (max-width: 639px) {
+  .sheet-status:not([hidden]) {
+    display: block !important;
+  }
+}
+.mapview-canvas.no-tiles {
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--text-3) 35%, transparent) 1px, transparent 1.2px);
+  background-size: 22px 22px;
 }
 .sheet-card {
   padding: 18px;

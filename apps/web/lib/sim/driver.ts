@@ -33,6 +33,16 @@ export interface DriverSink {
   state(s: DriverState): void;
 }
 
+/** Drop GPS jitter (points within 15 m of the previous kept point) so the route band stays clean. */
+function simplify(fixes: GeoFix[]): LatLng[] {
+  const out: LatLng[] = [];
+  for (const f of fixes) {
+    const last = out.at(-1);
+    if (!last || haversineM(last, f) >= 15) out.push({ lat: f.lat, lng: f.lng });
+  }
+  return out;
+}
+
 export class LocationDriver {
   private s: DriverState = { mode: 'idle', scenario: null, playing: false, speed: 1, elapsedMs: 0, durationMs: 0, done: false, position: null, route: null };
   private trace: TraceFile | null = null;
@@ -92,7 +102,8 @@ export class LocationDriver {
       durationMs: (trace.durationS || ((trace.fixes.at(-1)?.t ?? 0) - this.simEpoch) / 1000) * 1000,
       done: false,
       position: first ? { lat: first.lat, lng: first.lng, headingDeg: first.headingDeg ?? null } : null,
-      route: trace.route ?? trace.fixes.filter((_, i) => i % 5 === 0).map((f) => ({ lat: f.lat, lng: f.lng })),
+      // Display the travelled path (fixes); the coarse navigation polyline is only sent as a RouteHint.
+      route: simplify(trace.fixes),
     });
     this.ensureTimer();
   }

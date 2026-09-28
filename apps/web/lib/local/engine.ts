@@ -145,6 +145,7 @@ export class LocalEngine {
   private playingSegment: { index: number; offsetMs: number } = { index: 0, offsetMs: 0 };
   private listening = false;
   private pendingAnswer = false;
+  private pendingSince = 0;
   private lastKey = '';
   private lastSnapWall = 0;
   private lastState = '';
@@ -223,6 +224,7 @@ export class LocalEngine {
       audio: frame.audio,
     };
     this.st = ingestFrame(this.st, full);
+    if (this.pendingAnswer && Date.now() - this.pendingSince > 30_000) this.sayFinished(); // never stall on a lost 'say' end
     let ctx: JourneyContext = contextOf(this.st);
     if (!ctx.position) {
       this.emitState(ctx, 'no_fix');
@@ -263,7 +265,8 @@ export class LocalEngine {
     const d = decideMoment(ctx, this.scored, {
       guide: this.guide,
       factKinds,
-      listening: this.listening,
+      // An answer being spoken holds the director like listening does (resume waits for it).
+      listening: this.listening || this.pendingAnswer,
       activeStoryRemainingS: remainingS,
       activeStorySignificance: this.st.activeStorySignificance,
       currentPlanId: this.st.currentPlanId,
@@ -494,6 +497,7 @@ export class LocalEngine {
     const intent = it?.intent ?? 'unknown';
     const say = (t: string, answer = true) => {
       this.pendingAnswer = answer;
+      this.pendingSince = Date.now();
       this.emit({ type: 'say', text: t, audioUrl: null, purpose: 'answer' });
     };
     this.listening = false;
@@ -544,6 +548,7 @@ export class LocalEngine {
     const plan = (a ? this.plans.get(a.planId) : null) ?? this.lastPlan;
     const say = (t: string) => {
       this.pendingAnswer = true;
+      this.pendingSince = Date.now();
       this.emit({ type: 'say', text: t, audioUrl: null, purpose: 'answer' });
     };
     if (!plan) {
@@ -562,6 +567,8 @@ export class LocalEngine {
     if (fresh) {
       const prefix = intent === 'tell_more' ? '' : ru ? 'В офлайн-демо я отвечаю только по источникам. Вот что есть: ' : 'In the offline demo I can only answer from my sources. Here’s one more thing: ';
       say(prefix + fresh.text);
+    } else if (a && a.segmentIndex < a.segmentCount - 1) {
+      say(ru ? 'Дальше в истории есть ещё — продолжаю.' : 'There’s more in the story itself. Let me carry on.');
     } else {
       say(ru ? `Это всё, что у меня есть о «${plan.place.name}» из источников.` : `That’s everything my sources say about ${plan.place.name}.`);
     }
@@ -570,6 +577,7 @@ export class LocalEngine {
   private nearby(ctx: JourneyContext, category: string | undefined, ru: boolean): void {
     const say = (t: string) => {
       this.pendingAnswer = true;
+      this.pendingSince = Date.now();
       this.emit({ type: 'say', text: t, audioUrl: null, purpose: 'answer' });
     };
     const decision = decideTool(ctx, { tool: 'nearby_search', args: { category: category ?? null }, requestedBy: 'rules' });

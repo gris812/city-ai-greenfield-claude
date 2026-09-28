@@ -110,7 +110,7 @@ export class CompanionStore {
       partial: (t) => this.set({ listening: { ...this.snap.listening, partial: t } }),
       final: (t, at) => this.finishUtterance(t, at),
       error: (code) => {
-        if (code === 'not-allowed' || code === 'service-not-allowed' || code === 'audio-capture') {
+        if (code === 'not-allowed' || code === 'service-not-allowed' || code === 'audio-capture' || code === 'network') {
           this.set({ listening: { ...this.snap.listening, mode: this.snap.driveSafe ? 'voice' : 'text', note: 'Microphone unavailable. ' + (this.snap.driveSafe ? 'Voice input is blocked in this browser.' : 'Type your question instead.') } });
         }
       },
@@ -430,6 +430,13 @@ export class CompanionStore {
     this.ptt.abort();
     this.set({ listening: { active: false, partial: '', mode: 'voice', note: null } });
     this.endListeningWithoutSpeech();
+  }
+
+  /** Switch the open listening sheet to text entry (never while driving — D-008). */
+  typeInstead(): void {
+    if (this.snap.driveSafe) return;
+    this.ptt.abort();
+    this.set({ listening: { ...this.snap.listening, active: true, mode: 'text', note: null } });
   }
 
   finishListening(): void {

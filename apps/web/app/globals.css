@@ -105,10 +105,10 @@ p {
   color: var(--text);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-2);
 }
 .skip-link:focus {
   top: 12px;
+  box-shadow: var(--shadow-2);
 }
 
 /* ── type scale (BRAND §2) */

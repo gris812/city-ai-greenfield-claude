@@ -247,6 +247,25 @@
   overflow: hidden;
   border: 1px solid var(--line);
 }
+.guide-card {
+  grid-template-rows: auto 1fr;
+}
+.guide-name {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.guide-face {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--g-soft);
+  object-fit: cover;
+  object-position: center 20%;
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 2px var(--g);
+  margin-top: -44px;
+}
 .guide-card[data-guide='emil'] {
   --g: var(--color-emil);
   --g-ink: var(--color-emil-ink);
@@ -280,6 +299,7 @@
   padding: 22px 24px 26px;
   display: grid;
   gap: 12px;
+  align-content: start;
 }
 .guide-tagline {
   color: var(--text-2);
@@ -294,10 +314,11 @@
   gap: 8px;
 }
 .guide-traits li {
+  line-height: 18px;
   font-size: 13px;
   font-weight: 600;
   padding: 5px 11px;
-  border-radius: var(--radius-pill);
+  border-radius: 14px;
   background: var(--g-soft);
   color: var(--g-ink);
 }

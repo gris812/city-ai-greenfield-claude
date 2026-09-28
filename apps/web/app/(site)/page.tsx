@@ -162,9 +162,7 @@ export default function HomePage() {
               <article key={g.id} className="guide-card" data-guide={g.id}>
                 <div className="guide-art">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="guide-scene" src={`/guides/${g.id}/scene.svg`} alt="" loading="lazy" />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="guide-portrait" src={`/guides/${g.id}/portrait.svg`} alt={`Illustrated portrait of ${g.name}`} loading="lazy" />
+                  <img className="guide-scene" src={`/guides/${g.id}/scene.svg`} alt={g.id === 'ida' ? 'Illustration of Ida on a low-rise street at golden hour' : 'Illustration of Emil beside a highway at dusk'} loading="lazy" />
                 </div>
                 <div className="guide-body">
                   <h3 className="t-title2">{g.name}</h3>
@@ -228,7 +226,7 @@ export default function HomePage() {
             {sc.interstate ? (
               <dl className="silence-stats" aria-label="Simulated interstate replay">
                 <div>
-                  <dt>Simulated interstate run</dt>
+                  <dt>Simulated drive</dt>
                   <dd>{sc.interstate.minutes} min</dd>
                 </div>
                 <div>
