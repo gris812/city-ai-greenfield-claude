@@ -61,7 +61,7 @@ const config: NextConfig = {
   output: 'standalone',
   reactStrictMode: true,
   poweredByHeader: false,
-  transpilePackages: ['@city/core'],
+  transpilePackages: ['@city/core', '@city/client'],
   outputFileTracingRoot: new URL('../../', import.meta.url).pathname,
   webpack(cfg) {
     // @city/core uses NodeNext-style '.js' specifiers that point at '.ts' sources.

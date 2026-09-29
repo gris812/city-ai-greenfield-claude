@@ -1,0 +1,24 @@
+{
+  "name": "@city/client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Platform-neutral client runtime shared by apps/web and apps/mobile: API client, WS session channel (seq/ack/resume), directive reducer, frame batcher, prefetch planner, barge-in state, offline LocalEngine, UI strings. Pure TS; no DOM or React Native imports.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@city/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

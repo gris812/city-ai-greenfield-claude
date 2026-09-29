@@ -5,7 +5,7 @@
  *
  * No secrets live here. Tokens are bearer JWTs issued by the API (guest / account / admin).
  */
-import type { ContextFrame, Directive, GuideProfile, LatLng } from '@city/core';
+import type { ContextFrame, GuideProfile, LatLng } from '@city/core';
 import { config } from './config';
 import type { ControlAction } from './session/types';
 
@@ -111,18 +111,8 @@ export interface HistoryItem {
   completed?: boolean;
 }
 
-/** Directive batches from REST fallbacks may be `Directive[]` or `{directives: [...]}` (with optional seq). */
-export function parseDirectives(x: unknown): Array<{ directive: Directive; seq: number | null }> {
-  const arr = Array.isArray(x) ? x : x && typeof x === 'object' && Array.isArray((x as { directives?: unknown[] }).directives) ? (x as { directives: unknown[] }).directives : [];
-  const out: Array<{ directive: Directive; seq: number | null }> = [];
-  for (const item of arr) {
-    if (!item || typeof item !== 'object') continue;
-    const o = item as Record<string, unknown>;
-    if (o.directive && typeof o.directive === 'object') out.push({ directive: o.directive as Directive, seq: typeof o.seq === 'number' ? o.seq : typeof o.directiveSeq === 'number' ? o.directiveSeq : null });
-    else if (typeof o.type === 'string') out.push({ directive: o as unknown as Directive, seq: typeof o.directiveSeq === 'number' ? o.directiveSeq : null });
-  }
-  return out;
-}
+/** Directive batches from REST fallbacks — shared parser (@city/client). */
+export { parseDirectives } from '@city/client';
 
 export const api = {
   health: (timeoutMs = 2500) => request<{ ok?: boolean; status?: string }>('/healthz', { timeoutMs }),
