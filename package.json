@@ -11,7 +11,10 @@
     "replay": "pnpm --filter @city/replay run replay",
     "build": "pnpm -r --if-present build",
     "gen:traces": "tsx scripts/gen-traces.ts",
-    "bench:providers": "tsx scripts/bench/providers.ts"
+    "bench:providers": "tsx scripts/bench/providers.ts",
+    "bench:acceptance": "tsx scripts/bench/acceptance.ts",
+    "bench:cost": "tsx scripts/bench/cost-model.ts",
+    "bench:charts": "python3 scripts/bench/charts.py"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

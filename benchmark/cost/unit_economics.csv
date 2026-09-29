@@ -1,0 +1,10 @@
+case,mau,sessionsPerUserPerMonth,avgSessionMinutes,scenario,avgVariableCostPerSession,monthlyVariableUsd,totalCogsUsd,impliedGrossMargin,fixedInfraUsd,revenueUsd
+Small,1000,2.08,34.75,default@0%,0.2946,613.85,673.85,-10.328,60,59.49
+Small,1000,2.08,34.75,default@50%,0.1551,323.26,383.26,-5.4429,60,59.49
+Small,1000,2.08,34.75,wavenet_hypothetical@50%,0.043,89.66,149.66,-1.5159,60,59.49
+Medium,25000,2.08,34.75,default@0%,0.2946,15346.22,15796.22,-9.622,450,1487.13
+Medium,25000,2.08,34.75,default@50%,0.1551,8081.43,8531.43,-4.7369,450,1487.13
+Medium,25000,2.08,34.75,wavenet_hypothetical@50%,0.043,2241.45,2691.45,-0.8098,450,1487.13
+Large,250000,2.08,34.75,default@0%,0.2946,153462.24,157462.24,-9.5883,4000,14871.28
+Large,250000,2.08,34.75,default@50%,0.1551,80814.34,84814.34,-4.7032,4000,14871.28
+Large,250000,2.08,34.75,wavenet_hypothetical@50%,0.043,22414.46,26414.46,-0.7762,4000,14871.28

@@ -1,0 +1,295 @@
+{
+ "generatedBy": "scripts/bench/acceptance.ts",
+ "generatedAt": "2026-09-29T03:14:11.817Z",
+ "commit": "53bd624+uncommitted",
+ "label": "MEASURED — in-process harness on loopback with SIMULATED provider latency. Not production, not a device, not a mobile network.",
+ "method": {
+  "server": "Real Fastify API + Postgres + Redis + WebSocket channel in this process; fixture places/evidence (demo mode); deterministic fake LLM/TTS/STT/Nearby each wrapped with a seeded log-normal delay (profile below).",
+  "sessions": "36 measured sessions on the wtc-walk trace (guides alternate Ida/Emil) after 1 warm-up session; narration audio cache cleared before each session; evidence/discovery caches warm after the warm-up (7-day / 15-min TTLs in production). Plus 36 sessions with narration audio already cached.",
+  "clock": "performance.now() in the client and server share one process/clock; server intervals come from API telemetry (telemetry.latency), client intervals from WebSocket message arrival.",
+  "percentiles": "linear interpolation between closest ranks (Hyndman–Fan type 7)",
+  "speechEnd": "start of the POST /v1/stt upload of a ~3 s push-to-talk clip (fake STT decodes TEXT:<utterance>); i.e. includes STT + intent + tool/LLM + TTS + audio fetch.",
+  "firstAudio": "first audio BYTES of the response available to the client (say/play directive received + GET of the audio file). Device decode/playback start is NOT included.",
+  "bargeIn": "client sends control interrupt → stop_audio directive received. Device press→silence (local stop in the app) is NOT included; the apps stop locally before the server round trip.",
+  "excluded": [
+   "mobile network RTT (add ~2×RTT per round trip; LTE typically 40–120 ms)",
+   "device audio decode/start",
+   "real provider variance, cold starts, rate limiting"
+  ]
+ },
+ "simulatedProviderLatencyProfileMs": {
+  "llm_story": {
+   "p50": 1100,
+   "p95": 2600,
+   "note": "small hosted LLM, ~1.2k input / ~200 output tokens, non-streamed"
+  },
+  "llm_followup": {
+   "p50": 700,
+   "p95": 1600,
+   "note": "small hosted LLM, ~100 output tokens"
+  },
+  "llm_intent": {
+   "p50": 450,
+   "p95": 1000,
+   "note": "small hosted LLM, JSON, ~30 output tokens (only when rules do not match)"
+  },
+  "tts": {
+   "p50": 250,
+   "p95": 600,
+   "perCharP50": 2.5,
+   "note": "hosted TTS returning a complete file; p50 = 250 ms + 2.5 ms/char, same spread"
+  },
+  "stt": {
+   "p50": 450,
+   "p95": 1100,
+   "note": "batch STT of a ~3 s push-to-talk clip"
+  },
+  "nearby": {
+   "p50": 250,
+   "p95": 650,
+   "note": "Places API (New) Nearby Search, narrow field mask"
+  },
+  "places": {
+   "p50": 500,
+   "p95": 1500,
+   "note": "Wikipedia geosearch + one Wikidata SPARQL (discovery / density probe)"
+  },
+  "knowledge": {
+   "p50": 400,
+   "p95": 1200,
+   "note": "Wikipedia REST summary + Wikidata claims (evidence)"
+  }
+ },
+ "simulatedDrawsObserved": {
+  "places": {
+   "n": 3,
+   "p50": 615.6,
+   "p95": 719.8,
+   "min": 552.6,
+   "max": 731.4,
+   "mean": 633.2
+  },
+  "knowledge": {
+   "n": 1,
+   "p50": 194.4,
+   "p95": 194.4,
+   "min": 194.4,
+   "max": 194.4,
+   "mean": 194.4
+  },
+  "llm_story": {
+   "n": 76,
+   "p50": 987,
+   "p95": 2343.1,
+   "min": 347,
+   "max": 3582.5,
+   "mean": 1210
+  },
+  "tts": {
+   "n": 189,
+   "p50": 752.5,
+   "p95": 1799.7,
+   "min": 158.1,
+   "max": 3464.5,
+   "mean": 882.4
+  },
+  "stt": {
+   "n": 72,
+   "p50": 466,
+   "p95": 1032.2,
+   "min": 150.8,
+   "max": 1432.1,
+   "mean": 518
+  },
+  "nearby": {
+   "n": 36,
+   "p50": 206.9,
+   "p95": 602.5,
+   "min": 85.1,
+   "max": 743.4,
+   "mean": 262.4
+  },
+  "llm_intent": {
+   "n": 36,
+   "p50": 457,
+   "p95": 1332.8,
+   "min": 117.1,
+   "max": 1565.3,
+   "mean": 548
+  },
+  "llm_followup": {
+   "n": 36,
+   "p50": 712.3,
+   "p95": 1805.9,
+   "min": 205.6,
+   "max": 2312.1,
+   "mean": 871.9
+  }
+ },
+ "metrics": {
+  "triggerToFirstAudio": {
+   "n": 36,
+   "p50": 1877.8,
+   "p95": 3765.3,
+   "min": 929.1,
+   "max": 4339.8,
+   "mean": 2050.2,
+   "definition": "moment decided (startStory) → play directive at client + segment-0 audio bytes fetched; uncached narration (evidence cached)",
+   "target": {
+    "p50": 2500,
+    "p95": 4500
+   }
+  },
+  "triggerToPlayDirectiveServer": {
+   "n": 36,
+   "p50": 1874.5,
+   "p95": 3762.5,
+   "min": 927,
+   "max": 4337,
+   "mean": 2046.3,
+   "definition": "server telemetry trigger_to_first_audio: evidence + LLM + grounding + TTS segment 0 → play emitted",
+   "target": null
+  },
+  "cachedStoryToFirstAudio": {
+   "n": 36,
+   "p50": 1058.7,
+   "p95": 2910,
+   "min": 377.7,
+   "max": 3590,
+   "mean": 1274,
+   "definition": "same as triggerToFirstAudio but segment-0 audio already cached (LLM still runs: the audio key is the prose hash)",
+   "target": {
+    "p50": 1500,
+    "p95": 3000
+   }
+  },
+  "speechEndToFirstAudio": {
+   "n": 72,
+   "p50": 2156.1,
+   "p95": 4319,
+   "min": 646.9,
+   "max": 5258.1,
+   "mean": 2266,
+   "definition": "both utterance types pooled",
+   "target": {
+    "p50": 2000,
+    "p95": 3500
+   }
+  },
+  "speechEndToFirstAudioNearby": {
+   "n": 36,
+   "p50": 1471.3,
+   "p95": 2346.3,
+   "min": 646.9,
+   "max": 2801.9,
+   "mean": 1535.7,
+   "definition": "\"Where can I get coffee nearby?\" (STT → rules intent → Nearby → validation → map → TTS answer)",
+   "target": {
+    "p50": 2000,
+    "p95": 3500
+   }
+  },
+  "speechEndToFirstAudioFollowup": {
+   "n": 36,
+   "p50": 2839.5,
+   "p95": 4915.3,
+   "min": 1653.2,
+   "max": 5258.1,
+   "mean": 2996.3,
+   "definition": "\"Why is that important?\" (STT → rules/LLM intent → grounded follow-up LLM → TTS answer)",
+   "target": {
+    "p50": 2000,
+    "p95": 3500
+   }
+  },
+  "contextIngest": {
+   "n": 648,
+   "p50": 0.1,
+   "p95": 0.1,
+   "min": 0,
+   "max": 1,
+   "mean": 0.1,
+   "definition": "server telemetry context_ingest: one ContextFrame folded into journey state (core ingestFrame); every frame of the measured sessions until the first story",
+   "target": null
+  },
+  "serverStt": {
+   "n": 36,
+   "p50": 491.9,
+   "p95": 1046.3,
+   "min": 150,
+   "max": 1369.5,
+   "mean": 548.6,
+   "definition": "server telemetry stt: /v1/stt transcription call (simulated provider latency)",
+   "target": null
+  },
+  "serverUtteranceToFirstAudio": {
+   "n": 36,
+   "p50": 976,
+   "p95": 1522.5,
+   "min": 344,
+   "max": 1625,
+   "mean": 982.3,
+   "definition": "server telemetry speech_end_to_first_audio (excludes STT and audio fetch)",
+   "target": null
+  },
+  "bargeInStop": {
+   "n": 36,
+   "p50": 0.6,
+   "p95": 1.4,
+   "min": 0.3,
+   "max": 3.2,
+   "mean": 0.7,
+   "definition": "control interrupt → stop_audio directive at client (server round trip, loopback)",
+   "target": {
+    "p50": 150,
+    "p95": 300
+   }
+  },
+  "nearbySearch": {
+   "n": 36,
+   "p50": 698.9,
+   "p95": 1544.1,
+   "min": 346,
+   "max": 2032.8,
+   "mean": 814.2,
+   "definition": "speech end → map show_results directive at client (usable result)",
+   "target": {
+    "p50": 1500,
+    "p95": 2500
+   }
+  },
+  "nearbyProviderToValidated": {
+   "n": 36,
+   "p50": 207.5,
+   "p95": 603.5,
+   "min": 86,
+   "max": 744,
+   "mean": 263.2,
+   "definition": "server telemetry nearby_to_result: provider call → zod-validated results",
+   "target": null
+  },
+  "toolToMap": {
+   "n": 36,
+   "p50": 0,
+   "p95": 1,
+   "min": 0,
+   "max": 2,
+   "mean": 0.4,
+   "definition": "validated tool result (server) → map directive received by client",
+   "target": {
+    "p50": 100,
+    "p95": 250
+   }
+  },
+  "audioFetch": {
+   "n": 36,
+   "p50": 2.1,
+   "p95": 3.4,
+   "min": 1.4,
+   "max": 38.5,
+   "mean": 3.2,
+   "definition": "GET /v1/audio/<segment0> after play (loopback, file on local volume)",
+   "target": null
+  }
+ }
+}

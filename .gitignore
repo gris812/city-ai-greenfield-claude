@@ -51,3 +51,4 @@ tmp/
 # ---- Runtime data ----
 data/local/
 benchmark/runs/raw/
+dump.rdb

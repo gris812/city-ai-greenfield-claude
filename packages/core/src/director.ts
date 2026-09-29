@@ -145,7 +145,11 @@ export interface StoryBudget {
 /** Budget: min(regime max × verbosity, max(MIN, etaToPass − margin)); words = duration × wps. */
 export function storyBudget(ctx: JourneyContext, target: ScoredCandidate, guide: GuideProfile | null | undefined): StoryBudget {
   const policy = policyForContext(ctx);
-  const cap = policy.maxStoryS * (guide?.narrative.verbosity ?? 1);
+  // Guide verbosity may shorten a story anywhere, but may only lengthen it outside
+  // driving: the regime's maxStoryS is a hard safety cap while driving (D-008).
+  const verbosity = guide?.narrative.verbosity ?? 1;
+  const driving = isDriving(ctx.regime.regime);
+  const cap = policy.maxStoryS * (driving ? Math.min(1, verbosity) : verbosity);
   const etaPass = target.components.etaToPassS;
   const byEta = etaPass === undefined ? Infinity : Math.max(DIRECTOR.MIN_BUDGET_S, etaPass - DIRECTOR.LEAD_MARGIN_S);
   const duration = Math.round(Math.max(DIRECTOR.MIN_BUDGET_S, Math.min(cap, byEta)));
