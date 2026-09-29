@@ -506,7 +506,18 @@ export class CompanionStore {
       // Local engine: one frame per fix, like the replay harness (deterministic regime tracking).
       for (const f of fixes) this.transport.sendContext(this.frameBody([f], f.t));
       this.lastLocalFrameAt = Date.now();
-    } else this.batcher.pushAll(fixes);
+    } else {
+      this.batcher.pushAll(fixes);
+      // Event-driven flush: RN pauses JS timers while the app is backgrounded (screen locked), but
+      // location events keep arriving from the OS, so they must be able to push frames out (E2).
+      this.flushFrames(Date.now());
+    }
+  }
+
+  private flushFrames(wall: number): void {
+    const t = this.transport;
+    if (!t || t.kind !== 'live' || !this.snap.sessionActive || !this.batcher.due(wall)) return;
+    t.sendContext(this.batcher.take(this.virtualNow(), { appState: this.snap.appState, audio: this.frameBody([], 0).audio, lastInteractionAt: this.lastInteractionAt, simulated: this.simulated() }));
   }
 
   private updatePuckHeading(): void {
@@ -560,9 +571,7 @@ export class CompanionStore {
           this.lastLocalFrameAt = wall;
           t.sendContext(this.frameBody([], this.virtualNow())); // heartbeat so the director re-evaluates
         }
-      } else if (this.batcher.due(wall)) {
-        t.sendContext(this.batcher.take(this.virtualNow(), { appState: this.snap.appState, audio: this.frameBody([], 0).audio, lastInteractionAt: this.lastInteractionAt, simulated: this.simulated() }));
-      }
+      } else this.flushFrames(wall); // heartbeat / stationary cadence while timers run (foreground)
     }
     // now-playing progress
     const np = this.snap.view.nowPlaying;
