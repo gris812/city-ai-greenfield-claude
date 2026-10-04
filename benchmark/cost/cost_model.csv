@@ -1,145 +1,169 @@
 scenario,scenarioLabel,mix,sharedStoryCacheHit,realtimeProvider,maps,places_discovery,place_details,routes,evidence,llm,tts,realtime_stt,storage_egress,other,nearby_search,total,spokenMinutes
-walk30,30-min Walk,economy,0,,0,0,0,0,0,0.003287,0.269711,0,0.0001,0,0,0.273098,20.79
-walk30,30-min Walk,economy,0.5,,0,0,0,0,0,0.001713,0.137533,0,0.0001,0,0,0.139346,20.79
-walk30,30-min Walk,economy,0.8,,0,0,0,0,0,0.000768,0.058226,0,0.0001,0,0,0.059094,20.79
-walk30,30-min Walk,default,0,,0,0,0,0,0,0.003287,0.314024,0.00015,0.0001,0,0,0.317561,20.79
-walk30,30-min Walk,default,0.5,,0,0,0,0,0,0.001713,0.160133,0.00015,0.0001,0,0,0.162096,20.79
-walk30,30-min Walk,default,0.8,,0,0,0,0,0,0.000768,0.067798,0.00015,0.0001,0,0,0.068816,20.79
-walk30,30-min Walk,gemini2027,0,,0,0,0,0,0,0.009324,0.378687,0.00025,0.0001,0,0,0.38836,20.79
-walk30,30-min Walk,gemini2027,0.5,,0,0,0,0,0,0.004845,0.193107,0.00025,0.0001,0,0,0.198302,20.79
-walk30,30-min Walk,gemini2027,0.8,,0,0,0,0,0,0.002157,0.081759,0.00025,0.0001,0,0,0.084266,20.79
-walk30,30-min Walk,premium,0,,0,0,0,0,0,0.065745,0.899036,0.0003,0.0001,0,0,0.965181,20.79
-walk30,30-min Walk,premium,0.5,,0,0,0,0,0,0.034255,0.458443,0.0003,0.0001,0,0,0.493098,20.79
-walk30,30-min Walk,premium,0.8,,0,0,0,0,0,0.015361,0.194087,0.0003,0.0001,0,0,0.209848,20.79
-walk30,30-min Walk,wavenet_hypothetical,0,,0,0,0,0,0,0.003287,0.071923,0.00015,0.0001,0,0,0.07546,20.79
-walk30,30-min Walk,wavenet_hypothetical,0.5,,0,0,0,0,0,0.001713,0.036675,0.00015,0.0001,0,0,0.038638,20.79
-walk30,30-min Walk,wavenet_hypothetical,0.8,,0,0,0,0,0,0.000768,0.015527,0.00015,0.0001,0,0,0.016545,20.79
-walk30,30-min Walk,places_discovery,0,,0,0.732203,0,0,0,0.003287,0.314024,0.00015,0.0001,0,0,1.049765,20.79
-walk30,30-min Walk,places_discovery,0.5,,0,0.732203,0,0,0,0.001713,0.160133,0.00015,0.0001,0,0,0.894299,20.79
-walk30,30-min Walk,places_discovery,0.8,,0,0.732203,0,0,0,0.000768,0.067798,0.00015,0.0001,0,0,0.80102,20.79
-drive30_urban,30-min Drive (urban),economy,0,,0,0,0,0,0,0.001987,0.112246,0,0.000043,0,0,0.114276,8.92
-drive30_urban,30-min Drive (urban),economy,0.5,,0,0,0,0,0,0.000993,0.056123,0,0.000043,0,0,0.057159,8.92
-drive30_urban,30-min Drive (urban),economy,0.8,,0,0,0,0,0,0.000397,0.022449,0,0.000043,0,0,0.022889,8.92
-drive30_urban,30-min Drive (urban),default,0,,0,0,0,0,0,0.001987,0.134767,0,0.000043,0,0,0.136796,8.92
-drive30_urban,30-min Drive (urban),default,0.5,,0,0,0,0,0,0.000993,0.067383,0,0.000043,0,0,0.06842,8.92
-drive30_urban,30-min Drive (urban),default,0.8,,0,0,0,0,0,0.000397,0.026953,0,0.000043,0,0,0.027394,8.92
-drive30_urban,30-min Drive (urban),gemini2027,0,,0,0,0,0,0,0.005444,0.162501,0,0.000043,0,0,0.167989,8.92
-drive30_urban,30-min Drive (urban),gemini2027,0.5,,0,0,0,0,0,0.002722,0.081251,0,0.000043,0,0,0.084016,8.92
-drive30_urban,30-min Drive (urban),gemini2027,0.8,,0,0,0,0,0,0.001089,0.0325,0,0.000043,0,0,0.033632,8.92
-drive30_urban,30-min Drive (urban),premium,0,,0,0,0,0,0,0.039739,0.374153,0,0.000043,0,0,0.413935,8.92
-drive30_urban,30-min Drive (urban),premium,0.5,,0,0,0,0,0,0.01987,0.187076,0,0.000043,0,0,0.206989,8.92
-drive30_urban,30-min Drive (urban),premium,0.8,,0,0,0,0,0,0.007948,0.074831,0,0.000043,0,0,0.082821,8.92
-drive30_urban,30-min Drive (urban),wavenet_hypothetical,0,,0,0,0,0,0,0.001987,0.029932,0,0.000043,0,0,0.031962,8.92
-drive30_urban,30-min Drive (urban),wavenet_hypothetical,0.5,,0,0,0,0,0,0.000993,0.014966,0,0.000043,0,0,0.016002,8.92
-drive30_urban,30-min Drive (urban),wavenet_hypothetical,0.8,,0,0,0,0,0,0.000397,0.005986,0,0.000043,0,0,0.006427,8.92
-drive30_urban,30-min Drive (urban),places_discovery,0,,0,1.399857,0,0,0,0.001987,0.134767,0,0.000043,0,0,1.536653,8.92
-drive30_urban,30-min Drive (urban),places_discovery,0.5,,0,1.399857,0,0,0,0.000993,0.067383,0,0.000043,0,0,1.468277,8.92
-drive30_urban,30-min Drive (urban),places_discovery,0.8,,0,1.399857,0,0,0,0.000397,0.026953,0,0.000043,0,0,1.427251,8.92
-drive30_highway,30-min Drive (highway),economy,0,,0,0,0,0,0,0.000259,0.015736,0,0.000006,0,0,0.016002,1.21
-drive30_highway,30-min Drive (highway),economy,0.5,,0,0,0,0,0,0.00013,0.007868,0,0.000006,0,0,0.008004,1.21
-drive30_highway,30-min Drive (highway),economy,0.8,,0,0,0,0,0,0.000052,0.003147,0,0.000006,0,0,0.003205,1.21
-drive30_highway,30-min Drive (highway),default,0,,0,0,0,0,0,0.000259,0.018302,0,0.000006,0,0,0.018567,1.21
-drive30_highway,30-min Drive (highway),default,0.5,,0,0,0,0,0,0.00013,0.009151,0,0.000006,0,0,0.009287,1.21
-drive30_highway,30-min Drive (highway),default,0.8,,0,0,0,0,0,0.000052,0.00366,0,0.000006,0,0,0.003718,1.21
-drive30_highway,30-min Drive (highway),gemini2027,0,,0,0,0,0,0,0.000713,0.022071,0,0.000006,0,0,0.02279,1.21
-drive30_highway,30-min Drive (highway),gemini2027,0.5,,0,0,0,0,0,0.000356,0.011035,0,0.000006,0,0,0.011398,1.21
-drive30_highway,30-min Drive (highway),gemini2027,0.8,,0,0,0,0,0,0.000143,0.004414,0,0.000006,0,0,0.004563,1.21
-drive30_highway,30-min Drive (highway),premium,0,,0,0,0,0,0,0.005186,0.052455,0,0.000006,0,0,0.057646,1.21
-drive30_highway,30-min Drive (highway),premium,0.5,,0,0,0,0,0,0.002593,0.026227,0,0.000006,0,0,0.028826,1.21
-drive30_highway,30-min Drive (highway),premium,0.8,,0,0,0,0,0,0.001037,0.010491,0,0.000006,0,0,0.011534,1.21
-drive30_highway,30-min Drive (highway),wavenet_hypothetical,0,,0,0,0,0,0,0.000259,0.004196,0,0.000006,0,0,0.004461,1.21
-drive30_highway,30-min Drive (highway),wavenet_hypothetical,0.5,,0,0,0,0,0,0.00013,0.002098,0,0.000006,0,0,0.002234,1.21
-drive30_highway,30-min Drive (highway),wavenet_hypothetical,0.8,,0,0,0,0,0,0.000052,0.000839,0,0.000006,0,0,0.000897,1.21
-drive30_highway,30-min Drive (highway),places_discovery,0,,0,0.519987,0,0,0,0.000259,0.018302,0,0.000006,0,0,0.538555,1.21
-drive30_highway,30-min Drive (highway),places_discovery,0.5,,0,0.519987,0,0,0,0.00013,0.009151,0,0.000006,0,0,0.529274,1.21
-drive30_highway,30-min Drive (highway),places_discovery,0.8,,0,0.519987,0,0,0,0.000052,0.00366,0,0.000006,0,0,0.523705,1.21
-walk60_interactive,60-min Interactive Walk,economy,0,,0,0,0,0,0,0.006951,0.552652,0,0.000204,0,0.032,0.591807,42.6
-walk60_interactive,60-min Interactive Walk,economy,0.5,,0,0,0,0,0,0.003802,0.288296,0,0.000204,0,0.032,0.324302,42.6
-walk60_interactive,60-min Interactive Walk,economy,0.8,,0,0,0,0,0,0.001912,0.129682,0,0.000204,0,0.032,0.163799,42.6
-walk60_interactive,60-min Interactive Walk,default,0,,0,0,0,0,0,0.006951,0.64347,0.00075,0.000204,0,0.032,0.683375,42.6
-walk60_interactive,60-min Interactive Walk,default,0.5,,0,0,0,0,0,0.003802,0.335687,0.00075,0.000204,0,0.032,0.372444,42.6
-walk60_interactive,60-min Interactive Walk,default,0.8,,0,0,0,0,0,0.001912,0.151018,0.00075,0.000204,0,0.032,0.185885,42.6
-walk60_interactive,60-min Interactive Walk,gemini2027,0,,0,0,0,0,0,0.019648,0.77597,0.00125,0.000204,0,0.032,0.829073,42.6
-walk60_interactive,60-min Interactive Walk,gemini2027,0.5,,0,0,0,0,0,0.01069,0.404811,0.00125,0.000204,0,0.032,0.448956,42.6
-walk60_interactive,60-min Interactive Walk,gemini2027,0.8,,0,0,0,0,0,0.005316,0.182116,0.00125,0.000204,0,0.032,0.220886,42.6
-walk60_interactive,60-min Interactive Walk,premium,0,,0,0,0,0,0,0.13712,1.842173,0.0015,0.000204,0,0.032,2.012997,42.6
-walk60_interactive,60-min Interactive Walk,premium,0.5,,0,0,0,0,0,0.07414,0.960986,0.0015,0.000204,0,0.032,1.068831,42.6
-walk60_interactive,60-min Interactive Walk,premium,0.8,,0,0,0,0,0,0.036353,0.432275,0.0015,0.000204,0,0.032,0.502332,42.6
-walk60_interactive,60-min Interactive Walk,wavenet_hypothetical,0,,0,0,0,0,0,0.006951,0.147374,0.00075,0.000204,0,0.032,0.187279,42.6
-walk60_interactive,60-min Interactive Walk,wavenet_hypothetical,0.5,,0,0,0,0,0,0.003802,0.076879,0.00075,0.000204,0,0.032,0.113635,42.6
-walk60_interactive,60-min Interactive Walk,wavenet_hypothetical,0.8,,0,0,0,0,0,0.001912,0.034582,0.00075,0.000204,0,0.032,0.069449,42.6
-walk60_interactive,60-min Interactive Walk,places_discovery,0,,0,1.464407,0,0,0,0.006951,0.64347,0.00075,0.000204,0,0.032,2.147782,42.6
-walk60_interactive,60-min Interactive Walk,places_discovery,0.5,,0,1.464407,0,0,0,0.003802,0.335687,0.00075,0.000204,0,0.032,1.83685,42.6
-walk60_interactive,60-min Interactive Walk,places_discovery,0.8,,0,1.464407,0,0,0,0.001912,0.151018,0.00075,0.000204,0,0.032,1.650292,42.6
-walk30_rt5,30-min + 5 min Realtime,economy,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.003287,0.269711,0.062445,0.0001,0,0,0.335543,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0,gemini:gemini-3.8-live,0,0,0,0,0,0.003287,0.269711,0.0435,0.0001,0,0,0.316598,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.003287,0.269711,0.18966,0.0001,0,0,0.462758,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001713,0.137533,0.062445,0.0001,0,0,0.201791,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.001713,0.137533,0.0435,0.0001,0,0,0.182846,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.001713,0.137533,0.18966,0.0001,0,0,0.329006,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.000768,0.058226,0.062445,0.0001,0,0,0.121539,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.000768,0.058226,0.0435,0.0001,0,0,0.102594,20.79
-walk30_rt5,30-min + 5 min Realtime,economy,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.000768,0.058226,0.18966,0.0001,0,0,0.248754,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.003287,0.314024,0.062595,0.0001,0,0,0.380006,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0,gemini:gemini-3.8-live,0,0,0,0,0,0.003287,0.314024,0.04365,0.0001,0,0,0.361061,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.003287,0.314024,0.18981,0.0001,0,0,0.507221,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001713,0.160133,0.062595,0.0001,0,0,0.224541,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.001713,0.160133,0.04365,0.0001,0,0,0.205596,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.001713,0.160133,0.18981,0.0001,0,0,0.351756,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.000768,0.067798,0.062595,0.0001,0,0,0.131261,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.000768,0.067798,0.04365,0.0001,0,0,0.112316,20.79
-walk30_rt5,30-min + 5 min Realtime,default,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.000768,0.067798,0.18981,0.0001,0,0,0.258476,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.009324,0.378687,0.062695,0.0001,0,0,0.450805,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0,gemini:gemini-3.8-live,0,0,0,0,0,0.009324,0.378687,0.04375,0.0001,0,0,0.43186,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.009324,0.378687,0.18991,0.0001,0,0,0.57802,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.004845,0.193107,0.062695,0.0001,0,0,0.260747,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.004845,0.193107,0.04375,0.0001,0,0,0.241802,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.004845,0.193107,0.18991,0.0001,0,0,0.387962,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.002157,0.081759,0.062695,0.0001,0,0,0.146711,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.002157,0.081759,0.04375,0.0001,0,0,0.127766,20.79
-walk30_rt5,30-min + 5 min Realtime,gemini2027,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.002157,0.081759,0.18991,0.0001,0,0,0.273926,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.065745,0.899036,0.062745,0.0001,0,0,1.027626,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0,gemini:gemini-3.8-live,0,0,0,0,0,0.065745,0.899036,0.0438,0.0001,0,0,1.008681,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.065745,0.899036,0.18996,0.0001,0,0,1.154841,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.034255,0.458443,0.062745,0.0001,0,0,0.555543,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.034255,0.458443,0.0438,0.0001,0,0,0.536598,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.034255,0.458443,0.18996,0.0001,0,0,0.682758,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.015361,0.194087,0.062745,0.0001,0,0,0.272293,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.015361,0.194087,0.0438,0.0001,0,0,0.253348,20.79
-walk30_rt5,30-min + 5 min Realtime,premium,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.015361,0.194087,0.18996,0.0001,0,0,0.399508,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.003287,0.071923,0.062595,0.0001,0,0,0.137905,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0,gemini:gemini-3.8-live,0,0,0,0,0,0.003287,0.071923,0.04365,0.0001,0,0,0.11896,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.003287,0.071923,0.18981,0.0001,0,0,0.26512,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001713,0.036675,0.062595,0.0001,0,0,0.101083,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.001713,0.036675,0.04365,0.0001,0,0,0.082138,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.001713,0.036675,0.18981,0.0001,0,0,0.228298,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.000768,0.015527,0.062595,0.0001,0,0,0.07899,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.000768,0.015527,0.04365,0.0001,0,0,0.060045,20.79
-walk30_rt5,30-min + 5 min Realtime,wavenet_hypothetical,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.000768,0.015527,0.18981,0.0001,0,0,0.206205,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0,openai:gpt-realtime-2.1-mini,0,0.732203,0,0,0,0.003287,0.314024,0.062595,0.0001,0,0,1.11221,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0,gemini:gemini-3.8-live,0,0.732203,0,0,0,0.003287,0.314024,0.04365,0.0001,0,0,1.093265,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0,openai:gpt-realtime-2.1,0,0.732203,0,0,0,0.003287,0.314024,0.18981,0.0001,0,0,1.239425,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0.5,openai:gpt-realtime-2.1-mini,0,0.732203,0,0,0,0.001713,0.160133,0.062595,0.0001,0,0,0.956744,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0.5,gemini:gemini-3.8-live,0,0.732203,0,0,0,0.001713,0.160133,0.04365,0.0001,0,0,0.937799,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0.5,openai:gpt-realtime-2.1,0,0.732203,0,0,0,0.001713,0.160133,0.18981,0.0001,0,0,1.083959,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0.8,openai:gpt-realtime-2.1-mini,0,0.732203,0,0,0,0.000768,0.067798,0.062595,0.0001,0,0,0.863465,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0.8,gemini:gemini-3.8-live,0,0.732203,0,0,0,0.000768,0.067798,0.04365,0.0001,0,0,0.84452,20.79
-walk30_rt5,30-min + 5 min Realtime,places_discovery,0.8,openai:gpt-realtime-2.1,0,0.732203,0,0,0,0.000768,0.067798,0.18981,0.0001,0,0,0.99068,20.79
-stress30,High-density stress case (30 min),economy,0,,0,0,0,0,0,0.0043,0.300544,0,0.000111,0,0.096,0.400955,23.16
-stress30,High-density stress case (30 min),economy,0.5,,0,0,0,0,0,0.002714,0.170117,0,0.000111,0,0.096,0.268943,23.16
-stress30,High-density stress case (30 min),economy,0.8,,0,0,0,0,0,0.001763,0.091861,0,0.000111,0,0.096,0.189735,23.16
-stress30,High-density stress case (30 min),default,0,,0,0,0,0,0,0.0043,0.349881,0.00135,0.000111,0,0.096,0.451641,23.16
-stress30,High-density stress case (30 min),default,0.5,,0,0,0,0,0,0.002714,0.198072,0.00135,0.000111,0,0.096,0.298248,23.16
-stress30,High-density stress case (30 min),default,0.8,,0,0,0,0,0,0.001763,0.106987,0.00135,0.000111,0,0.096,0.206211,23.16
-stress30,High-density stress case (30 min),gemini2027,0,,0,0,0,0,0,0.012,0.421929,0.00225,0.000111,0,0.096,0.53229,23.16
-stress30,High-density stress case (30 min),gemini2027,0.5,,0,0,0,0,0,0.007502,0.23886,0.00225,0.000111,0,0.096,0.344723,23.16
-stress30,High-density stress case (30 min),gemini2027,0.8,,0,0,0,0,0,0.004802,0.129019,0.00225,0.000111,0,0.096,0.232182,23.16
-stress30,High-density stress case (30 min),premium,0,,0,0,0,0,0,0.080302,1.001814,0.0027,0.000111,0,0.096,1.180928,23.16
-stress30,High-density stress case (30 min),premium,0.5,,0,0,0,0,0,0.048597,0.567057,0.0027,0.000111,0,0.096,0.714465,23.16
-stress30,High-density stress case (30 min),premium,0.8,,0,0,0,0,0,0.029573,0.306203,0.0027,0.000111,0,0.096,0.434587,23.16
-stress30,High-density stress case (30 min),wavenet_hypothetical,0,,0,0,0,0,0,0.0043,0.080145,0.00135,0.000111,0,0.096,0.181906,23.16
-stress30,High-density stress case (30 min),wavenet_hypothetical,0.5,,0,0,0,0,0,0.002714,0.045365,0.00135,0.000111,0,0.096,0.14554,23.16
-stress30,High-density stress case (30 min),wavenet_hypothetical,0.8,,0,0,0,0,0,0.001763,0.024496,0.00135,0.000111,0,0.096,0.12372,23.16
-stress30,High-density stress case (30 min),places_discovery,0,,0,4.8,0,0,0,0.0043,0.349881,0.00135,0.000111,0,0.096,5.251641,23.16
-stress30,High-density stress case (30 min),places_discovery,0.5,,0,4.8,0,0,0,0.002714,0.198072,0.00135,0.000111,0,0.096,5.098248,23.16
-stress30,High-density stress case (30 min),places_discovery,0.8,,0,4.8,0,0,0,0.001763,0.106987,0.00135,0.000111,0,0.096,5.006211,23.16
+walk30,30-min Walk,economy,0,,0,0,0,0,0,0.002718,0.260762,0,0.000096,0,0,0.263576,20.08
+walk30,30-min Walk,economy,0.5,,0,0,0,0,0,0.001407,0.137253,0,0.000096,0,0,0.138757,20.08
+walk30,30-min Walk,economy,0.8,,0,0,0,0,0,0.00062,0.063148,0,0.000096,0,0,0.063865,20.08
+walk30,30-min Walk,default,0,,0,0,0,0,0,0.002718,0.303389,0.00015,0.000096,0,0,0.306354,20.08
+walk30,30-min Walk,default,0.5,,0,0,0,0,0,0.001407,0.159661,0.00015,0.000096,0,0,0.161314,20.08
+walk30,30-min Walk,default,0.8,,0,0,0,0,0,0.00062,0.073424,0.00015,0.000096,0,0,0.074291,20.08
+walk30,30-min Walk,gemini2027,0,,0,0,0,0,0,0.007828,0.365863,0.00025,0.000096,0,0,0.374037,20.08
+walk30,30-min Walk,gemini2027,0.5,,0,0,0,0,0,0.004044,0.192538,0.00025,0.000096,0,0,0.196929,20.08
+walk30,30-min Walk,gemini2027,0.8,,0,0,0,0,0,0.001773,0.088544,0.00025,0.000096,0,0,0.090663,20.08
+walk30,30-min Walk,premium,0,,0,0,0,0,0,0.054358,0.869206,0.0003,0.000096,0,0,0.923961,20.08
+walk30,30-min Walk,premium,0.5,,0,0,0,0,0,0.028137,0.457511,0.0003,0.000096,0,0,0.486044,20.08
+walk30,30-min Walk,premium,0.8,,0,0,0,0,0,0.012404,0.210494,0.0003,0.000096,0,0,0.223294,20.08
+walk30,30-min Walk,tiered,0,,0,0,0,0,0,0.002718,0.303389,0.00015,0.000096,0,0,0.306354,20.08
+walk30,30-min Walk,tiered,0.5,,0,0,0,0,0,0.001407,0.159661,0.00015,0.000096,0,0,0.161314,20.08
+walk30,30-min Walk,tiered,0.8,,0,0,0,0,0,0.00062,0.073424,0.00015,0.000096,0,0,0.074291,20.08
+walk30,30-min Walk,wavenet_all,0,,0,0,0,0,0,0.002718,0.069536,0.00015,0.000096,0,0,0.072501,20.08
+walk30,30-min Walk,wavenet_all,0.5,,0,0,0,0,0,0.001407,0.036601,0.00015,0.000096,0,0,0.038254,20.08
+walk30,30-min Walk,wavenet_all,0.8,,0,0,0,0,0,0.00062,0.01684,0.00015,0.000096,0,0,0.017706,20.08
+walk30,30-min Walk,places_discovery,0,,0,0.732203,0,0,0,0.002718,0.303389,0.00015,0.000096,0,0,1.038557,20.08
+walk30,30-min Walk,places_discovery,0.5,,0,0.732203,0,0,0,0.001407,0.159661,0.00015,0.000096,0,0,0.893518,20.08
+walk30,30-min Walk,places_discovery,0.8,,0,0.732203,0,0,0,0.00062,0.073424,0.00015,0.000096,0,0,0.806494,20.08
+drive30_urban,30-min Drive (urban),economy,0,,0,0,0,0,0,0.001322,0.090476,0,0.000035,0,0,0.091832,7.2
+drive30_urban,30-min Drive (urban),economy,0.5,,0,0,0,0,0,0.000661,0.048944,0,0.000035,0,0,0.049639,7.2
+drive30_urban,30-min Drive (urban),economy,0.8,,0,0,0,0,0,0.000264,0.024024,0,0.000035,0,0,0.024323,7.2
+drive30_urban,30-min Drive (urban),default,0,,0,0,0,0,0,0.001322,0.108692,0,0.000035,0,0,0.110048,7.2
+drive30_urban,30-min Drive (urban),default,0.5,,0,0,0,0,0,0.000661,0.058799,0,0.000035,0,0,0.059494,7.2
+drive30_urban,30-min Drive (urban),default,0.8,,0,0,0,0,0,0.000264,0.028863,0,0.000035,0,0,0.029162,7.2
+drive30_urban,30-min Drive (urban),gemini2027,0,,0,0,0,0,0,0.003657,0.131061,0,0.000035,0,0,0.134753,7.2
+drive30_urban,30-min Drive (urban),gemini2027,0.5,,0,0,0,0,0,0.001829,0.0709,0,0.000035,0,0,0.072763,7.2
+drive30_urban,30-min Drive (urban),gemini2027,0.8,,0,0,0,0,0,0.000731,0.034803,0,0.000035,0,0,0.035569,7.2
+drive30_urban,30-min Drive (urban),premium,0,,0,0,0,0,0,0.02643,0.301587,0,0.000035,0,0,0.328052,7.2
+drive30_urban,30-min Drive (urban),premium,0.5,,0,0,0,0,0,0.013215,0.163145,0,0.000035,0,0,0.176395,7.2
+drive30_urban,30-min Drive (urban),premium,0.8,,0,0,0,0,0,0.005286,0.08008,0,0.000035,0,0,0.085401,7.2
+drive30_urban,30-min Drive (urban),tiered,0,,0,0,0,0,0,0.001322,0.108692,0,0.000035,0,0,0.110048,7.2
+drive30_urban,30-min Drive (urban),tiered,0.5,,0,0,0,0,0,0.000661,0.058799,0,0.000035,0,0,0.059494,7.2
+drive30_urban,30-min Drive (urban),tiered,0.8,,0,0,0,0,0,0.000264,0.028863,0,0.000035,0,0,0.029162,7.2
+drive30_urban,30-min Drive (urban),wavenet_all,0,,0,0,0,0,0,0.001322,0.024127,0,0.000035,0,0,0.025483,7.2
+drive30_urban,30-min Drive (urban),wavenet_all,0.5,,0,0,0,0,0,0.000661,0.013052,0,0.000035,0,0,0.013747,7.2
+drive30_urban,30-min Drive (urban),wavenet_all,0.8,,0,0,0,0,0,0.000264,0.006406,0,0.000035,0,0,0.006705,7.2
+drive30_urban,30-min Drive (urban),places_discovery,0,,0,1.235168,0,0,0,0.001322,0.108692,0,0.000035,0,0,1.345216,7.2
+drive30_urban,30-min Drive (urban),places_discovery,0.5,,0,1.235168,0,0,0,0.000661,0.058799,0,0.000035,0,0,1.294662,7.2
+drive30_urban,30-min Drive (urban),places_discovery,0.8,,0,1.235168,0,0,0,0.000264,0.028863,0,0.000035,0,0,1.26433,7.2
+drive30_highway,30-min Drive (highway),economy,0,,0,0,0,0,0,0.00019,0.014154,0,0.000005,0,0,0.01435,1.09
+drive30_highway,30-min Drive (highway),economy,0.5,,0,0,0,0,0,0.000095,0.007601,0,0.000005,0,0,0.007701,1.09
+drive30_highway,30-min Drive (highway),economy,0.8,,0,0,0,0,0,0.000038,0.003669,0,0.000005,0,0,0.003712,1.09
+drive30_highway,30-min Drive (highway),default,0,,0,0,0,0,0,0.00019,0.016479,0,0.000005,0,0,0.016674,1.09
+drive30_highway,30-min Drive (highway),default,0.5,,0,0,0,0,0,0.000095,0.008853,0,0.000005,0,0,0.008953,1.09
+drive30_highway,30-min Drive (highway),default,0.8,,0,0,0,0,0,0.000038,0.004277,0,0.000005,0,0,0.00432,1.09
+drive30_highway,30-min Drive (highway),gemini2027,0,,0,0,0,0,0,0.000529,0.019873,0,0.000005,0,0,0.020408,1.09
+drive30_highway,30-min Drive (highway),gemini2027,0.5,,0,0,0,0,0,0.000265,0.010676,0,0.000005,0,0,0.010946,1.09
+drive30_highway,30-min Drive (highway),gemini2027,0.8,,0,0,0,0,0,0.000106,0.005158,0,0.000005,0,0,0.005269,1.09
+drive30_highway,30-min Drive (highway),premium,0,,0,0,0,0,0,0.003803,0.047181,0,0.000005,0,0,0.050989,1.09
+drive30_highway,30-min Drive (highway),premium,0.5,,0,0,0,0,0,0.001901,0.025337,0,0.000005,0,0,0.027243,1.09
+drive30_highway,30-min Drive (highway),premium,0.8,,0,0,0,0,0,0.000761,0.01223,0,0.000005,0,0,0.012996,1.09
+drive30_highway,30-min Drive (highway),tiered,0,,0,0,0,0,0,0.00019,0.003774,0,0.000005,0,0,0.00397,1.09
+drive30_highway,30-min Drive (highway),tiered,0.5,,0,0,0,0,0,0.000095,0.002027,0,0.000005,0,0,0.002127,1.09
+drive30_highway,30-min Drive (highway),tiered,0.8,,0,0,0,0,0,0.000038,0.000978,0,0.000005,0,0,0.001022,1.09
+drive30_highway,30-min Drive (highway),wavenet_all,0,,0,0,0,0,0,0.00019,0.003774,0,0.000005,0,0,0.00397,1.09
+drive30_highway,30-min Drive (highway),wavenet_all,0.5,,0,0,0,0,0,0.000095,0.002027,0,0.000005,0,0,0.002127,1.09
+drive30_highway,30-min Drive (highway),wavenet_all,0.8,,0,0,0,0,0,0.000038,0.000978,0,0.000005,0,0,0.001022,1.09
+drive30_highway,30-min Drive (highway),places_discovery,0,,0,0.291923,0,0,0,0.00019,0.016479,0,0.000005,0,0,0.308597,1.09
+drive30_highway,30-min Drive (highway),places_discovery,0.5,,0,0.291923,0,0,0,0.000095,0.008853,0,0.000005,0,0,0.300876,1.09
+drive30_highway,30-min Drive (highway),places_discovery,0.8,,0,0.291923,0,0,0,0.000038,0.004277,0,0.000005,0,0,0.296243,1.09
+walk60_interactive,60-min Interactive Walk,economy,0,,0,0,0,0,0,0.005717,0.534754,0,0.000198,0,0.032,0.572669,41.19
+walk60_interactive,60-min Interactive Walk,economy,0.5,,0,0,0,0,0,0.003095,0.287737,0,0.000198,0,0.032,0.32303,41.19
+walk60_interactive,60-min Interactive Walk,economy,0.8,,0,0,0,0,0,0.001522,0.139526,0,0.000198,0,0.032,0.173246,41.19
+walk60_interactive,60-min Interactive Walk,default,0,,0,0,0,0,0,0.005717,0.6222,0.00075,0.000198,0,0.032,0.660865,41.19
+walk60_interactive,60-min Interactive Walk,default,0.5,,0,0,0,0,0,0.003095,0.334743,0.00075,0.000198,0,0.032,0.370786,41.19
+walk60_interactive,60-min Interactive Walk,default,0.8,,0,0,0,0,0,0.001522,0.162269,0.00075,0.000198,0,0.032,0.196739,41.19
+walk60_interactive,60-min Interactive Walk,gemini2027,0,,0,0,0,0,0,0.016421,0.750322,0.00125,0.000198,0,0.032,0.800191,41.19
+walk60_interactive,60-min Interactive Walk,gemini2027,0.5,,0,0,0,0,0,0.008852,0.403674,0.00125,0.000198,0,0.032,0.445973,41.19
+walk60_interactive,60-min Interactive Walk,gemini2027,0.8,,0,0,0,0,0,0.004311,0.195684,0.00125,0.000198,0,0.032,0.233443,41.19
+walk60_interactive,60-min Interactive Walk,premium,0,,0,0,0,0,0,0.112637,1.782512,0.0015,0.000198,0,0.032,1.928846,41.19
+walk60_interactive,60-min Interactive Walk,premium,0.5,,0,0,0,0,0,0.060194,0.959122,0.0015,0.000198,0,0.032,1.053014,41.19
+walk60_interactive,60-min Interactive Walk,premium,0.8,,0,0,0,0,0,0.028728,0.465088,0.0015,0.000198,0,0.032,0.527514,41.19
+walk60_interactive,60-min Interactive Walk,tiered,0,,0,0,0,0,0,0.005717,0.6222,0.00075,0.000198,0,0.032,0.660865,41.19
+walk60_interactive,60-min Interactive Walk,tiered,0.5,,0,0,0,0,0,0.003095,0.334743,0.00075,0.000198,0,0.032,0.370786,41.19
+walk60_interactive,60-min Interactive Walk,tiered,0.8,,0,0,0,0,0,0.001522,0.162269,0.00075,0.000198,0,0.032,0.196739,41.19
+walk60_interactive,60-min Interactive Walk,wavenet_all,0,,0,0,0,0,0,0.005717,0.142601,0.00075,0.000198,0,0.032,0.181266,41.19
+walk60_interactive,60-min Interactive Walk,wavenet_all,0.5,,0,0,0,0,0,0.003095,0.07673,0.00075,0.000198,0,0.032,0.112773,41.19
+walk60_interactive,60-min Interactive Walk,wavenet_all,0.8,,0,0,0,0,0,0.001522,0.037207,0.00075,0.000198,0,0.032,0.071677,41.19
+walk60_interactive,60-min Interactive Walk,places_discovery,0,,0,1.464407,0,0,0,0.005717,0.6222,0.00075,0.000198,0,0.032,2.125272,41.19
+walk60_interactive,60-min Interactive Walk,places_discovery,0.5,,0,1.464407,0,0,0,0.003095,0.334743,0.00075,0.000198,0,0.032,1.835193,41.19
+walk60_interactive,60-min Interactive Walk,places_discovery,0.8,,0,1.464407,0,0,0,0.001522,0.162269,0.00075,0.000198,0,0.032,1.661146,41.19
+walk30_rt5,30-min + 5 min Realtime,economy,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.002718,0.260762,0.062445,0.000096,0,0,0.326021,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0,gemini:gemini-3.8-live,0,0,0,0,0,0.002718,0.260762,0.0435,0.000096,0,0,0.307076,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.002718,0.260762,0.18966,0.000096,0,0,0.453236,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001407,0.137253,0.062445,0.000096,0,0,0.201202,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.001407,0.137253,0.0435,0.000096,0,0,0.182257,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.001407,0.137253,0.18966,0.000096,0,0,0.328417,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.00062,0.063148,0.062445,0.000096,0,0,0.12631,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.00062,0.063148,0.0435,0.000096,0,0,0.107365,20.08
+walk30_rt5,30-min + 5 min Realtime,economy,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.00062,0.063148,0.18966,0.000096,0,0,0.253525,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.002718,0.303389,0.062595,0.000096,0,0,0.368799,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0,gemini:gemini-3.8-live,0,0,0,0,0,0.002718,0.303389,0.04365,0.000096,0,0,0.349854,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.002718,0.303389,0.18981,0.000096,0,0,0.496014,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001407,0.159661,0.062595,0.000096,0,0,0.223759,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.001407,0.159661,0.04365,0.000096,0,0,0.204814,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.001407,0.159661,0.18981,0.000096,0,0,0.350974,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.00062,0.073424,0.062595,0.000096,0,0,0.136736,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.00062,0.073424,0.04365,0.000096,0,0,0.117791,20.08
+walk30_rt5,30-min + 5 min Realtime,default,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.00062,0.073424,0.18981,0.000096,0,0,0.263951,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.007828,0.365863,0.062695,0.000096,0,0,0.436482,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0,gemini:gemini-3.8-live,0,0,0,0,0,0.007828,0.365863,0.04375,0.000096,0,0,0.417537,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.007828,0.365863,0.18991,0.000096,0,0,0.563697,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.004044,0.192538,0.062695,0.000096,0,0,0.259374,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.004044,0.192538,0.04375,0.000096,0,0,0.240429,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.004044,0.192538,0.18991,0.000096,0,0,0.386589,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001773,0.088544,0.062695,0.000096,0,0,0.153108,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.001773,0.088544,0.04375,0.000096,0,0,0.134163,20.08
+walk30_rt5,30-min + 5 min Realtime,gemini2027,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.001773,0.088544,0.18991,0.000096,0,0,0.280323,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.054358,0.869206,0.062745,0.000096,0,0,0.986406,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0,gemini:gemini-3.8-live,0,0,0,0,0,0.054358,0.869206,0.0438,0.000096,0,0,0.967461,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.054358,0.869206,0.18996,0.000096,0,0,1.113621,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.028137,0.457511,0.062745,0.000096,0,0,0.548489,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.028137,0.457511,0.0438,0.000096,0,0,0.529544,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.028137,0.457511,0.18996,0.000096,0,0,0.675704,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.012404,0.210494,0.062745,0.000096,0,0,0.285739,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.012404,0.210494,0.0438,0.000096,0,0,0.266794,20.08
+walk30_rt5,30-min + 5 min Realtime,premium,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.012404,0.210494,0.18996,0.000096,0,0,0.412954,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.002718,0.303389,0.062595,0.000096,0,0,0.368799,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0,gemini:gemini-3.8-live,0,0,0,0,0,0.002718,0.303389,0.04365,0.000096,0,0,0.349854,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.002718,0.303389,0.18981,0.000096,0,0,0.496014,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001407,0.159661,0.062595,0.000096,0,0,0.223759,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.001407,0.159661,0.04365,0.000096,0,0,0.204814,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.001407,0.159661,0.18981,0.000096,0,0,0.350974,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.00062,0.073424,0.062595,0.000096,0,0,0.136736,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.00062,0.073424,0.04365,0.000096,0,0,0.117791,20.08
+walk30_rt5,30-min + 5 min Realtime,tiered,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.00062,0.073424,0.18981,0.000096,0,0,0.263951,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.002718,0.069536,0.062595,0.000096,0,0,0.134946,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0,gemini:gemini-3.8-live,0,0,0,0,0,0.002718,0.069536,0.04365,0.000096,0,0,0.116001,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0,openai:gpt-realtime-2.1,0,0,0,0,0,0.002718,0.069536,0.18981,0.000096,0,0,0.262161,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0.5,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.001407,0.036601,0.062595,0.000096,0,0,0.100699,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0.5,gemini:gemini-3.8-live,0,0,0,0,0,0.001407,0.036601,0.04365,0.000096,0,0,0.081754,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0.5,openai:gpt-realtime-2.1,0,0,0,0,0,0.001407,0.036601,0.18981,0.000096,0,0,0.227914,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0.8,openai:gpt-realtime-2.1-mini,0,0,0,0,0,0.00062,0.01684,0.062595,0.000096,0,0,0.080151,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0.8,gemini:gemini-3.8-live,0,0,0,0,0,0.00062,0.01684,0.04365,0.000096,0,0,0.061206,20.08
+walk30_rt5,30-min + 5 min Realtime,wavenet_all,0.8,openai:gpt-realtime-2.1,0,0,0,0,0,0.00062,0.01684,0.18981,0.000096,0,0,0.207366,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0,openai:gpt-realtime-2.1-mini,0,0.732203,0,0,0,0.002718,0.303389,0.062595,0.000096,0,0,1.101002,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0,gemini:gemini-3.8-live,0,0.732203,0,0,0,0.002718,0.303389,0.04365,0.000096,0,0,1.082057,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0,openai:gpt-realtime-2.1,0,0.732203,0,0,0,0.002718,0.303389,0.18981,0.000096,0,0,1.228217,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0.5,openai:gpt-realtime-2.1-mini,0,0.732203,0,0,0,0.001407,0.159661,0.062595,0.000096,0,0,0.955963,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0.5,gemini:gemini-3.8-live,0,0.732203,0,0,0,0.001407,0.159661,0.04365,0.000096,0,0,0.937018,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0.5,openai:gpt-realtime-2.1,0,0.732203,0,0,0,0.001407,0.159661,0.18981,0.000096,0,0,1.083178,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0.8,openai:gpt-realtime-2.1-mini,0,0.732203,0,0,0,0.00062,0.073424,0.062595,0.000096,0,0,0.868939,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0.8,gemini:gemini-3.8-live,0,0.732203,0,0,0,0.00062,0.073424,0.04365,0.000096,0,0,0.849994,20.08
+walk30_rt5,30-min + 5 min Realtime,places_discovery,0.8,openai:gpt-realtime-2.1,0,0.732203,0,0,0,0.00062,0.073424,0.18981,0.000096,0,0,0.996154,20.08
+stress30,High-density stress case (30 min),economy,0,,0,0,0,0,0,0.003487,0.294348,0,0.000109,0,0.096,0.393945,22.68
+stress30,High-density stress case (30 min),economy,0.5,,0,0,0,0,0,0.002166,0.171445,0,0.000109,0,0.096,0.26972,22.68
+stress30,High-density stress case (30 min),economy,0.8,,0,0,0,0,0,0.001373,0.097703,0,0.000109,0,0.096,0.195185,22.68
+stress30,High-density stress case (30 min),default,0,,0,0,0,0,0,0.003487,0.342563,0.00135,0.000109,0,0.096,0.443509,22.68
+stress30,High-density stress case (30 min),default,0.5,,0,0,0,0,0,0.002166,0.199525,0.00135,0.000109,0,0.096,0.29915,22.68
+stress30,High-density stress case (30 min),default,0.8,,0,0,0,0,0,0.001373,0.113703,0.00135,0.000109,0,0.096,0.212535,22.68
+stress30,High-density stress case (30 min),gemini2027,0,,0,0,0,0,0,0.009908,0.413103,0.00225,0.000109,0,0.096,0.52137,22.68
+stress30,High-density stress case (30 min),gemini2027,0.5,,0,0,0,0,0,0.0061,0.240612,0.00225,0.000109,0,0.096,0.345071,22.68
+stress30,High-density stress case (30 min),gemini2027,0.8,,0,0,0,0,0,0.003815,0.137117,0.00225,0.000109,0,0.096,0.239291,22.68
+stress30,High-density stress case (30 min),premium,0,,0,0,0,0,0,0.06462,0.981161,0.0027,0.000109,0,0.096,1.144589,22.68
+stress30,High-density stress case (30 min),premium,0.5,,0,0,0,0,0,0.038191,0.571483,0.0027,0.000109,0,0.096,0.708482,22.68
+stress30,High-density stress case (30 min),premium,0.8,,0,0,0,0,0,0.022333,0.325676,0.0027,0.000109,0,0.096,0.446818,22.68
+stress30,High-density stress case (30 min),tiered,0,,0,0,0,0,0,0.003487,0.342563,0.00135,0.000109,0,0.096,0.443509,22.68
+stress30,High-density stress case (30 min),tiered,0.5,,0,0,0,0,0,0.002166,0.199525,0.00135,0.000109,0,0.096,0.29915,22.68
+stress30,High-density stress case (30 min),tiered,0.8,,0,0,0,0,0,0.001373,0.113703,0.00135,0.000109,0,0.096,0.212535,22.68
+stress30,High-density stress case (30 min),wavenet_all,0,,0,0,0,0,0,0.003487,0.078493,0.00135,0.000109,0,0.096,0.179439,22.68
+stress30,High-density stress case (30 min),wavenet_all,0.5,,0,0,0,0,0,0.002166,0.045719,0.00135,0.000109,0,0.096,0.145344,22.68
+stress30,High-density stress case (30 min),wavenet_all,0.8,,0,0,0,0,0,0.001373,0.026054,0.00135,0.000109,0,0.096,0.124886,22.68
+stress30,High-density stress case (30 min),places_discovery,0,,0,4.8,0,0,0,0.003487,0.342563,0.00135,0.000109,0,0.096,5.243509,22.68
+stress30,High-density stress case (30 min),places_discovery,0.5,,0,4.8,0,0,0,0.002166,0.199525,0.00135,0.000109,0,0.096,5.09915,22.68
+stress30,High-density stress case (30 min),places_discovery,0.8,,0,4.8,0,0,0,0.001373,0.113703,0.00135,0.000109,0,0.096,5.012535,22.68

@@ -57,16 +57,16 @@ function partsFor(opts: { sessionId: string; now: number; alongM: number; crossM
 
 describe('story primitives (D-018)', () => {
   it('prefix = quantized spatial cue + place name (+ callback when it fits), deterministic and grounded', () => {
-    const a = partsFor({ sessionId: 's1', now: 1_000_000, alongM: 2500, crossM: 300 });
+    const a = partsFor({ sessionId: 's1', now: 1_000_000, alongM: 2300, crossM: 300 });
     expect(a.prefix).toMatch(/^Ahead on your right, about \d+(\.\d+)? kilometres: Harbor Span\.$/);
-    expect(partsFor({ sessionId: 's1', now: 1_000_000, alongM: 2500, crossM: 300 }).prefix).toBe(a.prefix);
+    expect(partsFor({ sessionId: 's1', now: 1_000_000, alongM: 2300, crossM: 300 }).prefix).toBe(a.prefix);
     expect(checkPrefix(a, GUIDE).ok).toBe(true);
-    const cb = partsFor({ sessionId: 's1', now: 1_000_000, alongM: 2500, crossM: 300, callback: true });
+    const cb = partsFor({ sessionId: 's1', now: 1_000_000, alongM: 2300, crossM: 300, callback: true });
     expect(cb.prefix).toContain('Old Ferry Pier');
     expect(checkPrefix(cb, GUIDE).ok).toBe(true);
     expect(wordCount(cb.prefix)).toBeLessThanOrEqual(STORY_PRIMITIVE.PREFIX_RESERVE_WORDS);
     // quantization: nearby positions give the same cue → the prefix audio repeats across users
-    expect(partsFor({ sessionId: 's9', now: 7, alongM: 2550, crossM: 320 }).prefix).toBe(a.prefix);
+    expect(partsFor({ sessionId: 's9', now: 7, alongM: 2250, crossM: 320 }).prefix).toBe(a.prefix);
     expect(storyPrefix({ spatialCue: null, placeName: 'Harbor Span', journeyCallbacks: [], locale: 'ru' })).toBe('Перед нами — Harbor Span.');
   });
 

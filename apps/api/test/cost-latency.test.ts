@@ -8,7 +8,7 @@
  *  - realtime reconciliation: many short bursts up to the seconds cap.
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { FakeSpeechSynthesizer, FakeTextGenerator } from '@city/providers';
+import { FakeSpeechSynthesizer, FakeTextGenerator, type CallContext, type GenerateRequest } from '@city/providers';
 import { NarrationCache } from '../src/narration-cache.js';
 import { frameOf, guest, http, newSession, resetDatabase, servicesAvailable, startTestApp, traceFixes, WsClient, type TestApp } from './helpers.js';
 
@@ -145,11 +145,11 @@ describe.skipIf(!ok)('D-019 tiered TTS routing', () => {
 });
 
 describe.skipIf(!ok)('D-020 streamed follow-up answers', () => {
-  const question = async (t: TestApp, capabilities: string[] | null) => {
+  const question = async (t: TestApp, capabilities: string[] | null, text = 'Why is that important?') => {
     const a = await open(t, capabilities ? { client: { platform: 'test', appVersion: '0', capabilities } } : {});
     await untilStory(a.c);
     const from = a.c.messages.length;
-    a.c.send({ type: 'utterance', text: 'Why is that important?', utteranceId: `q-${Math.random()}` });
+    a.c.send({ type: 'utterance', text, utteranceId: `q-${Math.random()}` });
     await a.c.directive('say', from, 5000, (e) => e.directive.purpose === 'answer');
     await new Promise((r) => setTimeout(r, 400));
     const says = a.c.directives().filter((m) => a.c.messages.indexOf(m) >= from && m.directive.type === 'say' && m.directive.purpose === 'answer');
@@ -157,7 +157,23 @@ describe.skipIf(!ok)('D-020 streamed follow-up answers', () => {
   };
 
   it('say_append clients get sentence-by-sentence says (first before the answer is complete), grounded, in order', async () => {
-    const story = new FakeTextGenerator({ latencyMs: 5, ttftMs: 20, interDeltaMs: 25 });
+    // The fixture answer is one fact (one sentence); this model adds a second grounded sentence so the stream has two.
+    class TwoSentences extends FakeTextGenerator {
+      override async generate(req: GenerateRequest, ctx?: CallContext) {
+        if (req.task !== 'followup_answer') return super.generate(req, ctx);
+        const fact = req.structured?.brief?.facts[0]?.text ?? 'It matters.';
+        const text = `${fact.replace(/[.!?]*$/, '.')} People still come here to remember.`;
+        const parts = text.match(/\s*\S+/g)!;
+        this.requests.push(req);
+        await new Promise((r) => setTimeout(r, 20));
+        for (const w of parts) {
+          await new Promise((r) => setTimeout(r, 25));
+          req.onDelta?.(w);
+        }
+        return { text, model: 'fake', usage: { inputTokens: 10, outputTokens: 20 } };
+      }
+    }
+    const story = new TwoSentences({ latencyMs: 5 });
     const t = await startTestApp({ kv: 'memory', fakes: { story } });
     try {
       const { a, says } = await question(t, ['say_append']);

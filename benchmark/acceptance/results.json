@@ -1,7 +1,7 @@
 {
  "generatedBy": "scripts/bench/acceptance.ts (pnpm bench:acceptance)",
- "generatedAt": "2026-09-29T03:14:11.817Z",
- "commit": "53bd624+uncommitted",
+ "generatedAt": "2026-10-04T14:37:50.088Z",
+ "commit": "e190bbb+uncommitted",
  "labels": {
   "MEASURED-tests": "automated test executed in this run (vitest/Playwright), deterministic fakes where providers are involved",
   "MEASURED-replay": "deterministic replay of synthetic traces over fixture POI/evidence packs (production core code path)",
@@ -193,7 +193,7 @@
    "section": "A",
    "title": "Highway / ahead discovery (OTR truck)",
    "status": "PARTIAL",
-   "evidence": "Heading and route corridors: 5 stories, 0 behind, 0 passed mid-story, silence 98.7%, max gap 32 min, 32.5 place queries/h; truck stops/off-route/behind rejected with reasons.",
+   "evidence": "Heading and route corridors: 5 stories, 0 behind, 0 passed mid-story, silence 98.7%, max gap 32 min, 18.2 place queries/h; truck stops/off-route/behind rejected with reasons.",
    "evidenceKinds": [
     "MEASURED-replay (synthetic I-40 trace, 105 min)",
     "MEASURED-tests",
@@ -339,7 +339,7 @@
     {
      "name": "smoke.spec.ts › /app switches to drive mode on the interstate replay",
      "status": "passed",
-     "durationMs": 3422
+     "durationMs": 4628
     }
    ]
   },
@@ -476,6 +476,11 @@
     {
      "suite": "core",
      "name": "no city coupling in packages/core/src segment.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src story-primitive.ts has no city names and no fixture imports",
      "status": "passed"
     },
     {
@@ -816,7 +821,7 @@
     {
      "name": "smoke.spec.ts › /app switches to drive mode on the interstate replay",
      "status": "passed",
-     "durationMs": 3422
+     "durationMs": 4628
     }
    ]
   },
@@ -1257,17 +1262,17 @@
   },
   {
    "metric": "trigger -> first audio p50/p95",
-   "value": "1877.8 / 3765.3 ms (n=36, uncached narration, loopback)",
+   "value": "1662.9 / 2683.4 ms (n=36, uncached narration, loopback)",
    "label": "MEASURED-harness, SIMULATED provider latency"
   },
   {
    "metric": "barge-in stop p50/p95",
-   "value": "0.6 / 1.4 ms server stop_audio round trip (n=36); device press→silence NOT YET MEASURED",
+   "value": "1 / 1.5 ms server stop_audio round trip (n=36); device press→silence NOT YET MEASURED",
    "label": "MEASURED-harness (loopback)"
   },
   {
    "metric": "speech-end -> first audio p50/p95",
-   "value": "nearby 1471.3 / 2346.3 ms; follow-up 2839.5 / 4915.3 ms (hybrid STT path, n=36 each)",
+   "value": "nearby 1250.3 / 2327.6 ms; follow-up 1950.2 / 3380.2 ms (hybrid STT path, n=36 each)",
    "label": "MEASURED-harness, SIMULATED provider latency"
   },
   {
@@ -1292,8 +1297,8 @@
   },
   {
    "metric": "cache hit rates by layer",
-   "value": "Production hit rates NOT YET MEASURED (no traffic). Harness: evidence/discovery caches warm after first session; narration audio cache cleared per session by design.",
-   "label": "NOT YET MEASURED"
+   "value": "Production hit rates NOT YET MEASURED (no traffic). Harness (fixture corpus, 1 route; counters per phase): cold body 0/36, audio 0/290, places 90/91, evidence 36/36; prose-warm/audio-cold body 36/36, audio 5/132, places 72/72, evidence 36/36; fully warm body 36/36, audio 140/144, places 72/72, evidence 36/36",
+   "label": "MEASURED-harness (not production) / NOT YET MEASURED in production"
   },
   {
    "metric": "known failures",
@@ -1304,18 +1309,18 @@
  "suites": [
   {
    "suite": "core",
-   "passed": 173,
+   "passed": 189,
    "failed": 0,
    "skipped": 0,
-   "durationMs": 4154,
+   "durationMs": 7919,
    "exitCode": 0
   },
   {
    "suite": "providers",
-   "passed": 85,
+   "passed": 104,
    "failed": 0,
    "skipped": 0,
-   "durationMs": 2964,
+   "durationMs": 5452,
    "exitCode": 0
   },
   {
@@ -1323,7 +1328,7 @@
    "passed": 35,
    "failed": 0,
    "skipped": 0,
-   "durationMs": 3616,
+   "durationMs": 5497,
    "exitCode": 0
   },
   {
@@ -1331,15 +1336,15 @@
    "passed": 29,
    "failed": 0,
    "skipped": 0,
-   "durationMs": 2728,
+   "durationMs": 4834,
    "exitCode": 0
   },
   {
    "suite": "api",
-   "passed": 72,
+   "passed": 88,
    "failed": 0,
    "skipped": 0,
-   "durationMs": 18964,
+   "durationMs": 52546,
    "exitCode": 0
   },
   {
@@ -1347,7 +1352,7 @@
    "passed": 15,
    "failed": 0,
    "skipped": 0,
-   "durationMs": 1682,
+   "durationMs": 2729,
    "exitCode": 0
   }
  ],
@@ -1361,27 +1366,27 @@
    {
     "name": "smoke.spec.ts › home page renders the value proposition, guides and availability",
     "status": "passed",
-    "durationMs": 619
+    "durationMs": 994
    },
    {
     "name": "smoke.spec.ts › home, app and admin have no horizontal scroll at 390px",
     "status": "passed",
-    "durationMs": 3473
+    "durationMs": 3981
    },
    {
     "name": "smoke.spec.ts › /app runs in offline demo mode and tells the 9/11 Memorial story on the wtc-walk replay",
     "status": "passed",
-    "durationMs": 3320
+    "durationMs": 3960
    },
    {
     "name": "smoke.spec.ts › /app switches to drive mode on the interstate replay",
     "status": "passed",
-    "durationMs": 3422
+    "durationMs": 4628
    },
    {
     "name": "smoke.spec.ts › /admin shows the passkey login and leaks no data without an API",
     "status": "passed",
-    "durationMs": 523
+    "durationMs": 687
    }
   ]
  },
@@ -1764,11 +1769,11 @@
     ],
     "providerQueries": {
      "discovery": 8,
-     "densityProbe": 12,
-     "total": 20,
-     "perHour": 66.3,
+     "densityProbe": 10,
+     "total": 18,
+     "perHour": 59.7,
      "emptyResults": 1,
-     "framesPerQuery": 54.4
+     "framesPerQuery": 60.4
     },
     "wronglyBehindTargets": 0,
     "endedAfterPassing": 0,
@@ -1869,11 +1874,11 @@
     ],
     "providerQueries": {
      "discovery": 13,
-     "densityProbe": 44,
-     "total": 57,
-     "perHour": 32.5,
-     "emptyResults": 16,
-     "framesPerQuery": 55.4
+     "densityProbe": 19,
+     "total": 32,
+     "perHour": 18.2,
+     "emptyResults": 11,
+     "framesPerQuery": 98.7
     },
     "wronglyBehindTargets": 0,
     "endedAfterPassing": 0,
@@ -1973,11 +1978,11 @@
     ],
     "providerQueries": {
      "discovery": 26,
-     "densityProbe": 44,
-     "total": 70,
-     "perHour": 39.9,
-     "emptyResults": 16,
-     "framesPerQuery": 45.1
+     "densityProbe": 19,
+     "total": 45,
+     "perHour": 25.7,
+     "emptyResults": 11,
+     "framesPerQuery": 70.2
     },
     "wronglyBehindTargets": 0,
     "endedAfterPassing": 0,
@@ -2060,7 +2065,7 @@
       "kind": "story",
       "regime": "urban_driving",
       "distanceM": 1438,
-      "reachM": 6157
+      "reachM": 4310
      },
      {
       "t": 1636,
@@ -2141,11 +2146,11 @@
     ],
     "providerQueries": {
      "discovery": 12,
-     "densityProbe": 25,
-     "total": 37,
-     "perHour": 58.9,
+     "densityProbe": 18,
+     "total": 30,
+     "perHour": 47.8,
      "emptyResults": 1,
-     "framesPerQuery": 61.1
+     "framesPerQuery": 75.4
     },
     "wronglyBehindTargets": 0,
     "endedAfterPassing": 0,
@@ -2202,6 +2207,77 @@
   "followupNoPlaceSearch": 36,
   "errors": []
  },
+ "cacheRates": {
+  "label": "MEASURED-harness: cache-layer counters over the measured phases (fixture corpus, one route, in-process). NOT production hit rates.",
+  "phases": {
+   "cold": {
+    "narrationBody": {
+     "hits": 0,
+     "misses": 36,
+     "hitRate": 0
+    },
+    "ttsAudio": {
+     "hits": 0,
+     "misses": 290,
+     "hitRate": 0
+    },
+    "places": {
+     "hits": 90,
+     "misses": 1,
+     "hitRate": 0.989
+    },
+    "evidence": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    }
+   },
+   "cachedProseColdAudio": {
+    "narrationBody": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "ttsAudio": {
+     "hits": 5,
+     "misses": 127,
+     "hitRate": 0.037899999999999996
+    },
+    "places": {
+     "hits": 72,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "evidence": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    }
+   },
+   "cachedWarm": {
+    "narrationBody": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "ttsAudio": {
+     "hits": 140,
+     "misses": 4,
+     "hitRate": 0.9722000000000001
+    },
+    "places": {
+     "hits": 72,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "evidence": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    }
+   }
+  }
+ },
  "c1IncrementalCost": {
   "label": "ESTIMATED (list price) from units measured in the harness (fake providers priced as the default config: gpt-6-luna, gpt-4o-mini-tts, gpt-4o-mini-transcribe, Places Nearby Search Pro)",
   "callsPerTurn": {
@@ -2217,10 +2293,10 @@
   }
  },
  "testConsole": [
-  "api: [in-process latencies ms] {\"bargein_stop_roundtrip\":{\"n\":1,\"p50\":2.8806360000003224},\"tool_to_map_roundtrip\":{\"n\":1,\"p50\":12.067859000000226},\"speech_end_to_first_audio_roundtrip\":{\"n\":1,\"p50\":19.44023100000004},\"bargein_new_turn_answer\":{\"n\":1,\"p50\":325.98194799999965}}",
+  "api: [in-process latencies ms] {\"bargein_stop_roundtrip\":{\"n\":1,\"p50\":3.0835259999998925},\"tool_to_map_roundtrip\":{\"n\":1,\"p50\":14.999945000000025},\"speech_end_to_first_audio_roundtrip\":{\"n\":1,\"p50\":23.212538000000222},\"bargein_new_turn_answer\":{\"n\":1,\"p50\":324.2945089999994}}",
   "api: [F1] place-source calls for 300 frames: 4",
   "api: [F2 timeout] attempts for 300 frames: 3",
   "api: [F5] place-source calls in reduced mode for 300 frames: 1"
  ],
- "durationS": 392
+ "durationS": 409
 }

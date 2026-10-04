@@ -118,10 +118,10 @@ def chart_cost_stacked():
 def chart_truck():
     tm = cost["truckDriverMonth"]
     rows = [r for r in tm["rows"] if r["trace"] == "interstate"]
-    mixes = [("wavenet_hypothetical", "WaveNet TTS (no adapter)"), ("economy", "Economy (tts-1)"), ("default", "Configured default"), ("gemini2027", "Gemini, 2027 prices"), ("premium", "Premium (ElevenLabs)")]
+    mixes = [("wavenet_all", "All-WaveNet (sensitivity)"), ("tiered", "Tiered: highway on WaveNet"), ("economy", "Economy (tts-1)"), ("default", "Configured default"), ("gemini2027", "Gemini, 2027 prices"), ("premium", "Premium (ElevenLabs)")]
     fig, ax = plt.subplots(figsize=(10.5, 5.6))
     fig.subplots_adjust(left=0.08, right=0.66, top=0.8, bottom=0.12)
-    color = {"wavenet_hypothetical": CAT[4], "economy": CAT[0], "default": CAT[2], "gemini2027": CAT[3], "premium": CAT[1]}
+    color = {"wavenet_all": CAT[5], "tiered": CAT[4], "economy": CAT[0], "default": CAT[2], "gemini2027": CAT[3], "premium": CAT[1]}
     ends = []
     for key, lab in mixes:
         pts = sorted([(r["sharedStoryCacheHit"] * 100, r["monthlyUsd"]) for r in rows if r["mix"] == key])
@@ -154,13 +154,13 @@ def chart_truck():
     ax.set_xlim(0, 90)
     ax.set_ylim(0, 26)
     ax.set_xticks([0, 25, 50, 65, 80, 90], ["0%", "25%", "50%", "65%", "80%", "90%"])
-    ax.set_xlabel("Shared story/audio cache hit rate (today ≈ 0%: needs the story-primitive cache, not yet built)")
+    ax.set_xlabel("Shared story-body cache hit rate (ASSUMED production rate; the cache itself is built, D-018)")
     ax.set_ylabel("Variable cost per driver-month (USD)")
     ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"${v:.0f}"))
     pd = [r for r in rows if r["mix"] == "places_discovery" and r["sharedStoryCacheHit"] == 0][0]
     ax.text(52, 23.6, f"Off-scale: Google Places for automatic discovery ≈ ${pd['monthlyUsd']:.0f}/mo", ha="left", fontsize=9, color=INK)
     ax.set_clip_on(False)
-    titled(fig, f"Long-haul driver month ({tm['hours']} h): break-even needs cheaper TTS or a shared cache", f"ESTIMATED list prices (2026-09-27, evaluated 2027-01-01); call rates MEASURED from the I-40 replay (2.85 stories/h, 32.5 free Wikimedia queries/h);\n1 question/h and 1 NearbySearch per 4 h ASSUMED. Plan price and store fee are HYPOTHESES. Model run {DATE}.")
+    titled(fig, f"Long-haul driver month ({tm['hours']} h): tiered TTS + shared cache vs plan price", f"ESTIMATED list prices (2026-09-27, evaluated 2027-01-01); call rates MEASURED from the I-40 replay ({cost['replayRates']['highway']['storiesPerHour']} stories/h, {cost['replayRates']['highway']['placeQueriesPerHour']} free Wikimedia queries/h);\nafter D-024 probe backoff; 1 question/h and 1 NearbySearch per 4 h ASSUMED. Plan price and store fee are HYPOTHESES. Model run {DATE}.")
     save(fig, "truck_driver_month_vs_cache")
 
 
@@ -169,7 +169,8 @@ def chart_latency():
     m = lat["metrics"]
     items = [
         ("triggerToFirstAudio", "Approved moment → first audio bytes"),
-        ("cachedStoryToFirstAudio", "Cached story → first audio bytes"),
+        ("cachedStoryToFirstAudio", "Cached body, audio evicted → first audio"),
+        ("cachedWarmStoryToFirstAudio", "Cached story (all warm) → first audio"),
         ("speechEndToFirstAudioNearby", "Speech end → answer audio (coffee)"),
         ("speechEndToFirstAudioFollowup", "Speech end → answer audio (follow-up)"),
         ("nearbySearch", "Speech end → nearby results on map"),

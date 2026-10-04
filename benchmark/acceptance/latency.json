@@ -1,11 +1,11 @@
 {
  "generatedBy": "scripts/bench/acceptance.ts",
- "generatedAt": "2026-09-29T03:14:11.817Z",
- "commit": "53bd624+uncommitted",
+ "generatedAt": "2026-10-04T14:37:50.088Z",
+ "commit": "e190bbb+uncommitted",
  "label": "MEASURED — in-process harness on loopback with SIMULATED provider latency. Not production, not a device, not a mobile network.",
  "method": {
   "server": "Real Fastify API + Postgres + Redis + WebSocket channel in this process; fixture places/evidence (demo mode); deterministic fake LLM/TTS/STT/Nearby each wrapped with a seeded log-normal delay (profile below).",
-  "sessions": "36 measured sessions on the wtc-walk trace (guides alternate Ida/Emil) after 1 warm-up session; narration audio cache cleared before each session; evidence/discovery caches warm after the warm-up (7-day / 15-min TTLs in production). Plus 36 sessions with narration audio already cached.",
+  "sessions": "36 measured sessions on the wtc-walk trace (guides alternate Ida/Emil) after 1 warm-up session; narration audio cache AND the shared story-body cache cleared before each cold session; evidence/discovery caches warm after the warm-up (7-day / 15-min TTLs in production). Then 36 sessions with the shared body prose cached but all audio evicted (cachedStoryToFirstAudio), and 36 with everything warm (cachedWarmStoryToFirstAudio). Follow-up answers stream per sentence (say_append); the LLM first-token share of its simulated latency is an ASSUMPTION (ttftShare).",
   "clock": "performance.now() in the client and server share one process/clock; server intervals come from API telemetry (telemetry.latency), client intervals from WebSocket message arrival.",
   "percentiles": "linear interpolation between closest ranks (Hyndman–Fan type 7)",
   "speechEnd": "start of the POST /v1/stt upload of a ~3 s push-to-talk clip (fake STT decodes TEXT:<utterance>); i.e. includes STT + intent + tool/LLM + TTS + audio fetch.",
@@ -26,7 +26,8 @@
   "llm_followup": {
    "p50": 700,
    "p95": 1600,
-   "note": "small hosted LLM, ~100 output tokens"
+   "ttftShare": 0.45,
+   "note": "small hosted LLM, ~100 output tokens. Streamed (D-020): the same full-completion draw, first delta after ttftShare × total (ASSUMPTION), remaining words spread evenly"
   },
   "llm_intent": {
    "p50": 450,
@@ -78,20 +79,20 @@
    "mean": 194.4
   },
   "llm_story": {
-   "n": 76,
-   "p50": 987,
-   "p95": 2343.1,
+   "n": 39,
+   "p50": 962,
+   "p95": 2250.6,
    "min": 347,
-   "max": 3582.5,
-   "mean": 1210
+   "max": 2485.2,
+   "mean": 1166
   },
   "tts": {
-   "n": 189,
-   "p50": 752.5,
-   "p95": 1799.7,
-   "min": 158.1,
-   "max": 3464.5,
-   "mean": 882.4
+   "n": 431,
+   "p50": 551.2,
+   "p95": 1486.4,
+   "min": 99.4,
+   "max": 2676.6,
+   "mean": 674.8
   },
   "stt": {
    "n": 72,
@@ -129,11 +130,11 @@
  "metrics": {
   "triggerToFirstAudio": {
    "n": 36,
-   "p50": 1877.8,
-   "p95": 3765.3,
-   "min": 929.1,
-   "max": 4339.8,
-   "mean": 2050.2,
+   "p50": 1662.9,
+   "p95": 2683.4,
+   "min": 752.6,
+   "max": 2724.3,
+   "mean": 1683.2,
    "definition": "moment decided (startStory) → play directive at client + segment-0 audio bytes fetched; uncached narration (evidence cached)",
    "target": {
     "p50": 2500,
@@ -142,34 +143,57 @@
   },
   "triggerToPlayDirectiveServer": {
    "n": 36,
-   "p50": 1874.5,
-   "p95": 3762.5,
-   "min": 927,
-   "max": 4337,
-   "mean": 2046.3,
+   "p50": 1659.5,
+   "p95": 2679.8,
+   "min": 750,
+   "max": 2721,
+   "mean": 1679.6,
    "definition": "server telemetry trigger_to_first_audio: evidence + LLM + grounding + TTS segment 0 → play emitted",
    "target": null
   },
   "cachedStoryToFirstAudio": {
    "n": 36,
-   "p50": 1058.7,
-   "p95": 2910,
-   "min": 377.7,
-   "max": 3590,
-   "mean": 1274,
-   "definition": "same as triggerToFirstAudio but segment-0 audio already cached (LLM still runs: the audio key is the prose hash)",
+   "p50": 447.8,
+   "p95": 883.4,
+   "min": 176.9,
+   "max": 970.1,
+   "mean": 491.4,
+   "definition": "D-018 cached story, conservative: shared body prose cached (NO LLM call) but ALL audio evicted → first audio = synthesis of the short prefix segment",
    "target": {
-    "p50": 1500,
-    "p95": 3000
+    "p50": 500,
+    "p95": 1000
    }
+  },
+  "cachedWarmStoryToFirstAudio": {
+   "n": 36,
+   "p50": 6.2,
+   "p95": 28.3,
+   "min": 4,
+   "max": 501.1,
+   "mean": 22.3,
+   "definition": "D-018 cached story, everything warm (body prose + prefix audio + body audio cached: repeat landmark/corridor): no LLM, no TTS; first audio = cached prefix audio",
+   "target": {
+    "p50": 500,
+    "p95": 1000
+   }
+  },
+  "cachedWarmTriggerToPlayDirectiveServer": {
+   "n": 36,
+   "p50": 3,
+   "p95": 21.3,
+   "min": 2,
+   "max": 499,
+   "mean": 18.5,
+   "definition": "server telemetry cached_story_to_first_audio (fully warm): startStory → play directive emitted",
+   "target": null
   },
   "speechEndToFirstAudio": {
    "n": 72,
-   "p50": 2156.1,
-   "p95": 4319,
-   "min": 646.9,
-   "max": 5258.1,
-   "mean": 2266,
+   "p50": 1624.1,
+   "p95": 3058.8,
+   "min": 782.9,
+   "max": 3859.5,
+   "mean": 1787.5,
    "definition": "both utterance types pooled",
    "target": {
     "p50": 2000,
@@ -178,11 +202,11 @@
   },
   "speechEndToFirstAudioNearby": {
    "n": 36,
-   "p50": 1471.3,
-   "p95": 2346.3,
-   "min": 646.9,
-   "max": 2801.9,
-   "mean": 1535.7,
+   "p50": 1250.3,
+   "p95": 2327.6,
+   "min": 782.9,
+   "max": 2477.2,
+   "mean": 1430.3,
    "definition": "\"Where can I get coffee nearby?\" (STT → rules intent → Nearby → validation → map → TTS answer)",
    "target": {
     "p50": 2000,
@@ -191,11 +215,11 @@
   },
   "speechEndToFirstAudioFollowup": {
    "n": 36,
-   "p50": 2839.5,
-   "p95": 4915.3,
-   "min": 1653.2,
-   "max": 5258.1,
-   "mean": 2996.3,
+   "p50": 1950.2,
+   "p95": 3380.2,
+   "min": 931.1,
+   "max": 3859.5,
+   "mean": 2144.6,
    "definition": "\"Why is that important?\" (STT → rules/LLM intent → grounded follow-up LLM → TTS answer)",
    "target": {
     "p50": 2000,
@@ -205,40 +229,40 @@
   "contextIngest": {
    "n": 648,
    "p50": 0.1,
-   "p95": 0.1,
+   "p95": 0.2,
    "min": 0,
-   "max": 1,
+   "max": 1.8,
    "mean": 0.1,
    "definition": "server telemetry context_ingest: one ContextFrame folded into journey state (core ingestFrame); every frame of the measured sessions until the first story",
    "target": null
   },
   "serverStt": {
    "n": 36,
-   "p50": 491.9,
+   "p50": 492.4,
    "p95": 1046.3,
-   "min": 150,
-   "max": 1369.5,
-   "mean": 548.6,
+   "min": 150.9,
+   "max": 1369.3,
+   "mean": 548.9,
    "definition": "server telemetry stt: /v1/stt transcription call (simulated provider latency)",
    "target": null
   },
   "serverUtteranceToFirstAudio": {
    "n": 36,
-   "p50": 976,
-   "p95": 1522.5,
-   "min": 344,
-   "max": 1625,
-   "mean": 982.3,
+   "p50": 786,
+   "p95": 1476,
+   "min": 417,
+   "max": 1572,
+   "mean": 875.1,
    "definition": "server telemetry speech_end_to_first_audio (excludes STT and audio fetch)",
    "target": null
   },
   "bargeInStop": {
    "n": 36,
-   "p50": 0.6,
-   "p95": 1.4,
-   "min": 0.3,
-   "max": 3.2,
-   "mean": 0.7,
+   "p50": 1,
+   "p95": 1.5,
+   "min": 0.7,
+   "max": 3.4,
+   "mean": 1.1,
    "definition": "control interrupt → stop_audio directive at client (server round trip, loopback)",
    "target": {
     "p50": 150,
@@ -247,11 +271,11 @@
   },
   "nearbySearch": {
    "n": 36,
-   "p50": 698.9,
-   "p95": 1544.1,
-   "min": 346,
-   "max": 2032.8,
-   "mean": 814.2,
+   "p50": 701.3,
+   "p95": 1544.5,
+   "min": 348.2,
+   "max": 2035.3,
+   "mean": 815.7,
    "definition": "speech end → map show_results directive at client (usable result)",
    "target": {
     "p50": 1500,
@@ -260,21 +284,21 @@
   },
   "nearbyProviderToValidated": {
    "n": 36,
-   "p50": 207.5,
+   "p50": 207,
    "p95": 603.5,
    "min": 86,
    "max": 744,
-   "mean": 263.2,
+   "mean": 263.1,
    "definition": "server telemetry nearby_to_result: provider call → zod-validated results",
    "target": null
   },
   "toolToMap": {
    "n": 36,
-   "p50": 0,
-   "p95": 1,
+   "p50": 1,
+   "p95": 1.3,
    "min": 0,
-   "max": 2,
-   "mean": 0.4,
+   "max": 3,
+   "mean": 0.9,
    "definition": "validated tool result (server) → map directive received by client",
    "target": {
     "p50": 100,
@@ -283,11 +307,11 @@
   },
   "audioFetch": {
    "n": 36,
-   "p50": 2.1,
-   "p95": 3.4,
-   "min": 1.4,
-   "max": 38.5,
-   "mean": 3.2,
+   "p50": 2.8,
+   "p95": 4.7,
+   "min": 1.9,
+   "max": 5.4,
+   "mean": 2.9,
    "definition": "GET /v1/audio/<segment0> after play (loopback, file on local volume)",
    "target": null
   }

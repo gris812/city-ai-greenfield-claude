@@ -14,6 +14,15 @@
  * followUpPrompt/intent prompts) applied to the replayed briefs. Output length, retry rate,
  * question mix, audio bitrate and usage patterns are explicit ASSUMPTIONS (see `assumptions`).
  * Revenue/pricing values are HYPOTHESES from docs/research/MONETIZATION.md.
+ *
+ * D-018..D-024 (this revision): LLM input tokens now come from the REAL runtime prompts (context-free
+ * story-body prompt, no JSON payload block; the "before" figures re-create the legacy prompt with
+ * payloadBlock), the story is split into a cacheable body + a short template prefix, narration TTS
+ * is tier-routed (DEFAULT_TTS_TIERS; economy = Google WaveNet through the implemented google_tts
+ * adapter), and density-probe/discovery rates come from the regenerated replays. Cache hit rates of
+ * 50/80 % remain ASSUMED production rates; the in-process harness measures hit rates separately
+ * (benchmark/acceptance/latency.json cacheRates). benchmark/cost/cost_model.before_D018.json is the
+ * committed pre-D-018 output (commit 7e9934a), used for the before/after block.
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -46,6 +55,8 @@ export const A = {
   webMapLoadUsd: 7 / 1000, // Dynamic Maps per load (WebApp only; native Maps SDK is free)
   realtime: { userShareOfActiveMinute: 0.3, assistantShareOfActiveMinute: 0.4, turnsPer5Min: 10 },
   truck: { hoursPerDay: 8, daysPerMonth: 22, questionsPerHour: 1, nearbyPerHour: 0.25 },
+  /** Prefix (quantized spatial cue + place name) is a separate TTS call, cached only by exact text; modeled as NOT cached (conservative). */
+  prefixAudioHit: 0,
   storeFee: 0.15, // Apple Small Business / Google Play subscriptions (MONETIZATION.md §1)
 };
 
@@ -80,6 +91,8 @@ interface Mix {
   story: Sku;
   intent: Sku;
   tts: Sku;
+  /** Cheap narration tier (D-019): used for story bodies/prefixes whose regime routes to `economy` in DEFAULT_TTS_TIERS. */
+  ttsEconomy?: Sku;
   stt: Sku;
   nearby: Sku;
   discovery: Sku;
@@ -90,7 +103,8 @@ export const MIXES: Mix[] = [
   { id: 'default', label: 'Configured default: gpt-6-luna + gpt-4o-mini-tts + gpt-4o-mini-transcribe + Wikimedia discovery', story: table('openai', 'gpt-6-luna', 'llm'), intent: table('openai', 'gpt-6-luna', 'llm'), tts: table('openai', 'gpt-4o-mini-tts', 'tts'), stt: table('openai', 'gpt-4o-mini-transcribe', 'stt'), nearby: NEARBY, discovery: free('Wikimedia (free, rate-limited)') },
   { id: 'gemini2027', label: 'Gemini stack at 2027 prices: gemini-3.1-flash-lite + gemini-3.8-flash-lite-tts + gemini-3.5-transcribe', story: table('gemini', 'gemini-3.1-flash-lite', 'llm'), intent: table('gemini', 'gemini-3.1-flash-lite', 'llm'), tts: table('gemini', 'gemini-3.8-flash-lite-tts', 'tts'), stt: table('gemini', 'gemini-3.5-transcribe', 'stt'), nearby: NEARBY, discovery: free('Wikimedia (free, rate-limited)') },
   { id: 'premium', label: 'Premium voice: Claude Sonnet 5 prose + ElevenLabs Flash TTS + gpt-4o-transcribe', story: table('anthropic', 'claude-sonnet-5', 'llm'), intent: table('openai', 'gpt-6-luna', 'llm'), tts: perKChars('TTS Flash/Turbo', 'characters (PAYG / overage)'), stt: table('openai', 'gpt-4o-transcribe', 'stt'), nearby: NEARBY, discovery: free('Wikimedia (free, rate-limited)') },
-  { id: 'wavenet_hypothetical', label: 'NOT IMPLEMENTED (no adapter): default mix with Google Cloud TTS Standard/WaveNet ($4/1M chars) — sensitivity only', story: table('openai', 'gpt-6-luna', 'llm'), intent: table('openai', 'gpt-6-luna', 'llm'), tts: perKChars('Cloud Text-to-Speech Standard / WaveNet', 'characters'), stt: table('openai', 'gpt-4o-mini-transcribe', 'stt'), nearby: NEARBY, discovery: free('Wikimedia (free, rate-limited)') },
+  { id: 'tiered', label: 'IMPLEMENTED routing (D-019, GOOGLE_TTS_API_KEY set): default mix, but highway story bodies/prefixes on Google WaveNet ($4/1M chars) per DEFAULT_TTS_TIERS; walking, urban driving and every answer stay on gpt-4o-mini-tts', story: table('openai', 'gpt-6-luna', 'llm'), intent: table('openai', 'gpt-6-luna', 'llm'), tts: table('openai', 'gpt-4o-mini-tts', 'tts'), ttsEconomy: table('google_tts', 'wavenet', 'tts'), stt: table('openai', 'gpt-4o-mini-transcribe', 'stt'), nearby: NEARBY, discovery: free('Wikimedia (free, rate-limited)') },
+  { id: 'wavenet_all', label: 'SENSITIVITY (google_tts adapter implemented; needs TTS_TIER_*=economy for every regime and answers): default mix with ALL speech on Google WaveNet ($4/1M chars)', story: table('openai', 'gpt-6-luna', 'llm'), intent: table('openai', 'gpt-6-luna', 'llm'), tts: table('google_tts', 'wavenet', 'tts'), stt: table('openai', 'gpt-4o-mini-transcribe', 'stt'), nearby: NEARBY, discovery: free('Wikimedia (free, rate-limited)') },
   { id: 'places_discovery', label: 'RISK VARIANT: default mix but automatic discovery + density probes via Google Nearby Search Pro', story: table('openai', 'gpt-6-luna', 'llm'), intent: table('openai', 'gpt-6-luna', 'llm'), tts: table('openai', 'gpt-4o-mini-tts', 'tts'), stt: table('openai', 'gpt-4o-mini-transcribe', 'stt'), nearby: NEARBY, discovery: NEARBY },
 ];
 const REALTIME = [
@@ -109,9 +123,11 @@ interface Rates {
   discoveryQueries: number;
   densityProbes: number;
   wikimediaHttpRequests: number;
-  storyTokensIn: number[]; // per story, with production prompt builders
-  storyTokensInNoPayload: number[];
-  storyMaxWords: number[];
+  storyTokensIn: number[]; // per story: AFTER = the real context-free body prompt (D-018/D-021), no JSON payload
+  storyTokensInBefore: number[]; // BEFORE = legacy full-story prompt + embedded JSON payload block
+  storyMaxWords: number[]; // decided word budget (prefix + body)
+  bodyMaxWords: number[]; // body budget after the prefix reserve and bucketing
+  prefixWords: number[];
   orientationWords: number[];
   charsPerWord: number;
   regimes: string[];
@@ -133,7 +149,7 @@ function slice(trace: TraceFile, fromS: number, toS: number): TraceFile {
 
 async function rates(label: string, runs: Array<{ sc: Scenario; trace?: TraceFile }>): Promise<Rates> {
   const evidence = new FixtureEvidence();
-  const out: Rates = { source: label, hours: 0, stories: 0, orientations: 0, discoveryQueries: 0, densityProbes: 0, wikimediaHttpRequests: 0, storyTokensIn: [], storyTokensInNoPayload: [], storyMaxWords: [], orientationWords: [], charsPerWord: 0, regimes: [] };
+  const out: Rates = { source: label, hours: 0, stories: 0, orientations: 0, discoveryQueries: 0, densityProbes: 0, wikimediaHttpRequests: 0, storyTokensIn: [], storyTokensInBefore: [], storyMaxWords: [], bodyMaxWords: [], prefixWords: [], orientationWords: [], charsPerWord: 0, regimes: [] };
   let chars = 0;
   let words = 0;
   for (const { sc, trace } of runs) {
@@ -173,11 +189,20 @@ async function rates(label: string, runs: Array<{ sc: Scenario; trace?: TraceFil
         allowQuestionsToUser: st.allowQuestionsToUser ?? false,
       };
       const sys = P.storySystemPrompt(sc.guide, sc.locale);
-      const prompt = P.storyPrompt(brief);
-      const noPayload = prompt.replace(/```json[\s\S]*```/, '');
-      out.storyTokensIn.push(Math.ceil((sys.length + prompt.length) / A.charsPerToken));
-      out.storyTokensInNoPayload.push(Math.ceil((sys.length + noPayload.length) / A.charsPerToken));
+      // BEFORE (legacy): story prompt incl. the embedded JSON payload block, sent to real providers.
+      const legacy = `${P.storyPrompt(brief)}\n${P.payloadBlock({ kind: 'story', brief })}`;
+      out.storyTokensInBefore.push(Math.ceil((sys.length + legacy.length) / A.charsPerToken));
+      // AFTER: context-free body brief (no spatial cue, no callbacks) with the budget the primitive computes.
+      const prefix = core.storyPrefix({ spatialCue: st.spatialCue ?? null, placeName: pack.placeName, journeyCallbacks: [], locale: sc.locale });
+      const prefixWords = core.wordCount(prefix);
+      const reserve = Math.max(core.STORY_PRIMITIVE.PREFIX_RESERVE_WORDS, prefixWords);
+      const B = core.STORY_PRIMITIVE.BUDGET_BUCKET_WORDS;
+      const bodyMax = Math.max(core.STORY_PRIMITIVE.MIN_BODY_WORDS, Math.floor((st.maxWords! - reserve) / B) * B);
+      const bodyBrief: core.StoryBrief = { ...brief, spatialCue: null, journeyCallbacks: [], allowQuestionsToUser: false, maxWords: bodyMax, facts: core.selectFacts(pack, st.angle as core.StoryAngle, bodyMax) };
+      out.storyTokensIn.push(Math.ceil((sys.length + P.storyBodyPrompt(bodyBrief).length) / A.charsPerToken));
       out.storyMaxWords.push(st.maxWords!);
+      out.bodyMaxWords.push(bodyMax);
+      out.prefixWords.push(prefixWords);
     }
   }
   out.charsPerWord = chars / Math.max(1, words);
@@ -196,6 +221,10 @@ interface Usage {
   evidenceLookups: number;
   storyTokensIn: number;
   storyMaxWords: number;
+  bodyMaxWords: number;
+  prefixWords: number;
+  /** Dominant regime of the scenario: routes narration to the standard/economy TTS tier (DEFAULT_TTS_TIERS). */
+  narrationTier: core.TtsTier;
   orientationWords: number;
   charsPerWord: number;
   followups: number;
@@ -213,8 +242,8 @@ function sessionCost(u: Usage, mix: Mix, cacheHit: number, realtimeId = 'openai:
   const miss = 1 - cacheHit;
   // discovery + density probes (automatic)
   c.places_discovery = mix.discovery.cost({ requests: 1 }) * u.placeQueries;
-  // LLM: stories (+ constrained retry: prompt + previous draft again), shared-cache hits skip generation
-  const outWords = A.llmFillOfMaxWords * u.storyMaxWords;
+  // LLM: story BODIES (+ constrained retry: prompt + previous draft again); a shared-cache hit skips generation.
+  const outWords = A.llmFillOfMaxWords * u.bodyMaxWords;
   const outTok = outWords * A.tokensPerWordOut;
   const perStory = mix.story.cost({ inputTokens: u.storyTokensIn, outputTokens: outTok, requests: 1 }) + A.groundingRetryRate * mix.story.cost({ inputTokens: u.storyTokensIn + outTok, outputTokens: outTok, requests: 1 });
   const fuWords = A.followupFillOfMaxWords * u.followupMaxWords;
@@ -222,9 +251,12 @@ function sessionCost(u: Usage, mix: Mix, cacheHit: number, realtimeId = 'openai:
   const perFollowup = mix.story.cost({ inputTokens: fuIn, outputTokens: fuWords * A.tokensPerWordOut, requests: 1 });
   const perIntent = mix.intent.cost({ inputTokens: INTENT_TOKENS_IN, outputTokens: 40, requests: 1 });
   c.llm = u.stories * perStory * miss + u.followups * perFollowup + u.llmIntentCalls * perIntent;
-  // TTS: narration (story + orientation) is cacheable; answers are not
-  const ttsFor = (words: number) => mix.tts.cost({ characters: Math.round(words * u.charsPerWord), audioSeconds: words / 2.4, requests: 1 });
-  c.tts = (u.stories * ttsFor(outWords) + u.orientations * ttsFor(u.orientationWords)) * miss + u.followups * ttsFor(fuWords) + u.nearby * ttsFor(A.nearbyAnswerWords);
+  // TTS: narration = story body (cache by body key) + prefix (exact-text cache, modeled 0 % hit) + orientation lines
+  // (deterministic text: exact-text audio cache); narration routes to the economy tier where DEFAULT_TTS_TIERS says so.
+  const narr = u.narrationTier === 'economy' && mix.ttsEconomy ? mix.ttsEconomy : mix.tts;
+  const ttsWith = (sku: Sku, words: number) => sku.cost({ characters: Math.round(words * u.charsPerWord), audioSeconds: words / 2.4, requests: 1 });
+  const ttsFor = (words: number) => ttsWith(mix.tts, words);
+  c.tts = (u.stories * ttsWith(narr, outWords) + u.orientations * ttsWith(narr, u.orientationWords)) * miss + u.stories * ttsWith(narr, u.prefixWords) * (1 - A.prefixAudioHit) + u.followups * ttsFor(fuWords) + u.nearby * ttsFor(A.nearbyAnswerWords);
   // STT per question + realtime minutes
   const questions = u.followups + u.nearby;
   c.realtime_stt = questions * mix.stt.cost({ audioSeconds: A.questionAudioS, requests: 1 });
@@ -232,7 +264,7 @@ function sessionCost(u: Usage, mix: Mix, cacheHit: number, realtimeId = 'openai:
   // explicit NearbySearch tool (a Places call, reported in its own column)
   const nearbyUsd = u.nearby * NEARBY.cost({ requests: 1 });
   // storage/egress: audio bytes delivered
-  const spokenMin = (u.stories * outWords + u.orientations * u.orientationWords + u.followups * fuWords + u.nearby * A.nearbyAnswerWords) / 2.4 / 60;
+  const spokenMin = (u.stories * (outWords + u.prefixWords) + u.orientations * u.orientationWords + u.followups * fuWords + u.nearby * A.nearbyAnswerWords) / 2.4 / 60;
   c.storage_egress = ((spokenMin * 60 * A.audioKbps * 1000) / 8 / 1e9) * A.egressUsdPerGB;
   const total = Object.values(c).reduce((a, b) => a + b, 0) + nearbyUsd;
   return { components: { ...c, nearby_search: nearbyUsd }, total, spokenMinutes: spokenMin };
@@ -255,9 +287,48 @@ function realtimeCost(id: string, minutes: number): number {
   return usd;
 }
 
+interface BeforeReport {
+  sessionCosts: Array<{ scenario: string; mix: string; sharedStoryCacheHit: number; realtimeProvider: string | null; total: number }>;
+  truckDriverMonth: { rows: Array<{ trace: string; mix: string; sharedStoryCacheHit: number; monthlyUsd: number; usdPerHour: number }> };
+  replayRates: Record<string, { densityProbesPerHour: number; placeQueriesPerHour: number; storiesPerHour: number }>;
+}
+/** Before (committed pre-D-018 output) vs after (this run), same scenarios, same default mix. */
+function beforeAfter(before: BeforeReport | null, rows: Array<Record<string, unknown>>, truck: Array<Record<string, unknown>>) {
+  if (!before) return null;
+  const sc = (arr: Array<Record<string, unknown>>, s: string, m: string, h: number) => arr.find((r) => r.scenario === s && r.mix === m && r.sharedStoryCacheHit === h && (r.realtimeProvider === null || r.realtimeProvider === 'openai:gpt-realtime-2.1-mini'))?.total as number | undefined;
+  const tk = (arr: Array<Record<string, unknown>>, m: string, h: number) => arr.find((r) => r.trace === 'interstate' && r.mix === m && r.sharedStoryCacheHit === h) as { monthlyUsd: number; usdPerHour: number } | undefined;
+  const bSess = before.sessionCosts as unknown as Array<Record<string, unknown>>;
+  const bTruck = before.truckDriverMonth.rows as unknown as Array<Record<string, unknown>>;
+  const out: Record<string, unknown> = {
+    label: 'BEFORE = benchmark/cost/cost_model.before_D018.json (commit 7e9934a). AFTER = this run. ESTIMATED list prices; cache hit rates 50/80 % are ASSUMED production rates (code before D-018 could not reach them).',
+    sessionUsd: {} as Record<string, unknown>,
+    truckMonthUsd: {} as Record<string, unknown>,
+    densityProbesPerHour: {} as Record<string, unknown>,
+  };
+  for (const s of ['walk30', 'drive30_urban', 'drive30_highway', 'walk60_interactive']) {
+    (out.sessionUsd as Record<string, unknown>)[s] = {
+      default_0pct: { before: sc(bSess, s, 'default', 0), after: sc(rows, s, 'default', 0) },
+      default_50pct: { before: sc(bSess, s, 'default', 0.5), after: sc(rows, s, 'default', 0.5) },
+      tiered_0pct: { after: sc(rows, s, 'tiered', 0) },
+      tiered_50pct: { after: sc(rows, s, 'tiered', 0.5) },
+    };
+  }
+  for (const h of [0, 0.5, 0.8]) {
+    (out.truckMonthUsd as Record<string, unknown>)[`cache_${h * 100}pct`] = {
+      default: { before: tk(bTruck, 'default', h)?.monthlyUsd, after: tk(truck, 'default', h)?.monthlyUsd, afterPerHour: tk(truck, 'default', h)?.usdPerHour },
+      tiered: { after: tk(truck, 'tiered', h)?.monthlyUsd, afterPerHour: tk(truck, 'tiered', h)?.usdPerHour },
+      wavenet_all: { before: tk(bTruck, 'wavenet_hypothetical', h)?.monthlyUsd, after: tk(truck, 'wavenet_all', h)?.monthlyUsd },
+    };
+  }
+  for (const k of Object.keys(before.replayRates)) (out.densityProbesPerHour as Record<string, unknown>)[k] = { before: before.replayRates[k]!.densityProbesPerHour };
+  return out;
+}
+
 const INTENT_TOKENS_IN = Math.ceil((P.intentSystemPrompt().length + P.intentPrompt('Is there somewhere to sit down around here?', 'en-US', { activeSubject: 'National September 11 Memorial & Museum', previousIntent: null }).length) / A.charsPerToken);
 /** Follow-up prompt size (system + followUpPrompt with ≤3 facts), computed once in main() from a real brief. */
 let FOLLOWUP_BASE_TOKENS = 0;
+let FOLLOWUP_TOKENS_BEFORE = 0;
+const INTENT_TOKENS_BEFORE = Math.ceil((P.intentSystemPrompt().length + P.intentPrompt('Is there somewhere to sit down around here?', 'en-US', { activeSubject: 'National September 11 Memorial & Museum', previousIntent: null }).length + P.payloadBlock({ kind: 'intent', utterance: 'Is there somewhere to sit down around here?', context: { previousIntent: null } }).length + 1) / A.charsPerToken);
 
 // ───────────────────────────────────────────── main
 
@@ -271,6 +342,7 @@ async function main() {
     const base: core.StoryBrief = { id: 'b', placeId: pack.placeId, placeName: pack.placeName, placeKind: 'memorial', angle: 'origin', mode: 'full', facts: core.selectFacts(pack, 'origin', 300), durationBudgetS: 120, maxWords: 300, guideId: 'ida', locale: 'en-US', regime: 'walking', spatialCue: null, journeyCallbacks: [], allowQuestionsToUser: true };
     const fb = P.followUpBrief(base, pack, 'Why is that important?', 'ask_question', new Set(base.facts.slice(0, 2).map((f) => f.id)), 70);
     FOLLOWUP_BASE_TOKENS = Math.ceil((P.storySystemPrompt(core.IDA, 'en-US').length + P.followUpPrompt(fb, 'Why is that important?').length) / A.charsPerToken);
+    FOLLOWUP_TOKENS_BEFORE = Math.ceil((P.storySystemPrompt(core.IDA, 'en-US').length + P.followUpPrompt(fb, 'Why is that important?').length + 1 + P.payloadBlock({ kind: 'followup', brief: fb, question: 'Why is that important?' }).length) / A.charsPerToken);
   }
   const gg = loadTrace('golden-gate-drive-walk');
   const tr = loadTrace('highway-to-downtown-walk');
@@ -292,9 +364,11 @@ async function main() {
     densityProbesPerHour: r2(r.densityProbes / r.hours),
     placeQueriesPerHour: r2((r.discoveryQueries + r.densityProbes) / r.hours),
     wikimediaHttpPerHour: r2(r.wikimediaHttpRequests / r.hours),
+    meanStoryTokensInBefore: Math.round(mean(r.storyTokensInBefore)),
     meanStoryTokensIn: Math.round(mean(r.storyTokensIn)),
-    meanStoryTokensInWithoutJsonPayload: Math.round(mean(r.storyTokensInNoPayload)),
     meanStoryMaxWords: Math.round(mean(r.storyMaxWords)),
+    meanBodyMaxWords: Math.round(mean(r.bodyMaxWords)),
+    meanPrefixWords: r2(mean(r.prefixWords)),
     meanOrientationWords: r2(mean(r.orientationWords)),
     charsPerWord: r2(r.charsPerWord),
     regimes: r.regimes,
@@ -318,6 +392,7 @@ async function main() {
    * 3600 / (story duration + minGapS) for the scenario's dominant regime × density.
    */
   const dominant = (r: Rates): [core.MovementRegime, core.DensityClass] => (r.regimes.includes('highway_driving') ? ['highway_driving', 'sparse'] : r.regimes.includes('urban_driving') ? ['urban_driving', 'urban'] : ['walking', 'dense']);
+  const dominantRegime = (r: Rates): core.MovementRegime => dominant(r)[0];
   const cadenceBoundPerHour = (r: Rates) => {
     const pol = core.policyFor(...dominant(r));
     const durS = (A.llmFillOfMaxWords * mean(r.storyMaxWords)) / pol.wordsPerSecond;
@@ -331,6 +406,9 @@ async function main() {
     evidenceLookups: ((r.stories + r.orientations) / r.hours) * hours,
     storyTokensIn: mean(r.storyTokensIn),
     storyMaxWords: mean(r.storyMaxWords),
+    bodyMaxWords: mean(r.bodyMaxWords),
+    prefixWords: mean(r.prefixWords),
+    narrationTier: core.ttsTierFor('story_body', dominantRegime(r)),
     orientationWords: mean(r.orientationWords) || 10,
     charsPerWord: r.charsPerWord,
     followups: 0,
@@ -355,7 +433,7 @@ async function main() {
     {
       id: 'stress30',
       label: 'High-density stress case (30 min)',
-      usage: usageFromRates(R.walk, 0.5, { stories: stress.storiesPerHour * 0.5, placeQueries: stress.placeQueriesPerHour * 0.5, storyMaxWords: stress.storyMaxWords, followups: 6, llmIntentCalls: 6, nearby: 3 }),
+      usage: usageFromRates(R.walk, 0.5, { stories: stress.storiesPerHour * 0.5, placeQueries: stress.placeQueriesPerHour * 0.5, storyMaxWords: stress.storyMaxWords, bodyMaxWords: stress.storyMaxWords - 20, followups: 6, llmIntentCalls: 6, nearby: 3 }),
       assumptions: `policy upper bound: ${stress.placeQueriesPerHour} place queries/h, ${stress.storiesPerHour} max-length stories/h, 6 questions (all via LLM intent), 3 NearbySearch (per-session tool cap is 3/min)`,
     },
   ];
@@ -414,7 +492,7 @@ async function main() {
     const sessionsPerUser = revenue.payingShare * SESS.paying + (1 - revenue.payingShare) * SESS.free;
     const sessions = c.mau * sessionsPerUser;
     const rows: Record<string, unknown> = { case: c.id, mau: c.mau, sessionsPerUserPerMonth: r2(sessionsPerUser), avgSessionMinutes: r2(avgMinutes), fixedInfraUsd: c.fixedUsd, fixedNote: c.fixedNote, revenueUsd: r2(revPerMau * c.mau) };
-    for (const [mix, h] of [['default', 0], ['default', 0.5], ['wavenet_hypothetical', 0.5]] as const) {
+    for (const [mix, h] of [['default', 0], ['default', 0.5], ['tiered', 0.5]] as const) {
       const v = avgSessionCost(mix, h);
       const variable = v * sessions;
       const cogs = variable + c.fixedUsd;
@@ -429,6 +507,13 @@ async function main() {
     return rows;
   });
 
+  const report0Before = (() => {
+    try {
+      return JSON.parse(readFileSync(join(OUT, 'cost_model.before_D018.json'), 'utf8')) as BeforeReport;
+    } catch {
+      return null;
+    }
+  })();
   const report = {
     generatedBy: 'scripts/bench/cost-model.ts (pnpm bench:cost)',
     generatedAt: new Date().toISOString().slice(0, 10),
@@ -439,6 +524,13 @@ async function main() {
     skus: Object.fromEntries(MIXES.map((m) => [m.id, { label: m.label, story: m.story.ref, intent: m.intent.ref, tts: m.tts.ref, stt: m.stt.ref, nearby: m.nearby.ref, discovery: m.discovery.ref }])),
     replayRates: Object.fromEntries(Object.entries(R).map(([k, v]) => [k, { source: v.source, ...per(v) }])),
     stressUpperBound: stress,
+    promptTrim: {
+      label: 'D-021: real-provider prompts no longer carry the ```json payload block (fakes read structured input). BEFORE re-creates the legacy prompt with payloadBlock(); AFTER is what the runtime sends (story = context-free body prompt, D-018). Tokens = chars/4 heuristic over the real prompt builders.',
+      meanStoryInputTokens: Object.fromEntries(Object.entries(R).map(([k, v]) => [k, { before: Math.round(mean(v.storyTokensInBefore)), after: Math.round(mean(v.storyTokensIn)), reductionPct: r2((1 - mean(v.storyTokensIn) / Math.max(1, mean(v.storyTokensInBefore))) * 100) }])),
+      followupInputTokens: { before: FOLLOWUP_TOKENS_BEFORE, after: FOLLOWUP_BASE_TOKENS, reductionPct: r2((1 - FOLLOWUP_BASE_TOKENS / FOLLOWUP_TOKENS_BEFORE) * 100) },
+      intentInputTokens: { before: INTENT_TOKENS_BEFORE, after: INTENT_TOKENS_IN, reductionPct: r2((1 - INTENT_TOKENS_IN / INTENT_TOKENS_BEFORE) * 100) },
+    },
+    beforeAfter: (() => { const b = beforeAfter(report0Before, sessionRows, truckRows) as Record<string, any> | null; if (b) for (const [k, v] of Object.entries(R)) b.densityProbesPerHour[k].after = r2(v.densityProbes / v.hours); return b; })(),
     promptTokens: { intentCallTokensIn: INTENT_TOKENS_IN, followupCallTokensIn: FOLLOWUP_BASE_TOKENS, llmIntentFallbacksIn4ScriptedQuestions: llmIntents, coffeeHandledByRules: nearbyRule },
     scenarios: SCEN.map((s) => ({ id: s.id, label: s.label, assumptions: s.assumptions, usage: Object.fromEntries(Object.entries(s.usage).map(([k, v]) => [k, typeof v === 'number' ? r2(v) : v])) })),
     sessionCosts: sessionRows,
@@ -446,7 +538,8 @@ async function main() {
     truckDriverMonth: { hours: truckHours, assumptions: A.truck, plan, rows: truckRows },
     unitEconomics: { label: 'Engineering model. Revenue/pricing and usage are HYPOTHESES; fixed infra are ASSUMPTIONS (not sourced). Free-tier caps and Google free monthly quotas ignored.', sessionsPerUser: SESS, sessionMix, revenue: { ...revenue, revenuePerMauUsd: r4(revPerMau) }, cases: unit },
     notes: [
-      'Shared story/audio cache hit rates of 50% and 80% are HYPOTHETICAL for the current code: narration audio is content-addressed by the exact prose, and LLM prose is regenerated per session (temperature 0.7, session-specific spatial cue), so cross-user narration hits are ~0% today. A story-primitive cache (prose keyed by place+angle+guide+locale+mode, spatial cue synthesized separately) is required to reach them.',
+      'Shared story-body cache hit rates of 50% and 80% are ASSUMED production rates. Since D-018 the code CAN reach them (context-free body keyed by place+angle+fact-set+guide+locale+mode+budget bucket, temperature 0, cross-user in Redis + content-addressed audio on disk); the in-process harness measures its own hit rates (benchmark/acceptance/latency.json cacheRates) on a one-route fixture corpus, which says nothing about production. The prefix (quantized spatial cue + place) is modeled as never cached (A.prefixAudioHit = 0).',
+      'The `tiered` mix assumes GOOGLE_TTS_API_KEY is configured and the guide economy voices (PENDING BENCHMARK) sound acceptable; without a Google key the economy tier falls back to the standard chain and cost equals the `default` mix.',
       'Wikimedia discovery is free but rate-limited (500 req/h per IP anonymous, 5,000 req/h with a token; PROVIDER_PRICING.md §5): see replayRates.*.wikimediaHttpPerHour for the per-session request rate.',
       'Google free monthly caps (e.g. 5,000 Nearby Search Pro) are ignored: per-call list price is charged from the first call (conservative).',
       'Native Maps SDK is free; a WebApp session adds one Dynamic Maps load ($0.007) — not included in the totals (native assumed).',
@@ -461,7 +554,7 @@ async function main() {
   writeFileSync(join(OUT, 'cost_model.csv'), csv(sessionRows));
   writeFileSync(join(OUT, 'truck_driver_month.csv'), csv(truckRows));
   const ueFlat = unit.flatMap((u) =>
-    (['default@0%', 'default@50%', 'wavenet_hypothetical@50%'] as const).map((k) => ({ case: u.case, mau: u.mau, sessionsPerUserPerMonth: u.sessionsPerUserPerMonth, avgSessionMinutes: u.avgSessionMinutes, scenario: k, ...(u[k] as Record<string, number>), fixedInfraUsd: u.fixedInfraUsd, revenueUsd: u.revenueUsd })),
+    (['default@0%', 'default@50%', 'tiered@50%'] as const).map((k) => ({ case: u.case, mau: u.mau, sessionsPerUserPerMonth: u.sessionsPerUserPerMonth, avgSessionMinutes: u.avgSessionMinutes, scenario: k, ...(u[k] as Record<string, number>), fixedInfraUsd: u.fixedInfraUsd, revenueUsd: u.revenueUsd })),
   );
   writeFileSync(join(OUT, 'unit_economics.csv'), csv(ueFlat));
 

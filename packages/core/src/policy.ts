@@ -234,6 +234,7 @@ export const RETELL = {
 
 /** True when a place last told at `lastToldAt` (epoch ms) may be told again at `now`. */
 export function retellAllowed(lastToldAt: number | undefined, now: number, afterDays: number = RETELL.AFTER_DAYS): boolean {
+  if (afterDays <= 0) return true; // knob off: retelling is never suppressed by history (also immune to client/server clock skew)
   if (lastToldAt === undefined || !Number.isFinite(lastToldAt)) return true;
   return now - lastToldAt >= afterDays * 86_400_000;
 }

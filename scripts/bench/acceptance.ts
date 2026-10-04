@@ -722,6 +722,7 @@ async function main() {
   const P = await import('../../packages/providers/src/index.ts');
   const priceMap: Record<string, [string, string]> = { llm: ['openai', 'gpt-6-luna'], tts: ['openai', 'gpt-4o-mini-tts'], stt: ['openai', 'gpt-4o-mini-transcribe'], maps: ['google_places', 'nearby_search_pro'] };
   const c1Usd = lat.c1Costs.map((turn) => turn.reduce((s, c) => (priceMap[c.category] ? s + P.computeCost(priceMap[c.category]![0], priceMap[c.category]![1], c.units, Date.parse('2026-09-28'), c.category) : s), 0));
+  const fmtRates = (r: any) => `body ${r.narrationBody.hits}/${r.narrationBody.hits + r.narrationBody.misses}, audio ${r.ttsAudio.hits}/${r.ttsAudio.hits + r.ttsAudio.misses}, places ${r.places.hits}/${r.places.hits + r.places.misses}, evidence ${r.evidence.hits}/${r.evidence.hits + r.evidence.misses}`;
   const sectionG = [
     { metric: 'target relevance regression pass rate', value: `${relevanceTests.filter((x) => x.status === 'passed').length}/${relevanceTests.length} replay relevance assertions (A1–A3, A5–A7)`, label: 'MEASURED-replay' },
     { metric: 'wrong-target rate on fixed corpus', value: `${wrong}/${totalStories} stories (behind, passed mid-story, clutter or utility targets)`, label: 'MEASURED-replay (6 scenarios, fixture corpus)' },
@@ -737,7 +738,7 @@ async function main() {
     { metric: '30-min walk estimated variable cost', value: 'see benchmark/cost/cost_model.json (pnpm bench:cost)', label: 'ESTIMATED (list price)' },
     { metric: '30-min drive estimated variable cost', value: 'see benchmark/cost/cost_model.json (pnpm bench:cost)', label: 'ESTIMATED (list price)' },
     { metric: 'realtime active-minute cost', value: 'see benchmark/cost/cost_model.json; realtime NOT RUN', label: 'ESTIMATED (list price)' },
-    { metric: 'cache hit rates by layer', value: 'Production hit rates NOT YET MEASURED (no traffic). Harness: evidence/discovery caches warm after first session; narration audio cache cleared per session by design.', label: 'NOT YET MEASURED' },
+    { metric: 'cache hit rates by layer', value: `Production hit rates NOT YET MEASURED (no traffic). Harness (fixture corpus, 1 route; counters per phase): cold ${fmtRates(lat.cacheRates.cold)}; prose-warm/audio-cold ${fmtRates(lat.cacheRates.cachedProseColdAudio)}; fully warm ${fmtRates(lat.cacheRates.cachedWarm)}`, label: 'MEASURED-harness (not production) / NOT YET MEASURED in production' },
     { metric: 'known failures', value: 'none in automated evidence; see docs/PERFORMANCE_COST.md §16 for open risks', label: 'MEASURED-tests' },
   ];
 
@@ -763,6 +764,7 @@ async function main() {
     web: { ran: web.ran, reason: web.reason ?? null, passed: web.passed, failed: web.failed, buildAt: web.buildAt ?? null, tests: web.tests },
     replay: { matchesCommittedSummary: allReplay.every((r) => r.matchesCommitted === true), scenarios: allReplay.map(({ storyRecords: _s, rejections: _r, ...rest }) => rest), guideDifferentiation: replay.guideDiff },
     harnessChecks: lat.checks,
+    cacheRates: { label: 'MEASURED-harness: cache-layer counters over the measured phases (fixture corpus, one route, in-process). NOT production hit rates.', phases: lat.cacheRates },
     c1IncrementalCost: {
       label: 'ESTIMATED (list price) from units measured in the harness (fake providers priced as the default config: gpt-6-luna, gpt-4o-mini-tts, gpt-4o-mini-transcribe, Places Nearby Search Pro)',
       callsPerTurn: Object.fromEntries([...cats].map(([k, v]) => [k, round1(v / Math.max(1, lat.c1Costs.length))])),
@@ -786,7 +788,7 @@ async function main() {
     label: 'MEASURED — in-process harness on loopback with SIMULATED provider latency. Not production, not a device, not a mobile network.',
     method: {
       server: 'Real Fastify API + Postgres + Redis + WebSocket channel in this process; fixture places/evidence (demo mode); deterministic fake LLM/TTS/STT/Nearby each wrapped with a seeded log-normal delay (profile below).',
-      sessions: `${SAMPLES} measured sessions on the wtc-walk trace (guides alternate Ida/Emil) after 1 warm-up session; narration audio cache cleared before each session; evidence/discovery caches warm after the warm-up (7-day / 15-min TTLs in production). Plus ${SAMPLES} sessions with narration audio already cached.`,
+      sessions: `${SAMPLES} measured sessions on the wtc-walk trace (guides alternate Ida/Emil) after 1 warm-up session; narration audio cache AND the shared story-body cache cleared before each cold session; evidence/discovery caches warm after the warm-up (7-day / 15-min TTLs in production). Then ${SAMPLES} sessions with the shared body prose cached but all audio evicted (cachedStoryToFirstAudio), and ${SAMPLES} with everything warm (cachedWarmStoryToFirstAudio). Follow-up answers stream per sentence (say_append); the LLM first-token share of its simulated latency is an ASSUMPTION (ttftShare).`,
       clock: 'performance.now() in the client and server share one process/clock; server intervals come from API telemetry (telemetry.latency), client intervals from WebSocket message arrival.',
       percentiles: 'linear interpolation between closest ranks (Hyndman–Fan type 7)',
       speechEnd: 'start of the POST /v1/stt upload of a ~3 s push-to-talk clip (fake STT decodes TEXT:<utterance>); i.e. includes STT + intent + tool/LLM + TTS + audio fetch.',
@@ -799,7 +801,9 @@ async function main() {
     metrics: {
       triggerToFirstAudio: metric(L.triggerToFirstAudioBytes, 'moment decided (startStory) → play directive at client + segment-0 audio bytes fetched; uncached narration (evidence cached)', { p50: 2500, p95: 4500 }),
       triggerToPlayDirectiveServer: metric(L.triggerToPlayServer, 'server telemetry trigger_to_first_audio: evidence + LLM + grounding + TTS segment 0 → play emitted', null),
-      cachedStoryToFirstAudio: metric(L.cachedTriggerToFirstAudioBytes, 'same as triggerToFirstAudio but segment-0 audio already cached (LLM still runs: the audio key is the prose hash)', { p50: 1500, p95: 3000 }),
+      cachedStoryToFirstAudio: metric(L.cachedTriggerToFirstAudioBytes, 'D-018 cached story, conservative: shared body prose cached (NO LLM call) but ALL audio evicted → first audio = synthesis of the short prefix segment', { p50: 500, p95: 1000 }),
+      cachedWarmStoryToFirstAudio: metric(L.cachedWarmTriggerToFirstAudioBytes, 'D-018 cached story, everything warm (body prose + prefix audio + body audio cached: repeat landmark/corridor): no LLM, no TTS; first audio = cached prefix audio', { p50: 500, p95: 1000 }),
+      cachedWarmTriggerToPlayDirectiveServer: metric(L.cachedWarmTriggerToPlayServer, 'server telemetry cached_story_to_first_audio (fully warm): startStory → play directive emitted', null),
       speechEndToFirstAudio: metric([...L.speechEndToFirstAudioNearby, ...L.speechEndToFirstAudioFollowup], 'both utterance types pooled', { p50: 2000, p95: 3500 }),
       speechEndToFirstAudioNearby: metric(L.speechEndToFirstAudioNearby, '"Where can I get coffee nearby?" (STT → rules intent → Nearby → validation → map → TTS answer)', { p50: 2000, p95: 3500 }),
       speechEndToFirstAudioFollowup: metric(L.speechEndToFirstAudioFollowup, '"Why is that important?" (STT → rules/LLM intent → grounded follow-up LLM → TTS answer)', { p50: 2000, p95: 3500 }),
