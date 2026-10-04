@@ -4,10 +4,11 @@
  * provider failure only; a budget refusal or caller abort stops the chain (F2/F5: a refusal
  * must not fan out into more paid calls).
  */
-import type { DiscoveryQuery, EvidencePack, GuideProfile, InterpretedUtterance, Locale, PlaceCandidate, ProviderCategory } from '@city/core';
+import type { DiscoveryQuery, EvidencePack, GuideProfile, InterpretedUtterance, Locale, PlaceCandidate, ProviderCategory, TtsTier } from '@city/core';
 import { AnthropicTextGenerator } from './adapters/anthropic.js';
 import { GeminiLiveTokenIssuer, GeminiSpeechRecognizer, GeminiSpeechSynthesizer, GeminiTextGenerator } from './adapters/gemini.js';
 import { GooglePlacesNearbySearch, GooglePlacesPlaceSource } from './adapters/google-places.js';
+import { GoogleCloudSpeechSynthesizer } from './adapters/google-tts.js';
 import { OpenAIRealtimeTokenIssuer, OpenAISpeechRecognizer, OpenAISpeechSynthesizer, OpenAITextGenerator } from './adapters/openai.js';
 import { WikimediaKnowledgeSource, WikimediaPlaceSource } from './adapters/wikimedia.js';
 import type { ProviderEnvConfig } from './config.js';
@@ -42,6 +43,8 @@ export interface ProviderSet {
   story: TextGenerator[];
   intent: TextGenerator[];
   tts: SpeechSynthesizer[];
+  /** Cheap TTS tier (D-019). Empty → the economy tier uses the standard `tts` chain. */
+  ttsEconomy?: SpeechSynthesizer[];
   stt: SpeechRecognizer[];
   realtime: RealtimeTokenIssuer[];
   places: PlaceSource[];
@@ -73,14 +76,19 @@ export function buildProviderSet(c: ProviderEnvConfig): ProviderSet {
     return null;
   };
   const nn = <T>(xs: Array<T | null>): T[] => xs.filter((x): x is T => x !== null);
+  const tts = (p: string): SpeechSynthesizer | null =>
+    p === 'openai' && k.openai
+      ? new OpenAISpeechSynthesizer({ apiKey: k.openai, model: c.models.openaiTts })
+      : p === 'gemini' && k.gemini
+        ? new GeminiSpeechSynthesizer({ apiKey: k.gemini, model: c.models.geminiTts })
+        : p === 'google_tts' && k.googleTts
+          ? new GoogleCloudSpeechSynthesizer({ apiKey: k.googleTts, family: c.models.googleTtsFamily })
+          : null;
   const set: ProviderSet = {
     story: nn(c.order.story.map((p) => text(p, 'story'))),
     intent: nn(c.order.intent.map((p) => text(p, 'intent'))),
-    tts: nn(
-      c.order.tts.map((p) =>
-        p === 'openai' && k.openai ? new OpenAISpeechSynthesizer({ apiKey: k.openai, model: c.models.openaiTts }) : p === 'gemini' && k.gemini ? new GeminiSpeechSynthesizer({ apiKey: k.gemini, model: c.models.geminiTts }) : null,
-      ),
-    ),
+    tts: nn(c.order.tts.map(tts)),
+    ttsEconomy: nn(c.order.ttsEconomy.map(tts)),
     stt: nn(
       c.order.stt.map((p) =>
         p === 'openai' && k.openai ? new OpenAISpeechRecognizer({ apiKey: k.openai, model: c.models.openaiStt }) : p === 'gemini' && k.gemini ? new GeminiSpeechRecognizer({ apiKey: k.gemini, model: c.models.geminiStt }) : null,
@@ -108,7 +116,7 @@ export function buildProviderSet(c: ProviderEnvConfig): ProviderSet {
 
 export function describeSet(s: ProviderSet): Record<string, Array<{ name: string; model: string | null; fake: boolean }>> {
   const d = (xs: ProviderInfo[]) => xs.map((x) => ({ name: x.name, model: x.model, fake: !!x.fake }));
-  return { story: d(s.story), intent: d(s.intent), tts: d(s.tts), stt: d(s.stt), realtime: d(s.realtime), places: d(s.places), knowledge: d(s.knowledge), nearby: d(s.nearby) };
+  return { story: d(s.story), intent: d(s.intent), tts: d(s.tts), ttsEconomy: d(s.ttsEconomy ?? []), stt: d(s.stt), realtime: d(s.realtime), places: d(s.places), knowledge: d(s.knowledge), nearby: d(s.nearby) };
 }
 
 /** Stop the fallback chain for errors that another provider would not fix. */
@@ -128,7 +136,7 @@ export class ProviderRouter {
     this.timeouts = { ...TASK_TIMEOUTS_MS, ...timeouts };
   }
 
-  private async chain<P extends ProviderInfo, T>(providers: readonly P[], category: ProviderCategory, run: (p: P) => Promise<T>): Promise<{ result: T; provider: P }> {
+  private async chain<P extends ProviderInfo, T>(providers: readonly P[], category: ProviderCategory, run: (p: P) => Promise<T>, stop?: () => boolean): Promise<{ result: T; provider: P }> {
     let last: unknown = new ProviderError('router', 'not_configured', `no ${category} provider configured`);
     for (const p of providers) {
       if (!this.guard.available(p, category)) {
@@ -139,7 +147,7 @@ export class ProviderRouter {
         return { result: await run(p), provider: p };
       } catch (e) {
         last = e;
-        if (chainStops(e)) break;
+        if (chainStops(e) || stop?.()) break;
       }
     }
     throw last;
@@ -154,11 +162,27 @@ export class ProviderRouter {
     const providers = task === 'intent' ? this.set.intent : this.set.story;
     if (providers.length === 0) return null;
     return async (req: GenerateRequest) => {
-      const { result, provider } = await this.chain(providers, 'llm', (p) =>
-        this.guard.call<GenerateResult>(
-          { provider: p, category: 'llm', task: req.task, ctx, timeoutMs: this.timeouts[task], units: (r) => ({ inputTokens: r.usage.inputTokens, outputTokens: r.usage.outputTokens, cachedInputTokens: r.usage.cachedInputTokens ?? 0, requests: 1 }), noRetry: task !== 'story' },
-          (c) => p.generate(req, c),
-        ),
+      // Streaming (D-020): once a provider has emitted text, neither a retry nor a fallback
+      // provider may run (their text would be spoken twice) — the caller keeps what it has.
+      let emitted = false;
+      const r: GenerateRequest = req.onDelta
+        ? {
+            ...req,
+            onDelta: (d) => {
+              emitted = true;
+              req.onDelta!(d);
+            },
+          }
+        : req;
+      const { result, provider } = await this.chain(
+        providers,
+        'llm',
+        (p) =>
+          this.guard.call<GenerateResult>(
+            { provider: p, category: 'llm', task: req.task, ctx, timeoutMs: this.timeouts[task], units: (x) => ({ inputTokens: x.usage.inputTokens, outputTokens: x.usage.outputTokens, cachedInputTokens: x.usage.cachedInputTokens ?? 0, requests: 1 }), noRetry: task !== 'story' || !!req.onDelta },
+            (c) => p.generate(r, c),
+          ),
+        () => emitted,
       );
       return { ...result, provider: provider.name };
     };
@@ -178,21 +202,37 @@ export class ProviderRouter {
     return this.heuristic.interpret(text, locale, ictx);
   }
 
-  /** The TTS provider that would be tried first right now (audio cache key namespace). */
-  plannedTts(): SpeechSynthesizer | null {
-    return this.set.tts.find((p) => this.guard.available(p, 'tts')) ?? null;
+  /** TTS chain of a tier (D-019): economy providers first, then the standard chain as fallback. */
+  ttsChain(tier: TtsTier = 'standard'): SpeechSynthesizer[] {
+    const eco = this.set.ttsEconomy ?? [];
+    return tier === 'economy' && eco.length > 0 ? [...eco, ...this.set.tts.filter((p) => !eco.includes(p))] : this.set.tts;
   }
 
-  voiceFor(p: SpeechSynthesizer, guide: GuideProfile): string {
+  /** The TTS provider that would be tried first right now for `tier` (audio cache key namespace). */
+  plannedTts(tier: TtsTier = 'standard'): SpeechSynthesizer | null {
+    return this.ttsChain(tier).find((p) => this.guard.available(p, 'tts')) ?? null;
+  }
+
+  /**
+   * Voice of `guide` on provider `p`: the tier/language-specific candidate when the Guide has one
+   * (D-019), else the provider voice, else the provider default. Guides never share a voice id.
+   */
+  voiceFor(p: SpeechSynthesizer, guide: GuideProfile, locale?: Locale, tier: TtsTier = 'standard'): string {
+    const lang = String(locale ?? 'en').slice(0, 2).toLowerCase();
+    const byTier = guide.voice.byTier;
+    const k = `${p.name}:${p.model ?? ''}`;
+    const tiered = byTier?.[tier]?.[k] ?? byTier?.[tier]?.[p.name] ?? byTier?.standard?.[k] ?? byTier?.standard?.[p.name];
+    if (tiered) return tiered[lang] ?? '';
     return guide.voice.byProvider[p.name] ?? p.defaultVoice;
   }
 
-  async synthesize(req: Omit<SynthesisRequest, 'voice'>, guide: GuideProfile, ctx: CallContext, only?: SpeechSynthesizer): Promise<{ result: SynthesisResult; provider: SpeechSynthesizer }> {
-    const providers = only ? [only, ...this.set.tts.filter((p) => p !== only)] : this.set.tts;
+  async synthesize(req: Omit<SynthesisRequest, 'voice'>, guide: GuideProfile, ctx: CallContext, only?: SpeechSynthesizer, tier: TtsTier = 'standard'): Promise<{ result: SynthesisResult; provider: SpeechSynthesizer }> {
+    const chain = this.ttsChain(tier);
+    const providers = only ? [only, ...chain.filter((p) => p !== only)] : chain;
     return this.chain(providers, 'tts', (p) =>
       this.guard.call<SynthesisResult>(
         { provider: p, category: 'tts', task: 'tts_segment', ctx, timeoutMs: this.timeouts.tts, units: (r) => ({ characters: req.text.length, audioSeconds: r.durationMs / 1000, requests: 1 }) },
-        (c) => p.synthesize({ ...req, voice: this.voiceFor(p, guide) }, c),
+        (c) => p.synthesize({ ...req, voice: this.voiceFor(p, guide, req.locale, tier) }, c),
       ),
     );
   }

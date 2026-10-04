@@ -265,6 +265,7 @@ export class CompanionStore {
       guest: guestStore,
       platform: config.platform,
       appVersion: `${config.appVersion}+${config.buildNumber}`,
+      capabilities: ['say_append'],
       log: __DEV__ ? (m) => console.info(`[telvey] ${m}`) : undefined,
     });
   }
@@ -616,7 +617,7 @@ export class CompanionStore {
         break;
       case 'say':
         if (this.captionTimer) clearTimeout(this.captionTimer);
-        void this.player.say(d.text, d.audioUrl, meta?.ref ?? null);
+        void this.player.say(d.text, d.audioUrl, meta?.ref ?? null, d.append === true);
         if (this.snap.listening.busy) this.set({ listening: IDLE_LISTEN });
         break;
       case 'listen':

@@ -64,6 +64,8 @@ export interface TestAppOptions {
   providers?: Partial<ProviderSet>;
   overrides?: DepsOverrides;
   fakes?: Partial<TestProviders>;
+  /** Extra environment for loadConfig (e.g. TTS_TIER_WALKING, RETELL_AFTER_DAYS). */
+  env?: Record<string, string>;
 }
 
 export async function startTestApp(o: TestAppOptions = {}): Promise<TestApp> {
@@ -76,6 +78,7 @@ export async function startTestApp(o: TestAppOptions = {}): Promise<TestApp> {
     API_BASE_URL: 'http://127.0.0.1:0',
     OWNER_EMAIL: 'owner@example.org',
     LOG_LEVEL: 'silent',
+    ...(o.env ?? {}),
   });
   let kv: KV;
   if (o.kv === 'memory') kv = new MemoryKV();

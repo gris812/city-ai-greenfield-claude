@@ -13,6 +13,7 @@ export * from './config.js';
 export * from './router.js';
 export * from './adapters/wikimedia.js';
 export * from './adapters/google-places.js';
+export * from './adapters/google-tts.js';
 export * from './adapters/openai.js';
 export * from './adapters/gemini.js';
 export * from './adapters/anthropic.js';

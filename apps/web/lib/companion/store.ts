@@ -279,7 +279,7 @@ export class CompanionStore {
         break;
       }
       case 'say':
-        void this.player.say(d.text, d.audioUrl);
+        void this.player.say(d.text, d.audioUrl, d.append === true);
         break;
       case 'card':
         this.set({ card: { placeId: d.placeId, name: d.name, kind: d.kind, location: d.location, spatialCue: d.spatialCue } });

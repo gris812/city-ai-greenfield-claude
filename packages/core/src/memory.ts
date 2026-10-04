@@ -76,3 +76,23 @@ export function adjustTalkativeness(m: JourneyMemory, delta: number): JourneyMem
   const t = Math.max(MEMORY.TALKATIVENESS_MIN, Math.min(MEMORY.TALKATIVENESS_MAX, Math.round(m.talkativeness + delta)));
   return { ...m, talkativeness: t };
 }
+
+/**
+ * Seed a new session's memory with cross-session history (D-023): place id → last told at
+ * (epoch ms). Only the most recent `max` entries are kept; entries are never promoted to
+ * `discussed` (no journey callbacks to last week's trip, only repeat suppression).
+ */
+export function withHistory(m: JourneyMemory, history: Readonly<Record<string, number>>, max = 2000): JourneyMemory {
+  const entries = Object.entries(history)
+    .filter(([id, at]) => id.length > 0 && Number.isFinite(at))
+    .sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
+    .slice(0, max);
+  return { ...m, history: Object.fromEntries(entries) };
+}
+
+/** Places this session told as a story or answered a follow-up on (history candidates; mentions excluded). */
+export function toldPlaces(m: JourneyMemory): Array<{ placeId: string; at: number }> {
+  return Object.values(m.discussed)
+    .filter((d) => d.depth !== 'mention')
+    .map((d) => ({ placeId: d.placeId, at: d.at }));
+}

@@ -7,7 +7,7 @@
  * `listModels()` (never at request time).
  */
 import { ProviderError } from '../errors.js';
-import { httpBytes, httpJson, type FetchLike } from '../http.js';
+import { httpBytes, httpJson, httpRequest, sseEvents, type FetchLike } from '../http.js';
 import { audioDurationMs } from '../audio.js';
 import type {
   CallContext,
@@ -59,6 +59,7 @@ export class OpenAITextGenerator implements TextGenerator {
       ...(this.o.reasoningEffort ? { reasoning_effort: this.o.reasoningEffort } : {}),
       ...(req.json ? { response_format: { type: 'json_schema', json_schema: { name: req.json.name, schema: req.json.schema, strict: true } } } : {}),
     };
+    if (req.onDelta) return this.stream(body, req.onDelta, ctx);
     const res = await httpJson<{
       choices?: Array<{ message?: { content?: string | null; refusal?: string | null } }>;
       usage?: { prompt_tokens?: number; completion_tokens?: number; prompt_tokens_details?: { cached_tokens?: number } };
@@ -71,6 +72,36 @@ export class OpenAITextGenerator implements TextGenerator {
       model: res.model ?? this.o.model,
       usage: { inputTokens: res.usage?.prompt_tokens ?? 0, outputTokens: res.usage?.completion_tokens ?? 0, cachedInputTokens: res.usage?.prompt_tokens_details?.cached_tokens ?? 0 },
     };
+  }
+
+  /** Chat Completions SSE (D-020): `stream: true` + `include_usage` for metering. */
+  private async stream(body: Record<string, unknown>, onDelta: (d: string) => void, ctx?: CallContext): Promise<GenerateResult> {
+    const res = await httpRequest(
+      `${this.o.baseUrl ?? BASE}/chat/completions`,
+      { method: 'POST', headers: { Authorization: `Bearer ${this.o.apiKey}`, 'Content-Type': 'application/json', Accept: 'text/event-stream' }, body: JSON.stringify({ ...body, stream: true, stream_options: { include_usage: true } }) },
+      http(this.o, this.name, ctx),
+    );
+    let text = '';
+    let model = this.o.model;
+    let usage = { inputTokens: 0, outputTokens: 0, cachedInputTokens: 0 };
+    for await (const e of sseEvents(res, this.name)) {
+      if (e.data === '[DONE]') break;
+      let j: { choices?: Array<{ delta?: { content?: string | null } }>; usage?: { prompt_tokens?: number; completion_tokens?: number; prompt_tokens_details?: { cached_tokens?: number } } | null; model?: string };
+      try {
+        j = JSON.parse(e.data);
+      } catch {
+        continue;
+      }
+      if (j.model) model = j.model;
+      const d = j.choices?.[0]?.delta?.content;
+      if (typeof d === 'string' && d.length > 0) {
+        text += d;
+        onDelta(d);
+      }
+      if (j.usage) usage = { inputTokens: j.usage.prompt_tokens ?? 0, outputTokens: j.usage.completion_tokens ?? 0, cachedInputTokens: j.usage.prompt_tokens_details?.cached_tokens ?? 0 };
+    }
+    if (text.trim() === '') throw new ProviderError(this.name, 'invalid_response', 'empty completion');
+    return { text, model, usage };
   }
 }
 

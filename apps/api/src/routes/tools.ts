@@ -84,9 +84,10 @@ export function toolRoutes(app: FastifyInstance, deps: AppDeps): void {
     const t0 = performance.now();
     try {
       const { result } = await deps.router.issueRealtime({ instructions, voice: guide.voice.byProvider.openai ?? 'alloy', locale: rt.info.locale, maxSeconds, idleTimeoutS: deps.config.realtime.idleTimeoutS }, { sessionId: rt.info.id }, b.provider);
-      deps.budget.addRealtimeSeconds(rt.info.id, maxSeconds); // reserve; actual minutes come from /v1/realtime/usage
+      // Reserve the token's full seconds; /v1/realtime/usage credits back what was not used (D-022).
+      const reservationId = deps.budget.reserveRealtime(rt.info.id, maxSeconds);
       deps.telemetry.latency({ sessionId: rt.info.id, interaction: 'realtime_token', ms: performance.now() - t0, at: Date.now(), props: { provider: result.provider } });
-      return { provider: result.provider, model: result.model, clientSecret: result.clientSecret, expiresAt: result.expiresAt, maxSeconds: result.maxSeconds, idleTimeoutS: result.idleTimeoutS, connectUrl: result.connectUrl };
+      return { provider: result.provider, model: result.model, clientSecret: result.clientSecret, expiresAt: result.expiresAt, maxSeconds: result.maxSeconds, idleTimeoutS: result.idleTimeoutS, connectUrl: result.connectUrl, reservationId };
     } catch (e) {
       const kind = (e as { kind?: string }).kind;
       return reply.code(kind === 'budget' ? 429 : 503).send({ error: kind === 'budget' ? 'realtime_budget_exhausted' : 'realtime_unavailable', retryable: kind !== 'budget' });
@@ -102,7 +103,10 @@ export function toolRoutes(app: FastifyInstance, deps: AppDeps): void {
     const cost = realtimeCost(b.provider, b.model, b.userAudioS, b.assistantAudioS);
     deps.telemetry.record({ sessionId: rt.info.id, provider: b.provider, model: b.model, category: 'realtime', task: 'realtime_session', units: { audioSeconds: b.userAudioS + b.assistantAudioS }, costUsd: cost, latencyMs: Math.round(b.connectMs ?? 0), cacheHit: false, ok: true, at: Date.now() });
     if (b.connectMs !== undefined) deps.telemetry.latency({ sessionId: rt.info.id, interaction: 'realtime_connect', ms: b.connectMs, at: Date.now(), props: { provider: b.provider } });
-    return { costUsd: Math.round(cost * 1e6) / 1e6 };
+    // D-022: return unused reserved seconds to the session budget; count the spend toward the USD cap.
+    const r = deps.budget.reconcileRealtime(rt.info.id, b.reservationId, Math.max(b.sessionS ?? 0, b.userAudioS + b.assistantAudioS));
+    deps.budget.addSpend(rt.info.id, cost);
+    return { costUsd: Math.round(cost * 1e6) / 1e6, reservationId: r.reservationId, reservedS: Math.round(r.reservedS), usedS: Math.round(r.usedS), creditedS: Math.round(r.creditedS), realtimeSecondsLeft: Math.floor(deps.budget.realtimeSecondsLeft(rt.info.id)) };
   });
 
   app.post('/v1/feedback', { preHandler: endUser }, async (req, reply) => {

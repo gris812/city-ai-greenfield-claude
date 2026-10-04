@@ -13,6 +13,9 @@ import { POLICY_VERSION, type Envelope, type SessionRuntime } from '../runtime/s
 import { AudioProgressSchema, ContextFrameSchema, ControlSchema, CreateSessionSchema, UtteranceSchema, WsMessageSchema } from '../schemas.js';
 import { UUID_RE, ownerIds, parseOr400 } from '../util.js';
 
+/** Client capabilities the server acts on (D-020). */
+export const KNOWN_CAPABILITIES = ['say_append'];
+
 export function publicGuide(id: string) {
   const g = guideById(id) ?? GUIDES[0]!;
   return { id: g.id, name: g.name, tagline: g.tagline, personality: g.personality, visual: g.visual };
@@ -71,7 +74,10 @@ export function sessionRoutes(app: FastifyInstance, deps: AppDeps): void {
         RETURNING id`;
       id = rows[0]!.id;
     } else id = crypto.randomUUID();
-    deps.sessions.create({ id, guideId: guide.id, locale: body.locale, units, simulated: body.simulated, ownerId: p.userId ?? p.guestId! });
+    const capabilities = (body.client.capabilities ?? []).filter((c) => KNOWN_CAPABILITIES.includes(c));
+    // D-023: returning users/guests start with their cross-session history (place ids + last told).
+    const history = body.simulated ? {} : await deps.sessions.loadHistory(ownerIds(p));
+    deps.sessions.create({ id, guideId: guide.id, locale: body.locale, units, simulated: body.simulated, ownerId: p.userId ?? p.guestId!, ...(capabilities.length ? { capabilities } : {}) }, history);
     deps.telemetry.event({ name: 'session_start', sessionId: id, at: Date.now(), geohash5: null, props: { guideId: guide.id, locale: body.locale, simulated: body.simulated, platform: body.client.platform ?? null, account: !!p.userId } });
     deps.telemetry.event({ name: 'guide_selected', sessionId: id, at: Date.now(), geohash5: null, props: { guideId: guide.id } });
     return reply.code(201).send({ sessionId: id, wsUrl: `${wsBase(deps.config.apiBaseUrl)}/v1/sessions/${id}/ws`, guide: publicGuide(guide.id), policyVersion: POLICY_VERSION });

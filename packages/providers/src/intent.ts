@@ -57,7 +57,7 @@ export class LlmIntentInterpreter implements IntentInterpreter {
   }
 
   async interpret(text: string, locale: Locale, context: IntentContext, _ctx?: CallContext): Promise<InterpretedUtterance> {
-    const r = await this.generate({ system: intentSystemPrompt(), prompt: intentPrompt(text, String(locale), { ...context }), maxOutputTokens: 120, temperature: 0, json: { name: 'intent', schema: INTENT_SCHEMA }, task: 'intent' });
+    const r = await this.generate({ system: intentSystemPrompt(), prompt: intentPrompt(text, String(locale), { ...context }), structured: { kind: 'intent', utterance: text, locale: String(locale), context: { ...context } }, maxOutputTokens: 120, temperature: 0, json: { name: 'intent', schema: INTENT_SCHEMA }, task: 'intent' });
     return validateIntentJson(r.text, text);
   }
 }

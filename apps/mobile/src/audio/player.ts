@@ -38,6 +38,9 @@ const now = (): number => (typeof performance !== 'undefined' ? performance.now(
 
 export class NativeSegmentPlayer {
   private gen = 0;
+  /** Queue of the current say and its appended sentences (D-020). */
+  private sayChain: Promise<void> | null = null;
+  private sayGen = -1;
   private player: AudioPlayer | null = null;
   private sub: { remove(): void } | null = null;
   private timers: Array<ReturnType<typeof setTimeout>> = [];
@@ -222,7 +225,32 @@ export class NativeSegmentPlayer {
     this.ev.progress({ planId: d.planId, segmentIndex: last?.index ?? 0, offsetMs: last?.durationMs ?? 0, state: 'finished' });
   }
 
-  async say(text: string, audioUrl: string | null, ref: string | null): Promise<void> {
+  /**
+   * Speak a `say`. `append` (streamed answers, D-020) queues it after the say that is playing
+   * (same generation); anything else supersedes the queue. Each say reports its own end (ref).
+   */
+  async say(text: string, audioUrl: string | null, ref: string | null, append = false): Promise<void> {
+    if (append && this.sayChain && this.sayGen === this.gen) {
+      const gen = this.gen;
+      const job = this.sayChain.then(async () => {
+        if (gen !== this.gen) return;
+        acquireAudio();
+        const est = Math.max(1500, text.split(/\s+/).length * 380);
+        await this.speak(text, audioUrl, est, gen, 0, (m) => this.ev.sayStart(text, m));
+        if (gen === this.gen) {
+          releaseAudioSoon();
+          this.ev.sayEnd(ref);
+        }
+      });
+      this.sayChain = job;
+      return job;
+    }
+    const job = this.sayNow(text, audioUrl, ref);
+    this.sayChain = job;
+    return job;
+  }
+
+  private async sayNow(text: string, audioUrl: string | null, ref: string | null): Promise<void> {
     this.clearTimers();
     const was = this.current;
     const wasOffset = this.offsetMs();
@@ -230,6 +258,7 @@ export class NativeSegmentPlayer {
     this.current = null;
     if (was) this.ev.progress({ planId: was.planId, segmentIndex: was.index, offsetMs: wasOffset, state: 'stopped' });
     const gen = ++this.gen;
+    this.sayGen = gen;
     acquireAudio();
     const est = Math.max(1500, text.split(/\s+/).length * 380);
     await this.speak(text, audioUrl, est, gen, 0, (m) => this.ev.sayStart(text, m));

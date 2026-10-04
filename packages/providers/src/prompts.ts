@@ -1,7 +1,11 @@
 /**
  * Prompt builders. The LLM's only jobs (D-003): prose from a fixed StoryBrief, grounded
- * follow-up answers from supplied evidence, closed-enum intent interpretation. Each prompt
- * embeds a machine-readable payload in a ```json fence (the deterministic fakes read it).
+ * follow-up answers from supplied evidence, closed-enum intent interpretation.
+ *
+ * D-021: prompts sent to real providers carry NO machine-readable payload block any more (it
+ * roughly doubled story input tokens). The same structured input travels next to the prompt as
+ * `GenerateRequest.structured` (see `*Request` builders below); only the deterministic fakes read
+ * it. `readPayload` still parses legacy prompts that embed a ```json block.
  */
 import type { GroundingResult, GuideProfile, Intent, StoryBrief } from '@city/core';
 import { isRussian } from '@city/core';
@@ -28,7 +32,7 @@ export const INTENTS: readonly Intent[] = [
 export const NEARBY_CATEGORIES = ['coffee', 'parking', 'gas_station', 'ev_charging', 'restroom', 'pharmacy', 'atm', 'restaurant', 'lodging', 'rest_area', 'grocery'] as const;
 
 export interface PromptPayload {
-  kind: 'story' | 'story_retry' | 'followup' | 'followup_retry' | 'intent';
+  kind: 'story' | 'story_retry' | 'story_body' | 'story_body_retry' | 'followup' | 'followup_retry' | 'intent';
   brief?: StoryBrief;
   question?: string;
   violations?: Pick<GroundingResult, 'unsupportedNumbers' | 'unsupportedEntities' | 'overBudget' | 'wordCount'>;
@@ -84,10 +88,25 @@ export function storyPrompt(brief: StoryBrief): string {
     ...GROUNDING_RULES(brief).map((r) => `- ${r}`),
     'Approved facts:',
     ...brief.facts.map((f, i) => `${i + 1}. ${f.text}`),
-    payloadBlock({ kind: 'story', brief }),
   ]
     .filter(Boolean)
     .join('\n');
+}
+
+/**
+ * Context-free story BODY prompt (D-018). A pure function of the body brief, i.e. of the shared
+ * cache key: no spatial cue, no journey callbacks, no session data. The listener has just heard
+ * the deterministic prefix (direction + name), so the body must not repeat or contradict it.
+ */
+export function storyBodyPrompt(body: StoryBrief): string {
+  return [
+    `Tell a ${body.mode} story (${body.durationBudgetS} s of speech) about ${body.placeName} from the "${body.angle}" angle.`,
+    'The listener has just been told where the place is and its name. Do not describe its direction or distance, do not greet, and do not refer to earlier places or to the journey: start with the story itself.',
+    'Rules:',
+    ...GROUNDING_RULES(body).map((r) => `- ${r}`),
+    'Approved facts:',
+    ...body.facts.map((f, i) => `${i + 1}. ${f.text}`),
+  ].join('\n');
 }
 
 export function retryPrompt(brief: StoryBrief, previous: string, g: GroundingResult, followup?: string): string {
@@ -108,7 +127,6 @@ export function retryPrompt(brief: StoryBrief, previous: string, g: GroundingRes
     ...brief.facts.map((f, i) => `${i + 1}. ${f.text}`),
     'Previous draft:',
     previous,
-    payloadBlock({ kind: followup ? 'followup_retry' : 'story_retry', brief, ...(followup ? { question: followup } : {}), violations: { unsupportedNumbers: g.unsupportedNumbers, unsupportedEntities: g.unsupportedEntities, overBudget: g.overBudget, wordCount: g.wordCount } }),
   ]
     .filter(Boolean)
     .join('\n');
@@ -122,8 +140,12 @@ export function followUpPrompt(brief: StoryBrief, question: string): string {
     ...GROUNDING_RULES(brief).map((r) => `- ${r}`),
     'Approved facts:',
     ...brief.facts.map((f, i) => `${i + 1}. ${f.text}`),
-    payloadBlock({ kind: 'followup', brief, question }),
   ].join('\n');
+}
+
+/** Structured twin of `retryPrompt` for fakes (D-021). */
+export function retryPayload(kind: 'story_retry' | 'story_body_retry' | 'followup_retry', brief: StoryBrief, g: GroundingResult, question?: string): PromptPayload {
+  return { kind, brief, ...(question ? { question } : {}), violations: { unsupportedNumbers: g.unsupportedNumbers, unsupportedEntities: g.unsupportedEntities, overBudget: g.overBudget, wordCount: g.wordCount } };
 }
 
 export const INTENT_SCHEMA: Record<string, unknown> = {
@@ -150,5 +172,5 @@ export function intentSystemPrompt(): string {
 }
 
 export function intentPrompt(utterance: string, locale: string, context: Record<string, unknown>): string {
-  return [`Utterance (${locale}): "${utterance}"`, `Context: ${JSON.stringify(context)}`, payloadBlock({ kind: 'intent', utterance, locale, context })].join('\n');
+  return [`Utterance (${locale}): "${utterance}"`, `Context: ${JSON.stringify(context)}`].join('\n');
 }

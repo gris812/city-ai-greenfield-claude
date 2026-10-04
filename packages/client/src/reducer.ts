@@ -90,6 +90,8 @@ export function reduceDirective(v: CompanionView, d: Directive, now: number): Co
       return { ...n, caption: null };
     }
     case 'say':
+      // D-020: an appended sentence of a streamed answer extends the caption instead of replacing it.
+      if (d.append && v.caption) return { ...n, caption: { ...v.caption, text: `${v.caption.text} ${d.text}` } };
       return { ...n, caption: { text: d.text, purpose: d.purpose, at: now, audioUrl: d.audioUrl } };
     case 'card':
       return { ...n, card: { placeId: d.placeId, name: d.name, kind: d.kind, location: d.location, spatialCue: d.spatialCue } };

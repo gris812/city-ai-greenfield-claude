@@ -5,7 +5,7 @@
  * on 2027-01-01 (pricing.ts handles the switch).
  */
 import { ProviderError } from '../errors.js';
-import { httpJson, type FetchLike } from '../http.js';
+import { httpJson, httpRequest, sseEvents, type FetchLike } from '../http.js';
 import { pcm16ToWav, wavDurationMs } from '../audio.js';
 import type {
   CallContext,
@@ -58,19 +58,17 @@ export class GeminiTextGenerator implements TextGenerator {
   constructor(private readonly o: GeminiOptions) {}
 
   async generate(req: GenerateRequest, ctx?: CallContext): Promise<GenerateResult> {
-    const res = await generateContent(
-      this.o,
-      {
-        systemInstruction: { parts: [{ text: req.system }] },
-        contents: [{ role: 'user', parts: [{ text: req.prompt }] }],
-        generationConfig: {
-          maxOutputTokens: req.maxOutputTokens,
-          ...(req.temperature !== undefined ? { temperature: req.temperature } : {}),
-          ...(req.json ? { responseMimeType: 'application/json', responseJsonSchema: req.json.schema } : {}),
-        },
+    const payload = {
+      systemInstruction: { parts: [{ text: req.system }] },
+      contents: [{ role: 'user', parts: [{ text: req.prompt }] }],
+      generationConfig: {
+        maxOutputTokens: req.maxOutputTokens,
+        ...(req.temperature !== undefined ? { temperature: req.temperature } : {}),
+        ...(req.json ? { responseMimeType: 'application/json', responseJsonSchema: req.json.schema } : {}),
       },
-      ctx,
-    );
+    };
+    if (req.onDelta) return this.stream(payload, req.onDelta, ctx);
+    const res = await generateContent(this.o, payload, ctx);
     const text = (res.candidates?.[0]?.content?.parts ?? []).map((p) => p.text ?? '').join('');
     if (!text.trim()) throw new ProviderError(this.name, 'invalid_response', `empty completion (${res.candidates?.[0]?.finishReason ?? 'no candidate'})`);
     return {
@@ -78,6 +76,35 @@ export class GeminiTextGenerator implements TextGenerator {
       model: res.modelVersion ?? this.o.model,
       usage: { inputTokens: res.usageMetadata?.promptTokenCount ?? 0, outputTokens: res.usageMetadata?.candidatesTokenCount ?? 0, cachedInputTokens: res.usageMetadata?.cachedContentTokenCount ?? 0 },
     };
+  }
+
+  /** streamGenerateContent with `alt=sse` (D-020); the last chunk carries usageMetadata. */
+  private async stream(payload: unknown, onDelta: (d: string) => void, ctx?: CallContext): Promise<GenerateResult> {
+    const res = await httpRequest(
+      `${BASE}/v1beta/models/${encodeURIComponent(this.o.model)}:streamGenerateContent?alt=sse`,
+      { method: 'POST', headers: { 'x-goog-api-key': this.o.apiKey, 'Content-Type': 'application/json', Accept: 'text/event-stream' }, body: JSON.stringify(payload) },
+      http(this.o, ctx),
+    );
+    let text = '';
+    let model = this.o.model;
+    let usage = { inputTokens: 0, outputTokens: 0, cachedInputTokens: 0 };
+    for await (const e of sseEvents(res, this.name)) {
+      let j: GenResponse;
+      try {
+        j = JSON.parse(e.data) as GenResponse;
+      } catch {
+        continue;
+      }
+      if (j.modelVersion) model = j.modelVersion;
+      const d = (j.candidates?.[0]?.content?.parts ?? []).map((p) => p.text ?? '').join('');
+      if (d) {
+        text += d;
+        onDelta(d);
+      }
+      if (j.usageMetadata) usage = { inputTokens: j.usageMetadata.promptTokenCount ?? 0, outputTokens: j.usageMetadata.candidatesTokenCount ?? 0, cachedInputTokens: j.usageMetadata.cachedContentTokenCount ?? 0 };
+    }
+    if (!text.trim()) throw new ProviderError(this.name, 'invalid_response', 'empty completion');
+    return { text, model, usage };
   }
 }
 

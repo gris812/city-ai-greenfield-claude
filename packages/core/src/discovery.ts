@@ -29,7 +29,7 @@ import type {
 import { UTILITY_KINDS } from './contracts.js';
 import { angleDiff, destinationPoint, haversineM, headingTrajectory, initialBearingDeg, polylineLengthM, projectOntoPolyline, remainingRoute } from './geo.js';
 import { DENSITY_SIGNIFICANCE_FLOOR, densityProbeRadiusFor } from './density.js';
-import { clamp01, lookAheadFor, policyFor, type RegimePolicy } from './policy.js';
+import { clamp01, lookAheadFor, policyFor, retellAllowed, type RegimePolicy } from './policy.js';
 import { clamp, cmpStr } from './util.js';
 
 export const DISCOVERY = {
@@ -119,6 +119,8 @@ export interface ScoreOptions {
   recentRejectMs?: number;
   /** Precomputed trajectory (e.g. shared with discoveryQueryFor). */
   trajectory?: Trajectory;
+  /** Override for the cross-session retell window (days, D-023). */
+  retellAfterDays?: number;
 }
 
 export function isMovingRegime(r: JourneyContext['regime']['regime']): boolean {
@@ -317,6 +319,7 @@ export function scoreCandidates(ctx: JourneyContext, candidates: readonly PlaceC
     }
     if (s < policy.significanceFloor) sup.push('below_significance_floor');
     if (ctx.memory.discussed[place.id]) sup.push('already_discussed');
+    else if (!retellAllowed(ctx.memory.history?.[place.id], ctx.now, opts.retellAfterDays)) sup.push('told_recently');
     const rej = ctx.memory.rejected[place.id];
     if (rej !== undefined && ctx.now - rej < rejectMs) sup.push('recently_rejected');
     if (UTILITY_KINDS.includes(place.kind)) sup.push('utility_kind');

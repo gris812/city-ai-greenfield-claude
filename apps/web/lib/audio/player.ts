@@ -44,6 +44,9 @@ export class SegmentPlayer {
   private ticker: ReturnType<typeof setInterval> | null = null;
   private current: { planId: string; index: number; startedAt: number; durationMs: number } | null = null;
   private lastReport = 0;
+  /** Queue of the current say and its appended sentences (D-020). */
+  private sayChain: Promise<void> | null = null;
+  private sayGen = -1;
   opts: PlayerOptions = { voiceEnabled: true, lang: 'en-US', rate: 1, pitch: 1 };
 
   constructor(private readonly ev: PlayerEvents) {
@@ -149,16 +152,36 @@ export class SegmentPlayer {
     this.ev.progress({ planId: d.planId, segmentIndex: last?.index ?? 0, offsetMs: last?.durationMs ?? 0, state: 'finished' });
   }
 
-  async say(text: string, audioUrl: string | null): Promise<void> {
+  /**
+   * Speak a `say`. `append` (streamed answers, D-020) queues it after the say that is playing
+   * (same generation) instead of replacing it; anything else (a new say, play or stop) supersedes
+   * the whole queue.
+   */
+  async say(text: string, audioUrl: string | null, append = false): Promise<void> {
+    const est = Math.max(1500, text.split(/\s+/).length * 380);
+    if (append && this.sayChain && this.sayGen === this.gen) {
+      const gen = this.gen;
+      const job = this.sayChain.then(async () => {
+        if (gen !== this.gen) return;
+        await this.speak(text, audioUrl, est, gen, (m) => this.ev.sayStart(text, m));
+        if (gen === this.gen) this.ev.sayEnd();
+      });
+      this.sayChain = job;
+      return job;
+    }
     this.clearTimers();
     this.haltOutput();
     const was = this.current;
     this.current = null;
     if (was) this.ev.progress({ planId: was.planId, segmentIndex: was.index, offsetMs: Math.round(performance.now() - was.startedAt), state: 'stopped' });
     const gen = ++this.gen;
-    const est = Math.max(1500, text.split(/\s+/).length * 380);
-    await this.speak(text, audioUrl, est, gen, (m) => this.ev.sayStart(text, m));
-    if (gen === this.gen) this.ev.sayEnd();
+    this.sayGen = gen;
+    const job = (async () => {
+      await this.speak(text, audioUrl, est, gen, (m) => this.ev.sayStart(text, m));
+      if (gen === this.gen) this.ev.sayEnd();
+    })();
+    this.sayChain = job;
+    return job;
   }
 
   private tick(): void {

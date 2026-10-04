@@ -67,12 +67,12 @@ export class LiveTransport implements Transport {
     }
     let created;
     try {
-      created = await api.createSession(this.token, { guideId: opts.guideId, locale: opts.locale, units: opts.units, simulated: opts.simulated, client: { platform: 'web', appVersion: config.buildSha } });
+      created = await api.createSession(this.token, { guideId: opts.guideId, locale: opts.locale, units: opts.units, simulated: opts.simulated, client: { platform: 'web', appVersion: config.buildSha, capabilities: ['say_append'] } });
     } catch (e) {
       if (e instanceof ApiError && e.status === 401) {
         forgetGuest();
         this.token = await guestToken();
-        created = await api.createSession(this.token, { guideId: opts.guideId, locale: opts.locale, units: opts.units, simulated: opts.simulated, client: { platform: 'web', appVersion: config.buildSha } });
+        created = await api.createSession(this.token, { guideId: opts.guideId, locale: opts.locale, units: opts.units, simulated: opts.simulated, client: { platform: 'web', appVersion: config.buildSha, capabilities: ['say_append'] } });
       } else throw e;
     }
     this.id = created.sessionId;

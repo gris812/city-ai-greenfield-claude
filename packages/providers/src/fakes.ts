@@ -4,7 +4,7 @@
  * labelled `fake: true` so /readyz and the admin console never present them as real.
  */
 import type { DiscoveryQuery, EvidencePack, LatLng, Locale, PlaceCandidate, PlaceKind } from '@city/core';
-import { destinationPoint, haversineM, isRussian, templateNarrative, GUIDES, wordCount } from '@city/core';
+import { destinationPoint, haversineM, isRussian, templateBody, templateNarrative, GUIDES, wordCount } from '@city/core';
 import { ProviderError, type ProviderErrorKind } from './errors.js';
 import { silentMp3 } from './audio.js';
 import { heuristicIntent } from './intent.js';
@@ -75,12 +75,26 @@ abstract class FakeBase {
 
 export type FakeTextMode = 'grounded' | 'hallucinate' | 'hallucinate_once';
 
-/** Returns guide-styled, grounded prose built from the brief in the prompt payload. */
+export interface FakeTextBehaviour extends FakeBehaviour {
+  mode?: FakeTextMode;
+  /** Streaming (D-020): delay before the first delta (time to first token). */
+  ttftMs?: number;
+  /** Streaming: delay between deltas (one delta per word). */
+  interDeltaMs?: number;
+}
+
+/**
+ * Returns guide-styled, grounded prose built from the brief in the request's structured input
+ * (D-021; legacy prompts with an embedded ```json payload still work). Streams word deltas when
+ * the request asks for it.
+ */
 export class FakeTextGenerator extends FakeBase implements TextGenerator {
   readonly name: string;
   readonly model = 'fake';
+  /** Requests seen (tests inspect prompts/structured input). */
+  readonly requests: GenerateRequest[] = [];
   constructor(
-    behaviour: FakeBehaviour & { mode?: FakeTextMode } = {},
+    behaviour: FakeTextBehaviour = {},
     name = 'fake',
   ) {
     super(behaviour);
@@ -88,9 +102,12 @@ export class FakeTextGenerator extends FakeBase implements TextGenerator {
   }
 
   async generate(req: GenerateRequest, ctx?: CallContext): Promise<GenerateResult> {
+    this.requests.push(req);
+    if (this.requests.length > 200) this.requests.shift();
     await this.enter(this.name, ctx);
-    const p = readPayload(req.prompt);
-    const mode = (this.behaviour as { mode?: FakeTextMode }).mode ?? 'grounded';
+    const p = req.structured ?? readPayload(req.prompt);
+    const b = this.behaviour as FakeTextBehaviour;
+    const mode = b.mode ?? 'grounded';
     const hallucinate = mode === 'hallucinate' || (mode === 'hallucinate_once' && this.calls === 1);
     let text = '';
     if (p?.kind === 'intent') {
@@ -98,15 +115,26 @@ export class FakeTextGenerator extends FakeBase implements TextGenerator {
       text = JSON.stringify({ intent: r.intent, category: r.slots.category ?? null, query: r.slots.query ?? null, placeRef: r.slots.placeRef ?? null, confidence: r.confidence });
     } else if (p?.brief) {
       const guide = GUIDES.find((g) => g.id === p.brief!.guideId) ?? GUIDES[0]!;
-      const base = p.kind === 'followup' || p.kind === 'followup_retry' ? deterministicAnswer(p.brief) : templateNarrative(p.brief, guide);
+      const body = p.kind === 'story_body' || p.kind === 'story_body_retry';
+      const followup = p.kind === 'followup' || p.kind === 'followup_retry';
+      const base = followup ? deterministicAnswer(p.brief) : body ? templateBody(p.brief) : templateNarrative(p.brief, guide);
       // Persona flavour without new facts: a guide-specific connective.
       const ru = isRussian(p.brief.locale);
       const flavour = guide.id === 'ida' ? (ru ? 'Вот что мне нравится здесь.' : 'Here is what I love about it.') : ru ? 'Коротко.' : 'Quick one.';
-      text = p.kind === 'story' || p.kind === 'story_retry' ? `${flavour} ${base}` : base;
+      text = followup ? base : `${flavour} ${base}`;
       if (wordCount(text) > p.brief.maxWords) text = base;
       if (hallucinate) text = `${text} It was completed in 1492 by Johann Fakename.`;
     } else {
       text = 'OK.';
+    }
+    if (req.onDelta) {
+      // Word-by-word deltas (spaces kept with the following word, as providers do).
+      const parts = text.match(/\s*\S+/g) ?? [text];
+      if (b.ttftMs) await wait(b.ttftMs, ctx?.signal);
+      for (let i = 0; i < parts.length; i++) {
+        if (i > 0 && b.interDeltaMs) await wait(b.interDeltaMs, ctx?.signal);
+        req.onDelta(parts[i]!);
+      }
     }
     const inputTokens = Math.ceil((req.system.length + req.prompt.length) / 4);
     return { text, model: this.model, usage: { inputTokens, outputTokens: Math.ceil(text.length / 4) } };

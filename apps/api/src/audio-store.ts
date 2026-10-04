@@ -9,7 +9,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, rename, stat, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { GuideProfile, Locale } from '@city/core';
+import type { GuideProfile, Locale, TtsTier } from '@city/core';
 import type { CallContext, ProviderRouter, SpeechSynthesizer } from '@city/providers';
 import type { Telemetry } from './telemetry.js';
 
@@ -49,9 +49,13 @@ export class AudioStore {
     this.ready = mkdir(dir, { recursive: true }).then(() => undefined);
   }
 
-  refFor(segmentHash: string, provider: SpeechSynthesizer | null, guide: GuideProfile): AudioRef | null {
+  /**
+   * Content-addressed key: segment hash (text + Guide voice set + locale) + provider + model +
+   * the voice actually used (tier/language-specific, D-019). No user or session data.
+   */
+  refFor(segmentHash: string, provider: SpeechSynthesizer | null, guide: GuideProfile, locale?: Locale, tier: TtsTier = 'standard'): AudioRef | null {
     if (!provider) return null;
-    const voice = this.router.voiceFor(provider, guide);
+    const voice = this.router.voiceFor(provider, guide, locale, tier);
     const key = createHash('sha256').update(`${segmentHash}|${provider.name}|${provider.model ?? ''}|${voice}`).digest('hex').slice(0, 40);
     const ext = provider.name === 'gemini' ? 'wav' : 'mp3';
     return { key, ext, url: `${this.baseUrl}/${key}.${ext}` };
@@ -71,15 +75,15 @@ export class AudioStore {
   }
 
   /** Ensure audio for `ref` exists (synthesizing at most once concurrently). Never throws. */
-  ensure(ref: AudioRef, text: string, guide: GuideProfile, locale: Locale, provider: SpeechSynthesizer, ctx: CallContext): Promise<AudioJobResult> {
+  ensure(ref: AudioRef, text: string, guide: GuideProfile, locale: Locale, provider: SpeechSynthesizer, ctx: CallContext, tier: TtsTier = 'standard'): Promise<AudioJobResult> {
     const existing = this.inflight.get(ref.key);
     if (existing) return existing;
-    const job = this.run(ref, text, guide, locale, provider, ctx).finally(() => this.inflight.delete(ref.key));
+    const job = this.run(ref, text, guide, locale, provider, ctx, tier).finally(() => this.inflight.delete(ref.key));
     this.inflight.set(ref.key, job);
     return job;
   }
 
-  private async run(ref: AudioRef, text: string, guide: GuideProfile, locale: Locale, provider: SpeechSynthesizer, ctx: CallContext): Promise<AudioJobResult> {
+  private async run(ref: AudioRef, text: string, guide: GuideProfile, locale: Locale, provider: SpeechSynthesizer, ctx: CallContext, tier: TtsTier): Promise<AudioJobResult> {
     await this.ready;
     const hit = await this.exists(ref.key);
     if (hit) {
@@ -89,7 +93,7 @@ export class AudioStore {
     }
     this.stats.misses++;
     try {
-      const { result, provider: used } = await this.router.synthesize({ text, locale, speakingRate: guide.voice.speakingRate, instructions: guide.voice.description }, guide, ctx, provider);
+      const { result, provider: used } = await this.router.synthesize({ text, locale, speakingRate: guide.voice.speakingRate, instructions: guide.voice.description }, guide, ctx, provider, tier);
       const meta: Meta = { mime: result.mime, durationMs: result.durationMs, provider: used.name, model: used.model };
       if (used !== provider) {
         this.volatile.set(ref.key, { bytes: result.audio, meta, at: Date.now() });

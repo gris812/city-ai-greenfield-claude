@@ -32,6 +32,8 @@ import type {
   PlayableSegment,
   ScoredCandidate,
   StoryBrief,
+  TtsTier,
+  TtsTierConfig,
 } from '@city/core';
 import {
   EMIL,
@@ -39,12 +41,17 @@ import {
   IDA,
   adjustTalkativeness,
   answerSpoken,
+  DEFAULT_TTS_TIERS,
+  RETELL,
   buildOrientation,
-  buildStoryBrief,
+  buildStoryParts,
+  checkPrefix,
+  composeStoryPlan,
   contextOf,
   decideMoment,
   decideResume,
   decideTool,
+  densityHintFrom,
   densityProbeQueryFor,
   discoveryQueryFor,
   emptyToolHistory,
@@ -75,15 +82,19 @@ import {
   storySkipped,
   storyStarted,
   trajectoryFor,
+  ttsTierFor,
+  withHistory,
   wordCount,
   type DensityProbeRecord,
+  type DiscoveryQuery,
   type DiscoveryFetchRecord,
   type JourneyState,
   type ToolHistory,
   type Units,
 } from '@city/core';
-import { followUpBrief, generateGroundedAnswer, generateGroundedNarrative, isProviderError, isThinFacts, type ProviderRouter } from '@city/providers';
-import type { AudioStore } from '../audio-store.js';
+import { followUpBrief, generateGroundedAnswer, generateGroundedBody, isProviderError, isThinFacts, streamGroundedAnswer, type ProviderRouter, type SpeechSynthesizer } from '@city/providers';
+import type { AudioStore, AudioRef } from '../audio-store.js';
+import type { NarrationCache } from '../narration-cache.js';
 import type { DiscoveryService } from '../discovery-service.js';
 import type { KV } from '../kv.js';
 import type { Telemetry } from '../telemetry.js';
@@ -114,6 +125,8 @@ export interface SessionInfo {
   units: Units;
   simulated: boolean;
   ownerId: string;
+  /** Client capabilities declared at session creation (e.g. 'say_append' → streamed answers, D-020). */
+  capabilities?: string[];
 }
 
 export interface Envelope {
@@ -150,6 +163,12 @@ export interface RuntimeDeps {
   telemetry: Telemetry;
   kv: KV;
   reducedLimiter: ReducedModeLimiter;
+  /** Shared story-body cache (D-018); null disables it. */
+  narration?: NarrationCache | null;
+  /** TTS tier routing (D-019). */
+  ttsTiers?: TtsTierConfig;
+  /** Cross-session retell window in days (D-023). */
+  retellAfterDays?: number;
   clock?: () => number;
   log?: { warn: (o: object, m?: string) => void };
 }
@@ -175,6 +194,10 @@ interface PendingAnswer {
   ref: string;
   endsAt: number;
   turn: number | null;
+  /** Streamed answer (D-020): more sentences may still be appended. */
+  streaming?: boolean;
+  /** Streamed answer: the client already reported this ref finished while streaming. */
+  finishedRef?: string | null;
 }
 
 export interface UtteranceInput {
@@ -240,6 +263,7 @@ export class SessionRuntime {
   private packs = new Map<string, EvidencePack | null>();
   private factKinds: Record<string, FactKind[]> = {};
   private lastDiscoveryServerAt = 0;
+  private lastDiscoveryQuery: DiscoveryQuery | null = null;
 
   // conversation
   private turn = 0;
@@ -256,6 +280,8 @@ export class SessionRuntime {
   private subject: Subject | null = null;
   private plans = new Map<string, PlanRecord>();
   private activeEndsAt: number | null = null;
+  /** Server time of the first `say` of the current turn (speech_end_to_first_audio). */
+  private turnFirstSayAt: number | null = null;
 
   // directives
   private seq = 0;
@@ -345,7 +371,22 @@ export class SessionRuntime {
     return this.outbox.filter((e) => e.seq > from);
   }
 
+  /** Cross-session history for returning users/guests (D-023): place id → last told (epoch ms). */
+  seedHistory(history: Readonly<Record<string, number>>): void {
+    if (Object.keys(history).length === 0) return;
+    this.state = { ...this.state, memory: withHistory(this.state.memory, history, RETELL.MAX_ENTRIES) };
+  }
+
+  private get tiers(): TtsTierConfig {
+    return this.d.ttsTiers ?? DEFAULT_TTS_TIERS;
+  }
+
+  private tierFor(purpose: 'story_body' | 'story_prefix' | 'answer' | 'ack'): TtsTier {
+    return ttsTierFor(purpose, this.state.regime.regime, this.tiers);
+  }
+
   private newTurn(): number {
+    this.turnFirstSayAt = null;
     this.turn++;
     this.turnAbort.abort(new Error('superseded'));
     this.turnAbort = new AbortController();
@@ -431,7 +472,7 @@ export class SessionRuntime {
   private async tick(): Promise<void> {
     let ctx = this.ctxNow();
     // answer/listen/story bookkeeping by time
-    if (this.pendingAnswer && ctx.now >= this.pendingAnswer.endsAt + RUNTIME.ANSWER_GRACE_MS) this.finishAnswerState();
+    if (this.pendingAnswer && !this.pendingAnswer.streaming && ctx.now >= this.pendingAnswer.endsAt + RUNTIME.ANSWER_GRACE_MS) this.finishAnswerState();
     if (this.listeningUntil !== null && ctx.now > this.listeningUntil) this.listeningUntil = null;
     const a = this.state.activeStory;
     if (a && a.status === 'playing' && this.activeEndsAt !== null && ctx.now > this.activeEndsAt + RUNTIME.STORY_GRACE_MS) this.completeStory(ctx.now);
@@ -440,14 +481,16 @@ export class SessionRuntime {
 
     // Density probe (throttled, cached).
     // Reduced mode skips the density probe entirely: the scarce provider budget goes to discovery.
-    if (!this.d.kv.reduced && shouldRefreshDensity(this.densRec, ctx)) {
+    // D-024: stable-density backoff; a discovery result that already covers the probe area can
+    // pull the next probe forward when it proves the area got denser.
+    if (!this.d.kv.reduced && shouldRefreshDensity(this.densRec, ctx, densityHintFrom(ctx, { query: this.lastDiscoveryQuery, candidates: this.candidates }))) {
       const pq = densityProbeQueryFor(ctx);
       this.stats.densityProbes++;
       this.lastDiscoveryServerAt = this.clock();
       try {
         const r = await this.d.discovery.places(pq, callCtx, 'density_probe');
         this.state = observeDensity(this.state, r.places, pq.radiusM);
-        this.densRec = recordDensityProbe(this.densRec, ctx, r.places.length);
+        this.densRec = recordDensityProbe(this.densRec, ctx, r.places.length, this.state.density.density);
       } catch {
         this.densRec = recordDensityProbe(this.densRec, ctx, 0); // failure backs off like an empty result (F2)
       }
@@ -464,6 +507,7 @@ export class SessionRuntime {
       try {
         const r = await this.d.discovery.places(q, callCtx);
         this.candidates = r.places;
+        this.lastDiscoveryQuery = q;
         this.discRec = recordDiscoveryFetch(this.discRec, ctx, q, r.places.length);
       } catch (e) {
         this.discRec = recordDiscoveryFetch(this.discRec, ctx, q, 0); // F2: failure → backoff, never a tight loop
@@ -473,7 +517,7 @@ export class SessionRuntime {
 
     for (let pass = 0; pass < 2; pass++) {
       ctx = this.ctxNow();
-      const scored = scoreCandidates(ctx, this.candidates, this.thin, { guide: this.guide, trajectory: traj });
+      const scored = scoreCandidates(ctx, this.candidates, this.thin, { guide: this.guide, trajectory: traj, retellAfterDays: this.d.retellAfterDays ?? RETELL.AFTER_DAYS });
       this.lastScored = scored;
       const d = decideMoment(ctx, scored, {
         guide: this.guide,
@@ -565,24 +609,45 @@ export class SessionRuntime {
         this.thin.add(place.id);
         return forcedTurn === undefined; // re-decide without this candidate (maybe orientation)
       }
-      const brief = buildStoryBrief(d, pack, this.guide, ctx, { units: this.info.units });
-      const g = await generateGroundedNarrative(brief, this.guide, this.d.router.generator('story', { sessionId: this.info.id, signal }));
+      // D-018: deterministic prefix (cue, name, callback) + context-free body shared across users.
+      const parts = buildStoryParts(d, pack, this.guide, ctx, { units: this.info.units });
+      const brief = parts.brief;
+      const gen = () => this.d.router.generator('story', { sessionId: this.info.id, signal });
+      const body = this.d.narration
+        ? await this.d.narration.getOrGenerate(parts.bodyKey, this.info.id, () => generateGroundedBody(parts.bodyBrief, this.guide, gen()))
+        : { ...(await generateGroundedBody(parts.bodyBrief, this.guide, gen())), source: 'miss' as const };
       if (turn !== this.turn) return this.dropStale();
-      const draft = segmentNarrative(g.text, brief, this.guide, ctx.now, { generatedBy: g.generatedBy, grounding: g.grounding });
+      const g = { text: body.text, generatedBy: body.generatedBy, grounding: body.grounding, fallbackReason: body.fallbackReason };
+      const draft = composeStoryPlan(parts, body.text, this.guide, ctx.now, { generatedBy: body.generatedBy, bodyGrounding: body.grounding, prefixGrounding: checkPrefix(parts, this.guide) });
       const plan = draft as NarrativePlan;
       // F3 invariant: the plan is about the decided target, whatever the generator said.
       if (plan.placeId !== place.id) throw new Error('target substitution');
 
-      const tts = this.d.router.plannedTts();
-      const refs = plan.segments.map((s) => this.d.audio.refFor(s.hash, tts, this.guide));
+      // D-019: tiered TTS. The prefix tier matches the body tier unless configured otherwise.
+      const bodyTier = this.tierFor('story_body');
+      const prefixTier = this.tierFor('story_prefix');
+      const bodyTts = this.d.router.plannedTts(bodyTier);
+      const prefixTts = this.d.router.plannedTts(prefixTier);
+      const tierOf = (i: number) => (i === 0 ? prefixTier : bodyTier);
+      const ttsOf = (i: number) => (i === 0 ? prefixTts : bodyTts);
+      const refs: Array<AudioRef | null> = plan.segments.map((s, i) => this.d.audio.refFor(s.hash, ttsOf(i), this.guide, this.info.locale, tierOf(i)));
       const ttsCtx = { sessionId: this.info.id };
-      const first = refs[0] && tts ? await this.d.audio.ensure(refs[0], plan.segments[0]!.text, this.guide, this.info.locale, tts, ttsCtx) : null;
+      const synth = (i: number) => {
+        const ref = refs[i];
+        const tts = ttsOf(i);
+        return ref && tts ? this.d.audio.ensure(ref, plan.segments[i]!.text, this.guide, this.info.locale, tts, ttsCtx, tierOf(i)) : Promise.resolve(null);
+      };
+      // Segment 0 (short prefix) gates the play; segment 1 (first body segment) starts in parallel
+      // so it is ready when the prefix ends; 2..n follow sequentially in the background.
+      const firstJob = synth(0);
+      const secondJob = plan.segments.length > 1 ? synth(1) : null;
+      const first = await firstJob;
       if (turn !== this.turn) return this.dropStale();
       const audioOk = !!first?.ok;
-      if (audioOk && tts) {
-        // Pipelined synthesis of the remaining segments (sequential, bounded; the audio route awaits in-flight jobs).
+      if (audioOk) {
         void (async () => {
-          for (let i = 1; i < plan.segments.length; i++) await this.d.audio.ensure(refs[i]!, plan.segments[i]!.text, this.guide, this.info.locale, tts, ttsCtx);
+          if (secondJob) await secondJob;
+          for (let i = 2; i < plan.segments.length; i++) await synth(i);
         })();
       }
       const segments: PlayableSegment[] = plan.segments.map((s, i) => ({
@@ -600,8 +665,9 @@ export class SessionRuntime {
       this.emit({ type: 'map', action: { kind: 'focus_place', placeId: place.id, location: place.location, name: place.name } }, { turn });
       this.emit({ type: 'play', planId: plan.id, placeId: place.id, placeName: brief.placeName, segments, startAt: { segmentIndex: 0, offsetMs: 0 }, bridgeText: null }, { turn });
       const ms = this.clock() - t0;
-      this.d.telemetry.latency({ sessionId: this.info.id, interaction: first?.cached ? 'cached_story_to_first_audio' : 'trigger_to_first_audio', ms, at: this.clock(), props: { generatedBy: g.generatedBy.kind, audio: audioOk } });
-      this.d.telemetry.event({ name: 'story_started', sessionId: this.info.id, at: this.clock(), geohash5: this.geohash5(), regime: ctx.regime.regime, props: { planId: plan.id, placeId: place.id, mode: d.mode, angle: d.angle, generatedBy: g.generatedBy.kind, fallback: g.fallbackReason, audio: audioOk } });
+      // "Cached story" (D-018) = the body came from the shared narration cache: no LLM call.
+      this.d.telemetry.latency({ sessionId: this.info.id, interaction: body.source === 'hit' ? 'cached_story_to_first_audio' : 'trigger_to_first_audio', ms, at: this.clock(), props: { generatedBy: g.generatedBy.kind, audio: audioOk, bodyCache: body.source, prefixAudioCached: !!first?.cached, tier: bodyTier } });
+      this.d.telemetry.event({ name: 'story_started', sessionId: this.info.id, at: this.clock(), geohash5: this.geohash5(), regime: ctx.regime.regime, props: { planId: plan.id, placeId: place.id, mode: d.mode, angle: d.angle, generatedBy: g.generatedBy.kind, fallback: g.fallbackReason, audio: audioOk, bodyCache: body.source, tier: bodyTier } });
       this.d.telemetry.story({
         id: plan.id,
         sessionId: this.info.id,
@@ -617,10 +683,10 @@ export class SessionRuntime {
         generatedBy: g.generatedBy.kind,
         provider: g.generatedBy.kind === 'llm' ? g.generatedBy.provider : null,
         model: g.generatedBy.kind === 'llm' ? g.generatedBy.model : null,
-        groundingOk: g.grounding.ok,
+        groundingOk: plan.grounding.ok,
         fallbackReason: g.fallbackReason,
         segments: plan.segments.length,
-        words: g.grounding.wordCount,
+        words: plan.grounding.wordCount,
       });
       this.plans.set(plan.id, { plan, brief, place, segments, angle: d.angle });
       while (this.plans.size > RUNTIME.PLANS_KEPT) this.plans.delete(this.plans.keys().next().value!);
@@ -677,30 +743,49 @@ export class SessionRuntime {
 
   // ─────────────────────────────────────────────── speech output
 
-  /** Speak a short line (TTS, cached by text). Returns null when superseded. */
-  private async say(text: string, purpose: 'answer' | 'ack' | 'error', turn: number | null): Promise<Envelope | null> {
-    const tts = this.d.router.plannedTts();
-    const ref = this.d.audio.refFor(segmentHash(text, this.guide, String(this.info.locale)), tts, this.guide);
+  /** Synthesize (or reuse) audio for a line in the tier of its purpose. */
+  private async lineAudio(text: string, purpose: 'answer' | 'ack' | 'error'): Promise<{ audioUrl: string | null; durationMs: number }> {
+    const tier = this.tierFor(purpose === 'answer' ? 'answer' : 'ack');
+    const tts = this.d.router.plannedTts(tier);
+    const ref = this.d.audio.refFor(segmentHash(text, this.guide, String(this.info.locale)), tts, this.guide, this.info.locale, tier);
     let audioUrl: string | null = null;
     let durationMs = Math.round((wordCount(text) / 2.5) * 1000);
     if (ref && tts) {
-      const r = await this.d.audio.ensure(ref, text, this.guide, this.info.locale, tts, { sessionId: this.info.id });
+      const r = await this.d.audio.ensure(ref, text, this.guide, this.info.locale, tts, { sessionId: this.info.id }, tier);
       if (r.ok) {
         audioUrl = ref.url;
         durationMs = r.durationMs;
       }
     }
+    return { audioUrl, durationMs };
+  }
+
+  /**
+   * Emit one `say` (audio already prepared). `append` (D-020) queues it after the current say of
+   * the same turn on clients that declared `say_append`; the pending-answer window is extended.
+   */
+  private emitSay(text: string, audio: { audioUrl: string | null; durationMs: number }, purpose: 'answer' | 'ack' | 'error', turn: number | null, opts: { append?: boolean; streaming?: boolean } = {}): Envelope | null {
     if (turn !== null && turn !== this.turn) {
       this.stats.droppedStale++;
       return null;
     }
     const sayRef = `say_${this.info.id.slice(0, 8)}_${this.seq + 1}`;
-    const env = this.emit({ type: 'say', text, audioUrl, purpose }, { turn, ref: sayRef });
+    const env = this.emit({ type: 'say', text, audioUrl: audio.audioUrl, purpose, ...(opts.append ? { append: true } : {}) }, { turn, ref: sayRef });
     if (env) {
-      this.pendingAnswer = { ref: sayRef, endsAt: this.jnow() + durationMs, turn };
-      this.lastSay = { text, ref: sayRef };
+      const now = this.jnow();
+      const prev = opts.append && this.pendingAnswer && this.pendingAnswer.turn === turn ? this.pendingAnswer : null;
+      const start = prev ? Math.max(prev.endsAt, now) : now;
+      this.pendingAnswer = { ref: sayRef, endsAt: start + audio.durationMs, turn, ...(opts.streaming ? { streaming: true, finishedRef: null } : {}) };
+      this.lastSay = { text: prev && this.lastSay ? `${this.lastSay.text} ${text}` : text, ref: sayRef };
+      if (this.turnFirstSayAt === null && turn === this.turn) this.turnFirstSayAt = this.clock();
     }
     return env;
+  }
+
+  /** Speak a short line (TTS, cached by text). Returns null when superseded. */
+  private async say(text: string, purpose: 'answer' | 'ack' | 'error', turn: number | null): Promise<Envelope | null> {
+    const audio = await this.lineAudio(text, purpose);
+    return this.emitSay(text, audio, purpose, turn);
   }
 
   private finishAnswerState(): void {
@@ -723,8 +808,13 @@ export class SessionRuntime {
         if (p.state === 'finished' && idx >= a.segmentCount - 1) this.completeStory(this.jnow());
       }
     } else if (this.pendingAnswer && p.planId === this.pendingAnswer.ref && p.state !== 'playing') {
-      this.finishAnswerState();
-      await this.kick(); // resume decision right after the answer (C1 step 7)
+      if (this.pendingAnswer.streaming) {
+        // D-020: the last emitted sentence finished but more may still come; finish when the stream ends.
+        this.pendingAnswer = { ...this.pendingAnswer, finishedRef: p.planId };
+      } else {
+        this.finishAnswerState();
+        await this.kick(); // resume decision right after the answer (C1 step 7)
+      }
     }
     this.schedulePersist();
     return this.since(from);
@@ -941,7 +1031,7 @@ export class SessionRuntime {
       default:
         firstAudio = await this.sayPhrase('notUnderstood', turn);
     }
-    if (firstAudio) this.d.telemetry.latency({ sessionId: this.info.id, interaction: 'speech_end_to_first_audio', ms: this.clock() - sayT0, at: this.clock(), props: { intent: iu.intent, by: iu.interpretedBy } });
+    if (firstAudio && turn === this.turn) this.d.telemetry.latency({ sessionId: this.info.id, interaction: 'speech_end_to_first_audio', ms: (this.turnFirstSayAt ?? this.clock()) - sayT0, at: this.clock(), props: { intent: iu.intent, by: iu.interpretedBy } });
     return this.finishTurn(from);
   }
 
@@ -993,12 +1083,50 @@ export class SessionRuntime {
     if (!s) return this.sayPhrase('noSubject', turn);
     const words = isDriving(this.state.regime.regime) ? RUNTIME.FOLLOWUP_WORDS.driving : RUNTIME.FOLLOWUP_WORDS.walking;
     const fb = followUpBrief(s.brief, s.pack, question, intent === 'what_is_that' ? 'ask_question' : intent, new Set(s.spokenFactIds), words);
-    const r = await generateGroundedAnswer(question, fb, this.guide, this.d.router.generator('followup', { sessionId: this.info.id, signal }));
+    const gen = this.d.router.generator('followup', { sessionId: this.info.id, signal });
+    const markSpoken = (r: { grounding: { ok: boolean }; generatedBy: { kind: string } }, extra: Record<string, string | number | boolean | null> = {}) => {
+      s.spokenFactIds = [...new Set([...s.spokenFactIds, ...fb.facts.map((f) => f.id)])];
+      this.state = { ...this.state, memory: { ...this.state.memory, discussed: { ...this.state.memory.discussed, ...(this.state.memory.discussed[s.placeId] ? { [s.placeId]: { ...this.state.memory.discussed[s.placeId]!, depth: 'followup' as const } } : {}) } } };
+      this.d.telemetry.event({ name: 'question_asked', sessionId: this.info.id, at: this.clock(), geohash5: null, props: { kind: 'followup_answered', grounded: r.grounding.ok, generatedBy: r.generatedBy.kind, facts: fb.facts.length, ...extra } });
+    };
+    if (!(this.info.capabilities ?? []).includes('say_append')) {
+      // Legacy clients replace a `say` with the next one: one complete answer, one say.
+      const r = await generateGroundedAnswer(question, fb, this.guide, gen);
+      if (turn !== this.turn) return null;
+      markSpoken(r);
+      return this.say(r.text, 'answer', turn);
+    }
+    // D-020: stream the LLM answer; each grounded sentence is synthesized as soon as it is complete
+    // and emitted in order, so first audio follows sentence 1 instead of the whole answer.
+    let first: Envelope | null = null;
+    let emitted = 0;
+    let chain: Promise<void> = Promise.resolve();
+    const onSentence = (text: string, index: number) => {
+      const audio = this.lineAudio(text, 'answer'); // starts TTS now, in parallel with generation
+      chain = chain.then(async () => {
+        const a = await audio;
+        if (turn !== this.turn) return;
+        const env = this.emitSay(text, a, 'answer', turn, { append: index > 0, streaming: true });
+        if (env) {
+          emitted++;
+          first ??= env;
+        }
+      });
+    };
+    const r = await streamGroundedAnswer(question, fb, this.guide, gen, onSentence);
+    await chain;
     if (turn !== this.turn) return null;
-    s.spokenFactIds = [...new Set([...s.spokenFactIds, ...fb.facts.map((f) => f.id)])];
-    this.state = { ...this.state, memory: { ...this.state.memory, discussed: { ...this.state.memory.discussed, ...(this.state.memory.discussed[s.placeId] ? { [s.placeId]: { ...this.state.memory.discussed[s.placeId]!, depth: 'followup' as const } } : {}) } } };
-    this.d.telemetry.event({ name: 'question_asked', sessionId: this.info.id, at: this.clock(), geohash5: null, props: { kind: 'followup_answered', grounded: r.grounding.ok, generatedBy: r.generatedBy.kind, facts: fb.facts.length } });
-    return this.say(r.text, 'answer', turn);
+    const p = this.pendingAnswer;
+    if (p && p.turn === turn && p.streaming) {
+      const done = p.finishedRef === p.ref;
+      this.pendingAnswer = { ref: p.ref, endsAt: p.endsAt, turn: p.turn };
+      if (done) {
+        this.finishAnswerState();
+        void this.kick(); // resume decision right after the answer (C1 step 7)
+      }
+    }
+    markSpoken(r, { streamed: true, sentences: emitted, replaced: r.replaced, dropped: r.dropped });
+    return first;
   }
 
   private async whatIsThat(question: string, turn: number, signal: AbortSignal): Promise<Envelope | null> {

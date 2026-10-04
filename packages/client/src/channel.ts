@@ -39,6 +39,8 @@ export interface ChannelDeps {
   guest: GuestTokenStore;
   platform: string;
   appVersion: string;
+  /** Declared to the server at session creation, e.g. ['say_append'] (streamed answers, D-020). */
+  capabilities?: string[];
   WebSocket?: WebSocketCtor;
   now?: () => number;
   newId?: () => string;
@@ -115,7 +117,7 @@ export class SessionChannel implements Transport {
     this.health = 'connecting';
     const { api } = this.deps;
     this.token = await ensureGuestToken(api, this.deps.guest);
-    const body = { guideId: opts.guideId, locale: opts.locale, units: opts.units, simulated: opts.simulated, client: { platform: this.deps.platform, appVersion: this.deps.appVersion } };
+    const body = { guideId: opts.guideId, locale: opts.locale, units: opts.units, simulated: opts.simulated, client: { platform: this.deps.platform, appVersion: this.deps.appVersion, ...(this.deps.capabilities?.length ? { capabilities: this.deps.capabilities } : {}) } };
     let created: SessionCreated;
     try {
       created = await api.createSession(this.token, body);

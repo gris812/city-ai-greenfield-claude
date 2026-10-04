@@ -27,6 +27,24 @@ const BudgetSchema = z.object({
   killed: z.array(z.string().max(40)).max(50).optional(),
 });
 
+/**
+ * Live cache-layer hit/miss counters of THIS API process since start (D-018): complements the
+ * ledger-based `cacheByLayer` (which needs the telemetry flush and covers the selected range).
+ */
+export function cacheCounters(deps: AppDeps) {
+  const rate = (h: number, m: number) => (h + m > 0 ? h / (h + m) : null);
+  const n = deps.narration?.stats;
+  const a = deps.audio.stats;
+  const d = deps.discovery.stats;
+  return {
+    scope: 'process since start',
+    narrationBody: n ? { enabled: true, hits: n.hits, misses: n.misses, inflightJoins: n.inflightJoins, writes: n.writes, notCached: n.notCached, hitRate: rate(n.hits, n.misses) } : { enabled: false },
+    ttsAudio: { hits: a.hits, misses: a.misses, failures: a.failures, hitRate: rate(a.hits, a.misses) },
+    places: { hits: d.placeHits, misses: d.placeMisses, hitRate: rate(d.placeHits, d.placeMisses) },
+    evidence: { hits: d.evidenceHits, misses: d.evidenceMisses, hitRate: rate(d.evidenceHits, d.evidenceMisses) },
+  };
+}
+
 export function adminRoutes(app: FastifyInstance, deps: AppDeps): void {
   const analyst = requireAdmin(deps.auth, 'analyst');
   const admin = requireAdmin(deps.auth, 'admin');
@@ -107,9 +125,9 @@ export function adminRoutes(app: FastifyInstance, deps: AppDeps): void {
     const cacheByLayer = await sql`
       SELECT task AS layer, count(*) FILTER (WHERE cache_hit)::int AS hits, count(*)::int AS lookups,
              (count(*) FILTER (WHERE cache_hit))::float / nullif(count(*), 0) AS hit_rate
-      FROM cost_ledger WHERE at > ${since} AND task IN ('discovery', 'density_probe', 'evidence', 'tts_segment') GROUP BY 1`;
+      FROM cost_ledger WHERE at > ${since} AND task IN ('discovery', 'density_probe', 'evidence', 'narration_body', 'tts_segment') GROUP BY 1`;
     const errors = await sql`SELECT props->>'provider' AS provider, props->>'kind' AS kind, count(*)::int AS n FROM events WHERE name = 'provider_error' AND at > ${since} GROUP BY 1, 2 ORDER BY n DESC`;
-    return { calls, cacheByLayer, errors, breakers: deps.guard.breakerStates(), configured: describeSet(deps.providers) };
+    return { calls, cacheByLayer, cacheCounters: cacheCounters(deps), errors, breakers: deps.guard.breakerStates(), configured: describeSet(deps.providers) };
   });
 
   app.get<{ Querystring: { range?: string } }>('/v1/admin/metrics/quality', { preHandler: analyst }, async (req, reply) => {

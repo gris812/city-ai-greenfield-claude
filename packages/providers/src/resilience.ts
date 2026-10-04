@@ -133,7 +133,10 @@ export interface BudgetLimits {
 
 /** Provisional defaults (docs/PERFORMANCE_COST.md §12): generous for real use, tight enough to stop storms. */
 export const DEFAULT_BUDGET: BudgetLimits = {
-  perSession: { maps: 240, knowledge: 600, llm: 200, tts: 600, stt: 200, realtime: 6 },
+  // realtime: token issuances per session. The cost bound is `realtimeSecondsPerSession` (reserved
+  // per token, unused seconds credited back on /v1/realtime/usage, D-022); the token cap bounds
+  // the exposure to clients that under-report (≤ cap × token maxSeconds).
+  perSession: { maps: 240, knowledge: 600, llm: 200, tts: 600, stt: 200, realtime: 30 },
   perMinuteGlobal: { maps: 600, knowledge: 1200, llm: 600, tts: 1200, stt: 300, realtime: 60 },
   realtimeSecondsPerSession: 15 * 60,
   usdPerSession: 1.0,
@@ -150,6 +153,9 @@ export class ProviderBudget {
   private sessionCalls = new Map<string, Map<ProviderCategory, number>>();
   private sessionUsd = new Map<string, number>();
   private sessionRealtimeS = new Map<string, number>();
+  /** Open/closed realtime reservations per session (D-022). */
+  private reservations = new Map<string, Map<string, { seconds: number; at: number; reconciled: boolean }>>();
+  private reservationSeq = 0;
   private window: Array<{ at: number; category: ProviderCategory }> = [];
   private readonly clock: Clock;
   stats = { refused: 0 };
@@ -200,6 +206,36 @@ export class ProviderBudget {
     this.sessionRealtimeS.set(sessionId, (this.sessionRealtimeS.get(sessionId) ?? 0) + Math.max(0, seconds));
   }
 
+  /** Reserve `seconds` of realtime for one token; returns the reservation id (D-022). */
+  reserveRealtime(sessionId: string, seconds: number): string {
+    const id = `rt_${(++this.reservationSeq).toString(36)}_${this.clock().toString(36)}`;
+    const m = this.reservations.get(sessionId) ?? new Map();
+    m.set(id, { seconds: Math.max(0, seconds), at: this.clock(), reconciled: false });
+    this.reservations.set(sessionId, m);
+    this.addRealtimeSeconds(sessionId, seconds);
+    return id;
+  }
+
+  /**
+   * Reconcile a reservation with the usage the client reported (D-022): the unused part is
+   * credited back to the session's realtime seconds. Used time is at least the reported usage
+   * and at least the wall time since the token was issued (a late report never earns credit for
+   * time that already passed), and never more than reserved. Each reservation reconciles once;
+   * without an id the session's oldest open reservation is used.
+   */
+  reconcileRealtime(sessionId: string, reservationId: string | undefined, reportedUsedS: number): { reservationId: string | null; reservedS: number; usedS: number; creditedS: number } {
+    const m = this.reservations.get(sessionId);
+    const entry = m ? (reservationId ? (m.has(reservationId) ? ([reservationId, m.get(reservationId)!] as const) : null) : ([...m.entries()].find(([, r]) => !r.reconciled) ?? null)) : null;
+    if (!entry || entry[1].reconciled) return { reservationId: entry?.[0] ?? null, reservedS: entry?.[1].seconds ?? 0, usedS: 0, creditedS: 0 };
+    const [id, r] = entry;
+    const elapsedS = Math.max(0, (this.clock() - r.at) / 1000);
+    const usedS = Math.min(r.seconds, Math.max(0, Number.isFinite(reportedUsedS) ? reportedUsedS : r.seconds, elapsedS));
+    const creditedS = r.seconds - usedS;
+    r.reconciled = true;
+    this.sessionRealtimeS.set(sessionId, Math.max(0, (this.sessionRealtimeS.get(sessionId) ?? 0) - creditedS));
+    return { reservationId: id, reservedS: r.seconds, usedS, creditedS };
+  }
+
   realtimeSecondsLeft(sessionId: string): number {
     return Math.max(0, this.limits.realtimeSecondsPerSession - (this.sessionRealtimeS.get(sessionId) ?? 0));
   }
@@ -212,6 +248,7 @@ export class ProviderBudget {
     this.sessionCalls.delete(sessionId);
     this.sessionUsd.delete(sessionId);
     this.sessionRealtimeS.delete(sessionId);
+    this.reservations.delete(sessionId);
   }
 
   private refuse(reason: NonNullable<BudgetDecision['reason']>): BudgetDecision {

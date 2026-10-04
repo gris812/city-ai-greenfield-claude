@@ -6,6 +6,7 @@
  */
 import type {
   DensityClass,
+  DiscoveryQuery,
   FactKind,
   GuideProfile,
   JourneyContext,
@@ -23,6 +24,7 @@ import {
   checkGrounding,
   contextOf,
   decideMoment,
+  densityHintFrom,
   densityProbeQueryFor,
   discoveryQueryFor,
   geometryFor,
@@ -201,6 +203,7 @@ export async function runScenario(sc: Scenario, opts: RunOptions = {}): Promise<
   let discRec: DiscoveryFetchRecord | null = null;
   let densRec: DensityProbeRecord | null = null;
   let cached: PlaceCandidate[] = [];
+  let lastDiscoveryQuery: DiscoveryQuery | null = null;
   let playing: { planId: string; place: PlaceCandidate; segments: NarrativeSegment[]; startedAt: number; endsAt: number; record: StoryRecord } | null = null;
 
   const stories: StoryRecord[] = [];
@@ -247,11 +250,11 @@ export async function runScenario(sc: Scenario, opts: RunOptions = {}): Promise<
     if (!ctx.position) continue;
 
     // Local density probe (throttled).
-    if (shouldRefreshDensity(densRec, ctx)) {
+    if (shouldRefreshDensity(densRec, ctx, densityHintFrom(ctx, { query: lastDiscoveryQuery, candidates: cached }))) {
       const pq = densityProbeQueryFor(ctx);
       const probe = await source.as('density').query(pq);
       st = observeDensity(st, probe, pq.radiusM);
-      densRec = recordDensityProbe(densRec, ctx, probe.length);
+      densRec = recordDensityProbe(densRec, ctx, probe.length, st.density.density);
       ctx = contextOf(st);
     }
     densitySeq.push(st.density.density);
@@ -261,6 +264,7 @@ export async function runScenario(sc: Scenario, opts: RunOptions = {}): Promise<
     const q = discoveryQueryFor(ctx, traj);
     if (shouldRefreshDiscovery(discRec, ctx, q).refresh) {
       cached = await source.as('discovery').query(q);
+      lastDiscoveryQuery = q;
       discRec = recordDiscoveryFetch(discRec, ctx, q, cached.length);
     }
 

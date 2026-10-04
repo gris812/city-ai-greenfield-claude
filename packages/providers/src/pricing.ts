@@ -143,6 +143,11 @@ export const PRICE_TABLE: Record<string, PriceEntry> = {
     ref: { product: 'gemini-3.8-flash-tts', sku: 'audio output' },
   },
 
+  // Google Cloud Text-to-Speech (D-019, cheap tier): model = voice family; per 1M characters.
+  'google_tts:standard': { kind: 'characters', perMChars: 4.0, ref: { product: 'Cloud Text-to-Speech Standard / WaveNet', sku: 'characters' } },
+  'google_tts:wavenet': { kind: 'characters', perMChars: 4.0, ref: { product: 'Cloud Text-to-Speech Standard / WaveNet', sku: 'characters' } },
+  'google_tts:neural2': { kind: 'characters', perMChars: 16.0, ref: { product: 'Cloud Text-to-Speech Neural2', sku: 'characters' } },
+
   // ── STT
   'openai:gpt-4o-mini-transcribe': { kind: 'per_minute', perMinute: 0.003, ref: { product: 'gpt-4o-mini-transcribe', sku: 'transcription' } },
   'openai:gpt-4o-transcribe': { kind: 'per_minute', perMinute: 0.006, ref: { product: 'gpt-4o-transcribe', sku: 'transcription' } },

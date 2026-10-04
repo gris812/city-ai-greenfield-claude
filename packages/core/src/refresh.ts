@@ -15,9 +15,9 @@
  * Between refreshes, callers re-score the cached candidates against the current position —
  * scoring is pure and cheap; the provider call is the paid part.
  */
-import type { DiscoveryQuery, JourneyContext, LatLng, Millis, MovementRegime } from './contracts.js';
+import type { DensityClass, DiscoveryQuery, JourneyContext, LatLng, Millis, MovementRegime, PlaceCandidate } from './contracts.js';
 import { angleDiff, haversineM, polylineLengthM } from './geo.js';
-import { DENSITY_SAMPLE_RADIUS_M } from './density.js';
+import { DENSITY_SAMPLE_RADIUS_M, classifyDensity, densityProbeRadiusFor, observedDensity } from './density.js';
 
 export const REFRESH = {
   MIN_INTERVAL_S: { unknown: 20, stationary: 60, walking: 20, cycling: 20, urban_driving: 20, highway_driving: 30 } satisfies Record<MovementRegime, number>,
@@ -34,6 +34,13 @@ export const REFRESH = {
   /** Density probe: minimum interval per regime and minimum movement. */
   DENSITY_MIN_INTERVAL_S: { unknown: 30, stationary: 300, walking: 30, cycling: 45, urban_driving: 45, highway_driving: 90 } satisfies Record<MovementRegime, number>,
   DENSITY_MIN_MOVE_M: DENSITY_SAMPLE_RADIUS_M,
+  /**
+   * Stable-density backoff (D-024): after each probe that left the density class unchanged the
+   * interval doubles, up to 2^steps. Highway surroundings change slowly and a class change is
+   * also caught early by the discovery hint (`densityHintFrom`), so the highway may back off
+   * furthest. A regime change always resets to the base interval.
+   */
+  DENSITY_STABLE_MAX_STEPS: { unknown: 0, stationary: 0, walking: 1, cycling: 1, urban_driving: 1, highway_driving: 2 } satisfies Record<MovementRegime, number>,
 } as const;
 
 /** What the caller remembers about the last paid fetch. JSON-safe. */
@@ -113,23 +120,61 @@ export interface DensityProbeRecord {
   regime: MovementRegime;
   /** Consecutive empty probes (backoff). */
   emptyStreak?: number;
+  /** Density class right after this probe was folded in (stable backoff, D-024). */
+  density?: DensityClass;
+  /** Consecutive probes (same regime) that left the density class unchanged. */
+  stableStreak?: number;
+}
+
+/**
+ * Density evidence from a discovery result that already covers the probe area (D-024): the
+ * discovery candidates inside the probe circle are a LOWER BOUND on local density (discovery
+ * uses a higher significance floor than the probe). Null when the discovery query does not
+ * cover the whole probe circle around the current position.
+ */
+export function densityHintFrom(ctx: JourneyContext, discovery: { query: Pick<DiscoveryQuery, 'center' | 'radiusM'> | null; candidates: readonly PlaceCandidate[] }): number | null {
+  if (!ctx.position || !discovery.query) return null;
+  const r = densityProbeRadiusFor(ctx.regime.regime);
+  if (haversineM(discovery.query.center, ctx.position) + r > discovery.query.radiusM) return null;
+  return observedDensity(ctx.position, r, discovery.candidates);
+}
+
+function classIndex(c: DensityClass): number {
+  return ['sparse', 'suburban', 'urban', 'dense'].indexOf(c);
 }
 
 /**
  * Density probe throttle: regime interval AND movement (a parked user is probed once);
- * a regime change probes again after the (new) interval; empty probes back off.
+ * a regime change probes again after the (new) interval; empty probes back off; probes that
+ * keep confirming the same class back off (D-024). A discovery hint that already proves a
+ * denser class than the current one (lower bound above the class) probes at the base interval.
  */
-export function shouldRefreshDensity(prev: DensityProbeRecord | null, ctx: JourneyContext): boolean {
+export function shouldRefreshDensity(prev: DensityProbeRecord | null, ctx: JourneyContext, hintPlacesPerKm2: number | null = null): boolean {
   if (!ctx.position) return false;
   if (!prev) return true;
+  const regime = ctx.regime.regime;
   const ageS = (ctx.now - prev.at) / 1000;
-  const k = REFRESH.EMPTY_BACKOFF ** Math.min(REFRESH.EMPTY_BACKOFF_MAX_STEPS, prev.emptyStreak ?? 0);
-  const regimeChanged = prev.regime !== ctx.regime.regime;
-  if (ageS < REFRESH.DENSITY_MIN_INTERVAL_S[ctx.regime.regime] * (regimeChanged ? 1 : k)) return false;
-  return regimeChanged || haversineM(prev.position, ctx.position) >= REFRESH.DENSITY_MIN_MOVE_M;
+  const regimeChanged = prev.regime !== regime;
+  const base = REFRESH.DENSITY_MIN_INTERVAL_S[regime];
+  if (regimeChanged) return ageS >= base;
+  const moved = haversineM(prev.position, ctx.position) >= REFRESH.DENSITY_MIN_MOVE_M;
+  if (!moved) return false;
+  const kEmpty = REFRESH.EMPTY_BACKOFF ** Math.min(REFRESH.EMPTY_BACKOFF_MAX_STEPS, prev.emptyStreak ?? 0);
+  const kStable = REFRESH.EMPTY_BACKOFF ** Math.min(REFRESH.DENSITY_STABLE_MAX_STEPS[regime], prev.stableStreak ?? 0);
+  if (ageS >= base * Math.max(kEmpty, kStable)) return true;
+  // Area change seen by discovery: its lower bound already classifies above the current class.
+  return hintPlacesPerKm2 !== null && ageS >= base && classIndex(classifyDensity(hintPlacesPerKm2)) > classIndex(ctx.density.density);
 }
 
-export function recordDensityProbe(prev: DensityProbeRecord | null, ctx: JourneyContext, resultCount: number): DensityProbeRecord {
+export function recordDensityProbe(prev: DensityProbeRecord | null, ctx: JourneyContext, resultCount: number, densityAfter?: DensityClass): DensityProbeRecord {
   const pos = ctx.position!;
-  return { at: ctx.now, position: { lat: pos.lat, lng: pos.lng }, regime: ctx.regime.regime, emptyStreak: resultCount === 0 ? (prev?.emptyStreak ?? 0) + 1 : 0 };
+  const sameRegime = prev?.regime === ctx.regime.regime;
+  const stable = densityAfter !== undefined && sameRegime && prev?.density === densityAfter;
+  return {
+    at: ctx.now,
+    position: { lat: pos.lat, lng: pos.lng },
+    regime: ctx.regime.regime,
+    emptyStreak: resultCount === 0 ? (prev?.emptyStreak ?? 0) + 1 : 0,
+    ...(densityAfter !== undefined ? { density: densityAfter, stableStreak: stable ? (prev?.stableStreak ?? 0) + 1 : 0 } : {}),
+  };
 }

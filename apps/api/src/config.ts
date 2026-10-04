@@ -1,6 +1,8 @@
 /** API configuration from environment (validated with zod). Secrets are never logged. */
 import { randomBytes } from 'node:crypto';
 import { z } from 'zod';
+import { RETELL, type TtsTierConfig } from '@city/core';
+import { ttsTiersFromEnv } from '@city/providers';
 
 const Env = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
@@ -25,6 +27,10 @@ const Env = z.object({
   LOG_LEVEL: z.string().default('info'),
   REALTIME_MAX_SECONDS: z.coerce.number().default(300),
   REALTIME_IDLE_TIMEOUT_S: z.coerce.number().default(20),
+  /** D-023: days before a place told in an earlier session may be retold unprompted (≤ 90, D-012). */
+  RETELL_AFTER_DAYS: z.coerce.number().min(0).max(90).default(RETELL.AFTER_DAYS),
+  /** D-018: shared story-body cache on/off (default on). */
+  NARRATION_CACHE: z.enum(['0', '1']).default('1'),
 });
 
 export interface AppConfig {
@@ -46,6 +52,10 @@ export interface AppConfig {
   corsOrigins: string[];
   logLevel: string;
   realtime: { maxSeconds: number; idleTimeoutS: number };
+  /** D-019 tier routing (TTS_TIER_* env over core defaults). */
+  ttsTiers: TtsTierConfig;
+  retellAfterDays: number;
+  narrationCache: boolean;
 }
 
 export function loadConfig(env: Record<string, string | undefined> = process.env): AppConfig {
@@ -82,5 +92,8 @@ export function loadConfig(env: Record<string, string | undefined> = process.env
       .filter(Boolean),
     logLevel: e.LOG_LEVEL,
     realtime: { maxSeconds: e.REALTIME_MAX_SECONDS, idleTimeoutS: e.REALTIME_IDLE_TIMEOUT_S },
+    ttsTiers: ttsTiersFromEnv(env),
+    retellAfterDays: e.RETELL_AFTER_DAYS,
+    narrationCache: e.NARRATION_CACHE === '1',
   };
 }

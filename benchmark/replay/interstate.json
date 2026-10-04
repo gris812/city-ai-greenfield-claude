@@ -87,11 +87,11 @@
   ],
   "providerQueries": {
    "discovery": 13,
-   "densityProbe": 44,
-   "total": 57,
-   "perHour": 32.5,
-   "emptyResults": 16,
-   "framesPerQuery": 55.4
+   "densityProbe": 19,
+   "total": 32,
+   "perHour": 18.2,
+   "emptyResults": 11,
+   "framesPerQuery": 98.7
   },
   "wronglyBehindTargets": 0,
   "endedAfterPassing": 0,

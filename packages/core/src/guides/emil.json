@@ -17,7 +17,23 @@
       "openai": "ash",
       "google": "Iapetus"
     },
-    "speakingRate": 1.05
+    "speakingRate": 1.05,
+    "byTier": {
+      "economy": {
+        "google_tts:wavenet": {
+          "en": "en-US-Wavenet-J",
+          "ru": "ru-RU-Wavenet-D"
+        },
+        "google_tts:standard": {
+          "en": "en-US-Standard-J",
+          "ru": "ru-RU-Standard-D"
+        },
+        "google_tts:neural2": {
+          "en": "en-US-Neural2-J"
+        }
+      }
+    },
+    "tierStatus": "Economy-tier candidates (Google Cloud TTS) PENDING BENCHMARK (D-010 rubric, D-019): voice names not yet verified against GET /v1/voices and not yet rated; no Russian Neural2 candidate (Google default ru voice would be used, shared by both Guides)."
   },
   "visual": {
     "accent": "#5B5BD6",

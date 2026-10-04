@@ -70,7 +70,15 @@ export const CreateSessionSchema = z.object({
   locale: z.string().min(2).max(20).default('en-US'),
   units: z.enum(['metric', 'imperial']).optional(),
   simulated: z.boolean().default(false),
-  client: z.object({ platform: z.string().max(30), appVersion: z.string().max(40) }).partial().default({}),
+  client: z
+    .object({
+      platform: z.string().max(30),
+      appVersion: z.string().max(40),
+      /** Optional client capabilities, e.g. 'say_append' (streamed answers, D-020). Unknown values are ignored. */
+      capabilities: z.array(z.string().max(40)).max(20),
+    })
+    .partial()
+    .default({}),
 });
 
 export const NearbyRequestSchema = z.object({
@@ -91,9 +99,13 @@ export const RealtimeTokenSchema = z.object({ sessionId: z.string().uuid(), prov
 
 export const RealtimeUsageSchema = z.object({
   sessionId: z.string().uuid(),
+  /** Reservation returned by /v1/realtime/token (D-022); omitted → the oldest open reservation of the session. */
+  reservationId: z.string().max(80).optional(),
   provider: z.string().max(30),
   model: z.string().max(80),
   userAudioS: z.number().nonnegative().max(7200),
   assistantAudioS: z.number().nonnegative().max(7200),
+  /** Wall-clock seconds the realtime session was open (D-022; the larger of this and the audio seconds counts as used). */
+  sessionS: z.number().nonnegative().max(7200).optional(),
   connectMs: z.number().nonnegative().optional(),
 });

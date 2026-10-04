@@ -475,11 +475,11 @@
   ],
   "providerQueries": {
    "discovery": 8,
-   "densityProbe": 12,
-   "total": 20,
-   "perHour": 66.3,
+   "densityProbe": 10,
+   "total": 18,
+   "perHour": 59.7,
    "emptyResults": 1,
-   "framesPerQuery": 54.4
+   "framesPerQuery": 60.4
   },
   "wronglyBehindTargets": 0,
   "endedAfterPassing": 0,
@@ -505,7 +505,7 @@
     "name": "Coit Tower",
     "reasons": {
      "off_course": 541,
-     "beyond_lookahead": 157,
+     "beyond_lookahead": 133,
      "behind": 148
     }
    },
@@ -529,7 +529,7 @@
    "fx:sf:vista-point-north": {
     "name": "Vista Point",
     "reasons": {
-     "beyond_lookahead": 105,
+     "beyond_lookahead": 98,
      "evidence_thin": 545,
      "off_course": 316,
      "too_close_to_pass": 38,
@@ -664,11 +664,11 @@
   ],
   "providerQueries": {
    "discovery": 13,
-   "densityProbe": 44,
-   "total": 57,
-   "perHour": 32.5,
-   "emptyResults": 16,
-   "framesPerQuery": 55.4
+   "densityProbe": 19,
+   "total": 32,
+   "perHour": 18.2,
+   "emptyResults": 11,
+   "framesPerQuery": 98.7
   },
   "wronglyBehindTargets": 0,
   "endedAfterPassing": 0,
@@ -885,11 +885,11 @@
   ],
   "providerQueries": {
    "discovery": 26,
-   "densityProbe": 44,
-   "total": 70,
-   "perHour": 39.9,
-   "emptyResults": 16,
-   "framesPerQuery": 45.1
+   "densityProbe": 19,
+   "total": 45,
+   "perHour": 25.7,
+   "emptyResults": 11,
+   "framesPerQuery": 70.2
   },
   "wronglyBehindTargets": 0,
   "endedAfterPassing": 0,
@@ -1086,7 +1086,7 @@
     "kind": "story",
     "regime": "urban_driving",
     "distanceM": 1438,
-    "reachM": 6157
+    "reachM": 4310
    },
    {
     "t": 1636,
@@ -1167,11 +1167,11 @@
   ],
   "providerQueries": {
    "discovery": 12,
-   "densityProbe": 25,
-   "total": 37,
-   "perHour": 58.9,
+   "densityProbe": 18,
+   "total": 30,
+   "perHour": 47.8,
    "emptyResults": 1,
-   "framesPerQuery": 61.1
+   "framesPerQuery": 75.4
   },
   "wronglyBehindTargets": 0,
   "endedAfterPassing": 0,

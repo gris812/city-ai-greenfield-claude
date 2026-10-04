@@ -15,6 +15,7 @@ import { Auth } from './auth.js';
 import type { AppConfig } from './config.js';
 import { createSql, type Sql } from './db.js';
 import { DiscoveryService } from './discovery-service.js';
+import { NarrationCache } from './narration-cache.js';
 import { ResilientKV, type KV } from './kv.js';
 import { ReducedModeLimiter } from './runtime/session-runtime.js';
 import { SessionManager } from './runtime/session-manager.js';
@@ -32,6 +33,8 @@ export interface AppDeps {
   providers: ProviderSet;
   discovery: DiscoveryService;
   audio: AudioStore;
+  /** Shared story-body cache (D-018); null when NARRATION_CACHE=0. */
+  narration: NarrationCache | null;
   sessions: SessionManager;
   /** Redis client for rate limiting (null → in-memory store). */
   redis: import('ioredis').Redis | null;
@@ -90,7 +93,8 @@ export async function createDeps(config: AppConfig, o: DepsOverrides = {}): Prom
   const discovery = new DiscoveryService(router, kv, telemetry);
   const audio = new AudioStore(config.audioDir, router, telemetry);
   const auth = new Auth(config.jwtKey, sql);
-  const sessions = new SessionManager({ router, discovery, audio, telemetry, kv, reducedLimiter: new ReducedModeLimiter(30) }, kv, sql);
+  const narration = config.narrationCache ? new NarrationCache(kv, telemetry) : null;
+  const sessions = new SessionManager({ router, discovery, audio, telemetry, kv, reducedLimiter: new ReducedModeLimiter(30), narration, ttsTiers: config.ttsTiers, retellAfterDays: config.retellAfterDays }, kv, sql);
   return {
     config,
     sql,
@@ -103,6 +107,7 @@ export async function createDeps(config: AppConfig, o: DepsOverrides = {}): Prom
     providers,
     discovery,
     audio,
+    narration,
     sessions,
     redis,
     async close() {

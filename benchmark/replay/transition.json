@@ -69,7 +69,7 @@
     "kind": "story",
     "regime": "urban_driving",
     "distanceM": 1438,
-    "reachM": 6157
+    "reachM": 4310
    },
    {
     "t": 1636,
@@ -150,11 +150,11 @@
   ],
   "providerQueries": {
    "discovery": 12,
-   "densityProbe": 25,
-   "total": 37,
-   "perHour": 58.9,
+   "densityProbe": 18,
+   "total": 30,
+   "perHour": 47.8,
    "emptyResults": 1,
-   "framesPerQuery": 61.1
+   "framesPerQuery": 75.4
   },
   "wronglyBehindTargets": 0,
   "endedAfterPassing": 0,
@@ -664,7 +664,7 @@
    "name": "Cloud Gate",
    "placeKind": "landmark",
    "regime": "urban_driving",
-   "density": "urban",
+   "density": "dense",
    "speedMps": 7,
    "courseDeg": 0,
    "trajectory": "corridor_heading",
@@ -674,7 +674,7 @@
    "alongTrackM": 1435,
    "crossTrackM": 85,
    "etaS": 204,
-   "reachM": 6157,
+   "reachM": 4310,
    "score": 0.859,
    "mode": "short",
    "angle": "turning_point",
@@ -1475,36 +1475,62 @@
    "trajectory": "corridor_heading"
   },
   {
-   "t": 675,
+   "t": 693,
    "regime": "highway_driving",
-   "density": "suburban",
-   "speedMps": 28.3,
+   "density": "sparse",
+   "speedMps": 28.2,
    "decision": "silence",
    "reason": "cadence_gap",
-   "best": "fx:chi:buckingham-fountain",
-   "bestScore": 0.741,
-   "eligible": 1,
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
    "suppressed": {
-    "off_course": 7,
+    "off_course": 8,
     "already_discussed": 2,
     "evidence_thin": 2
    },
    "policy": {
-    "nearRadiusM": 2100,
-    "lookAheadBaseM": 7800,
-    "lookAheadMaxM": 78000,
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
     "minGapS": 480,
-    "speakThreshold": 0.62,
+    "speakThreshold": 0.6,
     "maxStoryS": 75,
-    "significanceFloor": 0.5
+    "significanceFloor": 0.45
    },
    "trajectory": "corridor_heading"
   },
   {
-   "t": 735,
+   "t": 753,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 765,
    "regime": "highway_driving",
    "density": "suburban",
-   "speedMps": 27.8,
+   "speedMps": 28,
    "decision": "silence",
    "reason": "cadence_gap",
    "best": null,
@@ -1527,14 +1553,14 @@
    "trajectory": "corridor_heading"
   },
   {
-   "t": 795,
+   "t": 825,
    "regime": "highway_driving",
    "density": "suburban",
-   "speedMps": 26,
+   "speedMps": 25.9,
    "decision": "silence",
    "reason": "cadence_gap",
    "best": "fx:chi:art-institute",
-   "bestScore": 0.898,
+   "bestScore": 0.901,
    "eligible": 7,
    "suppressed": {
     "already_discussed": 2,
@@ -1552,19 +1578,18 @@
    "trajectory": "corridor_heading"
   },
   {
-   "t": 855,
+   "t": 885,
    "regime": "highway_driving",
    "density": "suburban",
-   "speedMps": 25.9,
+   "speedMps": 26.2,
    "decision": "silence",
    "reason": "cadence_gap",
    "best": "fx:chi:art-institute",
-   "bestScore": 0.9,
-   "eligible": 6,
+   "bestScore": 0.903,
+   "eligible": 7,
    "suppressed": {
     "already_discussed": 2,
-    "evidence_thin": 2,
-    "off_course": 1
+    "evidence_thin": 2
    },
    "policy": {
     "nearRadiusM": 2100,
@@ -1578,45 +1603,19 @@
    "trajectory": "corridor_heading"
   },
   {
-   "t": 915,
+   "t": 945,
    "regime": "highway_driving",
    "density": "suburban",
-   "speedMps": 25.9,
+   "speedMps": 16.1,
    "decision": "silence",
    "reason": "cadence_gap",
    "best": "fx:chi:art-institute",
-   "bestScore": 0.899,
+   "bestScore": 0.9,
    "eligible": 5,
    "suppressed": {
     "already_discussed": 2,
     "evidence_thin": 2,
     "off_course": 2
-   },
-   "policy": {
-    "nearRadiusM": 2100,
-    "lookAheadBaseM": 7800,
-    "lookAheadMaxM": 78000,
-    "minGapS": 480,
-    "speakThreshold": 0.62,
-    "maxStoryS": 75,
-    "significanceFloor": 0.5
-   },
-   "trajectory": "corridor_heading"
-  },
-  {
-   "t": 975,
-   "regime": "highway_driving",
-   "density": "suburban",
-   "speedMps": 15.9,
-   "decision": "silence",
-   "reason": "cadence_gap",
-   "best": "fx:chi:art-institute",
-   "bestScore": 0.895,
-   "eligible": 3,
-   "suppressed": {
-    "already_discussed": 2,
-    "evidence_thin": 2,
-    "off_course": 5
    },
    "policy": {
     "nearRadiusM": 2100,
@@ -2078,9 +2077,36 @@
    "trajectory": "corridor_heading"
   },
   {
+   "t": 1496,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 7.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:millennium-park",
+   "bestScore": 0.848,
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 5,
+    "off_course": 4,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
    "t": 1497,
    "regime": "urban_driving",
-   "density": "urban",
+   "density": "dense",
    "speedMps": 7,
    "decision": "start_story",
    "target": "fx:chi:cloud-gate",
@@ -2092,45 +2118,21 @@
     "evidence_thin": 2
    },
    "policy": {
-    "nearRadiusM": 400,
-    "lookAheadBaseM": 1200,
-    "lookAheadMaxM": 8000,
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
     "minGapS": 120,
-    "speakThreshold": 0.55,
+    "speakThreshold": 0.6,
     "maxStoryS": 60,
-    "significanceFloor": 0.4
+    "significanceFloor": 0.5
    },
    "trajectory": "corridor_heading"
   },
   {
    "t": 1498,
    "regime": "urban_driving",
-   "density": "urban",
-   "speedMps": 7,
-   "decision": "continue_story",
-   "eligible": 2,
-   "suppressed": {
-    "already_discussed": 6,
-    "off_course": 4,
-    "behind": 2,
-    "evidence_thin": 2
-   },
-   "policy": {
-    "nearRadiusM": 400,
-    "lookAheadBaseM": 1200,
-    "lookAheadMaxM": 8000,
-    "minGapS": 120,
-    "speakThreshold": 0.55,
-    "maxStoryS": 60,
-    "significanceFloor": 0.4
-   },
-   "trajectory": "corridor_heading"
-  },
-  {
-   "t": 1508,
-   "regime": "urban_driving",
    "density": "dense",
-   "speedMps": 7.1,
+   "speedMps": 7,
    "decision": "continue_story",
    "eligible": 2,
    "suppressed": {

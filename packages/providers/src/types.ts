@@ -3,6 +3,7 @@
  * so adapters (real or fake) are interchangeable and selection is config + benchmark driven
  * (D-010, D-014). Nothing here is city-aware (D-004).
  */
+import type { PromptPayload } from './prompts.js';
 import type {
   CostRecord,
   DiscoveryQuery,
@@ -101,6 +102,17 @@ export interface GenerateRequest {
   json?: { name: string; schema: Record<string, unknown> };
   /** Metering task label: story_generation, followup_answer, intent… */
   task: string;
+  /**
+   * Structured twin of the prompt (D-021). Real adapters never send it; deterministic fakes read
+   * it instead of parsing the prompt text.
+   */
+  structured?: PromptPayload;
+  /**
+   * Streaming (D-020): when set, adapters that support server-sent events stream the completion
+   * and call this with each text delta as it arrives; adapters without streaming call it once
+   * with the full text. The promise still resolves with the complete result (usage, metering).
+   */
+  onDelta?: (delta: string) => void;
 }
 
 export interface GenerateResult {

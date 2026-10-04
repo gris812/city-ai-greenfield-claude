@@ -122,7 +122,7 @@ export const api = {
   guides: () => request<GuideProfile[] | { guides: GuideProfile[] }>('/v1/guides'),
   createSession: (
     token: string,
-    body: { guideId: string; locale: string; units: 'metric' | 'imperial'; simulated: boolean; client: { platform: string; appVersion: string } },
+    body: { guideId: string; locale: string; units: 'metric' | 'imperial'; simulated: boolean; client: { platform: string; appVersion: string; capabilities?: string[] } },
   ) => request<SessionCreated>('/v1/sessions', { body, token }),
   endSession: (token: string, id: string) => request<SessionEnd>(`/v1/sessions/${encodeURIComponent(id)}/end`, { method: 'POST', body: {}, token }),
   context: (token: string, id: string, frame: ContextFrame) => request<unknown>(`/v1/sessions/${encodeURIComponent(id)}/context`, { body: frame, token, timeoutMs: 8000 }),

@@ -226,7 +226,7 @@ export function createApiClient(opts: ApiClientOptions) {
     health: (timeoutMs = 2500) => request<{ ok?: boolean; status?: string }>('/healthz', { timeoutMs }),
     guest: () => request<GuestResponse>('/v1/guest', { method: 'POST', body: {} }),
     guides: () => request<GuideProfile[] | { guides: GuideProfile[] }>('/v1/guides'),
-    createSession: (token: string, body: { guideId: string; locale: string; units: 'metric' | 'imperial'; simulated: boolean; client: { platform: string; appVersion: string } }) =>
+    createSession: (token: string, body: { guideId: string; locale: string; units: 'metric' | 'imperial'; simulated: boolean; client: { platform: string; appVersion: string; capabilities?: string[] } }) =>
       request<SessionCreated>('/v1/sessions', { body, token }),
     endSession: (token: string, id: string) => request<SessionEnd>(`/v1/sessions/${sid(id)}/end`, { method: 'POST', body: {}, token }),
     context: (token: string, id: string, frame: ContextFrame) => request<unknown>(`/v1/sessions/${sid(id)}/context`, { body: frame, token, timeoutMs: 8000 }),

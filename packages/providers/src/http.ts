@@ -85,3 +85,51 @@ export async function httpBytes(url: string, init: RequestInit, o: HttpOptions):
     throw toProviderError(o.provider, e);
   }
 }
+
+export interface SseEvent {
+  event: string | null;
+  data: string;
+}
+
+/**
+ * Server-sent events from a streaming response (D-020): yields one event per blank-line
+ * separated block (`event:` + joined `data:` lines). Works for OpenAI, Gemini (`alt=sse`) and
+ * Anthropic streams. Errors while reading become ProviderErrors.
+ */
+export async function* sseEvents(res: Response, provider: string): AsyncGenerator<SseEvent> {
+  if (!res.body) throw new ProviderError(provider, 'invalid_response', 'no response body');
+  const reader = (res.body as ReadableStream<Uint8Array>).getReader();
+  const dec = new TextDecoder();
+  let buf = '';
+  const parse = (block: string): SseEvent | null => {
+    let event: string | null = null;
+    const data: string[] = [];
+    for (const line of block.split(/\r?\n/)) {
+      if (line.startsWith(':')) continue;
+      if (line.startsWith('event:')) event = line.slice(6).trim();
+      else if (line.startsWith('data:')) data.push(line.slice(5).replace(/^ /, ''));
+    }
+    return data.length > 0 || event ? { event, data: data.join('\n') } : null;
+  };
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let m: RegExpExecArray | null;
+      while ((m = /\r?\n\r?\n/.exec(buf)) !== null) {
+        const block = buf.slice(0, m.index);
+        buf = buf.slice(m.index + m[0].length);
+        const e = parse(block);
+        if (e) yield e;
+      }
+    }
+    buf += dec.decode();
+    const tail = parse(buf.trim());
+    if (tail) yield tail;
+  } catch (e) {
+    throw toProviderError(provider, e);
+  } finally {
+    reader.releaseLock();
+  }
+}

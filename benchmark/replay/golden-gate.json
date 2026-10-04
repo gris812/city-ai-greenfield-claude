@@ -102,11 +102,11 @@
   ],
   "providerQueries": {
    "discovery": 8,
-   "densityProbe": 12,
-   "total": 20,
-   "perHour": 66.3,
+   "densityProbe": 10,
+   "total": 18,
+   "perHour": 59.7,
    "emptyResults": 1,
-   "framesPerQuery": 54.4
+   "framesPerQuery": 60.4
   },
   "wronglyBehindTargets": 0,
   "endedAfterPassing": 0,
@@ -132,7 +132,7 @@
     "name": "Coit Tower",
     "reasons": {
      "off_course": 541,
-     "beyond_lookahead": 157,
+     "beyond_lookahead": 133,
      "behind": 148
     }
    },
@@ -156,7 +156,7 @@
    "fx:sf:vista-point-north": {
     "name": "Vista Point",
     "reasons": {
-     "beyond_lookahead": 105,
+     "beyond_lookahead": 98,
      "evidence_thin": 545,
      "off_course": 316,
      "too_close_to_pass": 38,
@@ -754,22 +754,22 @@
    "trajectory": "corridor_heading"
   },
   {
-   "t": 135,
+   "t": 180,
    "regime": "urban_driving",
    "density": "suburban",
-   "speedMps": 21.2,
+   "speedMps": 20.4,
    "decision": "silence",
    "reason": "cadence_gap",
    "best": "fx:sf:san-francisco",
    "bestScore": 0.919,
    "eligible": 3,
    "suppressed": {
-    "off_course": 13,
-    "behind": 4,
+    "off_course": 12,
+    "behind": 7,
     "below_significance_floor": 9,
     "evidence_thin": 11,
     "utility_kind": 2,
-    "beyond_lookahead": 4,
+    "beyond_lookahead": 2,
     "already_discussed": 1
    },
    "policy": {
@@ -792,10 +792,13 @@
    "target": "fx:sf:san-francisco",
    "eligible": 3,
    "suppressed": {
-    "off_course": 3,
-    "already_discussed": 1,
-    "evidence_thin": 2,
-    "beyond_lookahead": 1
+    "off_course": 12,
+    "behind": 7,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "beyond_lookahead": 2,
+    "already_discussed": 1
    },
    "policy": {
     "nearRadiusM": 560,
@@ -816,10 +819,13 @@
    "decision": "continue_story",
    "eligible": 2,
    "suppressed": {
-    "off_course": 3,
-    "already_discussed": 2,
-    "evidence_thin": 2,
-    "beyond_lookahead": 1
+    "off_course": 12,
+    "behind": 7,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "beyond_lookahead": 2,
+    "already_discussed": 2
    },
    "policy": {
     "nearRadiusM": 560,
@@ -843,10 +849,14 @@
    "bestScore": 0.829,
    "eligible": 2,
    "suppressed": {
-    "off_course": 3,
-    "already_discussed": 2,
-    "evidence_thin": 2,
-    "beyond_lookahead": 1
+    "off_course": 12,
+    "behind": 7,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "too_close_to_pass": 1,
+    "beyond_lookahead": 2,
+    "already_discussed": 2
    },
    "policy": {
     "nearRadiusM": 560,
@@ -870,11 +880,14 @@
    "bestScore": 0.829,
    "eligible": 2,
    "suppressed": {
-    "off_course": 3,
+    "off_course": 10,
     "too_close_to_pass": 3,
-    "already_discussed": 2,
-    "evidence_thin": 2,
-    "beyond_lookahead": 1
+    "behind": 8,
+    "below_significance_floor": 9,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "beyond_lookahead": 2,
+    "already_discussed": 2
    },
    "policy": {
     "nearRadiusM": 560,
@@ -995,9 +1008,9 @@
    "trajectory": "corridor_heading"
   },
   {
-   "t": 405,
+   "t": 407,
    "regime": "urban_driving",
-   "density": "suburban",
+   "density": "sparse",
    "speedMps": 11,
    "decision": "silence",
    "reason": "cadence_gap",
@@ -1006,28 +1019,27 @@
    "eligible": 0,
    "suppressed": {
     "off_course": 13,
-    "too_close_to_pass": 3,
     "behind": 10,
-    "below_significance_floor": 9,
     "evidence_thin": 11,
     "utility_kind": 2,
+    "too_close_to_pass": 2,
     "already_discussed": 3
    },
    "policy": {
-    "nearRadiusM": 560,
-    "lookAheadBaseM": 1560,
-    "lookAheadMaxM": 10400,
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
     "minGapS": 120,
-    "speakThreshold": 0.55,
+    "speakThreshold": 0.53,
     "maxStoryS": 60,
-    "significanceFloor": 0.35
+    "significanceFloor": 0.3
    },
    "trajectory": "corridor_heading"
   },
   {
    "t": 417,
    "regime": "urban_driving",
-   "density": "suburban",
+   "density": "sparse",
    "speedMps": 10.7,
    "decision": "silence",
    "reason": "safety_hold",
@@ -1037,28 +1049,56 @@
    "suppressed": {
     "behind": 14,
     "off_course": 14,
-    "below_significance_floor": 9,
     "evidence_thin": 11,
     "utility_kind": 2,
     "too_close_to_pass": 2,
     "already_discussed": 3
    },
    "policy": {
-    "nearRadiusM": 560,
-    "lookAheadBaseM": 1560,
-    "lookAheadMaxM": 10400,
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
     "minGapS": 120,
-    "speakThreshold": 0.55,
+    "speakThreshold": 0.53,
     "maxStoryS": 60,
-    "significanceFloor": 0.35
+    "significanceFloor": 0.3
    },
    "trajectory": "corridor_heading"
   },
   {
    "t": 421,
    "regime": "urban_driving",
-   "density": "suburban",
+   "density": "sparse",
    "speedMps": 7.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 14,
+    "off_course": 14,
+    "evidence_thin": 11,
+    "utility_kind": 2,
+    "too_close_to_pass": 2,
+    "already_discussed": 3
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 450,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 0.1,
    "decision": "silence",
    "reason": "cadence_gap",
    "best": null,

@@ -182,7 +182,7 @@ async function runReplay() {
  */
 export const LATENCY_PROFILE = {
   llm_story: { p50: 1100, p95: 2600, note: 'small hosted LLM, ~1.2k input / ~200 output tokens, non-streamed' },
-  llm_followup: { p50: 700, p95: 1600, note: 'small hosted LLM, ~100 output tokens' },
+  llm_followup: { p50: 700, p95: 1600, ttftShare: 0.45, note: 'small hosted LLM, ~100 output tokens. Streamed (D-020): the same full-completion draw, first delta after ttftShare × total (ASSUMPTION), remaining words spread evenly' },
   llm_intent: { p50: 450, p95: 1000, note: 'small hosted LLM, JSON, ~30 output tokens (only when rules do not match)' },
   tts: { p50: 250, p95: 600, perCharP50: 2.5, note: 'hosted TTS returning a complete file; p50 = 250 ms + 2.5 ms/char, same spread' },
   stt: { p50: 450, p95: 1100, note: 'batch STT of a ~3 s push-to-talk clip' },
@@ -270,8 +270,23 @@ async function runLatencyHarness() {
     ...base,
     name: 'fake',
     async generate(req: any, ctx?: any) {
-      await sleep(req.task.startsWith('followup') ? dFollow() : dStory(), ctx?.signal);
-      return storyFake.generate(req, ctx);
+      const total = req.task.startsWith('followup') ? dFollow() : dStory();
+      if (!req.onDelta) {
+        await sleep(total, ctx?.signal);
+        return storyFake.generate(req, ctx);
+      }
+      // Streamed (D-020): same total draw; first delta after ttftShare × total, then one delta per word.
+      const { onDelta, ...plain } = req;
+      const r = await storyFake.generate(plain, ctx);
+      const words: string[] = r.text.match(/\s*\S+/g) ?? [r.text];
+      const ttft = total * LATENCY_PROFILE.llm_followup.ttftShare;
+      await sleep(ttft, ctx?.signal);
+      const per = (total - ttft) / Math.max(1, words.length);
+      for (let k = 0; k < words.length; k++) {
+        if (k > 0) await sleep(per, ctx?.signal);
+        onDelta(words[k]);
+      }
+      return r;
     },
   };
   const intent = {
@@ -336,6 +351,25 @@ async function runLatencyHarness() {
   const clearAudio = () => {
     for (const d of readdirSync(audioDir)) rmSync(join(audioDir, d), { recursive: true, force: true });
   };
+  /** D-018 shared story-body cache (Redis `nb:v1:*`). */
+  const clearNarration = async () => {
+    const redis = (t.deps.kv as any).redis;
+    const keys: string[] = await redis.keys('nb:v1:*');
+    if (keys.length) await redis.del(...keys);
+  };
+  const cacheSnap = () => ({ narration: { ...t.deps.narration!.stats }, audio: { ...t.deps.audio.stats }, discovery: { ...t.deps.discovery.stats } });
+  const cacheDelta = (a: ReturnType<typeof cacheSnap>, b: ReturnType<typeof cacheSnap>) => {
+    const r = (h: number, m: number) => (h + m > 0 ? round1((1000 * h) / (h + m)) / 1000 : null);
+    const nh = b.narration.hits - a.narration.hits;
+    const nm = b.narration.misses - a.narration.misses;
+    const ah = b.audio.hits - a.audio.hits;
+    const am = b.audio.misses - a.audio.misses;
+    const ph = b.discovery.placeHits - a.discovery.placeHits;
+    const pm = b.discovery.placeMisses - a.discovery.placeMisses;
+    const eh = b.discovery.evidenceHits - a.discovery.evidenceHits;
+    const em = b.discovery.evidenceMisses - a.discovery.evidenceMisses;
+    return { narrationBody: { hits: nh, misses: nm, hitRate: r(nh, nm) }, ttsAudio: { hits: ah, misses: am, hitRate: r(ah, am) }, places: { hits: ph, misses: pm, hitRate: r(ph, pm) }, evidence: { hits: eh, misses: em, hitRate: r(eh, em) } };
+  };
 
   const M = {
     triggerToPlayServer: [] as number[],
@@ -343,6 +377,8 @@ async function runLatencyHarness() {
     audioFetchMs: [] as number[],
     triggerToFirstAudioBytes: [] as number[],
     cachedTriggerToFirstAudioBytes: [] as number[],
+    cachedWarmTriggerToFirstAudioBytes: [] as number[],
+    cachedWarmTriggerToPlayServer: [] as number[],
     bargeInStopRoundTrip: [] as number[],
     speechEndToFirstAudioNearby: [] as number[],
     speechEndToFirstAudioFollowup: [] as number[],
@@ -356,10 +392,11 @@ async function runLatencyHarness() {
   const checks = { sessions: 0, storyStarted: 0, firstTargetWtc: 0, stopBeforeAnswer: 0, storyPreservedInterrupted: 0, mapValid: 0, answerNamesFirstResult: 0, invalidRowsDropped: 0, resumedSamePlan: 0, followupNoPlaceSearch: 0, errors: [] as string[] };
   const c1Costs: Array<{ provider: string; category: string; task: string; units: any }[]> = [];
 
-  async function session(i: number, mode: 'full' | 'cached' | 'prime') {
+  async function session(i: number, mode: 'full' | 'cached' | 'cached_warm' | 'prime') {
     const token = await H.guest(t.base);
     const guideId = i % 2 === 0 ? 'ida' : 'emil';
-    const sid = await H.newSession(t.base, token, { guideId });
+    // The harness declares the streamed-answer capability like the web and mobile apps do (D-020).
+    const sid = await H.newSession(t.base, token, { guideId, client: { platform: 'bench', appVersion: '0', capabilities: ['say_append'] } });
     const ws = await H.WsClient.connect(`${t.ws}/v1/sessions/${sid}/ws?token=${token}`);
     const msgs: Timed[] = [];
     ws.sock.on('message', (d: Buffer) => msgs.push({ t: performance.now(), wall: Date.now(), m: JSON.parse(d.toString()) }));
@@ -394,9 +431,16 @@ async function runLatencyHarness() {
       const fetchMs = performance.now() - f0;
       if (trig && mode !== 'prime') {
         if (trig.interaction === 'cached_story_to_first_audio') {
-          if (mode !== 'cached') checks.errors.push(`session ${i}: unexpected cached narration in a cold run`);
-          M.cachedTriggerToPlayServer.push(trig.ms);
-          M.cachedTriggerToFirstAudioBytes.push(trig.ms + (play.wall - trig.at) + fetchMs);
+          if (mode === 'full') checks.errors.push(`session ${i}: unexpected cached narration in a cold run`);
+          if (mode === 'cached_warm') {
+            M.cachedWarmTriggerToPlayServer.push(trig.ms);
+            M.cachedWarmTriggerToFirstAudioBytes.push(trig.ms + (play.wall - trig.at) + fetchMs);
+          } else {
+            M.cachedTriggerToPlayServer.push(trig.ms);
+            M.cachedTriggerToFirstAudioBytes.push(trig.ms + (play.wall - trig.at) + fetchMs);
+          }
+        } else if (mode !== 'full') {
+          checks.errors.push(`session ${i} (${mode}): narration body was not served from the shared cache`);
         } else if (mode === 'full') {
           M.triggerToPlayServer.push(trig.ms);
           M.triggerToFirstAudioBytes.push(trig.ms + (play.wall - trig.at) + fetchMs);
@@ -484,25 +528,40 @@ async function runLatencyHarness() {
     }
   }
 
+  const cacheRates: Record<string, ReturnType<typeof cacheDelta>> = {};
   try {
     // warm-up sessions (not counted): prime JIT, DB pools, evidence + discovery caches
     await session(-2, 'prime');
     await session(-1, 'prime');
+    let c0 = cacheSnap();
     for (let i = 0; i < SAMPLES; i++) {
-      clearAudio(); // narration audio cache cold: LLM prose differs per session in production
+      // cold narration: shared story-body cache (D-018) AND audio emptied → LLM + TTS on every story
+      clearAudio();
+      await clearNarration();
       await session(i, 'full');
       if ((i + 1) % 6 === 0) log(`latency harness: ${i + 1}/${SAMPLES} sessions`);
     }
-    // cached-story path: identical deterministic prose → content-addressed audio hit
+    cacheRates.cold = cacheDelta(c0, cacheSnap());
+    // cached story (D-018): body prose warm in the shared cache, ALL audio evicted before each session
+    // → no LLM call; first audio = synthesis of the short prefix (conservative cached case)
     await session(1000, 'prime');
     await session(1001, 'prime');
-    for (let i = 0; i < SAMPLES; i++) await session(1002 + i, 'cached');
+    c0 = cacheSnap();
+    for (let i = 0; i < SAMPLES; i++) {
+      clearAudio();
+      await session(1002 + i, 'cached');
+    }
+    cacheRates.cachedProseColdAudio = cacheDelta(c0, cacheSnap());
+    // cached story, everything warm (repeat landmark / corridor: prefix audio repeats too)
+    c0 = cacheSnap();
+    for (let i = 0; i < SAMPLES; i++) await session(2002 + i, 'cached_warm');
+    cacheRates.cachedWarm = cacheDelta(c0, cacheSnap());
     await t.deps.telemetry.flush();
   } finally {
     await t.close();
   }
   const drawStats = Object.fromEntries(Object.entries(draws).map(([k, v]) => [k, stats(v.map(round1))]));
-  return { M, checks, c1Costs, drawStats };
+  return { M, checks, c1Costs, drawStats, cacheRates };
 }
 
 // ───────────────────────────────────────────── 4. web e2e

@@ -68,6 +68,9 @@ export function publicRoutes(app: FastifyInstance, deps: AppDeps): void {
     const p = req.principal!;
     if (deps.sql) {
       await deps.sql.begin(async (tx) => {
+        // D-023: cross-session history is keyed by user/guest id (no FK) → delete explicitly.
+        const ids = [p.userId, p.guestId].filter((x): x is string => !!x);
+        if (ids.length > 0) await tx`DELETE FROM place_history WHERE owner_id = ANY(${ids}::uuid[])`;
         if (p.userId) {
           await tx`DELETE FROM sessions WHERE user_id = ${p.userId}`;
           await tx`UPDATE guests SET user_id = NULL WHERE user_id = ${p.userId}`;

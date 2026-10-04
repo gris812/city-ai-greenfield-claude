@@ -3,7 +3,7 @@
  * or surroundings lives here — keyed by MovementRegime and DensityClass only.
  * There are intentionally no city keys (DECISIONS D-004).
  */
-import type { DensityClass, MovementRegime, StoryMode } from './contracts.js';
+import type { DensityClass, MovementRegime, StoryMode, TtsTier } from './contracts.js';
 
 export interface RegimePolicy {
   /** Radial discovery radius (stationary/walking) or near-field radius (driving). */
@@ -170,4 +170,70 @@ export function lookAheadFor(policy: RegimePolicy, significance: number): number
 
 export function clamp01(x: number): number {
   return x < 0 ? 0 : x > 1 ? 1 : x;
+}
+
+// ─────────────────────────────────────────────── TTS tiers (D-019)
+
+/** What a piece of speech is, for tier routing. */
+export type SpeechPurpose = 'story_body' | 'story_prefix' | 'answer' | 'ack';
+
+/**
+ * Tier configuration. Stories are tiered by movement regime; the spoken context prefix either
+ * matches its story's tier (`match`, default: one voice per story, no mid-story voice switch)
+ * or is pinned to a tier. Deployment config may override every entry (TTS_TIER_* env).
+ */
+export interface TtsTierConfig {
+  stories: Record<MovementRegime, TtsTier>;
+  prefix: TtsTier | 'match';
+  answer: TtsTier;
+  ack: TtsTier;
+}
+
+export const DEFAULT_TTS_TIERS: TtsTierConfig = {
+  stories: {
+    unknown: 'standard',
+    stationary: 'standard',
+    walking: 'standard',
+    cycling: 'standard',
+    urban_driving: 'standard',
+    // Highway teasers: long silences, short stories, glance-free listening; the cheap tier is the
+    // difference between a break-even and a profitable driver plan (docs/PERFORMANCE_COST.md §9).
+    highway_driving: 'economy',
+  },
+  prefix: 'match',
+  answer: 'standard',
+  ack: 'standard',
+};
+
+/** Deterministic tier for a piece of speech. */
+export function ttsTierFor(purpose: SpeechPurpose, regime: MovementRegime, cfg: TtsTierConfig = DEFAULT_TTS_TIERS): TtsTier {
+  switch (purpose) {
+    case 'story_body':
+      return cfg.stories[regime] ?? 'standard';
+    case 'story_prefix':
+      return cfg.prefix === 'match' ? (cfg.stories[regime] ?? 'standard') : cfg.prefix;
+    case 'answer':
+      return cfg.answer;
+    case 'ack':
+      return cfg.ack;
+  }
+}
+
+// ─────────────────────────────────────────────── cross-session memory (D-023)
+
+export const RETELL = {
+  /**
+   * A place told to this user/guest in an earlier session is not re-offered unprompted until
+   * this many days have passed (daily commuters do not hear the same stories). Asking about it
+   * explicitly still works. Must stay ≤ the 90-day history retention (D-012).
+   */
+  AFTER_DAYS: 30,
+  /** History entries loaded into a new session (most recent first). */
+  MAX_ENTRIES: 2000,
+} as const;
+
+/** True when a place last told at `lastToldAt` (epoch ms) may be told again at `now`. */
+export function retellAllowed(lastToldAt: number | undefined, now: number, afterDays: number = RETELL.AFTER_DAYS): boolean {
+  if (lastToldAt === undefined || !Number.isFinite(lastToldAt)) return true;
+  return now - lastToldAt >= afterDays * 86_400_000;
 }
