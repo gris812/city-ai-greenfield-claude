@@ -1,0 +1,41 @@
+<!doctype html><meta charset="utf-8">
+<style>
+@font-face{font-family:Onest;src:url("../../../node_modules/.pnpm/@fontsource-variable+onest@5.3.1/node_modules/@fontsource-variable/onest/files/onest-latin-wght-normal.woff2");font-weight:100 900}
+*{box-sizing:border-box}body{margin:0;background:#F7F4EE;font-family:Onest,sans-serif;color:#131A1D;width:1500px;padding:36px 44px 30px}
+h1{font-size:22px;margin:0 0 4px}p.sub{margin:0 0 22px;color:#5F5A53;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.col h2{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#5F5A53;margin:0 0 10px}
+.card{border-radius:18px;padding:34px 30px;margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.light{background:#fff}.dark{background:#0B3942}
+.lock{display:flex;align-items:center;gap:6px}
+.lock svg{width:96px;height:96px;flex:none}
+.word{font-weight:600;font-size:92px;letter-spacing:-0.025em;line-height:1;padding-bottom:12px}
+.light .word{color:#0F4C5C}.dark .word{color:#F7F4EE}
+.row{display:flex;gap:16px}
+.tile{background:#fff;border-radius:18px;padding:22px;flex:1;display:flex;gap:18px;align-items:center}
+.tile img{width:96px;height:96px;border-radius:22px;flex:none}
+.cap{font-size:13px;color:#5F5A53}
+.name{font-size:19px;font-weight:600;color:#131A1D}
+.tab{display:flex;align-items:center;gap:8px;background:#E2DBCF;border-radius:10px;padding:8px 14px;font-size:14px;font-weight:500;width:max-content}
+.tab svg{width:18px;height:18px}
+.note{margin-top:20px;background:#FFC857;border-radius:12px;padding:12px 16px;font-size:14px}
+.facts{background:#fff;border-radius:18px;padding:18px 24px;margin-top:16px;font-size:14px;line-height:1.55}
+.facts b{color:#0F4C5C}
+</style>
+<h1>Telvey vs Loreyon: same visual system, only the name changes</h1>
+<p class="sub">Colours, Onest typeface, mark, app icon, Guides and UI are name-independent. Loreyon column is a quick mock-up, not a designed identity.</p>
+<div class="grid" id="g"></div>
+<div class="note"><b>Mock-up caveat:</b> the Loreyon wordmark is plain Onest SemiBold text next to the same mark. If you pick Loreyon I would redraw and optically space it (as was done for Telvey) before any use.</div>
+<div class="facts"><b>What differs:</b> the wordmark text and its width (Loreyon is one letter longer); the name under the app icon and in the browser tab; the spoken wake phrase ("Hey Telvey" would become "Hey Loreyon"); store names, bundle id, domains and site copy. <b>What stays identical:</b> app icon, mark, palette, drive mode palette, type, Guides Ida and Emil, all screens.</div>
+<script>
+const mark=`<svg viewBox="0 0 120 120"><path d="M66.6 22.58 A38 38 0 0 0 22 60 L22 98 L60 98 A38 38 0 0 0 96.14 48.26" fill="none" stroke="MARKC" stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="60" r="12" fill="#FF6A4D"/></svg>`;
+const g=document.getElementById('g');
+for(const [n,tag] of [['telvey','Telvey (working brand, drawn)'],['loreyon','Loreyon (fallback, mock-up)']]){
+ const N=n[0].toUpperCase()+n.slice(1);
+ g.insertAdjacentHTML('beforeend',`<div class="col"><h2>${tag}</h2>
+ <div class="card light"><div class="lock">${mark.replace('MARKC','#0F4C5C')}<span class="word">${n}</span></div></div>
+ <div class="card dark"><div class="lock">${mark.replace('MARKC','#F7F4EE')}<span class="word">${n}</span></div></div>
+ <div class="row"><div class="tile"><img src="../app-icon-512.png"><div><div class="name">${N}</div><div class="cap">Home screen (icon is the mark, identical)</div></div></div>
+ <div class="tile" style="flex:.9"><div><div class="tab">${mark.replace('MARKC','#0F4C5C')}${N} · ${N==='Telvey'?'telvey.com':'loreyon.com'}</div><div class="cap" style="margin-top:10px">Browser tab / favicon</div></div></div></div></div>`);
+}
+</script>

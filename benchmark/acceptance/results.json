@@ -1,0 +1,2302 @@
+{
+ "generatedBy": "scripts/bench/acceptance.ts (pnpm bench:acceptance)",
+ "generatedAt": "2026-10-04T14:37:50.088Z",
+ "commit": "e190bbb+uncommitted",
+ "labels": {
+  "MEASURED-tests": "automated test executed in this run (vitest/Playwright), deterministic fakes where providers are involved",
+  "MEASURED-replay": "deterministic replay of synthetic traces over fixture POI/evidence packs (production core code path)",
+  "MEASURED-harness": "real API in-process (Fastify+Postgres+Redis+WS) on loopback, providers are fakes with SIMULATED latency",
+  "MEASURED-e2e": "Playwright against the production web build in offline demo mode",
+  "ESTIMATED": "list-price model (packages/providers/src/pricing.ts, retrieved 2026-09-27)",
+  "NOT RUN": "requires credentials, devices, field runs or human raters not available here"
+ },
+ "environment": {
+  "node": "v22.22.2",
+  "platform": "linux x64",
+  "postgres": "psql (PostgreSQL) 16.13 (Ubuntu 16.13-0ubuntu0.24.04.1)",
+  "redis": "Redis server v=7.0.15",
+  "cpus": 2
+ },
+ "statusCounts": {
+  "PASS": 13,
+  "PARTIAL": 8,
+  "NOT RUN": 6
+ },
+ "scenarios": [
+  {
+   "id": "A1",
+   "section": "A",
+   "title": "World Trade Center / Ground Zero",
+   "status": "PASS",
+   "evidence": "9/11 Memorial is the first story at 361 m; all local WTC targets precede distant ones; reversed provider order yields identical selection.",
+   "evidenceKinds": [
+    "MEASURED-replay (synthetic trace, fixture POI pack)",
+    "MEASURED-tests"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [
+    "NYC dense-urban field walk with live Wikimedia discovery (no network egress to Wikipedia/Wikidata from this sandbox)"
+   ],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A1 — World Trade Center / Ground Zero the 9/11 Memorial is the first story, before any clutter or distant landmark",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A1 — World Trade Center / Ground Zero strong local targets dominate: all local WTC-area targets precede any distant one",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A1 — World Trade Center / Ground Zero provider result ordering does not change target selection",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "A2",
+   "section": "A",
+   "title": "Golden Gate Bridge",
+   "status": "PASS",
+   "evidence": "Bridge is first story, triggered at 5764 m (reach 12160 m) vs small-POI reach; Vista Point suppressed with reasons.",
+   "evidenceKinds": [
+    "MEASURED-replay",
+    "MEASURED-tests"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [
+    "San Francisco field drive/walk"
+   ],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A2 — Golden Gate Bridge the bridge is the first story; distant city alternatives never precede it",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A2 — Golden Gate Bridge a major landmark triggers from farther than a small POI could",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A2 — Golden Gate Bridge drive → park → walk continues in the same session and tells the immediate context on foot",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "A3",
+   "section": "A",
+   "title": "Art Institute of Chicago",
+   "status": "PASS",
+   "evidence": "Museum is first story at 426 m; Willis Tower/Field Museum/Navy Pier never precede it; enclosing city suppressed as ambient context.",
+   "evidenceKinds": [
+    "MEASURED-replay",
+    "MEASURED-tests"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [
+    "Chicago field walk"
+   ],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A3 — Art Institute of Chicago the museum is the first story when approaching it on foot",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A3 — Art Institute of Chicago farther objects do not replace it; the enclosing city is ambient context, not a walking story",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "A4",
+   "section": "A",
+   "title": "Weak evidence",
+   "status": "PASS",
+   "evidence": "Thin-evidence venue gets ≤1 fact-free orientation line, never a story; 0 grounding failures across all replay stories; invented names/years rejected by GroundingCheck.",
+   "evidenceKinds": [
+    "MEASURED-replay",
+    "MEASURED-tests"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A4 — Weak evidence a thin-evidence venue gets at most one orientation line — never a story",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A4 — Weak evidence no scenario ever starts a story on a thin-evidence place; every story is grounded",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A4 — Weak evidence orientation lines carry no facts: only a spatial cue, the name and a generic kind label",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "orientation (A4 weak evidence) names the place and kind only, no facts or numbers beyond the cue",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "A4 weak evidence in the director thin-evidence place → orientation only (never a story), and only when no story is available",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "generateGroundedNarrative (F3) uses grounded LLM prose when it passes the check",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "generateGroundedNarrative (F3) retries once with constraints, then accepts the corrected draft",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "generateGroundedNarrative (F3) falls back to the deterministic template after one failed retry (never more than 2 LLM calls)",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "generateGroundedNarrative (F3) falls back on generator errors without retry storms",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "generateGroundedNarrative (F3) works with no generator at all",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "generateGroundedNarrative (F3) never substitutes the target: prose that names another place fails grounding",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "A5",
+   "section": "A",
+   "title": "Highway / ahead discovery (OTR truck)",
+   "status": "PARTIAL",
+   "evidence": "Heading and route corridors: 5 stories, 0 behind, 0 passed mid-story, silence 98.7%, max gap 32 min, 18.2 place queries/h; truck stops/off-route/behind rejected with reasons.",
+   "evidenceKinds": [
+    "MEASURED-replay (synthetic I-40 trace, 105 min)",
+    "MEASURED-tests",
+    "ESTIMATED-cost (pnpm bench:cost)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: Real-road field run (benchmark: \"at least one real-road field run when practical\") — no vehicle/device here; Live-provider latency on the corridor (no keys / no Wikimedia egress).",
+   "notRun": [
+    "Real-road field run (benchmark: \"at least one real-road field run when practical\") — no vehicle/device here",
+    "Live-provider latency on the corridor (no keys / no Wikimedia egress)"
+   ],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate only targets ahead along the trajectory; nothing behind; nothing passed mid-story",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate major features announced from far ahead (significance-scaled look-ahead)",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate minor settlements, truck stops, clutter and off-route landmarks stay silent — with reasons recorded",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate long silence is the norm; stories are short, audio-only, no questions",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate no provider request loop at highway GPS frequency",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate-routed only targets ahead along the trajectory; nothing behind; nothing passed mid-story",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate-routed major features announced from far ahead (significance-scaled look-ahead)",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate-routed minor settlements, truck stops, clutter and off-route landmarks stay silent — with reasons recorded",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate-routed long silence is the norm; stories are short, audio-only, no questions",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate-routed no provider request loop at highway GPS frequency",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) route-polyline and heading-projection corridors agree on this (straight-ish) Interstate",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "discovery refresh policy (F1 / A5) highway: one query per several km, not per GPS fix",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "discovery refresh policy (F1 / A5) empty results back off (F1)",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "discovery refresh policy (F1 / A5) stationary user is not re-queried until stale; regime change refreshes after min interval",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "discovery refresh policy (F1 / A5) corridor: course change triggers refresh",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "discovery refresh policy (F1 / A5) density probe needs both interval and movement",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "MomentDirector long sparse highway stretch with nothing worthy → silence for 25+ minutes",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "A6",
+   "section": "A",
+   "title": "Environment transition",
+   "status": "PASS",
+   "evidence": "highway→urban→stationary→walking and sparse→suburban→urban→dense in one session, 0 restarts, no re-told targets; walking look-ahead < 1/10 of highway; questions only on foot.",
+   "evidenceKinds": [
+    "MEASURED-replay",
+    "MEASURED-tests",
+    "MEASURED-e2e (web drive HUD)"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [
+    "Field transition drive→park→walk on a device"
+   ],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A6 — Environment transition (highway → outskirts → urban → downtown → walking) regimes and densities change automatically, in order, in one session",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A6 — Environment transition (highway → outskirts → urban → downtown → walking) journey memory is preserved: nothing is re-told after the transition; memory holds everything said",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A6 — Environment transition (highway → outskirts → urban → downtown → walking) policy adapts: walking does not keep highway look-ahead/cadence; driving is stricter",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A6 — Environment transition (highway → outskirts → urban → downtown → walking) the city is announced on the way in, while driving",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A2 — Golden Gate Bridge drive → park → walk continues in the same session and tells the immediate context on foot",
+     "status": "passed"
+    }
+   ],
+   "webTests": [
+    {
+     "name": "smoke.spec.ts › /app switches to drive mode on the interstate replay",
+     "status": "passed",
+     "durationMs": 4628
+    }
+   ]
+  },
+  {
+   "id": "A7",
+   "section": "A",
+   "title": "Cross-city portability",
+   "status": "PARTIAL",
+   "evidence": "Same runner, same global fixture source, no per-city config; identical telemetry shape in NYC/Chicago/SF; core source scan finds no city coupling.",
+   "evidenceKinds": [
+    "MEASURED-replay",
+    "MEASURED-tests (static scan: no city names/fixture imports in core)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: \"Production discovery flow\" with the production PlaceSource (Wikimedia) in all three cities — Wikipedia/Wikidata unreachable from this sandbox; fixture source used instead.",
+   "notRun": [
+    "\"Production discovery flow\" with the production PlaceSource (Wikimedia) in all three cities — Wikipedia/Wikidata unreachable from this sandbox; fixture source used instead"
+   ],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A7 — Cross-city portability scenarios carry no city/area configuration — only trace, guide, locale",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A7 — Cross-city portability the same global source (all packs loaded) serves every city; each yields grounded stories",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A7 — Cross-city portability telemetry explains selection with the same fields in every city",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src scans a non-trivial set of source files",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src brief.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src contracts.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src density.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src director.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src discovery.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src geo.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src grounding.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src guides/emil.json has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src guides/ida.json has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src guides/index.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src index.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src intent.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src journey.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src memory.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src policy.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src refresh.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src regime.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src resume.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src safety.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src segment.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src story-primitive.ts has no city names and no fixture imports",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "no city coupling in packages/core/src util.ts has no city names and no fixture imports",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "B1",
+   "section": "B",
+   "title": "Short then deeper",
+   "status": "PARTIAL",
+   "evidence": "Follow-up brief draws only unspoken facts from the same evidence pack and stays grounded; \"tell more\" with nothing left answers honestly.",
+   "evidenceKinds": [
+    "MEASURED-tests (deterministic fakes)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: Live-LLM non-repetition check (paraphrase detection) — no LLM keys; Human review of continuation quality.",
+   "notRun": [
+    "Live-LLM non-repetition check (paraphrase detection) — no LLM keys",
+    "Human review of continuation quality"
+   ],
+   "tests": [
+    {
+     "suite": "providers",
+     "name": "follow-up answers (C2 / B1) prefers unspoken facts and stays grounded",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "follow-up answers (C2 / B1) tell_more with nothing left answers honestly with no facts",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "conversation runtime (WS) C2: \"Why is that important?\" uses the current brief/evidence, no place search, grounded",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "B2",
+   "section": "B",
+   "title": "Guide differentiation",
+   "status": "PARTIAL",
+   "evidence": "Same evidence → same lead fact for both Guides in 100% of 31 packs; persona differs by verbosity (1.15 vs 0.8), rate and angle order; prose is LLM-only.",
+   "evidenceKinds": [
+    "MEASURED-tests",
+    "MEASURED-brief-analysis (fixture evidence)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: Live LLM generation for both Guides on identical briefs; 1–5 human rubric (pacing/structure/tone, stereotype check).",
+   "notRun": [
+    "Live LLM generation for both Guides on identical briefs",
+    "1–5 human rubric (pacing/structure/tone, stereotype check)"
+   ],
+   "tests": [
+    {
+     "suite": "core",
+     "name": "StoryBrief selects identity first, respects confidence and budget, is deterministic",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "StoryBrief angle affinity changes the second fact",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "StoryBrief brief carries budgets, spatial cue, no questions while driving",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "StoryBrief journey callbacks from memory with shared tags",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "MomentDirector angle choice respects guide preference, recent use and available fact kinds",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "B3",
+   "section": "B",
+   "title": "Callback",
+   "status": "PARTIAL",
+   "evidence": "Callbacks come only from structured journey memory with shared tags (≤2), and the template/grounding allow only those names.",
+   "evidenceKinds": [
+    "MEASURED-tests",
+    "MEASURED-replay (memory mentions)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: Coherence of LLM-written callbacks (live LLM + human review).",
+   "notRun": [
+    "Coherence of LLM-written callbacks (live LLM + human review)"
+   ],
+   "tests": [
+    {
+     "suite": "core",
+     "name": "StoryBrief journey callbacks from memory with shared tags",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "C1",
+   "section": "C",
+   "title": "Coffee interruption",
+   "status": "PASS",
+   "evidence": "Across 36 harness sessions: stop before answer 36/36, story preserved 36/36, validated map 36/36, grounded answer 36/36, resume same plan 36/36.",
+   "evidenceKinds": [
+    "MEASURED-tests (API over WS, Postgres+Redis, fake providers)",
+    "MEASURED-harness (simulated provider latency)",
+    "ESTIMATED-cost"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [
+    "Real voice path on device (mic → STT provider → TTS provider)"
+   ],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "conversation runtime (WS) C1: coffee interruption — stop, preserve, nearby (independent + validated), grounded answer, map, resume",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "C2",
+   "section": "C",
+   "title": "Contextual follow-up",
+   "status": "PASS",
+   "evidence": "Subject resolved without restatement; no place/evidence/nearby call (harness: 36/36); answer passes GroundingCheck against the active brief.",
+   "evidenceKinds": [
+    "MEASURED-tests",
+    "MEASURED-harness"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [
+    "Live-LLM grounding pass rate (no keys)"
+   ],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "conversation runtime (WS) C2: \"Why is that important?\" uses the current brief/evidence, no place search, grounded",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "follow-up answers (C2 / B1) prefers unspoken facts and stays grounded",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "follow-up answers (C2 / B1) tell_more with nothing left answers honestly with no facts",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "C3",
+   "section": "C",
+   "title": "Change topic",
+   "status": "PASS",
+   "evidence": "Explicit topic change abandons the story (storiesSkipped=1); the old plan never plays again over 20 more frames.",
+   "evidenceKinds": [
+    "MEASURED-tests"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "conversation runtime (WS) C3: explicit topic change abandons the story — no auto-resume",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "intent validation (closed enum) heuristics: barge-in correction, contextual question, topic change",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "D-B1",
+   "section": "D",
+   "title": "Realtime B1 — Story interruption + coffee (live voice)",
+   "status": "NOT RUN",
+   "evidence": "NOT RUN — credentials not supplied (OPENAI_API_KEY / GEMINI_API_KEY); D-010 benchmark pending.",
+   "evidenceKinds": [],
+   "reason": "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials",
+   "notRun": [
+    "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials"
+   ],
+   "tests": [],
+   "webTests": []
+  },
+  {
+   "id": "D-B2",
+   "section": "D",
+   "title": "Realtime B2 — Contextual follow-up (live voice)",
+   "status": "NOT RUN",
+   "evidence": "NOT RUN — credentials not supplied (OPENAI_API_KEY / GEMINI_API_KEY); D-010 benchmark pending.",
+   "evidenceKinds": [],
+   "reason": "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials",
+   "notRun": [
+    "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials"
+   ],
+   "tests": [],
+   "webTests": []
+  },
+  {
+   "id": "D-B3",
+   "section": "D",
+   "title": "Realtime B3 — Barge-in \"No, I meant parking\" (live voice)",
+   "status": "NOT RUN",
+   "evidence": "NOT RUN on a realtime provider. Hybrid-path analogue passes (api \"B3: barge-in\" test: stale coffee output never surfaces, parking turn wins).",
+   "evidenceKinds": [],
+   "reason": "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials",
+   "notRun": [
+    "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials"
+   ],
+   "tests": [],
+   "webTests": []
+  },
+  {
+   "id": "D-B4",
+   "section": "D",
+   "title": "Realtime B4 — Road noise",
+   "status": "NOT RUN",
+   "evidence": "NOT RUN — credentials not supplied (OPENAI_API_KEY / GEMINI_API_KEY); D-010 benchmark pending.",
+   "evidenceKinds": [],
+   "reason": "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials; Controlled road-noise audio fixture on a device",
+   "notRun": [
+    "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials",
+    "Controlled road-noise audio fixture on a device"
+   ],
+   "tests": [],
+   "webTests": []
+  },
+  {
+   "id": "D-B5",
+   "section": "D",
+   "title": "Realtime B5 — Guides/languages human rubric",
+   "status": "NOT RUN",
+   "evidence": "NOT RUN — credentials not supplied (OPENAI_API_KEY / GEMINI_API_KEY); D-010 benchmark pending.",
+   "evidenceKinds": [],
+   "reason": "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials; Human 1–5 rubric EN + RU",
+   "notRun": [
+    "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials",
+    "Human 1–5 rubric EN + RU"
+   ],
+   "tests": [],
+   "webTests": []
+  },
+  {
+   "id": "D-B6",
+   "section": "D",
+   "title": "Realtime B6 — Session lifecycle (open/close/reopen)",
+   "status": "NOT RUN",
+   "evidence": "NOT RUN. Server side exists (token endpoint with idle timeout + ProviderBudget seconds cap) but no provider session can be opened.",
+   "evidenceKinds": [],
+   "reason": "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials",
+   "notRun": [
+    "Realtime provider sessions (OpenAI Realtime, Gemini Live) — no credentials"
+   ],
+   "tests": [],
+   "webTests": []
+  },
+  {
+   "id": "E1",
+   "section": "E",
+   "title": "Driving / OTR safety",
+   "status": "PARTIAL",
+   "evidence": "Drive HUD auto-activates with one mic target and no text input; highway stories ≤75 s (Emil) with no questions, >95% silence; speech onset held while maneuvering/after touches.",
+   "evidenceKinds": [
+    "MEASURED-replay",
+    "MEASURED-tests",
+    "MEASURED-e2e (web drive HUD, Chromium)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: Real vehicle / real device (hands-free voice, ducking of nav prompts, glance time); Native app drive mode on iOS/Android hardware.",
+   "notRun": [
+    "Real vehicle / real device (hands-free voice, ducking of nav prompts, glance time)",
+    "Native app drive mode on iOS/Android hardware"
+   ],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate long silence is the norm; stories are short, audio-only, no questions",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A5 — Highway / ahead discovery (+E1 safety, F1 cost) interstate-routed long silence is the norm; stories are short, audio-only, no questions",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "A6 — Environment transition (highway → outskirts → urban → downtown → walking) policy adapts: walking does not keep highway look-ahead/cadence; driving is stricter",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "MomentDirector safety hold during a maneuver",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "MomentDirector screen interaction while driving holds speech onset",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "driveStatusLine (E1: one glanceable line) prioritises listening, then the story, then silence, then regime",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "reduceDirective map actions and listen (never auto-opened while drive-safe — D-008)",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "SafetyPolicy + ToolPolicy nearby_search is rate-limited and audio-first while driving",
+     "status": "passed"
+    }
+   ],
+   "webTests": [
+    {
+     "name": "smoke.spec.ts › /app switches to drive mode on the interstate replay",
+     "status": "passed",
+     "durationMs": 4628
+    }
+   ]
+  },
+  {
+   "id": "E2",
+   "section": "E",
+   "title": "Background / sleep resilience",
+   "status": "PARTIAL",
+   "evidence": "Event-driven frame flush and background fix buffering are unit-tested; OS limitations per platform documented in docs/MOBILE.md §2.",
+   "evidenceKinds": [
+    "MEASURED-tests (mobile logic, client batcher)",
+    "DOCUMENTED (docs/MOBILE.md §2 OS behaviour table)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: Screen-lock / background runs on physical iOS and Android devices (no builds: EAS/Apple credentials missing, D-016).",
+   "notRun": [
+    "Screen-lock / background runs on physical iOS and Android devices (no builds: EAS/Apple credentials missing, D-016)"
+   ],
+   "tests": [
+    {
+     "suite": "mobile",
+     "name": "FixBuffer (background task before the store is attached) keeps order, drops duplicates, caps size",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "FrameBatcher flushes every second while moving and batches the fixes",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "FrameBatcher heartbeats every 10 s while stationary with no new fixes",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "FrameBatcher drops duplicate / out-of-order fixes (foreground watcher + background task overlap)",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "FrameBatcher poke forces a prompt frame (audio state change)",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "FrameBatcher caps a frame at the server schema limit",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "FrameBatcher adaptive OS sampling: 1 Hz moving/driving, relaxed when still",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "E3",
+   "section": "E",
+   "title": "Network degradation",
+   "status": "PARTIAL",
+   "evidence": "Reconnect delivers exactly the missed directives, retried utterance ids never re-run tools, no story restart; client sequencer/prefetch handle gaps and failed downloads.",
+   "evidenceKinds": [
+    "MEASURED-tests (socket drop + REST during outage + resume)"
+   ],
+   "reason": "Demonstrated parts pass; not demonstrated: On-device playback during airplane mode / Wi-Fi↔cellular handover.",
+   "notRun": [
+    "On-device playback during airplane mode / Wi-Fi↔cellular handover"
+   ],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "conversation runtime (WS) E3: reconnect delivers only missed directives, never duplicates; retried utterances do not re-run tools",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "SessionChannel (E3 reconnect) resumes after a drop, never re-applies a directive, and retries the utterance with the same id",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "SessionChannel (E3 reconnect) fills a gap through GET /directives?after= and otherwise skips it",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "SessionChannel (E3 reconnect) interrupt drops in-flight answer audio of earlier turns (barge-in)",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "DirectiveSequencer (E3: exactly once, in order) applies contiguous envelopes immediately",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "DirectiveSequencer (E3: exactly once, in order) drops duplicates (resume replay overlapping live delivery)",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "DirectiveSequencer (E3: exactly once, in order) buffers ahead of a gap and releases in order once filled",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "DirectiveSequencer (E3: exactly once, in order) a live directive overtaking the resume replay is not lost",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "DirectiveSequencer (E3: exactly once, in order) skipGap releases the buffered tail when the gap cannot be filled",
+     "status": "passed"
+    },
+    {
+     "suite": "client",
+     "name": "prefetch failed downloads resolve to null (caller falls back to stream / device TTS) and retry is bounded",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "F1",
+   "section": "F",
+   "title": "Empty discovery result",
+   "status": "PASS",
+   "evidence": "API: 4 place-source calls for 300 frames; replay: empty 105-min highway run ≤40 calls (≥75 frames/query).",
+   "evidenceKinds": [
+    "MEASURED-replay",
+    "MEASURED-tests (API)"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [],
+   "tests": [
+    {
+     "suite": "replay",
+     "name": "F1 — Empty discovery result an empty provider over a 105-minute highway run does not refresh on every GPS update",
+     "status": "passed"
+    },
+    {
+     "suite": "replay",
+     "name": "F1 — Empty discovery result an empty provider while standing still issues a single query pair",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F1: empty discovery → no paid refresh on every GPS update (300 frames)",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: place provider timeouts → bounded retry + breaker, session keeps running",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: quota exceeded (429) → one attempt, breaker open, no billing loop",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) invalid credential (401) → single attempt",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM keeps hallucinating → template fallback, same target, ≤ 2 LLM calls per story",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM down → template story for the decided target",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F4: TTS down → text still delivered (audioUrl null), conversation continues",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F5: cache (Redis) unavailable → explicit reduced mode, readiness degraded, no provider storm",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) kill switch: owner-disabled LLM category → template narration, zero LLM calls",
+     "status": "passed"
+    },
+    {
+     "suite": "core",
+     "name": "discovery refresh policy (F1 / A5) empty results back off (F1)",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "F2",
+   "section": "F",
+   "title": "Place provider quota / timeout",
+   "status": "PASS",
+   "evidence": "Timeouts: 3 attempts per 300 frames (≤1 retry + breaker); 429 and 401: exactly 1 attempt.",
+   "evidenceKinds": [
+    "MEASURED-tests (API)"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: place provider timeouts → bounded retry + breaker, session keeps running",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: quota exceeded (429) → one attempt, breaker open, no billing loop",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: place provider timeouts → bounded retry + breaker, session keeps running",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: quota exceeded (429) → one attempt, breaker open, no billing loop",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) invalid credential (401) → single attempt",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) timeouts: 100 requests → ≤ 3 failures × 2 attempts before the breaker opens",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) quota (429): opens immediately, no retry, 1 paid attempt for 100 requests",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) invalid credential (401): 1 attempt, breaker stays open for the hard cooldown",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) half-open probing is bounded to one call per cooldown",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) recovers after a successful probe",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) TTS falls back to the secondary provider when the primary fails, without looping",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) a budget refusal does not fan out to fallback providers",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "ProviderGuard bounded call counts (F2 / F5 / invalid credential) records a CostRecord per attempt, with cost for successful paid calls",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "F3",
+   "section": "F",
+   "title": "LLM failure",
+   "status": "PASS",
+   "evidence": "Hallucinating or failing LLM → template story for the same decided target; ≤2 LLM calls per story; kill switch → 0 LLM calls.",
+   "evidenceKinds": [
+    "MEASURED-tests (API + providers)"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM keeps hallucinating → template fallback, same target, ≤ 2 LLM calls per story",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM down → template story for the decided target",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM keeps hallucinating → template fallback, same target, ≤ 2 LLM calls per story",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM down → template story for the decided target",
+     "status": "passed"
+    },
+    {
+     "suite": "providers",
+     "name": "generateGroundedNarrative (F3) never substitutes the target: prose that names another place fails grounding",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "F4",
+   "section": "F",
+   "title": "TTS failure",
+   "status": "PASS",
+   "evidence": "TTS down → segments and answers delivered as text (audioUrl null), breaker caps TTS attempts at ≤4; conversation continues.",
+   "evidenceKinds": [
+    "MEASURED-tests (API)"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [
+    "Device-voice fallback playback on hardware"
+   ],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F4: TTS down → text still delivered (audioUrl null), conversation continues",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  },
+  {
+   "id": "F5",
+   "section": "F",
+   "title": "Cache unavailable",
+   "status": "PASS",
+   "evidence": "/readyz reports degraded + reducedMode; 1 place calls per 300 frames; narration continues.",
+   "evidenceKinds": [
+    "MEASURED-tests (API with Redis unreachable)"
+   ],
+   "reason": "Requirement as written demonstrated by the evidence listed.",
+   "notRun": [],
+   "tests": [
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F1: empty discovery → no paid refresh on every GPS update (300 frames)",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: place provider timeouts → bounded retry + breaker, session keeps running",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F2: quota exceeded (429) → one attempt, breaker open, no billing loop",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) invalid credential (401) → single attempt",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM keeps hallucinating → template fallback, same target, ≤ 2 LLM calls per story",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F3: LLM down → template story for the decided target",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F4: TTS down → text still delivered (audioUrl null), conversation continues",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) F5: cache (Redis) unavailable → explicit reduced mode, readiness degraded, no provider storm",
+     "status": "passed"
+    },
+    {
+     "suite": "api",
+     "name": "failure containment (F1–F5) kill switch: owner-disabled LLM category → template narration, zero LLM calls",
+     "status": "passed"
+    }
+   ],
+   "webTests": []
+  }
+ ],
+ "sectionG": [
+  {
+   "metric": "target relevance regression pass rate",
+   "value": "26/26 replay relevance assertions (A1–A3, A5–A7)",
+   "label": "MEASURED-replay"
+  },
+  {
+   "metric": "wrong-target rate on fixed corpus",
+   "value": "0/33 stories (behind, passed mid-story, clutter or utility targets)",
+   "label": "MEASURED-replay (6 scenarios, fixture corpus)"
+  },
+  {
+   "metric": "weak-evidence correctness",
+   "value": "0 grounding failures; 3 orientation-only lines; 0 stories on thin evidence",
+   "label": "MEASURED-replay"
+  },
+  {
+   "metric": "narrative repetition regressions",
+   "value": "Deterministic: 0 re-told targets in any replay (memory); LLM paraphrase repetition NOT YET MEASURED",
+   "label": "MEASURED-replay / NOT YET MEASURED"
+  },
+  {
+   "metric": "guide/persona distinctness",
+   "value": "NOT YET MEASURED (needs live LLM + human rubric); brief-level factual core identical",
+   "label": "NOT YET MEASURED"
+  },
+  {
+   "metric": "interruption correctness",
+   "value": "36/36 harness sessions stop→answer→resume same plan; C1/C3/B3 API tests pass",
+   "label": "MEASURED-harness + MEASURED-tests"
+  },
+  {
+   "metric": "contextual follow-up grounding",
+   "value": "C2 API test grounded; 36/36 follow-ups made no place search (fake LLM)",
+   "label": "MEASURED-tests (fake LLM)"
+  },
+  {
+   "metric": "trigger -> first audio p50/p95",
+   "value": "1662.9 / 2683.4 ms (n=36, uncached narration, loopback)",
+   "label": "MEASURED-harness, SIMULATED provider latency"
+  },
+  {
+   "metric": "barge-in stop p50/p95",
+   "value": "1 / 1.5 ms server stop_audio round trip (n=36); device press→silence NOT YET MEASURED",
+   "label": "MEASURED-harness (loopback)"
+  },
+  {
+   "metric": "speech-end -> first audio p50/p95",
+   "value": "nearby 1250.3 / 2327.6 ms; follow-up 1950.2 / 3380.2 ms (hybrid STT path, n=36 each)",
+   "label": "MEASURED-harness, SIMULATED provider latency"
+  },
+  {
+   "metric": "provider tool reliability",
+   "value": "NOT YET MEASURED on real providers; fake NearbySearch with injected invalid rows: invalid rows dropped 36/36",
+   "label": "MEASURED-harness (fakes) / NOT YET MEASURED"
+  },
+  {
+   "metric": "30-min walk estimated variable cost",
+   "value": "see benchmark/cost/cost_model.json (pnpm bench:cost)",
+   "label": "ESTIMATED (list price)"
+  },
+  {
+   "metric": "30-min drive estimated variable cost",
+   "value": "see benchmark/cost/cost_model.json (pnpm bench:cost)",
+   "label": "ESTIMATED (list price)"
+  },
+  {
+   "metric": "realtime active-minute cost",
+   "value": "see benchmark/cost/cost_model.json; realtime NOT RUN",
+   "label": "ESTIMATED (list price)"
+  },
+  {
+   "metric": "cache hit rates by layer",
+   "value": "Production hit rates NOT YET MEASURED (no traffic). Harness (fixture corpus, 1 route; counters per phase): cold body 0/36, audio 0/290, places 90/91, evidence 36/36; prose-warm/audio-cold body 36/36, audio 5/132, places 72/72, evidence 36/36; fully warm body 36/36, audio 140/144, places 72/72, evidence 36/36",
+   "label": "MEASURED-harness (not production) / NOT YET MEASURED in production"
+  },
+  {
+   "metric": "known failures",
+   "value": "none in automated evidence; see docs/PERFORMANCE_COST.md §16 for open risks",
+   "label": "MEASURED-tests"
+  }
+ ],
+ "suites": [
+  {
+   "suite": "core",
+   "passed": 189,
+   "failed": 0,
+   "skipped": 0,
+   "durationMs": 7919,
+   "exitCode": 0
+  },
+  {
+   "suite": "providers",
+   "passed": 104,
+   "failed": 0,
+   "skipped": 0,
+   "durationMs": 5452,
+   "exitCode": 0
+  },
+  {
+   "suite": "replay",
+   "passed": 35,
+   "failed": 0,
+   "skipped": 0,
+   "durationMs": 5497,
+   "exitCode": 0
+  },
+  {
+   "suite": "client",
+   "passed": 29,
+   "failed": 0,
+   "skipped": 0,
+   "durationMs": 4834,
+   "exitCode": 0
+  },
+  {
+   "suite": "api",
+   "passed": 88,
+   "failed": 0,
+   "skipped": 0,
+   "durationMs": 52546,
+   "exitCode": 0
+  },
+  {
+   "suite": "mobile",
+   "passed": 15,
+   "failed": 0,
+   "skipped": 0,
+   "durationMs": 2729,
+   "exitCode": 0
+  }
+ ],
+ "web": {
+  "ran": true,
+  "reason": null,
+  "passed": 5,
+  "failed": 0,
+  "buildAt": "2026-09-29T02:12:48.000Z",
+  "tests": [
+   {
+    "name": "smoke.spec.ts › home page renders the value proposition, guides and availability",
+    "status": "passed",
+    "durationMs": 994
+   },
+   {
+    "name": "smoke.spec.ts › home, app and admin have no horizontal scroll at 390px",
+    "status": "passed",
+    "durationMs": 3981
+   },
+   {
+    "name": "smoke.spec.ts › /app runs in offline demo mode and tells the 9/11 Memorial story on the wtc-walk replay",
+    "status": "passed",
+    "durationMs": 3960
+   },
+   {
+    "name": "smoke.spec.ts › /app switches to drive mode on the interstate replay",
+    "status": "passed",
+    "durationMs": 4628
+   },
+   {
+    "name": "smoke.spec.ts › /admin shows the passkey login and leaks no data without an API",
+    "status": "passed",
+    "durationMs": 687
+   }
+  ]
+ },
+ "replay": {
+  "matchesCommittedSummary": true,
+  "scenarios": [
+   {
+    "scenario": "wtc-walk",
+    "acceptance": [
+     "A1",
+     "A7"
+    ],
+    "trace": "wtc-walk",
+    "synthetic": true,
+    "guide": "ida",
+    "locale": "en-US",
+    "durationS": 910,
+    "frames": 911,
+    "storiesStarted": 5,
+    "orientations": 0,
+    "preemptions": 0,
+    "targets": [
+     {
+      "t": 17,
+      "id": "fx:nyc:911-memorial",
+      "name": "National September 11 Memorial & Museum",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 361,
+      "reachM": 977
+     },
+     {
+      "t": 103,
+      "id": "fx:nyc:one-wtc",
+      "name": "One World Trade Center",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 393,
+      "reachM": 930
+     },
+     {
+      "t": 183,
+      "id": "fx:nyc:oculus",
+      "name": "World Trade Center Transportation Hub (Oculus)",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 173,
+      "reachM": 673
+     },
+     {
+      "t": 252,
+      "id": "fx:nyc:st-pauls",
+      "name": "St. Paul's Chapel",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 289,
+      "reachM": 361
+     },
+     {
+      "t": 374,
+      "id": "fx:nyc:brooklyn-bridge",
+      "name": "Brooklyn Bridge",
+      "kind": "story",
+      "regime": "stationary",
+      "distanceM": 1435,
+      "reachM": 902
+     }
+    ],
+    "silenceRatio": 0.843,
+    "maxSilentGapS": 524,
+    "regimeTransitions": [
+     {
+      "t": 9,
+      "from": "unknown",
+      "to": "walking"
+     },
+     {
+      "t": 258,
+      "from": "walking",
+      "to": "stationary"
+     },
+     {
+      "t": 394,
+      "from": "stationary",
+      "to": "walking"
+     },
+     {
+      "t": 661,
+      "from": "walking",
+      "to": "stationary"
+     },
+     {
+      "t": 798,
+      "from": "stationary",
+      "to": "walking"
+     },
+     {
+      "t": 875,
+      "from": "walking",
+      "to": "stationary"
+     }
+    ],
+    "regimeSequence": [
+     "walking",
+     "stationary",
+     "walking",
+     "stationary",
+     "walking",
+     "stationary"
+    ],
+    "densitySequence": [
+     "dense"
+    ],
+    "providerQueries": {
+     "discovery": 7,
+     "densityProbe": 6,
+     "total": 13,
+     "perHour": 51.4,
+     "emptyResults": 0,
+     "framesPerQuery": 70.1
+    },
+    "wronglyBehindTargets": 0,
+    "endedAfterPassing": 0,
+    "groundingFailures": 0,
+    "utilityStories": 0,
+    "clutterStories": 0,
+    "sessionRestarts": 0,
+    "memory": {
+     "discussed": 5,
+     "completed": 5,
+     "mentions": 0
+    },
+    "matchesCommitted": true
+   },
+   {
+    "scenario": "art-institute-walk",
+    "acceptance": [
+     "A3",
+     "A4",
+     "A7"
+    ],
+    "trace": "art-institute-walk",
+    "synthetic": true,
+    "guide": "ida",
+    "locale": "en-US",
+    "durationS": 1214,
+    "frames": 1215,
+    "storiesStarted": 6,
+    "orientations": 1,
+    "preemptions": 0,
+    "targets": [
+     {
+      "t": 17,
+      "id": "fx:chi:art-institute",
+      "name": "Art Institute of Chicago",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 426,
+      "reachM": 930
+     },
+     {
+      "t": 92,
+      "id": "fx:chi:millennium-park",
+      "name": "Millennium Park",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 680,
+      "reachM": 782
+     },
+     {
+      "t": 151,
+      "id": "fx:chi:cloud-gate",
+      "name": "Cloud Gate",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 606,
+      "reachM": 822
+     },
+     {
+      "t": 243,
+      "id": "fx:chi:cultural-center",
+      "name": "Chicago Cultural Center",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 611,
+      "reachM": 564
+     },
+     {
+      "t": 367,
+      "id": "fx:chi:willis-tower",
+      "name": "Willis Tower",
+      "kind": "story",
+      "regime": "stationary",
+      "distanceM": 938,
+      "reachM": 925
+     },
+     {
+      "t": 470,
+      "id": "fx:chi:buckingham-fountain",
+      "name": "Buckingham Fountain",
+      "kind": "story",
+      "regime": "stationary",
+      "distanceM": 629,
+      "reachM": 623
+     },
+     {
+      "t": 633,
+      "id": "fx:chi:pritzker-pavilion",
+      "name": "Jay Pritzker Pavilion",
+      "kind": "orientation",
+      "regime": "walking",
+      "distanceM": 269,
+      "reachM": 640
+     }
+    ],
+    "silenceRatio": 0.905,
+    "maxSilentGapS": 576,
+    "regimeTransitions": [
+     {
+      "t": 9,
+      "from": "unknown",
+      "to": "walking"
+     },
+     {
+      "t": 362,
+      "from": "walking",
+      "to": "stationary"
+     },
+     {
+      "t": 498,
+      "from": "stationary",
+      "to": "walking"
+     },
+     {
+      "t": 803,
+      "from": "walking",
+      "to": "stationary"
+     },
+     {
+      "t": 911,
+      "from": "stationary",
+      "to": "walking"
+     },
+     {
+      "t": 1056,
+      "from": "walking",
+      "to": "stationary"
+     }
+    ],
+    "regimeSequence": [
+     "walking",
+     "stationary",
+     "walking",
+     "stationary",
+     "walking",
+     "stationary"
+    ],
+    "densitySequence": [
+     "dense"
+    ],
+    "providerQueries": {
+     "discovery": 9,
+     "densityProbe": 5,
+     "total": 14,
+     "perHour": 41.5,
+     "emptyResults": 0,
+     "framesPerQuery": 86.8
+    },
+    "wronglyBehindTargets": 0,
+    "endedAfterPassing": 0,
+    "groundingFailures": 0,
+    "utilityStories": 0,
+    "clutterStories": 0,
+    "sessionRestarts": 0,
+    "memory": {
+     "discussed": 7,
+     "completed": 6,
+     "mentions": 1
+    },
+    "matchesCommitted": true
+   },
+   {
+    "scenario": "golden-gate",
+    "acceptance": [
+     "A2",
+     "A7",
+     "A6"
+    ],
+    "trace": "golden-gate-drive-walk",
+    "synthetic": true,
+    "guide": "emil",
+    "locale": "en-US",
+    "durationS": 1086,
+    "frames": 1087,
+    "storiesStarted": 4,
+    "orientations": 1,
+    "preemptions": 0,
+    "targets": [
+     {
+      "t": 39,
+      "id": "fx:sf:golden-gate-bridge",
+      "name": "Golden Gate Bridge",
+      "kind": "story",
+      "regime": "urban_driving",
+      "distanceM": 5764,
+      "reachM": 12160
+     },
+     {
+      "t": 190,
+      "id": "fx:sf:san-francisco",
+      "name": "San Francisco",
+      "kind": "story",
+      "regime": "urban_driving",
+      "distanceM": 9164,
+      "reachM": 9628
+     },
+     {
+      "t": 324,
+      "id": "fx:sf:presidio",
+      "name": "Presidio of San Francisco",
+      "kind": "story",
+      "regime": "urban_driving",
+      "distanceM": 2786,
+      "reachM": 8840
+     },
+     {
+      "t": 570,
+      "id": "fx:sf:fort-point",
+      "name": "Fort Point",
+      "kind": "story",
+      "regime": "stationary",
+      "distanceM": 451,
+      "reachM": 1169
+     },
+     {
+      "t": 646,
+      "id": "fx:sf:welcome-center",
+      "name": "Golden Gate Bridge Welcome Center",
+      "kind": "orientation",
+      "regime": "walking",
+      "distanceM": 13,
+      "reachM": 611
+     }
+    ],
+    "silenceRatio": 0.908,
+    "maxSilentGapS": 437,
+    "regimeTransitions": [
+     {
+      "t": 9,
+      "from": "unknown",
+      "to": "urban_driving"
+     },
+     {
+      "t": 565,
+      "from": "urban_driving",
+      "to": "stationary"
+     },
+     {
+      "t": 629,
+      "from": "stationary",
+      "to": "walking"
+     },
+     {
+      "t": 899,
+      "from": "walking",
+      "to": "stationary"
+     }
+    ],
+    "regimeSequence": [
+     "urban_driving",
+     "stationary",
+     "walking",
+     "stationary"
+    ],
+    "densitySequence": [
+     "sparse",
+     "suburban",
+     "sparse",
+     "suburban"
+    ],
+    "providerQueries": {
+     "discovery": 8,
+     "densityProbe": 10,
+     "total": 18,
+     "perHour": 59.7,
+     "emptyResults": 1,
+     "framesPerQuery": 60.4
+    },
+    "wronglyBehindTargets": 0,
+    "endedAfterPassing": 0,
+    "groundingFailures": 0,
+    "utilityStories": 0,
+    "clutterStories": 0,
+    "sessionRestarts": 0,
+    "memory": {
+     "discussed": 5,
+     "completed": 4,
+     "mentions": 1
+    },
+    "matchesCommitted": true
+   },
+   {
+    "scenario": "interstate",
+    "acceptance": [
+     "A5",
+     "E1",
+     "F1"
+    ],
+    "trace": "i40-westbound",
+    "synthetic": true,
+    "guide": "emil",
+    "locale": "en-US",
+    "durationS": 6314,
+    "frames": 3158,
+    "storiesStarted": 5,
+    "orientations": 0,
+    "preemptions": 0,
+    "targets": [
+     {
+      "t": 900,
+      "id": "fx:i40:laguna",
+      "name": "Laguna Pueblo",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 23020,
+      "reachM": 41849
+     },
+     {
+      "t": 1636,
+      "id": "fx:i40:mount-taylor",
+      "name": "Mount Taylor",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 29979,
+      "reachM": 62660
+     },
+     {
+      "t": 2360,
+      "id": "fx:i40:grants",
+      "name": "Grants",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 23029,
+      "reachM": 41849
+     },
+     {
+      "t": 4302,
+      "id": "fx:i40:continental-divide",
+      "name": "Continental Divide (Campbell Pass)",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 20896,
+      "reachM": 53837
+     },
+     {
+      "t": 5496,
+      "id": "fx:i40:gallup",
+      "name": "Gallup",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 23673,
+      "reachM": 53837
+     }
+    ],
+    "silenceRatio": 0.987,
+    "maxSilentGapS": 1926,
+    "regimeTransitions": [
+     {
+      "t": 18,
+      "from": "unknown",
+      "to": "urban_driving"
+     },
+     {
+      "t": 86,
+      "from": "urban_driving",
+      "to": "highway_driving"
+     }
+    ],
+    "regimeSequence": [
+     "urban_driving",
+     "highway_driving"
+    ],
+    "densitySequence": [
+     "sparse"
+    ],
+    "providerQueries": {
+     "discovery": 13,
+     "densityProbe": 19,
+     "total": 32,
+     "perHour": 18.2,
+     "emptyResults": 11,
+     "framesPerQuery": 98.7
+    },
+    "wronglyBehindTargets": 0,
+    "endedAfterPassing": 0,
+    "groundingFailures": 0,
+    "utilityStories": 0,
+    "clutterStories": 0,
+    "sessionRestarts": 0,
+    "memory": {
+     "discussed": 5,
+     "completed": 5,
+     "mentions": 0
+    },
+    "matchesCommitted": true
+   },
+   {
+    "scenario": "interstate-routed",
+    "acceptance": [
+     "A5",
+     "F1"
+    ],
+    "trace": "i40-westbound",
+    "synthetic": true,
+    "guide": "emil",
+    "locale": "en-US",
+    "durationS": 6314,
+    "frames": 3158,
+    "storiesStarted": 5,
+    "orientations": 0,
+    "preemptions": 0,
+    "targets": [
+     {
+      "t": 900,
+      "id": "fx:i40:laguna",
+      "name": "Laguna Pueblo",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 23020,
+      "reachM": 41849
+     },
+     {
+      "t": 1890,
+      "id": "fx:i40:mount-taylor",
+      "name": "Mount Taylor",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 25330,
+      "reachM": 62660
+     },
+     {
+      "t": 2386,
+      "id": "fx:i40:grants",
+      "name": "Grants",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 22256,
+      "reachM": 41849
+     },
+     {
+      "t": 4330,
+      "id": "fx:i40:continental-divide",
+      "name": "Continental Divide (Campbell Pass)",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 20050,
+      "reachM": 53837
+     },
+     {
+      "t": 5496,
+      "id": "fx:i40:gallup",
+      "name": "Gallup",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 23673,
+      "reachM": 53837
+     }
+    ],
+    "silenceRatio": 0.987,
+    "maxSilentGapS": 1929,
+    "regimeTransitions": [
+     {
+      "t": 18,
+      "from": "unknown",
+      "to": "urban_driving"
+     },
+     {
+      "t": 86,
+      "from": "urban_driving",
+      "to": "highway_driving"
+     }
+    ],
+    "regimeSequence": [
+     "urban_driving",
+     "highway_driving"
+    ],
+    "densitySequence": [
+     "sparse"
+    ],
+    "providerQueries": {
+     "discovery": 26,
+     "densityProbe": 19,
+     "total": 45,
+     "perHour": 25.7,
+     "emptyResults": 11,
+     "framesPerQuery": 70.2
+    },
+    "wronglyBehindTargets": 0,
+    "endedAfterPassing": 0,
+    "groundingFailures": 0,
+    "utilityStories": 0,
+    "clutterStories": 0,
+    "sessionRestarts": 0,
+    "memory": {
+     "discussed": 5,
+     "completed": 5,
+     "mentions": 0
+    },
+    "matchesCommitted": true
+   },
+   {
+    "scenario": "transition",
+    "acceptance": [
+     "A6",
+     "E1"
+    ],
+    "trace": "highway-to-downtown-walk",
+    "synthetic": true,
+    "guide": "ida",
+    "locale": "en-US",
+    "durationS": 2261,
+    "frames": 2262,
+    "storiesStarted": 8,
+    "orientations": 1,
+    "preemptions": 0,
+    "targets": [
+     {
+      "t": 124,
+      "id": "fx:chi:chicago",
+      "name": "Chicago",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 26661,
+      "reachM": 88455
+     },
+     {
+      "t": 621,
+      "id": "fx:chi:field-museum",
+      "name": "Field Museum",
+      "kind": "story",
+      "regime": "highway_driving",
+      "distanceM": 12651,
+      "reachM": 72586
+     },
+     {
+      "t": 1051,
+      "id": "fx:chi:chinatown",
+      "name": "Chinatown",
+      "kind": "orientation",
+      "regime": "urban_driving",
+      "distanceM": 597,
+      "reachM": 3532
+     },
+     {
+      "t": 1207,
+      "id": "fx:chi:buckingham-fountain",
+      "name": "Buckingham Fountain",
+      "kind": "story",
+      "regime": "urban_driving",
+      "distanceM": 2548,
+      "reachM": 4682
+     },
+     {
+      "t": 1343,
+      "id": "fx:chi:art-institute",
+      "name": "Art Institute of Chicago",
+      "kind": "story",
+      "regime": "urban_driving",
+      "distanceM": 2076,
+      "reachM": 7030
+     },
+     {
+      "t": 1497,
+      "id": "fx:chi:cloud-gate",
+      "name": "Cloud Gate",
+      "kind": "story",
+      "regime": "urban_driving",
+      "distanceM": 1438,
+      "reachM": 4310
+     },
+     {
+      "t": 1636,
+      "id": "fx:chi:millennium-park",
+      "name": "Millennium Park",
+      "kind": "story",
+      "regime": "urban_driving",
+      "distanceM": 854,
+      "reachM": 4084
+     },
+     {
+      "t": 1918,
+      "id": "fx:chi:willis-tower",
+      "name": "Willis Tower",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 981,
+      "reachM": 930
+     },
+     {
+      "t": 2017,
+      "id": "fx:chi:cultural-center",
+      "name": "Chicago Cultural Center",
+      "kind": "story",
+      "regime": "walking",
+      "distanceM": 614,
+      "reachM": 564
+     }
+    ],
+    "silenceRatio": 0.935,
+    "maxSilentGapS": 480,
+    "regimeTransitions": [
+     {
+      "t": 9,
+      "from": "unknown",
+      "to": "urban_driving"
+     },
+     {
+      "t": 64,
+      "from": "urban_driving",
+      "to": "highway_driving"
+     },
+     {
+      "t": 992,
+      "from": "highway_driving",
+      "to": "urban_driving"
+     },
+     {
+      "t": 1826,
+      "from": "urban_driving",
+      "to": "stationary"
+     },
+     {
+      "t": 1910,
+      "from": "stationary",
+      "to": "walking"
+     },
+     {
+      "t": 2134,
+      "from": "walking",
+      "to": "stationary"
+     }
+    ],
+    "regimeSequence": [
+     "urban_driving",
+     "highway_driving",
+     "urban_driving",
+     "stationary",
+     "walking",
+     "stationary"
+    ],
+    "densitySequence": [
+     "suburban",
+     "sparse",
+     "suburban",
+     "urban",
+     "dense"
+    ],
+    "providerQueries": {
+     "discovery": 12,
+     "densityProbe": 18,
+     "total": 30,
+     "perHour": 47.8,
+     "emptyResults": 1,
+     "framesPerQuery": 75.4
+    },
+    "wronglyBehindTargets": 0,
+    "endedAfterPassing": 0,
+    "groundingFailures": 0,
+    "utilityStories": 0,
+    "clutterStories": 0,
+    "sessionRestarts": 0,
+    "memory": {
+     "discussed": 9,
+     "completed": 8,
+     "mentions": 1
+    },
+    "matchesCommitted": true
+   }
+  ],
+  "guideDifferentiation": {
+   "packs": 31,
+   "leadFactSharedRate": 1,
+   "smallerSetContainedRate": 1,
+   "identicalBriefFactsAtSameBudgetRate": 1,
+   "personaParameters": {
+    "ida": {
+     "verbosity": 1.15,
+     "speakingRate": 0.95,
+     "preferredAngles": [
+      "people",
+      "origin",
+      "everyday_life"
+     ]
+    },
+    "emil": {
+     "verbosity": 0.8,
+     "speakingRate": 1.05,
+     "preferredAngles": [
+      "hidden_detail",
+      "numbers",
+      "architecture"
+     ]
+    }
+   },
+   "note": "Brief-level only. The deterministic template is persona-neutral by design; pacing/structure/tone differences come from the LLM and need live generation + a human rubric (NOT RUN)."
+  }
+ },
+ "harnessChecks": {
+  "sessions": 36,
+  "storyStarted": 36,
+  "firstTargetWtc": 36,
+  "stopBeforeAnswer": 36,
+  "storyPreservedInterrupted": 36,
+  "mapValid": 36,
+  "answerNamesFirstResult": 36,
+  "invalidRowsDropped": 36,
+  "resumedSamePlan": 36,
+  "followupNoPlaceSearch": 36,
+  "errors": []
+ },
+ "cacheRates": {
+  "label": "MEASURED-harness: cache-layer counters over the measured phases (fixture corpus, one route, in-process). NOT production hit rates.",
+  "phases": {
+   "cold": {
+    "narrationBody": {
+     "hits": 0,
+     "misses": 36,
+     "hitRate": 0
+    },
+    "ttsAudio": {
+     "hits": 0,
+     "misses": 290,
+     "hitRate": 0
+    },
+    "places": {
+     "hits": 90,
+     "misses": 1,
+     "hitRate": 0.989
+    },
+    "evidence": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    }
+   },
+   "cachedProseColdAudio": {
+    "narrationBody": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "ttsAudio": {
+     "hits": 5,
+     "misses": 127,
+     "hitRate": 0.037899999999999996
+    },
+    "places": {
+     "hits": 72,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "evidence": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    }
+   },
+   "cachedWarm": {
+    "narrationBody": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "ttsAudio": {
+     "hits": 140,
+     "misses": 4,
+     "hitRate": 0.9722000000000001
+    },
+    "places": {
+     "hits": 72,
+     "misses": 0,
+     "hitRate": 1
+    },
+    "evidence": {
+     "hits": 36,
+     "misses": 0,
+     "hitRate": 1
+    }
+   }
+  }
+ },
+ "c1IncrementalCost": {
+  "label": "ESTIMATED (list price) from units measured in the harness (fake providers priced as the default config: gpt-6-luna, gpt-4o-mini-tts, gpt-4o-mini-transcribe, Places Nearby Search Pro)",
+  "callsPerTurn": {
+   "stt:stt_utterance": 1,
+   "maps:nearby_search": 1,
+   "tts:tts_segment": 1
+  },
+  "usdPerCoffeeTurn": {
+   "n": 36,
+   "p50": 0.034572,
+   "p95": 0.034692,
+   "mean": 0.034572
+  }
+ },
+ "testConsole": [
+  "api: [in-process latencies ms] {\"bargein_stop_roundtrip\":{\"n\":1,\"p50\":3.0835259999998925},\"tool_to_map_roundtrip\":{\"n\":1,\"p50\":14.999945000000025},\"speech_end_to_first_audio_roundtrip\":{\"n\":1,\"p50\":23.212538000000222},\"bargein_new_turn_answer\":{\"n\":1,\"p50\":324.2945089999994}}",
+  "api: [F1] place-source calls for 300 frames: 4",
+  "api: [F2 timeout] attempts for 300 frames: 3",
+  "api: [F5] place-source calls in reduced mode for 300 frames: 1"
+ ],
+ "durationS": 409
+}

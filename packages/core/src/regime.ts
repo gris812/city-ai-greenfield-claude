@@ -339,7 +339,7 @@ function recentlyDriving(state: RegimeState, t: Millis, T: RegimeThresholds): bo
 }
 
 function dwellFor(from: MovementRegime, to: MovementRegime, state: RegimeState, t: Millis, T: RegimeThresholds): number {
-  if (from === 'unknown') return to === 'highway_driving' ? T.HIGHWAY_ENTER_DWELL_S : T.DWELL_FROM_UNKNOWN_S;
+  if (from === 'unknown') return to === 'highway_driving' ? T.HIGHWAY_ENTER_DWELL_S : to === 'cycling' ? T.DWELL_TO_CYCLING_S : T.DWELL_FROM_UNKNOWN_S;
   if (to === 'highway_driving') return T.HIGHWAY_ENTER_DWELL_S;
   if (from === 'highway_driving' && to === 'urban_driving') return T.HIGHWAY_EXIT_DWELL_S;
   if (isDriving(from) && to === 'stationary') return T.STOP_AND_GO_HOLD_S;

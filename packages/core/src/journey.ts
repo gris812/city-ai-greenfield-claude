@@ -23,8 +23,8 @@ import type {
   PlaceCandidate,
   StoryAngle,
 } from './contracts.js';
-import { initialDensityState, observedDensity, updateDensity } from './density.js';
-import { emptyMemory, recordStoryCompleted, recordStoryInterrupted, recordStorySkipped, recordStoryStarted } from './memory.js';
+import { densityProbeRadiusFor, initialDensityState, observedDensity, updateDensity } from './density.js';
+import { emptyMemory, recordMention, recordStoryCompleted, recordStoryInterrupted, recordStorySkipped, recordStoryStarted } from './memory.js';
 import { initialRegimeState, updateRegime, type RegimeOptions } from './regime.js';
 import { evaluateSafety } from './safety.js';
 
@@ -164,7 +164,7 @@ export function ingestFrame(state: JourneyState, frame: ContextFrame, opts: Inge
 /** Fold a density observation (candidates from the local density probe). */
 export function observeDensity(state: JourneyState, probeCandidates: readonly PlaceCandidate[], radiusM?: number): JourneyState {
   if (!state.position) return state;
-  const obs = observedDensity(state.position, radiusM, probeCandidates);
+  const obs = observedDensity(state.position, radiusM ?? densityProbeRadiusFor(state.regime.regime), probeCandidates);
   const first = state.densityObservedAt === null;
   const density = updateDensity(first ? null : state.density, obs, state.now, first ? null : state.densityObservedAt);
   return { ...state, density, densityObservedAt: state.now };
@@ -229,4 +229,9 @@ export function storyPaused(s: JourneyState, at: Millis): JourneyState {
   const a = s.activeStory;
   if (!a || a.status !== 'playing') return s;
   return { ...s, activeStory: { ...a, status: 'paused', interruptedAt: at, interruptionCause: 'user_tap' } };
+}
+
+/** An orientation line (A4) was spoken: mention in memory, counts as speech for cadence. */
+export function orientationGiven(s: JourneyState, place: Pick<PlaceCandidate, 'id' | 'name' | 'kind' | 'tags'>, endsAt: Millis): JourneyState {
+  return { ...s, memory: recordMention(s.memory, place, s.now), lastSpeechEndedAt: endsAt };
 }

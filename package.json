@@ -2,16 +2,24 @@
   "name": "city-ai-greenfield",
   "private": true,
   "packageManager": "pnpm@10.28.0",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "typecheck": "pnpm -r --if-present typecheck",
     "test": "pnpm -r --if-present test",
     "replay": "pnpm --filter @city/replay run replay",
-    "build": "pnpm -r --if-present build"
+    "build": "pnpm -r --if-present build",
+    "gen:traces": "tsx scripts/gen-traces.ts",
+    "bench:providers": "tsx scripts/bench/providers.ts",
+    "bench:acceptance": "tsx scripts/bench/acceptance.ts",
+    "bench:cost": "tsx scripts/bench/cost-model.ts",
+    "bench:charts": "python3 scripts/bench/charts.py"
   },
   "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.6.0",
-    "vitest": "^2.1.0",
-    "@types/node": "^22.0.0"
+    "vitest": "^2.1.0"
   }
 }

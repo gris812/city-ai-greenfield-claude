@@ -1,0 +1,470 @@
+[
+ {
+  "placeId": "fx:nyc:911-memorial",
+  "placeName": "National September 11 Memorial & Museum",
+  "facts": [
+   {
+    "id": "fx:nyc:911-memorial#f1",
+    "placeId": "fx:nyc:911-memorial",
+    "kind": "identity",
+    "text": "The National September 11 Memorial & Museum honors the victims of the September 11, 2001 attacks and of the 1993 World Trade Center bombing.",
+    "entities": [
+     "National September 11 Memorial & Museum",
+     "World Trade Center"
+    ],
+    "numbers": [
+     "11",
+     "11",
+     "2001",
+     "1993"
+    ],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:911-memorial#f2",
+    "placeId": "fx:nyc:911-memorial",
+    "kind": "date",
+    "text": "The memorial opened on September 11, 2011, and the museum was dedicated on May 15, 2014.",
+    "entities": [],
+    "numbers": [
+     "11",
+     "2011",
+     "15",
+     "2014"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:911-memorial#f3",
+    "placeId": "fx:nyc:911-memorial",
+    "kind": "person",
+    "text": "The memorial, titled Reflecting Absence, was designed by Michael Arad with landscape architects Peter Walker and Partners.",
+    "entities": [
+     "Reflecting Absence",
+     "Michael Arad",
+     "Peter Walker and Partners"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:911-memorial#f4",
+    "placeId": "fx:nyc:911-memorial",
+    "kind": "quantity",
+    "text": "The names of 2,983 victims are inscribed on 152 bronze parapets around the memorial pools.",
+    "entities": [],
+    "numbers": [
+     "2,983",
+     "152"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:911-memorial#f5",
+    "placeId": "fx:nyc:911-memorial",
+    "kind": "architecture",
+    "text": "The two memorial pools sit in the footprints of the original Twin Towers.",
+    "entities": [
+     "Twin Towers"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:nyc:one-wtc",
+  "placeName": "One World Trade Center",
+  "facts": [
+   {
+    "id": "fx:nyc:one-wtc#f1",
+    "placeId": "fx:nyc:one-wtc",
+    "kind": "identity",
+    "text": "One World Trade Center is the main building of the rebuilt World Trade Center complex in Lower Manhattan.",
+    "entities": [
+     "One World Trade Center",
+     "World Trade Center",
+     "Lower Manhattan"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/One_World_Trade_Center",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:one-wtc#f2",
+    "placeId": "fx:nyc:one-wtc",
+    "kind": "quantity",
+    "text": "Its architectural pinnacle stands 1,776 feet (541 metres) tall, a reference to the year of the Declaration of Independence.",
+    "entities": [
+     "Declaration of Independence"
+    ],
+    "numbers": [
+     "1,776",
+     "541"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/One_World_Trade_Center",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:one-wtc#f3",
+    "placeId": "fx:nyc:one-wtc",
+    "kind": "date",
+    "text": "The building opened on November 3, 2014.",
+    "entities": [],
+    "numbers": [
+     "3",
+     "2014"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/One_World_Trade_Center",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:one-wtc#f4",
+    "placeId": "fx:nyc:one-wtc",
+    "kind": "quantity",
+    "text": "Its roof is 1,368 feet (417 metres) above the ground.",
+    "entities": [],
+    "numbers": [
+     "1,368",
+     "417"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/One_World_Trade_Center",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:nyc:oculus",
+  "placeName": "World Trade Center Transportation Hub (Oculus)",
+  "facts": [
+   {
+    "id": "fx:nyc:oculus#f1",
+    "placeId": "fx:nyc:oculus",
+    "kind": "identity",
+    "text": "The Oculus is the main station building of the World Trade Center Transportation Hub.",
+    "entities": [
+     "Oculus",
+     "World Trade Center Transportation Hub"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/World_Trade_Center_station_(PATH)",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:oculus#f2",
+    "placeId": "fx:nyc:oculus",
+    "kind": "person",
+    "text": "It was designed by the architect Santiago Calatrava.",
+    "entities": [
+     "Santiago Calatrava"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/World_Trade_Center_station_(PATH)",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:oculus#f3",
+    "placeId": "fx:nyc:oculus",
+    "kind": "date",
+    "text": "The hub opened to the public in 2016.",
+    "entities": [],
+    "numbers": [
+     "2016"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/World_Trade_Center_station_(PATH)",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:nyc:st-pauls",
+  "placeName": "St. Paul's Chapel",
+  "facts": [
+   {
+    "id": "fx:nyc:st-pauls#f1",
+    "placeId": "fx:nyc:st-pauls",
+    "kind": "identity",
+    "text": "St. Paul's Chapel, completed in 1766, is the oldest surviving church building in Manhattan.",
+    "entities": [
+     "St. Paul's Chapel",
+     "Manhattan"
+    ],
+    "numbers": [
+     "1766"
+    ],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/St._Paul%27s_Chapel",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:st-pauls#f2",
+    "placeId": "fx:nyc:st-pauls",
+    "kind": "person",
+    "text": "George Washington worshipped here on his Inauguration Day, April 30, 1789.",
+    "entities": [
+     "George Washington",
+     "Inauguration Day"
+    ],
+    "numbers": [
+     "30",
+     "1789"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/St._Paul%27s_Chapel",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:st-pauls#f3",
+    "placeId": "fx:nyc:st-pauls",
+    "kind": "event",
+    "text": "The chapel survived the collapse of the World Trade Center in 2001 without even a broken window.",
+    "entities": [
+     "World Trade Center"
+    ],
+    "numbers": [
+     "2001"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/St._Paul%27s_Chapel",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:st-pauls#f4",
+    "placeId": "fx:nyc:st-pauls",
+    "kind": "culture",
+    "text": "Afterwards it became known as The Little Chapel That Stood.",
+    "entities": [
+     "The Little Chapel That Stood"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/St._Paul%27s_Chapel",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:nyc:statue-of-liberty",
+  "placeName": "Statue of Liberty",
+  "facts": [
+   {
+    "id": "fx:nyc:statue-of-liberty#f1",
+    "placeId": "fx:nyc:statue-of-liberty",
+    "kind": "identity",
+    "text": "The Statue of Liberty is a colossal copper statue on Liberty Island in New York Harbor.",
+    "entities": [
+     "Statue of Liberty",
+     "Liberty Island",
+     "New York Harbor"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:statue-of-liberty#f2",
+    "placeId": "fx:nyc:statue-of-liberty",
+    "kind": "date",
+    "text": "It was dedicated on October 28, 1886.",
+    "entities": [],
+    "numbers": [
+     "28",
+     "1886"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:nyc:empire-state",
+  "placeName": "Empire State Building",
+  "facts": [
+   {
+    "id": "fx:nyc:empire-state#f1",
+    "placeId": "fx:nyc:empire-state",
+    "kind": "identity",
+    "text": "The Empire State Building is an Art Deco skyscraper in Midtown Manhattan.",
+    "entities": [
+     "Empire State Building",
+     "Art Deco",
+     "Midtown Manhattan"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Empire_State_Building",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:empire-state#f2",
+    "placeId": "fx:nyc:empire-state",
+    "kind": "date",
+    "text": "It opened in 1931.",
+    "entities": [],
+    "numbers": [
+     "1931"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Empire_State_Building",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:nyc:brooklyn-bridge",
+  "placeName": "Brooklyn Bridge",
+  "facts": [
+   {
+    "id": "fx:nyc:brooklyn-bridge#f1",
+    "placeId": "fx:nyc:brooklyn-bridge",
+    "kind": "identity",
+    "text": "The Brooklyn Bridge spans the East River between Manhattan and Brooklyn.",
+    "entities": [
+     "Brooklyn Bridge",
+     "East River",
+     "Manhattan",
+     "Brooklyn"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Brooklyn_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:nyc:brooklyn-bridge#f2",
+    "placeId": "fx:nyc:brooklyn-bridge",
+    "kind": "date",
+    "text": "It opened on May 24, 1883.",
+    "entities": [],
+    "numbers": [
+     "24",
+     "1883"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Brooklyn_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ }
+]

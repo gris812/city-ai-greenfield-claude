@@ -1,0 +1,4057 @@
+{
+ "generatedBy": "@city/replay",
+ "note": "SIMULATED replay over synthetic traces and fixture POI packs (D-005).",
+ "summary": {
+  "scenario": "interstate-routed",
+  "acceptance": [
+   "A5",
+   "F1"
+  ],
+  "trace": "i40-westbound",
+  "synthetic": true,
+  "guide": "emil",
+  "locale": "en-US",
+  "durationS": 6314,
+  "frames": 3158,
+  "storiesStarted": 5,
+  "orientations": 0,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 900,
+    "id": "fx:i40:laguna",
+    "name": "Laguna Pueblo",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 23020,
+    "reachM": 41849
+   },
+   {
+    "t": 1890,
+    "id": "fx:i40:mount-taylor",
+    "name": "Mount Taylor",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 25330,
+    "reachM": 62660
+   },
+   {
+    "t": 2386,
+    "id": "fx:i40:grants",
+    "name": "Grants",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 22256,
+    "reachM": 41849
+   },
+   {
+    "t": 4330,
+    "id": "fx:i40:continental-divide",
+    "name": "Continental Divide (Campbell Pass)",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 20050,
+    "reachM": 53837
+   },
+   {
+    "t": 5496,
+    "id": "fx:i40:gallup",
+    "name": "Gallup",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 23673,
+    "reachM": 53837
+   }
+  ],
+  "silenceRatio": 0.987,
+  "maxSilentGapS": 1929,
+  "regimeTransitions": [
+   {
+    "t": 18,
+    "from": "unknown",
+    "to": "urban_driving"
+   },
+   {
+    "t": 86,
+    "from": "urban_driving",
+    "to": "highway_driving"
+   }
+  ],
+  "regimeSequence": [
+   "urban_driving",
+   "highway_driving"
+  ],
+  "densitySequence": [
+   "sparse"
+  ],
+  "providerQueries": {
+   "discovery": 26,
+   "densityProbe": 19,
+   "total": 45,
+   "perHour": 25.7,
+   "emptyResults": 11,
+   "framesPerQuery": 70.2
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 5,
+   "completed": 5,
+   "mentions": 0
+  },
+  "rejections": {
+   "fx:i40:albuquerque": {
+    "name": "Albuquerque",
+    "reasons": {
+     "behind": 923
+    }
+   },
+   "fx:i40:laguna": {
+    "name": "Laguna Pueblo",
+    "reasons": {
+     "beyond_lookahead": 58,
+     "already_discussed": 1392,
+     "too_close_to_pass": 31,
+     "behind": 965,
+     "off_course": 509
+    }
+   },
+   "fx:i40:truckstop-laguna": {
+    "name": "Truck stop (Laguna exit)",
+    "reasons": {
+     "beyond_lookahead": 301,
+     "utility_kind": 1823,
+     "evidence_thin": 1823,
+     "too_close_to_pass": 34,
+     "behind": 1056,
+     "off_course": 840
+    }
+   },
+   "fx:i40:acoma": {
+    "name": "Acoma Pueblo (Sky City)",
+    "reasons": {
+     "off_course": 1658,
+     "too_close_to_pass": 46,
+     "behind": 781
+    }
+   },
+   "fx:i40:continental-divide": {
+    "name": "Continental Divide (Campbell Pass)",
+    "reasons": {
+     "beyond_lookahead": 1559,
+     "already_discussed": 947,
+     "too_close_to_pass": 34,
+     "behind": 602
+    }
+   },
+   "fx:i40:el-malpais": {
+    "name": "El Malpais National Monument",
+    "reasons": {
+     "off_course": 2427,
+     "beyond_lookahead": 406,
+     "too_close_to_pass": 335,
+     "behind": 769
+    }
+   },
+   "fx:i40:grants": {
+    "name": "Grants",
+    "reasons": {
+     "beyond_lookahead": 773,
+     "already_discussed": 1276,
+     "too_close_to_pass": 31,
+     "behind": 845,
+     "off_course": 413
+    }
+   },
+   "fx:i40:mount-taylor": {
+    "name": "Mount Taylor",
+    "reasons": {
+     "beyond_lookahead": 173,
+     "already_discussed": 1357,
+     "too_close_to_pass": 130,
+     "behind": 950,
+     "off_course": 178
+    }
+   },
+   "fx:i40:truckstop-grants": {
+    "name": "Truck stop (Grants)",
+    "reasons": {
+     "beyond_lookahead": 942,
+     "utility_kind": 2260,
+     "evidence_thin": 2260,
+     "too_close_to_pass": 34,
+     "behind": 759,
+     "off_course": 602
+    }
+   },
+   "fx:i40:truckstop-thoreau": {
+    "name": "Truck stop (Thoreau exit)",
+    "reasons": {
+     "beyond_lookahead": 1873,
+     "utility_kind": 2887,
+     "evidence_thin": 2887,
+     "too_close_to_pass": 34,
+     "behind": 623,
+     "off_course": 115
+    }
+   },
+   "fx:i40:gallup": {
+    "name": "Gallup",
+    "reasons": {
+     "beyond_lookahead": 1515,
+     "already_discussed": 409,
+     "too_close_to_pass": 32
+    }
+   },
+   "fx:i40:truckstop-gallup": {
+    "name": "Truck stop (Gallup east)",
+    "reasons": {
+     "beyond_lookahead": 1806,
+     "utility_kind": 2515,
+     "evidence_thin": 2515,
+     "too_close_to_pass": 36,
+     "behind": 136
+    }
+   }
+  }
+ },
+ "stories": [
+  {
+   "t": 900,
+   "kind": "story",
+   "placeId": "fx:i40:laguna",
+   "name": "Laguna Pueblo",
+   "placeKind": "town",
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.4,
+   "courseDeg": 278,
+   "trajectory": "corridor_route",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 23020,
+   "alongTrackM": 23017,
+   "crossTrackM": 371,
+   "etaS": 638,
+   "reachM": 41849,
+   "score": 0.646,
+   "mode": "short",
+   "angle": "hidden_detail",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 37,
+   "playedS": 14.7,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about 10 miles",
+   "text": "Straight ahead, about 10 miles: Laguna Pueblo. Laguna Pueblo is the home of the Laguna people in west-central New Mexico. Its mission church, San José de la Laguna, was built between 1699 and 1701. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:i40:acoma",
+     "name": "Acoma Pueblo (Sky City)",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:i40:albuquerque",
+     "name": "Albuquerque",
+     "reasons": [
+      "behind"
+     ]
+    },
+    {
+     "id": "fx:i40:continental-divide",
+     "name": "Continental Divide (Campbell Pass)",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:i40:el-malpais",
+     "name": "El Malpais National Monument",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:i40:grants",
+     "name": "Grants",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-grants",
+     "name": "Truck stop (Grants)",
+     "reasons": [
+      "beyond_lookahead",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-laguna",
+     "name": "Truck stop (Laguna exit)",
+     "reasons": [
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-thoreau",
+     "name": "Truck stop (Thoreau exit)",
+     "reasons": [
+      "beyond_lookahead",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1890,
+   "kind": "story",
+   "placeId": "fx:i40:mount-taylor",
+   "name": "Mount Taylor",
+   "placeKind": "mountain",
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.3,
+   "courseDeg": 272,
+   "trajectory": "corridor_route",
+   "relative": "ahead",
+   "side": "right",
+   "distanceM": 25330,
+   "alongTrackM": 21647,
+   "crossTrackM": 17422,
+   "etaS": 637,
+   "reachM": 62660,
+   "score": 0.777,
+   "mode": "short",
+   "angle": "numbers",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 29,
+   "playedS": 11.5,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "ahead on your right, about 10 miles",
+   "text": "Ahead on your right, about 10 miles: Mount Taylor. Mount Taylor is a stratovolcano in northwestern New Mexico. Its summit rises to 11,305 feet (3,446 metres). That's the story.",
+   "rejected": [
+    {
+     "id": "fx:i40:acoma",
+     "name": "Acoma Pueblo (Sky City)",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:i40:continental-divide",
+     "name": "Continental Divide (Campbell Pass)",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:i40:el-malpais",
+     "name": "El Malpais National Monument",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:i40:gallup",
+     "name": "Gallup",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:i40:laguna",
+     "name": "Laguna Pueblo",
+     "reasons": [
+      "behind",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-gallup",
+     "name": "Truck stop (Gallup east)",
+     "reasons": [
+      "beyond_lookahead",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-grants",
+     "name": "Truck stop (Grants)",
+     "reasons": [
+      "beyond_lookahead",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-laguna",
+     "name": "Truck stop (Laguna exit)",
+     "reasons": [
+      "behind",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 2386,
+   "kind": "story",
+   "placeId": "fx:i40:grants",
+   "name": "Grants",
+   "placeKind": "town",
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.2,
+   "courseDeg": 297,
+   "trajectory": "corridor_route",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 22256,
+   "alongTrackM": 22275,
+   "crossTrackM": -271,
+   "etaS": 638,
+   "reachM": 41849,
+   "score": 0.641,
+   "mode": "short",
+   "angle": "turning_point",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 39,
+   "playedS": 15.5,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about 10 miles",
+   "text": "Straight ahead, about 10 miles: Grants. Grants is the county seat of Cibola County, New Mexico. Paddy Martinez, a Navajo shepherd, discovered uranium ore near Haystack Mesa, sparking a mining boom that lasted until the 1980s. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:i40:acoma",
+     "name": "Acoma Pueblo (Sky City)",
+     "reasons": [
+      "behind",
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:i40:continental-divide",
+     "name": "Continental Divide (Campbell Pass)",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:i40:el-malpais",
+     "name": "El Malpais National Monument",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:i40:gallup",
+     "name": "Gallup",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:i40:laguna",
+     "name": "Laguna Pueblo",
+     "reasons": [
+      "behind",
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:i40:mount-taylor",
+     "name": "Mount Taylor",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-gallup",
+     "name": "Truck stop (Gallup east)",
+     "reasons": [
+      "beyond_lookahead",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-grants",
+     "name": "Truck stop (Grants)",
+     "reasons": [
+      "utility_kind",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 4330,
+   "kind": "story",
+   "placeId": "fx:i40:continental-divide",
+   "name": "Continental Divide (Campbell Pass)",
+   "placeKind": "road_feature",
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31,
+   "courseDeg": 303,
+   "trajectory": "corridor_route",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 20050,
+   "alongTrackM": 20386,
+   "crossTrackM": 281,
+   "etaS": 641,
+   "reachM": 53837,
+   "score": 0.731,
+   "mode": "short",
+   "angle": "architecture",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 50,
+   "playedS": 19.8,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about 10 miles",
+   "text": "Straight ahead, about 10 miles: Continental Divide (Campbell Pass). Along Interstate 40 east of Gallup, the highway crosses the Continental Divide of the Americas at Campbell Pass. The nearby community sits at about 7,228 feet (2,203 metres). Campbell Pass is a low point along the Continental Divide. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:i40:el-malpais",
+     "name": "El Malpais National Monument",
+     "reasons": [
+      "behind",
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:i40:grants",
+     "name": "Grants",
+     "reasons": [
+      "behind",
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:i40:mount-taylor",
+     "name": "Mount Taylor",
+     "reasons": [
+      "behind",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-gallup",
+     "name": "Truck stop (Gallup east)",
+     "reasons": [
+      "beyond_lookahead",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-grants",
+     "name": "Truck stop (Grants)",
+     "reasons": [
+      "behind",
+      "off_course",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-thoreau",
+     "name": "Truck stop (Thoreau exit)",
+     "reasons": [
+      "utility_kind",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 5496,
+   "kind": "story",
+   "placeId": "fx:i40:gallup",
+   "name": "Gallup",
+   "placeKind": "city",
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "courseDeg": 282,
+   "trajectory": "corridor_route",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 23673,
+   "alongTrackM": 23649,
+   "crossTrackM": -1049,
+   "etaS": 638,
+   "reachM": 53837,
+   "score": 0.736,
+   "mode": "short",
+   "angle": "hidden_detail",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 50,
+   "playedS": 19.8,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about 10 miles",
+   "text": "Straight ahead, about 10 miles: Gallup. Gallup is the county seat of McKinley County, New Mexico. Historic U.S. Route 66 runs through the center of town, while Interstate 40 passes along its north side. It was founded in 1881. It connects with Grants, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:i40:continental-divide",
+     "name": "Continental Divide (Campbell Pass)",
+     "reasons": [
+      "behind",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-gallup",
+     "name": "Truck stop (Gallup east)",
+     "reasons": [
+      "utility_kind",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:i40:truckstop-thoreau",
+     "name": "Truck stop (Thoreau exit)",
+     "reasons": [
+      "behind",
+      "utility_kind",
+      "evidence_thin"
+     ]
+    }
+   ]
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "regime": "unknown",
+   "density": "sparse",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {},
+   "policy": {
+    "nearRadiusM": 600,
+    "lookAheadBaseM": 400,
+    "lookAheadMaxM": 2400,
+    "minGapS": 45,
+    "speakThreshold": 1.01,
+    "maxStoryS": 120,
+    "significanceFloor": 0.1
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 18,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 10,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {},
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 48,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 26.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 1,
+    "beyond_lookahead": 5,
+    "utility_kind": 3,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 86,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 26.8,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 8,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 146,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 27,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 8,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 206,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 27.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:laguna",
+   "bestScore": 0.571,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 7,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 266,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 26.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:laguna",
+   "bestScore": 0.573,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 7,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 326,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 26.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:laguna",
+   "bestScore": 0.575,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 7,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 386,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.5,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:laguna",
+   "bestScore": 0.589,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 7,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 446,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.668,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 506,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.67,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 566,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.671,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 626,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.672,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 686,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.674,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 5,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 746,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.676,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 5,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 806,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.678,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 5,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 866,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.683,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 5,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 900,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.4,
+   "decision": "start_story",
+   "target": "fx:i40:laguna",
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 902,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.2,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 916,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.685,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 976,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.688,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1036,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.692,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1096,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.695,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1156,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.699,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1216,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.7,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.702,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1276,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.708,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 4,
+    "already_discussed": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1336,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.6,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.712,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1396,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.714,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1456,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.721,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1516,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.728,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 1,
+    "beyond_lookahead": 6,
+    "too_close_to_pass": 2,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1576,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.733,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 2,
+    "beyond_lookahead": 6,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1636,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.743,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 2,
+    "beyond_lookahead": 5,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1696,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.745,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 2,
+    "beyond_lookahead": 5,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1756,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.756,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 3,
+    "beyond_lookahead": 5,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1816,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.6,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.762,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 3,
+    "beyond_lookahead": 5,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1876,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:mount-taylor",
+   "bestScore": 0.774,
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "behind": 3,
+    "beyond_lookahead": 5,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1890,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.3,
+   "decision": "start_story",
+   "target": "fx:i40:mount-taylor",
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 2,
+    "beyond_lookahead": 5,
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1892,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "beyond_lookahead": 5,
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1902,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.6,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.582,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "beyond_lookahead": 5,
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 1962,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.589,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 2,
+    "beyond_lookahead": 5,
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2022,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.8,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.598,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2082,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.606,
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 3,
+    "too_close_to_pass": 1,
+    "beyond_lookahead": 4,
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2142,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.5,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.613,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2202,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.7,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.618,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2262,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.6,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.625,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2322,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:grants",
+   "bestScore": 0.635,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2382,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:grants",
+   "bestScore": 0.639,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2386,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.2,
+   "decision": "start_story",
+   "target": "fx:i40:grants",
+   "eligible": 1,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 2,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2388,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.5,
+   "decision": "continue_story",
+   "eligible": 0,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2402,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2462,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.4,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 3,
+    "too_close_to_pass": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2522,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 3,
+    "too_close_to_pass": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2582,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.8,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 3,
+    "too_close_to_pass": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2642,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 3,
+    "too_close_to_pass": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2702,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 3,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "already_discussed": 3,
+    "too_close_to_pass": 1,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2762,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 1,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2822,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 1,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2882,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 1,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 2942,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 1,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3002,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 2,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3062,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 2,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3122,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 5,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 1,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3182,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 27.5,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 5,
+    "off_course": 4,
+    "beyond_lookahead": 4,
+    "too_close_to_pass": 1,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3242,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.633,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 5,
+    "off_course": 4,
+    "too_close_to_pass": 1,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3302,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.635,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 6,
+    "off_course": 4,
+    "too_close_to_pass": 1,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3362,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 27.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.636,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 6,
+    "off_course": 4,
+    "too_close_to_pass": 1,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3422,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.643,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 7,
+    "off_course": 4,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3482,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.646,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 7,
+    "off_course": 4,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3542,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.648,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 7,
+    "off_course": 4,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3602,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.4,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.653,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 7,
+    "off_course": 4,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3662,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.655,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 7,
+    "off_course": 4,
+    "beyond_lookahead": 3,
+    "already_discussed": 3,
+    "utility_kind": 4,
+    "evidence_thin": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3722,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.659,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 2,
+    "beyond_lookahead": 3,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3782,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.665,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 3,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3842,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.672,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3902,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.677,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 3962,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.681,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4022,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.688,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4082,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.695,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4142,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.703,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4202,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.711,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4262,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.72,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 2,
+    "already_discussed": 2,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4322,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:continental-divide",
+   "bestScore": 0.729,
+   "eligible": 2,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "already_discussed": 2,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4330,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31,
+   "decision": "start_story",
+   "target": "fx:i40:continental-divide",
+   "eligible": 2,
+   "suppressed": {
+    "behind": 4,
+    "off_course": 3,
+    "already_discussed": 2,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4332,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.8,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4350,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 31.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.644,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4410,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.645,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4470,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.6,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.647,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4530,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.65,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4590,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.7,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.65,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "behind": 4,
+    "off_course": 3,
+    "beyond_lookahead": 1,
+    "utility_kind": 3,
+    "evidence_thin": 3,
+    "too_close_to_pass": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4650,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.654,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 2,
+    "behind": 3,
+    "off_course": 2,
+    "beyond_lookahead": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4710,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.8,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.657,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 2,
+    "behind": 3,
+    "off_course": 2,
+    "beyond_lookahead": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4770,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.661,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 2,
+    "behind": 3,
+    "off_course": 2,
+    "beyond_lookahead": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4830,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.664,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 2,
+    "behind": 3,
+    "off_course": 2,
+    "beyond_lookahead": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4890,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.669,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 2,
+    "behind": 3,
+    "off_course": 2,
+    "beyond_lookahead": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 4950,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.673,
+   "eligible": 1,
+   "suppressed": {
+    "too_close_to_pass": 1,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2,
+    "behind": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5010,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.675,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2,
+    "behind": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5070,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.681,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5130,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.687,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5190,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.694,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5250,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.9,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.699,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5310,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.708,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5370,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.716,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5430,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.725,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5490,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:i40:gallup",
+   "bestScore": 0.733,
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5496,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "start_story",
+   "target": "fx:i40:gallup",
+   "eligible": 1,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 1,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5498,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "continue_story",
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5516,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5576,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5636,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 2,
+    "evidence_thin": 2,
+    "off_course": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5696,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 2,
+    "evidence_thin": 2,
+    "off_course": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5756,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 2,
+    "evidence_thin": 2,
+    "off_course": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5816,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 2,
+    "evidence_thin": 2,
+    "off_course": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5876,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 1,
+    "already_discussed": 2,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5936,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 30.6,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 1,
+    "already_discussed": 2,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 5996,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 1,
+    "already_discussed": 2,
+    "too_close_to_pass": 1,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 6056,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.4,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 6116,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 27.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "too_close_to_pass": 1,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 6176,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 27.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "behind": 2,
+    "already_discussed": 2,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 6236,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 27.7,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 1,
+    "behind": 1,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  },
+  {
+   "t": 6296,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 1,
+    "behind": 1,
+    "utility_kind": 1,
+    "evidence_thin": 1
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_route"
+  }
+ ]
+}

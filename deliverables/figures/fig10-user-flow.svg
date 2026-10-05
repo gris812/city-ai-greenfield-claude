@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 600" width="840" height="600" role="img" aria-label="User flow"><title>User flow</title><desc>Guest entry, walk or drive, story, interrupt, nearby, resume</desc><defs><marker id="ah1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah5" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah6" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah7" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah8" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah9" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker></defs><rect width="840" height="600" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">User flow</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">From first open to resumed story, with the driving branch</text>
+<rect x="24.0" y="100.0" width="144.0" height="70.0" rx="10" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.6"/>
+<text x="96.0" y="125.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">1  Open as guest</text>
+<text x="96.0" y="141.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">no account, no card;</text>
+<text x="96.0" y="155.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">explains permissions</text>
+<rect x="186.0" y="100.0" width="144.0" height="70.0" rx="10" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.6"/>
+<text x="258.0" y="125.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">2  Pick a Guide</text>
+<text x="258.0" y="141.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">Ida or Emil;</text>
+<text x="258.0" y="155.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">same facts, other voice</text>
+<rect x="348.0" y="100.0" width="144.0" height="70.0" rx="10" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.6"/>
+<text x="420.0" y="125.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">3  Start exploring</text>
+<text x="420.0" y="141.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">real location or a</text>
+<text x="420.0" y="155.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">labelled simulated trip</text>
+<rect x="510.0" y="100.0" width="144.0" height="70.0" rx="10" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.6"/>
+<text x="582.0" y="126.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.456221069265945" font-weight="700" fill="#131A1D" text-anchor="middle">4  Quiet unless worth it</text>
+<text x="582.0" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.929456255605926" font-weight="500" fill="#5F5A53" text-anchor="middle">director scores candidates;</text>
+<text x="582.0" y="153.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.929456255605926" font-weight="500" fill="#5F5A53" text-anchor="middle">silence is a state</text>
+<rect x="672.0" y="100.0" width="144.0" height="70.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="744.0" y="125.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">5  Story begins</text>
+<text x="744.0" y="141.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">cue + place, then body;</text>
+<text x="744.0" y="155.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">ahead / near / passed</text>
+<path d="M168.0,135.0 L186.0,135.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah1)" stroke-linejoin="round"/>
+<path d="M330.0,135.0 L348.0,135.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah2)" stroke-linejoin="round"/>
+<path d="M492.0,135.0 L510.0,135.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah3)" stroke-linejoin="round"/>
+<path d="M654.0,135.0 L672.0,135.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah4)" stroke-linejoin="round"/>
+<rect x="672.0" y="220.0" width="144.0" height="70.0" rx="10" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.6"/>
+<text x="744.0" y="245.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">6  User interrupts</text>
+<text x="744.0" y="261.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">press mic or say name;</text>
+<text x="744.0" y="275.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">audio stops first</text>
+<rect x="510.0" y="220.0" width="144.0" height="70.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="582.0" y="245.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">7  Intent + tool</text>
+<text x="582.0" y="261.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">'coffee nearby' runs a</text>
+<text x="582.0" y="275.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">separate NearbySearch</text>
+<rect x="348.0" y="220.0" width="144.0" height="70.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="420.0" y="245.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">8  Answer + map</text>
+<text x="420.0" y="261.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">validated rows only;</text>
+<text x="420.0" y="275.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">spoken + highlighted</text>
+<rect x="186.0" y="220.0" width="144.0" height="70.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="258.0" y="245.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">9  Resume or let go</text>
+<text x="258.0" y="261.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">ResumePolicy decides;</text>
+<text x="258.0" y="275.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">never silently restarts</text>
+<rect x="24.0" y="220.0" width="144.0" height="70.0" rx="10" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.6"/>
+<text x="96.0" y="245.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">10  Hand off</text>
+<text x="96.0" y="261.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">'navigate there' opens</text>
+<text x="96.0" y="275.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#5F5A53" text-anchor="middle">Google/Apple Maps</text>
+<path d="M744.0,170.0 L744.0,195.0 L744.0,195.0 L744.0,220.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah5)" stroke-linejoin="round"/>
+<path d="M672.0,255.0 L654.0,255.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah6)" stroke-linejoin="round"/>
+<path d="M510.0,255.0 L492.0,255.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah7)" stroke-linejoin="round"/>
+<path d="M348.0,255.0 L330.0,255.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah8)" stroke-linejoin="round"/>
+<path d="M186.0,255.0 L168.0,255.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah9)" stroke-linejoin="round"/>
+<rect x="24.0" y="330.0" width="792.0" height="190.0" rx="14" fill="#0B3942" stroke="#082A31" stroke-width="1.5"/>
+<text x="40.0" y="358.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="start">Driving branch (automatic, regime-driven; no mode switch)</text>
+<text x="40.0" y="380.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">Speed and road class move the regime from walking to urban or highway driving. Look-ahead grows with speed and significance;</text>
+<text x="40.0" y="398.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">stories shorten (highway cap 75 s, urban 60 s).</text>
+<text x="40.0" y="416.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">The screen becomes a dark HUD: one status line, one 96 dp mic, no lists, no typing, no Guide questions. Listening opens only on</text>
+<text x="40.0" y="434.9" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">an explicit press.</text>
+<text x="40.0" y="453.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">On a quiet highway the correct output is silence (replay: 98.7% silent over 105 minutes, longest gap 32 min). Speech onset is held</text>
+<text x="40.0" y="471.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">during manoeuvres.</text>
+<text x="40.0" y="489.8" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">Walking again later: the same session continues; thresholds and cadence fall back to the walking set without a restart (acceptance</text>
+<text x="40.0" y="508.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.2" font-weight="500" fill="#DCECEE" text-anchor="start">A6, replay).</text>
+<rect x="24.0" y="540.0" width="18.0" height="14.0" rx="3" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.4"/>
+<text x="49.0" y="551.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#5F5A53" text-anchor="start">User action</text>
+<rect x="131.4" y="540.0" width="18.0" height="14.0" rx="3" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.4"/>
+<text x="156.4" y="551.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#5F5A53" text-anchor="start">Server decision</text>
+<rect x="261.9" y="540.0" width="18.0" height="14.0" rx="3" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<text x="286.9" y="551.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#5F5A53" text-anchor="start">State / hand-off</text>
+<text x="24.0" y="574.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Source: DECISIONS.md D-006..D-009; benchmark/replay/summary.json (interstate, transition); docs/MOBILE.md. Flow exercised in the web</text>
+<text x="24.0" y="588.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">demo and in tests with fakes.</text>
+</svg>

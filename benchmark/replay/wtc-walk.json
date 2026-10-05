@@ -1,0 +1,1366 @@
+{
+ "generatedBy": "@city/replay",
+ "note": "SIMULATED replay over synthetic traces and fixture POI packs (D-005).",
+ "summary": {
+  "scenario": "wtc-walk",
+  "acceptance": [
+   "A1",
+   "A7"
+  ],
+  "trace": "wtc-walk",
+  "synthetic": true,
+  "guide": "ida",
+  "locale": "en-US",
+  "durationS": 910,
+  "frames": 911,
+  "storiesStarted": 5,
+  "orientations": 0,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 17,
+    "id": "fx:nyc:911-memorial",
+    "name": "National September 11 Memorial & Museum",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 361,
+    "reachM": 977
+   },
+   {
+    "t": 103,
+    "id": "fx:nyc:one-wtc",
+    "name": "One World Trade Center",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 393,
+    "reachM": 930
+   },
+   {
+    "t": 183,
+    "id": "fx:nyc:oculus",
+    "name": "World Trade Center Transportation Hub (Oculus)",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 173,
+    "reachM": 673
+   },
+   {
+    "t": 252,
+    "id": "fx:nyc:st-pauls",
+    "name": "St. Paul's Chapel",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 289,
+    "reachM": 361
+   },
+   {
+    "t": 374,
+    "id": "fx:nyc:brooklyn-bridge",
+    "name": "Brooklyn Bridge",
+    "kind": "story",
+    "regime": "stationary",
+    "distanceM": 1435,
+    "reachM": 902
+   }
+  ],
+  "silenceRatio": 0.843,
+  "maxSilentGapS": 524,
+  "regimeTransitions": [
+   {
+    "t": 9,
+    "from": "unknown",
+    "to": "walking"
+   },
+   {
+    "t": 258,
+    "from": "walking",
+    "to": "stationary"
+   },
+   {
+    "t": 394,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 661,
+    "from": "walking",
+    "to": "stationary"
+   },
+   {
+    "t": 798,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 875,
+    "from": "walking",
+    "to": "stationary"
+   }
+  ],
+  "regimeSequence": [
+   "walking",
+   "stationary",
+   "walking",
+   "stationary",
+   "walking",
+   "stationary"
+  ],
+  "densitySequence": [
+   "dense"
+  ],
+  "providerQueries": {
+   "discovery": 7,
+   "densityProbe": 6,
+   "total": 13,
+   "perHour": 51.4,
+   "emptyResults": 0,
+   "framesPerQuery": 70.1
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 5,
+   "completed": 5,
+   "mentions": 0
+  },
+  "rejections": {
+   "fx:nyc:liberty-park": {
+    "name": "Liberty Park",
+    "reasons": {
+     "evidence_thin": 911,
+     "beyond_lookahead": 379
+    }
+   },
+   "fx:nyc:brooklyn-bridge": {
+    "name": "Brooklyn Bridge",
+    "reasons": {
+     "beyond_lookahead": 333,
+     "already_discussed": 536
+    }
+   },
+   "fx:nyc:st-pauls": {
+    "name": "St. Paul's Chapel",
+    "reasons": {
+     "beyond_lookahead": 21,
+     "already_discussed": 658
+    }
+   },
+   "fx:nyc:911-memorial": {
+    "name": "National September 11 Memorial & Museum",
+    "reasons": {
+     "already_discussed": 893
+    }
+   },
+   "fx:nyc:one-wtc": {
+    "name": "One World Trade Center",
+    "reasons": {
+     "already_discussed": 807
+    }
+   },
+   "fx:nyc:oculus": {
+    "name": "World Trade Center Transportation Hub (Oculus)",
+    "reasons": {
+     "already_discussed": 727
+    }
+   }
+  }
+ },
+ "stories": [
+  {
+   "t": 17,
+   "kind": "story",
+   "placeId": "fx:nyc:911-memorial",
+   "name": "National September 11 Memorial & Museum",
+   "placeKind": "memorial",
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "courseDeg": 348,
+   "trajectory": "radial",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 361,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": 174,
+   "reachM": 977,
+   "score": 0.867,
+   "mode": "full",
+   "angle": "people",
+   "preempt": false,
+   "durationBudgetS": 138,
+   "maxWords": 345,
+   "words": 97,
+   "playedS": 40.8,
+   "segments": 3,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "straight ahead, about 800 feet",
+   "text": "Straight ahead, about 800 feet: National September 11 Memorial & Museum. The National September 11 Memorial & Museum honors the victims of the September 11, 2001 attacks and of the 1993 World Trade Center bombing. The memorial, titled Reflecting Absence, was designed by Michael Arad with landscape architects Peter Walker and Partners. The memorial opened on September 11, 2011, and the museum was dedicated on May 15, 2014. The names of 2,983 victims are inscribed on 152 bronze parapets around the memorial pools. The two memorial pools sit in the footprints of the original Twin Towers. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:nyc:brooklyn-bridge",
+     "name": "Brooklyn Bridge",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:nyc:liberty-park",
+     "name": "Liberty Park",
+     "reasons": [
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 103,
+   "kind": "story",
+   "placeId": "fx:nyc:one-wtc",
+   "name": "One World Trade Center",
+   "placeKind": "building",
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "courseDeg": 23,
+   "trajectory": "radial",
+   "relative": "ahead",
+   "side": "left",
+   "distanceM": 393,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": 257,
+   "reachM": 930,
+   "score": 0.846,
+   "mode": "full",
+   "angle": "origin",
+   "preempt": false,
+   "durationBudgetS": 138,
+   "maxWords": 345,
+   "words": 81,
+   "playedS": 34.1,
+   "segments": 3,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "ahead on your left, about a quarter mile",
+   "text": "Ahead on your left, about a quarter mile: One World Trade Center. One World Trade Center is the main building of the rebuilt World Trade Center complex in Lower Manhattan. The building opened on November 3, 2014. Its architectural pinnacle stands 1,776 feet (541 metres) tall, a reference to the year of the Declaration of Independence. Its roof is 1,368 feet (417 metres) above the ground. It connects with National September 11 Memorial & Museum, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:nyc:911-memorial",
+     "name": "National September 11 Memorial & Museum",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:nyc:brooklyn-bridge",
+     "name": "Brooklyn Bridge",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:nyc:liberty-park",
+     "name": "Liberty Park",
+     "reasons": [
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 183,
+   "kind": "story",
+   "placeId": "fx:nyc:oculus",
+   "name": "World Trade Center Transportation Hub (Oculus)",
+   "placeKind": "landmark",
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.5,
+   "courseDeg": 11,
+   "trajectory": "radial",
+   "relative": "ahead",
+   "side": "right",
+   "distanceM": 173,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": 77,
+   "reachM": 673,
+   "score": 0.754,
+   "mode": "full",
+   "angle": "connection",
+   "preempt": false,
+   "durationBudgetS": 138,
+   "maxWords": 345,
+   "words": 57,
+   "playedS": 24,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "ahead on your right, about 400 feet",
+   "text": "Ahead on your right, about 400 feet: World Trade Center Transportation Hub (Oculus). The Oculus is the main station building of the World Trade Center Transportation Hub. It was designed by the architect Santiago Calatrava. The hub opened to the public in 2016. It connects with One World Trade Center, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:nyc:911-memorial",
+     "name": "National September 11 Memorial & Museum",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:nyc:brooklyn-bridge",
+     "name": "Brooklyn Bridge",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:nyc:liberty-park",
+     "name": "Liberty Park",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:nyc:one-wtc",
+     "name": "One World Trade Center",
+     "reasons": [
+      "already_discussed"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 252,
+   "kind": "story",
+   "placeId": "fx:nyc:st-pauls",
+   "name": "St. Paul's Chapel",
+   "placeKind": "religious_site",
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 0.1,
+   "courseDeg": 10,
+   "trajectory": "radial",
+   "relative": "beside",
+   "side": "right",
+   "distanceM": 289,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": null,
+   "reachM": 361,
+   "score": 0.665,
+   "mode": "full",
+   "angle": "people",
+   "preempt": false,
+   "durationBudgetS": 138,
+   "maxWords": 345,
+   "words": 76,
+   "playedS": 32,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "on your right, about 800 feet",
+   "text": "On your right, about 800 feet: St. Paul's Chapel. St. Paul's Chapel, completed in 1766, is the oldest surviving church building in Manhattan. George Washington worshipped here on his Inauguration Day, April 30, 1789. The chapel survived the collapse of the World Trade Center in 2001 without even a broken window. Afterwards it became known as The Little Chapel That Stood. It connects with National September 11 Memorial & Museum, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:nyc:911-memorial",
+     "name": "National September 11 Memorial & Museum",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:nyc:brooklyn-bridge",
+     "name": "Brooklyn Bridge",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:nyc:liberty-park",
+     "name": "Liberty Park",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:nyc:oculus",
+     "name": "World Trade Center Transportation Hub (Oculus)",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:nyc:one-wtc",
+     "name": "One World Trade Center",
+     "reasons": [
+      "already_discussed"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 374,
+   "kind": "story",
+   "placeId": "fx:nyc:brooklyn-bridge",
+   "name": "Brooklyn Bridge",
+   "placeKind": "bridge",
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "courseDeg": 10,
+   "trajectory": "radial",
+   "relative": "beside",
+   "side": null,
+   "distanceM": 1435,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": null,
+   "reachM": 902,
+   "score": 0.776,
+   "mode": "full",
+   "angle": "origin",
+   "preempt": false,
+   "durationBudgetS": 173,
+   "maxWords": 433,
+   "words": 29,
+   "playedS": 12.2,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "right beside you, about a quarter mile",
+   "text": "Right beside you, about a quarter mile: Brooklyn Bridge. The Brooklyn Bridge spans the East River between Manhattan and Brooklyn. It opened on May 24, 1883. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:nyc:911-memorial",
+     "name": "National September 11 Memorial & Museum",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:nyc:liberty-park",
+     "name": "Liberty Park",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:nyc:oculus",
+     "name": "World Trade Center Transportation Hub (Oculus)",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:nyc:one-wtc",
+     "name": "One World Trade Center",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:nyc:st-pauls",
+     "name": "St. Paul's Chapel",
+     "reasons": [
+      "already_discussed"
+     ]
+    }
+   ]
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "regime": "unknown",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": "fx:nyc:911-memorial",
+   "bestScore": 0.852,
+   "eligible": 5,
+   "suppressed": {
+    "beyond_lookahead": 56,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 1.01,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 9,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": "fx:nyc:911-memorial",
+   "bestScore": 0.863,
+   "eligible": 3,
+   "suppressed": {
+    "beyond_lookahead": 60,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 17,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "start_story",
+   "target": "fx:nyc:911-memorial",
+   "eligible": 4,
+   "suppressed": {
+    "beyond_lookahead": 59,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 18,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "continue_story",
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 1,
+    "beyond_lookahead": 59,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 58,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:nyc:one-wtc",
+   "bestScore": 0.835,
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 1,
+    "beyond_lookahead": 59,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 103,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "start_story",
+   "target": "fx:nyc:one-wtc",
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 1,
+    "beyond_lookahead": 57,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 104,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "continue_story",
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 2,
+    "beyond_lookahead": 57,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 138,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:nyc:oculus",
+   "bestScore": 0.744,
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 2,
+    "beyond_lookahead": 56,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 183,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.5,
+   "decision": "start_story",
+   "target": "fx:nyc:oculus",
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 2,
+    "beyond_lookahead": 57,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 184,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.5,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "beyond_lookahead": 57,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 207,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:nyc:st-pauls",
+   "bestScore": 0.666,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "beyond_lookahead": 57,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 252,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 0.1,
+   "decision": "start_story",
+   "target": "fx:nyc:st-pauls",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 3,
+    "beyond_lookahead": 57,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 253,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 0.1,
+   "decision": "continue_story",
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 4,
+    "beyond_lookahead": 57,
+    "evidence_thin": 61,
+    "utility_kind": 13
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 258,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 4,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 284,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:nyc:brooklyn-bridge",
+   "bestScore": 0.776,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 4,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 344,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:nyc:brooklyn-bridge",
+   "bestScore": 0.776,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 4,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 374,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "start_story",
+   "target": "fx:nyc:brooklyn-bridge",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 4,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 375,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "continue_story",
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 387,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0.5,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 394,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 402,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 432,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 492,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 552,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 63,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 612,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 60,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 661,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 62,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 666,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 62,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 726,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 62,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 786,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 61,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 798,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 60,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 806,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 59,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 866,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 60,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 875,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 61,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 880,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 61,
+    "evidence_thin": 67,
+    "utility_kind": 14
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  }
+ ]
+}

@@ -1,0 +1,437 @@
+[
+ {
+  "placeId": "fx:sf:golden-gate-bridge",
+  "placeName": "Golden Gate Bridge",
+  "facts": [
+   {
+    "id": "fx:sf:golden-gate-bridge#f1",
+    "placeId": "fx:sf:golden-gate-bridge",
+    "kind": "identity",
+    "text": "The Golden Gate Bridge is a suspension bridge spanning the Golden Gate strait.",
+    "entities": [
+     "Golden Gate Bridge",
+     "Golden Gate"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:golden-gate-bridge#f2",
+    "placeId": "fx:sf:golden-gate-bridge",
+    "kind": "date",
+    "text": "It opened on May 27, 1937.",
+    "entities": [],
+    "numbers": [
+     "27",
+     "1937"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:golden-gate-bridge#f3",
+    "placeId": "fx:sf:golden-gate-bridge",
+    "kind": "quantity",
+    "text": "Its main span is 4,200 feet (1,280 metres) long.",
+    "entities": [],
+    "numbers": [
+     "4,200",
+     "1,280"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:golden-gate-bridge#f4",
+    "placeId": "fx:sf:golden-gate-bridge",
+    "kind": "quantity",
+    "text": "Its towers rise 746 feet (227 metres).",
+    "entities": [],
+    "numbers": [
+     "746",
+     "227"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:golden-gate-bridge#f5",
+    "placeId": "fx:sf:golden-gate-bridge",
+    "kind": "person",
+    "text": "Joseph Strauss was the chief engineer of the project.",
+    "entities": [
+     "Joseph Strauss"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:golden-gate-bridge#f6",
+    "placeId": "fx:sf:golden-gate-bridge",
+    "kind": "architecture",
+    "text": "Its color, International Orange, was chosen by consulting architect Irving Morrow to complement the surroundings and stay visible in fog.",
+    "entities": [
+     "International Orange",
+     "Irving Morrow"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:sf:fort-point",
+  "placeName": "Fort Point",
+  "facts": [
+   {
+    "id": "fx:sf:fort-point#f1",
+    "placeId": "fx:sf:fort-point",
+    "kind": "identity",
+    "text": "Fort Point is a masonry fort directly beneath the southern approach of the Golden Gate Bridge.",
+    "entities": [
+     "Fort Point",
+     "Golden Gate Bridge"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Fort_Point,_San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:fort-point#f2",
+    "placeId": "fx:sf:fort-point",
+    "kind": "date",
+    "text": "The U.S. Army began building the current fort in 1853, and its first cannon was mounted in 1861.",
+    "entities": [
+     "U.S. Army"
+    ],
+    "numbers": [
+     "1853",
+     "1861"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Fort_Point,_San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:fort-point#f3",
+    "placeId": "fx:sf:fort-point",
+    "kind": "person",
+    "text": "Chief engineer Joseph Strauss redesigned the bridge so that the fort would be preserved.",
+    "entities": [
+     "Joseph Strauss"
+    ],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Fort_Point,_San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:fort-point#f4",
+    "placeId": "fx:sf:fort-point",
+    "kind": "event",
+    "text": "It became a National Historic Site on October 16, 1970.",
+    "entities": [
+     "National Historic Site"
+    ],
+    "numbers": [
+     "16",
+     "1970"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Fort_Point,_San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:sf:presidio",
+  "placeName": "Presidio of San Francisco",
+  "facts": [
+   {
+    "id": "fx:sf:presidio#f1",
+    "placeId": "fx:sf:presidio",
+    "kind": "identity",
+    "text": "The Presidio is a park and former military post at the northern tip of the San Francisco Peninsula.",
+    "entities": [
+     "Presidio",
+     "San Francisco Peninsula"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Presidio_of_San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:presidio#f2",
+    "placeId": "fx:sf:presidio",
+    "kind": "date",
+    "text": "The Spanish established the presidio in 1776.",
+    "entities": [],
+    "numbers": [
+     "1776"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Presidio_of_San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:presidio#f3",
+    "placeId": "fx:sf:presidio",
+    "kind": "event",
+    "text": "On October 1, 1994, it was transferred to the National Park Service, ending 219 years of military use.",
+    "entities": [
+     "National Park Service"
+    ],
+    "numbers": [
+     "1",
+     "1994",
+     "219"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Presidio_of_San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:sf:alcatraz",
+  "placeName": "Alcatraz Island",
+  "facts": [
+   {
+    "id": "fx:sf:alcatraz#f1",
+    "placeId": "fx:sf:alcatraz",
+    "kind": "identity",
+    "text": "Alcatraz Island is a small island in San Francisco Bay.",
+    "entities": [
+     "Alcatraz Island",
+     "San Francisco Bay"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Alcatraz_Island",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:alcatraz#f2",
+    "placeId": "fx:sf:alcatraz",
+    "kind": "event",
+    "text": "It housed a federal prison from 1934 to 1963.",
+    "entities": [],
+    "numbers": [
+     "1934",
+     "1963"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Alcatraz_Island",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:sf:palace-fine-arts",
+  "placeName": "Palace of Fine Arts",
+  "facts": [
+   {
+    "id": "fx:sf:palace-fine-arts#f1",
+    "placeId": "fx:sf:palace-fine-arts",
+    "kind": "identity",
+    "text": "The Palace of Fine Arts was built for the 1915 Panama-Pacific International Exposition.",
+    "entities": [
+     "Palace of Fine Arts",
+     "Panama-Pacific International Exposition"
+    ],
+    "numbers": [
+     "1915"
+    ],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Palace_of_Fine_Arts",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:palace-fine-arts#f2",
+    "placeId": "fx:sf:palace-fine-arts",
+    "kind": "architecture",
+    "text": "Its rotunda stands beside a small lagoon.",
+    "entities": [],
+    "numbers": [],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Palace_of_Fine_Arts",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:sf:coit-tower",
+  "placeName": "Coit Tower",
+  "facts": [
+   {
+    "id": "fx:sf:coit-tower#f1",
+    "placeId": "fx:sf:coit-tower",
+    "kind": "identity",
+    "text": "Coit Tower is a tower on Telegraph Hill.",
+    "entities": [
+     "Coit Tower",
+     "Telegraph Hill"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Coit_Tower",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:coit-tower#f2",
+    "placeId": "fx:sf:coit-tower",
+    "kind": "date",
+    "text": "It was completed in 1933.",
+    "entities": [],
+    "numbers": [
+     "1933"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/Coit_Tower",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ },
+ {
+  "placeId": "fx:sf:san-francisco",
+  "placeName": "San Francisco",
+  "facts": [
+   {
+    "id": "fx:sf:san-francisco#f1",
+    "placeId": "fx:sf:san-francisco",
+    "kind": "identity",
+    "text": "San Francisco is a city at the northern end of the San Francisco Peninsula.",
+    "entities": [
+     "San Francisco",
+     "San Francisco Peninsula"
+    ],
+    "numbers": [],
+    "confidence": 0.95,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   },
+   {
+    "id": "fx:sf:san-francisco#f2",
+    "placeId": "fx:sf:san-francisco",
+    "kind": "date",
+    "text": "The Spanish established a presidio and mission here in 1776.",
+    "entities": [],
+    "numbers": [
+     "1776"
+    ],
+    "confidence": 0.9,
+    "source": {
+     "provider": "wikipedia",
+     "ref": "https://en.wikipedia.org/wiki/San_Francisco",
+     "license": "CC BY-SA 4.0",
+     "retrievedAt": 1790467200000
+    }
+   }
+  ],
+  "fetchedAt": 1790467200000,
+  "thin": false
+ }
+]

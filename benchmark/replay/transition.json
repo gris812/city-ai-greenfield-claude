@@ -1,0 +1,2783 @@
+{
+ "generatedBy": "@city/replay",
+ "note": "SIMULATED replay over synthetic traces and fixture POI packs (D-005).",
+ "summary": {
+  "scenario": "transition",
+  "acceptance": [
+   "A6",
+   "E1"
+  ],
+  "trace": "highway-to-downtown-walk",
+  "synthetic": true,
+  "guide": "ida",
+  "locale": "en-US",
+  "durationS": 2261,
+  "frames": 2262,
+  "storiesStarted": 8,
+  "orientations": 1,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 124,
+    "id": "fx:chi:chicago",
+    "name": "Chicago",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 26661,
+    "reachM": 88455
+   },
+   {
+    "t": 621,
+    "id": "fx:chi:field-museum",
+    "name": "Field Museum",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 12651,
+    "reachM": 72586
+   },
+   {
+    "t": 1051,
+    "id": "fx:chi:chinatown",
+    "name": "Chinatown",
+    "kind": "orientation",
+    "regime": "urban_driving",
+    "distanceM": 597,
+    "reachM": 3532
+   },
+   {
+    "t": 1207,
+    "id": "fx:chi:buckingham-fountain",
+    "name": "Buckingham Fountain",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 2548,
+    "reachM": 4682
+   },
+   {
+    "t": 1343,
+    "id": "fx:chi:art-institute",
+    "name": "Art Institute of Chicago",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 2076,
+    "reachM": 7030
+   },
+   {
+    "t": 1497,
+    "id": "fx:chi:cloud-gate",
+    "name": "Cloud Gate",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 1438,
+    "reachM": 4310
+   },
+   {
+    "t": 1636,
+    "id": "fx:chi:millennium-park",
+    "name": "Millennium Park",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 854,
+    "reachM": 4084
+   },
+   {
+    "t": 1918,
+    "id": "fx:chi:willis-tower",
+    "name": "Willis Tower",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 981,
+    "reachM": 930
+   },
+   {
+    "t": 2017,
+    "id": "fx:chi:cultural-center",
+    "name": "Chicago Cultural Center",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 614,
+    "reachM": 564
+   }
+  ],
+  "silenceRatio": 0.935,
+  "maxSilentGapS": 480,
+  "regimeTransitions": [
+   {
+    "t": 9,
+    "from": "unknown",
+    "to": "urban_driving"
+   },
+   {
+    "t": 64,
+    "from": "urban_driving",
+    "to": "highway_driving"
+   },
+   {
+    "t": 992,
+    "from": "highway_driving",
+    "to": "urban_driving"
+   },
+   {
+    "t": 1826,
+    "from": "urban_driving",
+    "to": "stationary"
+   },
+   {
+    "t": 1910,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 2134,
+    "from": "walking",
+    "to": "stationary"
+   }
+  ],
+  "regimeSequence": [
+   "urban_driving",
+   "highway_driving",
+   "urban_driving",
+   "stationary",
+   "walking",
+   "stationary"
+  ],
+  "densitySequence": [
+   "suburban",
+   "sparse",
+   "suburban",
+   "urban",
+   "dense"
+  ],
+  "providerQueries": {
+   "discovery": 12,
+   "densityProbe": 18,
+   "total": 30,
+   "perHour": 47.8,
+   "emptyResults": 1,
+   "framesPerQuery": 75.4
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 9,
+   "completed": 8,
+   "mentions": 1
+  },
+  "rejections": {
+   "fx:chi:art-institute": {
+    "name": "Art Institute of Chicago",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "off_course": 390,
+     "too_close_to_pass": 7,
+     "already_discussed": 918
+    }
+   },
+   "fx:chi:buckingham-fountain": {
+    "name": "Buckingham Fountain",
+    "reasons": {
+     "beyond_lookahead": 268,
+     "off_course": 769,
+     "already_discussed": 1054,
+     "too_close_to_pass": 74,
+     "behind": 136
+    }
+   },
+   "fx:chi:chicago": {
+    "name": "Chicago",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "already_discussed": 2137,
+     "too_close_to_pass": 79,
+     "enclosing_area": 436
+    }
+   },
+   "fx:chi:chinatown": {
+    "name": "Chinatown",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "evidence_thin": 1806,
+     "too_close_to_pass": 82,
+     "already_discussed": 774,
+     "behind": 631
+    }
+   },
+   "fx:chi:cloud-gate": {
+    "name": "Cloud Gate",
+    "reasons": {
+     "beyond_lookahead": 67,
+     "off_course": 569,
+     "already_discussed": 764
+    }
+   },
+   "fx:chi:cultural-center": {
+    "name": "Chicago Cultural Center",
+    "reasons": {
+     "beyond_lookahead": 235,
+     "off_course": 646,
+     "too_close_to_pass": 6,
+     "already_discussed": 244
+    }
+   },
+   "fx:chi:field-museum": {
+    "name": "Field Museum",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "already_discussed": 1204,
+     "off_course": 755,
+     "too_close_to_pass": 103,
+     "behind": 363
+    }
+   },
+   "fx:chi:millennium-park": {
+    "name": "Millennium Park",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "off_course": 406,
+     "too_close_to_pass": 8,
+     "already_discussed": 625
+    }
+   },
+   "fx:chi:navy-pier": {
+    "name": "Navy Pier",
+    "reasons": {
+     "beyond_lookahead": 52,
+     "off_course": 969
+    }
+   },
+   "fx:chi:pritzker-pavilion": {
+    "name": "Jay Pritzker Pavilion",
+    "reasons": {
+     "beyond_lookahead": 84,
+     "evidence_thin": 2242,
+     "off_course": 499
+    }
+   },
+   "fx:chi:willis-tower": {
+    "name": "Willis Tower",
+    "reasons": {
+     "beyond_lookahead": 303,
+     "off_course": 1301,
+     "too_close_to_pass": 234,
+     "behind": 46,
+     "already_discussed": 343
+    }
+   }
+  }
+ },
+ "stories": [
+  {
+   "t": 124,
+   "kind": "story",
+   "placeId": "fx:chi:chicago",
+   "name": "Chicago",
+   "placeKind": "city",
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "courseDeg": 67,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 26661,
+   "alongTrackM": 26388,
+   "crossTrackM": -3879,
+   "etaS": 426,
+   "reachM": 88455,
+   "score": 0.934,
+   "mode": "short",
+   "angle": "origin",
+   "preempt": false,
+   "durationBudgetS": 75,
+   "maxWords": 180,
+   "words": 38,
+   "playedS": 16.7,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about 8 miles",
+   "text": "Straight ahead, about 8 miles: Chicago. Chicago is the most populous city in the state of Illinois. It was incorporated as a city in 1837. The city lies on the southwestern shore of Lake Michigan. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:chinatown",
+     "name": "Chinatown",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 621,
+   "kind": "story",
+   "placeId": "fx:chi:field-museum",
+   "name": "Field Museum",
+   "placeKind": "museum",
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.1,
+   "courseDeg": 67,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "left",
+   "distanceM": 12651,
+   "alongTrackM": 12482,
+   "crossTrackM": -2077,
+   "etaS": 440,
+   "reachM": 72586,
+   "score": 0.834,
+   "mode": "short",
+   "angle": "turning_point",
+   "preempt": false,
+   "durationBudgetS": 75,
+   "maxWords": 180,
+   "words": 27,
+   "playedS": 11.8,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "ahead on your left, about 8 miles",
+   "text": "Ahead on your left, about 8 miles: Field Museum. The Field Museum is a natural history museum in Chicago. It was founded in 1893. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:art-institute",
+     "name": "Art Institute of Chicago",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chinatown",
+     "name": "Chinatown",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:cloud-gate",
+     "name": "Cloud Gate",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:cultural-center",
+     "name": "Chicago Cultural Center",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:millennium-park",
+     "name": "Millennium Park",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:navy-pier",
+     "name": "Navy Pier",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "off_course",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1051,
+   "kind": "orientation",
+   "placeId": "fx:chi:chinatown",
+   "name": "Chinatown",
+   "placeKind": "neighborhood",
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 16.2,
+   "courseDeg": 57,
+   "trajectory": "corridor_heading",
+   "relative": "here",
+   "side": "center",
+   "distanceM": 597,
+   "alongTrackM": 593,
+   "crossTrackM": 75,
+   "etaS": 0,
+   "reachM": 3532,
+   "score": 0.661,
+   "words": 8,
+   "playedS": 3.5,
+   "grounded": true,
+   "text": "You're passing through it now: Chinatown, a neighbourhood.",
+   "rejected": [
+    {
+     "id": "fx:chi:art-institute",
+     "name": "Art Institute of Chicago",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:buckingham-fountain",
+     "name": "Buckingham Fountain",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chinatown",
+     "name": "Chinatown",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:cloud-gate",
+     "name": "Cloud Gate",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:cultural-center",
+     "name": "Chicago Cultural Center",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:field-museum",
+     "name": "Field Museum",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:millennium-park",
+     "name": "Millennium Park",
+     "reasons": [
+      "off_course"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1207,
+   "kind": "story",
+   "placeId": "fx:chi:buckingham-fountain",
+   "name": "Buckingham Fountain",
+   "placeKind": "monument",
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 5,
+   "courseDeg": 0,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "right",
+   "distanceM": 2548,
+   "alongTrackM": 2506,
+   "crossTrackM": 459,
+   "etaS": 492,
+   "reachM": 4682,
+   "score": 0.703,
+   "mode": "short",
+   "angle": "origin",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 29,
+   "playedS": 12.7,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "ahead on your right, about 2 miles",
+   "text": "Ahead on your right, about 2 miles: Buckingham Fountain. Buckingham Fountain is a large fountain in the center of Grant Park. It was dedicated in 1927. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chinatown",
+     "name": "Chinatown",
+     "reasons": [
+      "too_close_to_pass",
+      "already_discussed",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:field-museum",
+     "name": "Field Museum",
+     "reasons": [
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:navy-pier",
+     "name": "Navy Pier",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:willis-tower",
+     "name": "Willis Tower",
+     "reasons": [
+      "off_course"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1343,
+   "kind": "story",
+   "placeId": "fx:chi:art-institute",
+   "name": "Art Institute of Chicago",
+   "placeKind": "museum",
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 5,
+   "courseDeg": 359,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 2076,
+   "alongTrackM": 2075,
+   "crossTrackM": 88,
+   "etaS": 391,
+   "reachM": 7030,
+   "score": 0.91,
+   "mode": "short",
+   "angle": "people",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 77,
+   "playedS": 33.8,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about a mile",
+   "text": "Straight ahead, about a mile: Art Institute of Chicago. The Art Institute of Chicago is one of the oldest and largest art museums in the United States. The Modern Wing, designed by Renzo Piano, opened in 2009. It was founded in 1879. Its Beaux-Arts building on Michigan Avenue opened in 1893. The two bronze lions at the Michigan Avenue entrance were sculpted by Edward Kemeys. It connects with Field Museum, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:buckingham-fountain",
+     "name": "Buckingham Fountain",
+     "reasons": [
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chinatown",
+     "name": "Chinatown",
+     "reasons": [
+      "behind",
+      "already_discussed",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:field-museum",
+     "name": "Field Museum",
+     "reasons": [
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:navy-pier",
+     "name": "Navy Pier",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:willis-tower",
+     "name": "Willis Tower",
+     "reasons": [
+      "off_course"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1497,
+   "kind": "story",
+   "placeId": "fx:chi:cloud-gate",
+   "name": "Cloud Gate",
+   "placeKind": "landmark",
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 7,
+   "courseDeg": 0,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "right",
+   "distanceM": 1438,
+   "alongTrackM": 1435,
+   "crossTrackM": 85,
+   "etaS": 204,
+   "reachM": 4310,
+   "score": 0.859,
+   "mode": "short",
+   "angle": "turning_point",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 42,
+   "playedS": 18.4,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "ahead on your right, about a mile",
+   "text": "Ahead on your right, about a mile: Cloud Gate. Cloud Gate is a public sculpture by Anish Kapoor in Millennium Park. It was formally dedicated on May 15, 2006. It is made of 168 stainless steel plates welded together. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:art-institute",
+     "name": "Art Institute of Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:buckingham-fountain",
+     "name": "Buckingham Fountain",
+     "reasons": [
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chinatown",
+     "name": "Chinatown",
+     "reasons": [
+      "behind",
+      "already_discussed",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:field-museum",
+     "name": "Field Museum",
+     "reasons": [
+      "behind",
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:navy-pier",
+     "name": "Navy Pier",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:willis-tower",
+     "name": "Willis Tower",
+     "reasons": [
+      "off_course"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1636,
+   "kind": "story",
+   "placeId": "fx:chi:millennium-park",
+   "name": "Millennium Park",
+   "placeKind": "park",
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 4.3,
+   "courseDeg": 7,
+   "trajectory": "corridor_heading",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 854,
+   "alongTrackM": 853,
+   "crossTrackM": 41,
+   "etaS": 130,
+   "reachM": 4084,
+   "score": 0.856,
+   "mode": "short",
+   "angle": "origin",
+   "preempt": false,
+   "durationBudgetS": 60,
+   "maxWords": 144,
+   "words": 39,
+   "playedS": 17.1,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": false,
+   "spatialCue": "straight ahead, about a quarter mile",
+   "text": "Straight ahead, about a quarter mile: Millennium Park. Millennium Park is a public park in the Loop community area of Chicago. It opened on July 16, 2004. It connects with Cloud Gate, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:art-institute",
+     "name": "Art Institute of Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:buckingham-fountain",
+     "name": "Buckingham Fountain",
+     "reasons": [
+      "off_course",
+      "too_close_to_pass",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chinatown",
+     "name": "Chinatown",
+     "reasons": [
+      "behind",
+      "already_discussed",
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:cloud-gate",
+     "name": "Cloud Gate",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:field-museum",
+     "name": "Field Museum",
+     "reasons": [
+      "behind",
+      "off_course",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:navy-pier",
+     "name": "Navy Pier",
+     "reasons": [
+      "off_course"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 1918,
+   "kind": "story",
+   "placeId": "fx:chi:willis-tower",
+   "name": "Willis Tower",
+   "placeKind": "building",
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "courseDeg": 290,
+   "trajectory": "radial",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 981,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": 697,
+   "reachM": 930,
+   "score": 0.76,
+   "mode": "full",
+   "angle": "origin",
+   "preempt": false,
+   "durationBudgetS": 138,
+   "maxWords": 345,
+   "words": 29,
+   "playedS": 12.2,
+   "segments": 1,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "straight ahead, about half a mile",
+   "text": "Straight ahead, about half a mile: Willis Tower. Willis Tower, formerly the Sears Tower, is a skyscraper in the Chicago Loop. It was completed in 1973. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:art-institute",
+     "name": "Art Institute of Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:buckingham-fountain",
+     "name": "Buckingham Fountain",
+     "reasons": [
+      "beyond_lookahead",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "enclosing_area",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:cloud-gate",
+     "name": "Cloud Gate",
+     "reasons": [
+      "beyond_lookahead",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:cultural-center",
+     "name": "Chicago Cultural Center",
+     "reasons": [
+      "beyond_lookahead"
+     ]
+    },
+    {
+     "id": "fx:chi:millennium-park",
+     "name": "Millennium Park",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "beyond_lookahead",
+      "evidence_thin"
+     ]
+    }
+   ]
+  },
+  {
+   "t": 2017,
+   "kind": "story",
+   "placeId": "fx:chi:cultural-center",
+   "name": "Chicago Cultural Center",
+   "placeKind": "building",
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "courseDeg": 358,
+   "trajectory": "radial",
+   "relative": "ahead",
+   "side": "center",
+   "distanceM": 614,
+   "alongTrackM": null,
+   "crossTrackM": null,
+   "etaS": 413,
+   "reachM": 564,
+   "score": 0.612,
+   "mode": "full",
+   "angle": "connection",
+   "preempt": false,
+   "durationBudgetS": 138,
+   "maxWords": 345,
+   "words": 50,
+   "playedS": 21.1,
+   "segments": 2,
+   "grounded": true,
+   "allowQuestionsToUser": true,
+   "spatialCue": "straight ahead, about a quarter mile",
+   "text": "Straight ahead, about a quarter mile: Chicago Cultural Center. The Chicago Cultural Center opened in 1897 as the city's central library. Its Preston Bradley Hall is crowned by a Tiffany glass dome about 38 feet across. It connects with Art Institute of Chicago, which we passed earlier. That's the story.",
+   "rejected": [
+    {
+     "id": "fx:chi:art-institute",
+     "name": "Art Institute of Chicago",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:buckingham-fountain",
+     "name": "Buckingham Fountain",
+     "reasons": [
+      "beyond_lookahead",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:chicago",
+     "name": "Chicago",
+     "reasons": [
+      "enclosing_area",
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:cloud-gate",
+     "name": "Cloud Gate",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:millennium-park",
+     "name": "Millennium Park",
+     "reasons": [
+      "already_discussed"
+     ]
+    },
+    {
+     "id": "fx:chi:pritzker-pavilion",
+     "name": "Jay Pritzker Pavilion",
+     "reasons": [
+      "evidence_thin"
+     ]
+    },
+    {
+     "id": "fx:chi:willis-tower",
+     "name": "Willis Tower",
+     "reasons": [
+      "beyond_lookahead",
+      "already_discussed"
+     ]
+    }
+   ]
+  }
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "regime": "unknown",
+   "density": "suburban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "beyond_lookahead": 4,
+    "evidence_thin": 5,
+    "utility_kind": 1
+   },
+   "policy": {
+    "nearRadiusM": 420,
+    "lookAheadBaseM": 325,
+    "lookAheadMaxM": 1950,
+    "minGapS": 45,
+    "speakThreshold": 1.01,
+    "maxStoryS": 120,
+    "significanceFloor": 0.15
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 9,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 9.1,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 5,
+    "below_significance_floor": 5,
+    "evidence_thin": 5,
+    "too_close_to_pass": 2,
+    "utility_kind": 1
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 39,
+   "regime": "urban_driving",
+   "density": "suburban",
+   "speedMps": 29.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "beyond_lookahead": 11,
+    "evidence_thin": 2,
+    "off_course": 4
+   },
+   "policy": {
+    "nearRadiusM": 560,
+    "lookAheadBaseM": 1560,
+    "lookAheadMaxM": 10400,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.35
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 45,
+   "regime": "urban_driving",
+   "density": "sparse",
+   "speedMps": 29,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "beyond_lookahead": 11,
+    "evidence_thin": 2,
+    "off_course": 3
+   },
+   "policy": {
+    "nearRadiusM": 800,
+    "lookAheadBaseM": 1920,
+    "lookAheadMaxM": 12800,
+    "minGapS": 120,
+    "speakThreshold": 0.53,
+    "maxStoryS": 60,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 64,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": "fx:chi:chicago",
+   "bestScore": 0.929,
+   "eligible": 9,
+   "suppressed": {
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 124,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "start_story",
+   "target": "fx:chi:chicago",
+   "eligible": 9,
+   "suppressed": {
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 125,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "continue_story",
+   "eligible": 8,
+   "suppressed": {
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 141,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:willis-tower",
+   "bestScore": 0.816,
+   "eligible": 8,
+   "suppressed": {
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 201,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:willis-tower",
+   "bestScore": 0.824,
+   "eligible": 8,
+   "suppressed": {
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 261,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:willis-tower",
+   "bestScore": 0.833,
+   "eligible": 8,
+   "suppressed": {
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 321,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:willis-tower",
+   "bestScore": 0.843,
+   "eligible": 8,
+   "suppressed": {
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 381,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:willis-tower",
+   "bestScore": 0.853,
+   "eligible": 8,
+   "suppressed": {
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 441,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.858,
+   "eligible": 5,
+   "suppressed": {
+    "already_discussed": 1,
+    "evidence_thin": 2,
+    "off_course": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 501,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:willis-tower",
+   "bestScore": 0.87,
+   "eligible": 8,
+   "suppressed": {
+    "too_close_to_pass": 1,
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 561,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 29,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.873,
+   "eligible": 5,
+   "suppressed": {
+    "too_close_to_pass": 1,
+    "already_discussed": 1,
+    "evidence_thin": 2,
+    "off_course": 3
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 621,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.1,
+   "decision": "start_story",
+   "target": "fx:chi:field-museum",
+   "eligible": 2,
+   "suppressed": {
+    "off_course": 7,
+    "already_discussed": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 622,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "off_course": 7,
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 633,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.894,
+   "eligible": 4,
+   "suppressed": {
+    "already_discussed": 2,
+    "evidence_thin": 2,
+    "off_course": 4
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 693,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 753,
+   "regime": "highway_driving",
+   "density": "sparse",
+   "speedMps": 28,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 3000,
+    "lookAheadBaseM": 9600,
+    "lookAheadMaxM": 96000,
+    "minGapS": 480,
+    "speakThreshold": 0.6,
+    "maxStoryS": 75,
+    "significanceFloor": 0.45
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 765,
+   "regime": "highway_driving",
+   "density": "suburban",
+   "speedMps": 28,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 2100,
+    "lookAheadBaseM": 7800,
+    "lookAheadMaxM": 78000,
+    "minGapS": 480,
+    "speakThreshold": 0.62,
+    "maxStoryS": 75,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 825,
+   "regime": "highway_driving",
+   "density": "suburban",
+   "speedMps": 25.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.901,
+   "eligible": 7,
+   "suppressed": {
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 2100,
+    "lookAheadBaseM": 7800,
+    "lookAheadMaxM": 78000,
+    "minGapS": 480,
+    "speakThreshold": 0.62,
+    "maxStoryS": 75,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 885,
+   "regime": "highway_driving",
+   "density": "suburban",
+   "speedMps": 26.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.903,
+   "eligible": 7,
+   "suppressed": {
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 2100,
+    "lookAheadBaseM": 7800,
+    "lookAheadMaxM": 78000,
+    "minGapS": 480,
+    "speakThreshold": 0.62,
+    "maxStoryS": 75,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 945,
+   "regime": "highway_driving",
+   "density": "suburban",
+   "speedMps": 16.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.9,
+   "eligible": 5,
+   "suppressed": {
+    "already_discussed": 2,
+    "evidence_thin": 2,
+    "off_course": 2
+   },
+   "policy": {
+    "nearRadiusM": 2100,
+    "lookAheadBaseM": 7800,
+    "lookAheadMaxM": 78000,
+    "minGapS": 480,
+    "speakThreshold": 0.62,
+    "maxStoryS": 75,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 992,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 16,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 2,
+    "evidence_thin": 2,
+    "beyond_lookahead": 1
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1022,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 15.8,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 2,
+    "too_close_to_pass": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1051,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 16.2,
+   "decision": "orientation",
+   "target": "fx:chi:chinatown",
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1052,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 16.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 8,
+    "already_discussed": 3,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1112,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 12,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 9,
+    "already_discussed": 3,
+    "evidence_thin": 2,
+    "too_close_to_pass": 1
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1151,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 7.3,
+   "decision": "silence",
+   "reason": "safety_hold",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 9,
+    "already_discussed": 3,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1153,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 3.7,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 9,
+    "already_discussed": 3,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1175,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "off_course": 9,
+    "already_discussed": 3,
+    "behind": 1,
+    "evidence_thin": 2,
+    "too_close_to_pass": 1
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1207,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 5,
+   "decision": "start_story",
+   "target": "fx:chi:buckingham-fountain",
+   "eligible": 5,
+   "suppressed": {
+    "already_discussed": 3,
+    "too_close_to_pass": 1,
+    "evidence_thin": 2,
+    "off_course": 3
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1208,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 6.6,
+   "decision": "continue_story",
+   "eligible": 4,
+   "suppressed": {
+    "already_discussed": 4,
+    "too_close_to_pass": 1,
+    "evidence_thin": 2,
+    "off_course": 3
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1220,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 11.9,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.931,
+   "eligible": 4,
+   "suppressed": {
+    "already_discussed": 4,
+    "too_close_to_pass": 1,
+    "evidence_thin": 2,
+    "off_course": 3
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1280,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 2.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.814,
+   "eligible": 4,
+   "suppressed": {
+    "already_discussed": 4,
+    "behind": 1,
+    "evidence_thin": 2,
+    "off_course": 3
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1340,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:chi:art-institute",
+   "bestScore": 0.768,
+   "eligible": 5,
+   "suppressed": {
+    "already_discussed": 4,
+    "behind": 1,
+    "evidence_thin": 2,
+    "off_course": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1343,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 5,
+   "decision": "start_story",
+   "target": "fx:chi:art-institute",
+   "eligible": 4,
+   "suppressed": {
+    "off_course": 4,
+    "already_discussed": 4,
+    "behind": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1344,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 6.4,
+   "decision": "continue_story",
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 5,
+    "off_course": 4,
+    "behind": 1,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1377,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 11,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:cloud-gate",
+   "bestScore": 0.868,
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 5,
+    "behind": 1,
+    "evidence_thin": 2,
+    "off_course": 3,
+    "too_close_to_pass": 1
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1437,
+   "regime": "urban_driving",
+   "density": "urban",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:millennium-park",
+   "bestScore": 0.702,
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 5,
+    "off_course": 4,
+    "behind": 1,
+    "evidence_thin": 2,
+    "too_close_to_pass": 1
+   },
+   "policy": {
+    "nearRadiusM": 400,
+    "lookAheadBaseM": 1200,
+    "lookAheadMaxM": 8000,
+    "minGapS": 120,
+    "speakThreshold": 0.55,
+    "maxStoryS": 60,
+    "significanceFloor": 0.4
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1496,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 7.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:millennium-park",
+   "bestScore": 0.848,
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 5,
+    "off_course": 4,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1497,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 7,
+   "decision": "start_story",
+   "target": "fx:chi:cloud-gate",
+   "eligible": 3,
+   "suppressed": {
+    "already_discussed": 5,
+    "off_course": 4,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1498,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 7,
+   "decision": "continue_story",
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 6,
+    "off_course": 4,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1516,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 6.8,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:millennium-park",
+   "bestScore": 0.856,
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 6,
+    "off_course": 4,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1576,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 6.2,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:millennium-park",
+   "bestScore": 0.856,
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 6,
+    "off_course": 4,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1636,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 4.3,
+   "decision": "start_story",
+   "target": "fx:chi:millennium-park",
+   "eligible": 2,
+   "suppressed": {
+    "already_discussed": 6,
+    "off_course": 4,
+    "too_close_to_pass": 1,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1637,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 4.3,
+   "decision": "continue_story",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 7,
+    "off_course": 4,
+    "too_close_to_pass": 1,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1654,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 4,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:cultural-center",
+   "bestScore": 0.727,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 7,
+    "off_course": 4,
+    "too_close_to_pass": 1,
+    "behind": 2,
+    "evidence_thin": 2
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1714,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 0.1,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": "fx:chi:cultural-center",
+   "bestScore": 0.661,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 7,
+    "behind": 3,
+    "off_course": 4,
+    "evidence_thin": 2,
+    "too_close_to_pass": 1
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1774,
+   "regime": "urban_driving",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": "fx:chi:cultural-center",
+   "bestScore": 0.66,
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 7,
+    "behind": 3,
+    "off_course": 4,
+    "evidence_thin": 2,
+    "too_close_to_pass": 1
+   },
+   "policy": {
+    "nearRadiusM": 280,
+    "lookAheadBaseM": 840,
+    "lookAheadMaxM": 5600,
+    "minGapS": 120,
+    "speakThreshold": 0.6,
+    "maxStoryS": 60,
+    "significanceFloor": 0.5
+   },
+   "trajectory": "corridor_heading"
+  },
+  {
+   "t": 1826,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0.1,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "enclosing_area": 1,
+    "beyond_lookahead": 66,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1831,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "enclosing_area": 1,
+    "beyond_lookahead": 66,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1891,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "enclosing_area": 1,
+    "beyond_lookahead": 66,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1910,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 67,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1918,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "start_story",
+   "target": "fx:chi:willis-tower",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 5,
+    "beyond_lookahead": 68,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1919,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "continue_story",
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 6,
+    "beyond_lookahead": 68,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1931,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.3,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 6,
+    "beyond_lookahead": 67,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 1976,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 6,
+    "beyond_lookahead": 67,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2017,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "start_story",
+   "target": "fx:chi:cultural-center",
+   "eligible": 1,
+   "suppressed": {
+    "already_discussed": 6,
+    "beyond_lookahead": 65,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2018,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "continue_story",
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 7,
+    "beyond_lookahead": 65,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2039,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.4,
+   "decision": "silence",
+   "reason": "cadence_gap",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 7,
+    "beyond_lookahead": 67,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2084,
+   "regime": "walking",
+   "density": "dense",
+   "speedMps": 1.5,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 7,
+    "beyond_lookahead": 67,
+    "enclosing_area": 1,
+    "utility_kind": 22,
+    "evidence_thin": 68
+   },
+   "policy": {
+    "nearRadiusM": 210,
+    "lookAheadBaseM": 175,
+    "lookAheadMaxM": 1050,
+    "minGapS": 45,
+    "speakThreshold": 0.47,
+    "maxStoryS": 120,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2134,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "warming_up",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 7,
+    "enclosing_area": 1,
+    "beyond_lookahead": 63,
+    "utility_kind": 23,
+    "evidence_thin": 66
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2139,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 7,
+    "enclosing_area": 1,
+    "beyond_lookahead": 63,
+    "utility_kind": 23,
+    "evidence_thin": 66
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2199,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0.1,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 7,
+    "enclosing_area": 1,
+    "beyond_lookahead": 63,
+    "utility_kind": 23,
+    "evidence_thin": 66
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  },
+  {
+   "t": 2259,
+   "regime": "stationary",
+   "density": "dense",
+   "speedMps": 0,
+   "decision": "silence",
+   "reason": "nothing_worth_it",
+   "best": null,
+   "bestScore": null,
+   "eligible": 0,
+   "suppressed": {
+    "already_discussed": 7,
+    "enclosing_area": 1,
+    "beyond_lookahead": 63,
+    "utility_kind": 23,
+    "evidence_thin": 66
+   },
+   "policy": {
+    "nearRadiusM": 175,
+    "lookAheadBaseM": 0,
+    "lookAheadMaxM": 1050,
+    "minGapS": 90,
+    "speakThreshold": 0.5,
+    "maxStoryS": 150,
+    "significanceFloor": 0.3
+   },
+   "trajectory": "radial"
+  }
+ ]
+}

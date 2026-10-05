@@ -208,3 +208,37 @@ export function buildStoryBrief(decision: Extract<MomentDecision, { kind: 'start
     allowQuestionsToUser: policy.interactivePrompts && !ctx.safety.driveSafe,
   };
 }
+
+// ─────────────────────────────────────────────── orientation (weak evidence, A4)
+
+const KIND_LABEL: Partial<Record<PlaceCandidate['kind'], { en: string; ru: string }>> = {
+  landmark: { en: 'a landmark', ru: 'достопримечательность' },
+  building: { en: 'a building', ru: 'здание' },
+  museum: { en: 'a museum', ru: 'музей' },
+  monument: { en: 'a monument', ru: 'памятник' },
+  memorial: { en: 'a memorial', ru: 'мемориал' },
+  historic_site: { en: 'a historic site', ru: 'историческое место' },
+  religious_site: { en: 'a place of worship', ru: 'храм' },
+  park: { en: 'a park', ru: 'парк' },
+  bridge: { en: 'a bridge', ru: 'мост' },
+  neighborhood: { en: 'a neighbourhood', ru: 'район' },
+  city: { en: 'a city', ru: 'город' },
+  town: { en: 'a town', ru: 'городок' },
+  natural_feature: { en: 'a natural feature', ru: 'природный объект' },
+  water: { en: 'a body of water', ru: 'водоём' },
+  mountain: { en: 'a mountain', ru: 'гора' },
+  venue: { en: 'a venue', ru: 'площадка' },
+};
+
+/**
+ * One deterministic orientation line for a place with thin evidence: spatial cue + name +
+ * generic kind label. Contains no facts, dates or claims — nothing to fabricate (A4).
+ */
+export function buildOrientation(target: { place: PlaceCandidate; geometry: CandidateGeometry }, locale: Locale, opts: BriefOptions = {}): string {
+  const ru = isRussian(locale);
+  const cue = spatialCue(target.geometry, target.place, locale, { ...(opts.units ? { units: opts.units } : {}), moving: target.geometry.alongTrackM !== null });
+  const label = KIND_LABEL[target.place.kind];
+  const what = label ? `${target.place.name}, ${ru ? label.ru : label.en}` : target.place.name;
+  if (!cue) return `${what}.`;
+  return `${cue[0]!.toUpperCase()}${cue.slice(1)}: ${what}.`;
+}

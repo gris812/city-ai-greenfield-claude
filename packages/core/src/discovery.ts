@@ -28,8 +28,8 @@ import type {
 } from './contracts.js';
 import { UTILITY_KINDS } from './contracts.js';
 import { angleDiff, destinationPoint, haversineM, headingTrajectory, initialBearingDeg, polylineLengthM, projectOntoPolyline, remainingRoute } from './geo.js';
-import { DENSITY_SAMPLE_RADIUS_M, DENSITY_SIGNIFICANCE_FLOOR } from './density.js';
-import { clamp01, lookAheadFor, policyFor, type RegimePolicy } from './policy.js';
+import { DENSITY_SIGNIFICANCE_FLOOR, densityProbeRadiusFor } from './density.js';
+import { clamp01, lookAheadFor, policyFor, retellAllowed, type RegimePolicy } from './policy.js';
 import { clamp, cmpStr } from './util.js';
 
 export const DISCOVERY = {
@@ -68,6 +68,9 @@ export const VISUAL_REACH_M: Partial<Record<PlaceKind, number>> = {
   bridge: 1500,
   region: 0,
 };
+
+/** Administrative areas that, when enclosing a walker, are ambient context rather than a sight. */
+export const ENCLOSING_KINDS: readonly PlaceKind[] = ['city', 'town', 'region'];
 
 /** Tags too generic to create a "continuity" link between places. */
 const GENERIC_TAGS = new Set(['landmark', 'tourism', 'attraction', 'poi', 'place', 'usa', 'united_states']);
@@ -116,6 +119,8 @@ export interface ScoreOptions {
   recentRejectMs?: number;
   /** Precomputed trajectory (e.g. shared with discoveryQueryFor). */
   trajectory?: Trajectory;
+  /** Override for the cross-session retell window (days, D-023). */
+  retellAfterDays?: number;
 }
 
 export function isMovingRegime(r: JourneyContext['regime']['regime']): boolean {
@@ -138,7 +143,8 @@ export function trajectoryFor(ctx: JourneyContext): Trajectory {
   const course = courseOf(ctx);
   const speed = ctx.regime.smoothedSpeedMps;
   const pos = ctx.position;
-  if (!pos || !isMovingRegime(ctx.regime.regime)) return { mode: 'radial', polyline: null, courseDeg: course, speedMps: speed };
+  // A stationary user's last course is stale (parked car, standing): no relative directions.
+  if (!pos || !isMovingRegime(ctx.regime.regime)) return { mode: 'radial', polyline: null, courseDeg: ctx.regime.regime === 'stationary' ? null : course, speedMps: speed };
   const route = ctx.route?.polyline ?? null;
   if (route && route.length >= 2) {
     const p = projectOntoPolyline(pos, route);
@@ -217,7 +223,8 @@ export function geometryFor(ctx: JourneyContext, place: PlaceCandidate, traj: Tr
     relativeBearingDeg,
     alongTrackM: along,
     crossTrackM: cross,
-    etaS: Math.max(0, along) / speed,
+    // Closest approach of an areal feature is its edge (arrival), not its centre.
+    etaS: Math.max(0, along - place.extentM) / speed,
     relative,
     side: sideOf(cross, relativeBearingDeg, place.extentM),
   };
@@ -308,9 +315,11 @@ export function scoreCandidates(ctx: JourneyContext, candidates: readonly PlaceC
       const forward = g.relativeBearingDeg === null || Math.abs(g.relativeBearingDeg) <= DISCOVERY.WALK_FORWARD_CONE_DEG || ctx.regime.regime === 'stationary';
       reach = radialReach(policy, s, forward);
       if (!here && g.distanceM - place.extentM > reach) sup.push('beyond_lookahead');
+      if (ENCLOSING_KINDS.includes(place.kind) && place.extentM > radialReach(policy, 1, true) && g.distanceM <= place.extentM) sup.push('enclosing_area');
     }
     if (s < policy.significanceFloor) sup.push('below_significance_floor');
     if (ctx.memory.discussed[place.id]) sup.push('already_discussed');
+    else if (!retellAllowed(ctx.memory.history?.[place.id], ctx.now, opts.retellAfterDays)) sup.push('told_recently');
     const rej = ctx.memory.rejected[place.id];
     if (rej !== undefined && ctx.now - rej < rejectMs) sup.push('recently_rejected');
     if (UTILITY_KINDS.includes(place.kind)) sup.push('utility_kind');
@@ -404,7 +413,7 @@ export function discoveryQueryFor(ctx: JourneyContext, traj: Trajectory = trajec
  */
 export function densityProbeQueryFor(ctx: JourneyContext): DiscoveryQuery {
   const pos = ctx.position ?? { lat: 0, lng: 0 };
-  return { center: { lat: pos.lat, lng: pos.lng }, radiusM: DENSITY_SAMPLE_RADIUS_M, corridor: null, minSignificance: DENSITY_SIGNIFICANCE_FLOOR, kinds: null, locale: ctx.locale };
+  return { center: { lat: pos.lat, lng: pos.lng }, radiusM: densityProbeRadiusFor(ctx.regime.regime), corridor: null, minSignificance: DENSITY_SIGNIFICANCE_FLOOR, kinds: null, locale: ctx.locale };
 }
 
 function pointAlong(line: readonly LatLng[], distM: number): LatLng {

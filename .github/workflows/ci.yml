@@ -1,0 +1,74 @@
+name: ci
+
+on:
+  push:
+    branches: [main, "build/**"]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: city
+          POSTGRES_PASSWORD: city
+          POSTGRES_DB: city_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U city -d city_test"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      TEST_DATABASE_URL: postgres://city:city@localhost:5432/city_test
+      TEST_REDIS_URL: redis://localhost:6379/15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm -r typecheck
+      - name: Unit + integration tests (core, providers, replay, api)
+        run: pnpm -r test
+      - name: Replay suite
+        run: pnpm replay
+      - name: Provider benchmark harness (no keys → all skipped; validates the script)
+        run: pnpm bench:providers --fake
+
+  image:
+    needs: check
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/api/Dockerfile
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/telvey-api:${{ github.sha }},ghcr.io/${{ github.repository_owner }}/telvey-api:latest
+          build-args: BUILD_SHA=${{ github.sha }}

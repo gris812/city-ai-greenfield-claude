@@ -251,7 +251,11 @@ export type SuppressionReason =
   | 'recently_rejected'
   | 'utility_kind'
   | 'too_close_to_pass' // not enough time to tell even a short story
-  | 'evidence_thin';
+  | 'evidence_thin'
+  /** Told to this user/guest in an earlier session less than the retell window ago (D-023). */
+  | 'told_recently'
+  /** Radial modes: a city/town/region the user is inside and that exceeds the radial reach — ambient context, told on crossing into it while moving. */
+  | 'enclosing_area';
 
 export interface ScoredCandidate {
   place: PlaceCandidate;
@@ -317,6 +321,13 @@ export interface GuideProfile {
     /** Provider → voice id. Chosen by benchmark, not by the LLM. */
     byProvider: Record<string, string>;
     speakingRate: number;
+    /**
+     * Voices for cheaper TTS tiers (D-019): tier → provider → language prefix ('en', 'ru') →
+     * voice id. Each Guide keeps a distinct voice in every tier. Candidates until the D-010
+     * rubric scores them (`tierStatus`).
+     */
+    byTier?: Partial<Record<TtsTier, Record<string, Record<string, string>>>>;
+    tierStatus?: string;
   };
   visual: { accent: string; portrait: string; avatar: string };
 }
@@ -324,6 +335,9 @@ export interface GuideProfile {
 // ─────────────────────────────────────────────────────────── narrative
 
 export type StoryMode = 'teaser' | 'short' | 'full';
+
+/** TTS cost/quality tier (D-019). `standard` = configured default TTS chain; `economy` = cheap tier. */
+export type TtsTier = 'standard' | 'economy';
 
 export interface StoryBrief {
   id: Id;
@@ -422,6 +436,11 @@ export interface JourneyMemory {
   storiesSkipped: number;
   /** User-set talkativeness (-2 quieter … +2 chattier). */
   talkativeness: number;
+  /**
+   * Cross-session history for returning users/guests (D-023): place id → when it was last
+   * told (epoch ms), from earlier sessions only. Place ids and times — never coordinates.
+   */
+  history?: Record<Id, Millis>;
 }
 
 export interface SafetyState {
@@ -468,7 +487,12 @@ export type MomentDecision =
   | { kind: 'start_story'; target: ScoredCandidate; mode: StoryMode; angle: StoryAngle; durationBudgetS: number; maxWords: number; preempt: boolean }
   | { kind: 'continue_story' }
   | { kind: 'resume_story'; decision: Extract<ResumeDecision, { action: 'resume' }> }
-  | { kind: 'abandon_story'; decision: Extract<ResumeDecision, { action: 'abandon' }> };
+  | { kind: 'abandon_story'; decision: Extract<ResumeDecision, { action: 'abandon' }> }
+  /**
+   * Weak evidence (acceptance A4): a worthwhile place we cannot tell a grounded story about.
+   * One short orientation line (name + kind + spatial cue), no facts, no "tell me more" offer.
+   */
+  | { kind: 'orientation'; target: ScoredCandidate; allowFollowUp: false };
 
 // ─────────────────────────────────────────────────────────── conversation
 
@@ -530,7 +554,19 @@ export type Directive =
   | { type: 'stop_audio'; reason: string }
   | { type: 'map'; action: MapAction }
   | { type: 'listen'; mode: 'push_to_talk' | 'open'; timeoutMs: number }
-  | { type: 'say'; text: string; audioUrl: string | null; purpose: 'answer' | 'ack' | 'error' }
+  | {
+      type: 'say';
+      text: string;
+      audioUrl: string | null;
+      purpose: 'answer' | 'ack' | 'error';
+      /**
+       * Streamed answers (D-020): true = queue after the current `say` of the same turn instead
+       * of replacing it. Only sent to clients that declared the `say_append` capability.
+       */
+      append?: boolean;
+      /** Streamed answers: false while more sentences of this answer may follow. */
+      final?: boolean;
+    }
   | { type: 'navigate_handoff'; destination: LatLng; name: string; urls: { apple?: string; google: string; waze?: string } }
   | { type: 'state'; regime: MovementRegime; density: DensityClass; driveSafe: boolean; simulated: boolean; silence?: SilenceReason | null }
   | { type: 'card'; placeId: Id; name: string; kind: PlaceKind; location: LatLng; spatialCue: string | null };

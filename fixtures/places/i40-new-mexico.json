@@ -1,0 +1,369 @@
+[
+ {
+  "id": "fx:i40:albuquerque",
+  "name": "Albuquerque",
+  "kind": "city",
+  "location": {
+   "lat": 35.0844,
+   "lng": -106.6503
+  },
+  "extentM": 12000,
+  "significance": 0.93,
+  "tags": [
+   "city",
+   "route_66"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Albuquerque,_New_Mexico"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Albuquerque,_New_Mexico",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:laguna",
+  "name": "Laguna Pueblo",
+  "kind": "town",
+  "location": {
+   "lat": 35.04611,
+   "lng": -107.38722
+  },
+  "extentM": 3000,
+  "significance": 0.72,
+  "tags": [
+   "pueblo",
+   "indigenous_heritage"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Laguna_Pueblo"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Laguna_Pueblo",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:acoma",
+  "name": "Acoma Pueblo (Sky City)",
+  "kind": "historic_site",
+  "location": {
+   "lat": 34.89639,
+   "lng": -107.58194
+  },
+  "extentM": 500,
+  "significance": 0.9,
+  "tags": [
+   "pueblo",
+   "indigenous_heritage",
+   "mesa"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Acoma_Pueblo"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Acoma_Pueblo",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:mount-taylor",
+  "name": "Mount Taylor",
+  "kind": "mountain",
+  "location": {
+   "lat": 35.23869,
+   "lng": -107.60852
+  },
+  "extentM": 3000,
+  "significance": 0.85,
+  "tags": [
+   "volcano",
+   "mountain"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Mount_Taylor_(New_Mexico)"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Mount_Taylor_(New_Mexico)",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:grants",
+  "name": "Grants",
+  "kind": "town",
+  "location": {
+   "lat": 35.14722,
+   "lng": -107.85139
+  },
+  "extentM": 3000,
+  "significance": 0.72,
+  "tags": [
+   "town",
+   "uranium",
+   "route_66"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Grants,_New_Mexico"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Grants,_New_Mexico",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:el-malpais",
+  "name": "El Malpais National Monument",
+  "kind": "natural_feature",
+  "location": {
+   "lat": 34.87722,
+   "lng": -108.05083
+  },
+  "extentM": 12000,
+  "significance": 0.82,
+  "tags": [
+   "volcano",
+   "lava_field"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "El_Malpais_National_Monument"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/El_Malpais_National_Monument",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:thoreau",
+  "name": "Thoreau",
+  "kind": "town",
+  "location": {
+   "lat": 35.41444,
+   "lng": -108.22361
+  },
+  "extentM": 1500,
+  "significance": 0.4,
+  "tags": [
+   "town"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Thoreau,_New_Mexico"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Thoreau,_New_Mexico",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:continental-divide",
+  "name": "Continental Divide (Campbell Pass)",
+  "kind": "road_feature",
+  "location": {
+   "lat": 35.43278,
+   "lng": -108.33583
+  },
+  "extentM": 500,
+  "significance": 0.8,
+  "tags": [
+   "continental_divide",
+   "pass"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Continental_Divide,_New_Mexico"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Continental_Divide,_New_Mexico",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:gallup",
+  "name": "Gallup",
+  "kind": "city",
+  "location": {
+   "lat": 35.51389,
+   "lng": -108.74306
+  },
+  "extentM": 5000,
+  "significance": 0.8,
+  "tags": [
+   "city",
+   "route_66"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Gallup,_New_Mexico"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Gallup,_New_Mexico",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:truckstop-laguna",
+  "name": "Truck stop (Laguna exit)",
+  "kind": "fuel",
+  "location": {
+   "lat": 35.0445,
+   "lng": -107.36
+  },
+  "extentM": 100,
+  "significance": 0.6,
+  "tags": [
+   "truck_stop"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:truckstop-grants",
+  "name": "Truck stop (Grants)",
+  "kind": "fuel",
+  "location": {
+   "lat": 35.152,
+   "lng": -107.83
+  },
+  "extentM": 100,
+  "significance": 0.65,
+  "tags": [
+   "truck_stop"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:motel-grants",
+  "name": "Motel (Grants)",
+  "kind": "lodging",
+  "location": {
+   "lat": 35.15,
+   "lng": -107.845
+  },
+  "extentM": 50,
+  "significance": 0.45,
+  "tags": [
+   "motel"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:truckstop-thoreau",
+  "name": "Truck stop (Thoreau exit)",
+  "kind": "fuel",
+  "location": {
+   "lat": 35.408,
+   "lng": -108.21
+  },
+  "extentM": 100,
+  "significance": 0.55,
+  "tags": [
+   "truck_stop"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:truckstop-gallup",
+  "name": "Truck stop (Gallup east)",
+  "kind": "fuel",
+  "location": {
+   "lat": 35.5,
+   "lng": -108.66
+  },
+  "extentM": 100,
+  "significance": 0.65,
+  "tags": [
+   "truck_stop"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:i40:diner-gallup",
+  "name": "Diner (Gallup)",
+  "kind": "food",
+  "location": {
+   "lat": 35.518,
+   "lng": -108.72
+  },
+  "extentM": 0,
+  "significance": 0.45,
+  "tags": [
+   "diner"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ }
+]

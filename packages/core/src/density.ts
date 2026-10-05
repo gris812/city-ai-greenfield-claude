@@ -11,7 +11,7 @@
  * sitelinks, Places with rating volume). Raw OSM-node densities would need a different
  * calibration — the adapter is expected to pre-filter by the floor.
  */
-import type { DensityClass, DensityState, Millis, PlaceCandidate, LatLng } from './contracts.js';
+import type { DensityClass, DensityState, Millis, MovementRegime, PlaceCandidate, LatLng } from './contracts.js';
 import { haversineM } from './geo.js';
 
 export const DENSITY_BOUNDS = {
@@ -23,7 +23,7 @@ export const DENSITY_BOUNDS = {
 export const DENSITY_SIGNIFICANCE_FLOOR = 0.1;
 export const HYSTERESIS_FRACTION = 0.2;
 /** Time constant for exponential smoothing. Observation cadence-independent. */
-export const DENSITY_TAU_S = 45;
+export const DENSITY_TAU_S = 75;
 /** Minimum radius used when converting counts to per-km² (avoids tiny-area blowups). */
 export const DENSITY_MIN_RADIUS_M = 250;
 /**
@@ -33,6 +33,23 @@ export const DENSITY_MIN_RADIUS_M = 250;
  * dense boundary).
  */
 export const DENSITY_SAMPLE_RADIUS_M = 350;
+/**
+ * The probe grows with speed: at highway speed "surroundings" are kilometres wide, and a
+ * larger area keeps low densities from being quantised into noise (1 place in a 350 m
+ * circle already reads as 2.6/km²).
+ */
+export const DENSITY_PROBE_RADIUS_M: Record<MovementRegime, number> = {
+  unknown: DENSITY_SAMPLE_RADIUS_M,
+  stationary: DENSITY_SAMPLE_RADIUS_M,
+  walking: DENSITY_SAMPLE_RADIUS_M,
+  cycling: 500,
+  urban_driving: 700,
+  highway_driving: 1500,
+};
+
+export function densityProbeRadiusFor(regime: MovementRegime): number {
+  return DENSITY_PROBE_RADIUS_M[regime];
+}
 
 const ORDER: DensityClass[] = ['sparse', 'suburban', 'urban', 'dense'];
 const UPPER: Record<DensityClass, number> = {

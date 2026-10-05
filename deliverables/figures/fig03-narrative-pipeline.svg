@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 548" width="840" height="548" role="img" aria-label="Narrative pipeline"><title>Narrative pipeline</title><desc>Evidence to spoken audio, with deterministic and LLM stages distinguished</desc><defs><marker id="ah1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah5" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah6" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah7" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1A6B45"/></marker><marker id="ah8" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah9" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah10" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah11" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah12" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker></defs><rect width="840" height="548" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">Narrative pipeline: evidence to audio</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">The model writes sentences; deterministic code decides everything else and checks the model's work</text>
+<rect x="24.0" y="112.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="84.0" y="141.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">Discovery</text>
+<text x="84.0" y="157.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">corridor / radius,</text>
+<text x="84.0" y="171.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">regime x density</text>
+<rect x="156.0" y="112.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="216.0" y="141.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">Rank + decide</text>
+<text x="216.0" y="157.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">significance, safety,</text>
+<text x="216.0" y="171.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">silence policy</text>
+<rect x="288.0" y="112.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="348.0" y="143.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">EvidencePack</text>
+<text x="348.0" y="157.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.62517353077279" font-weight="500" fill="#5F5A53" text-anchor="middle">facts + provenance</text>
+<text x="348.0" y="169.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.62517353077279" font-weight="500" fill="#5F5A53" text-anchor="middle">Wikimedia (cached 7 d)</text>
+<rect x="420.0" y="112.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="480.0" y="141.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">StoryBrief</text>
+<text x="480.0" y="157.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">angle, fact subset,</text>
+<text x="480.0" y="171.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">word budget, guide</text>
+<rect x="552.0" y="112.0" width="120.0" height="78.0" rx="10" fill="#EFEAE1" stroke="#5F5A53" stroke-width="1.6"/>
+<text x="612.0" y="141.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">Body cache?</text>
+<text x="612.0" y="157.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">key = place, angle,</text>
+<text x="612.0" y="171.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">facts, guide, locale</text>
+<rect x="684.0" y="112.0" width="120.0" height="78.0" rx="10" fill="#FFE3DB" stroke="#B23A1E" stroke-width="1.6"/>
+<text x="744.0" y="141.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">LLM prose</text>
+<text x="744.0" y="157.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">temperature 0,</text>
+<text x="744.0" y="171.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">no listener context</text>
+<path d="M144.0,151.0 L156.0,151.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah1)" stroke-linejoin="round"/>
+<path d="M276.0,151.0 L288.0,151.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah2)" stroke-linejoin="round"/>
+<path d="M408.0,151.0 L420.0,151.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah3)" stroke-linejoin="round"/>
+<path d="M540.0,151.0 L552.0,151.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah4)" stroke-linejoin="round"/>
+<path d="M672.0,151.0 L684.0,151.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah5)" stroke-linejoin="round"/>
+<text x="612.0" y="104.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1A6B45" text-anchor="middle">hit: no LLM call</text>
+<path d="M744.0,190.0 L744.0,232.0 L84.0,232.0 L84.0,262.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah6)" stroke-linejoin="round"/>
+<path d="M612.0,190.0 L612.0,248.0 L480.0,248.0 L480.0,262.0" fill="none" stroke="#1A6B45" stroke-width="1.6" marker-end="url(#ah7)" stroke-linejoin="round"/>
+<text x="472.0" y="245.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#1A6B45" text-anchor="end">cached body is already grounded: straight to the plan</text>
+<rect x="24.0" y="262.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="84.0" y="293.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.943121050072921" font-weight="700" fill="#131A1D" text-anchor="middle">GroundingCheck</text>
+<text x="84.0" y="306.9" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.26232587912776" font-weight="500" fill="#5F5A53" text-anchor="middle">numbers, years, names</text>
+<text x="84.0" y="319.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.26232587912776" font-weight="500" fill="#5F5A53" text-anchor="middle">must be in the evidence</text>
+<rect x="156.0" y="262.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="216.0" y="292.8" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.091795991424245" font-weight="700" fill="#131A1D" text-anchor="middle">Retry once, then</text>
+<text x="216.0" y="307.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.860448579301353" font-weight="500" fill="#5F5A53" text-anchor="middle">deterministic template</text>
+<text x="216.0" y="319.9" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.860448579301353" font-weight="500" fill="#5F5A53" text-anchor="middle">from the same facts</text>
+<rect x="288.0" y="262.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="348.0" y="291.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">Prefix template</text>
+<text x="348.0" y="307.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">spatial cue + place</text>
+<text x="348.0" y="321.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">+ optional callback</text>
+<rect x="420.0" y="262.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="480.0" y="291.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">NarrativePlan</text>
+<text x="480.0" y="307.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">ordered segments,</text>
+<text x="480.0" y="321.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">stable id + hash</text>
+<rect x="552.0" y="262.0" width="120.0" height="78.0" rx="10" fill="#FFE3DB" stroke="#B23A1E" stroke-width="1.6"/>
+<text x="612.0" y="291.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.765386164438734" font-weight="700" fill="#131A1D" text-anchor="middle">TTS per segment</text>
+<text x="612.0" y="307.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">content-addressed,</text>
+<text x="612.0" y="321.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">tiered voice</text>
+<rect x="684.0" y="262.0" width="120.0" height="78.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="744.0" y="291.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">Play directive</text>
+<text x="744.0" y="307.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">client plays, reports</text>
+<text x="744.0" y="321.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">segment progress</text>
+<path d="M144.0,301.0 L156.0,301.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah8)" stroke-linejoin="round"/>
+<path d="M276.0,301.0 L288.0,301.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah9)" stroke-linejoin="round"/>
+<path d="M408.0,301.0 L420.0,301.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah10)" stroke-linejoin="round"/>
+<path d="M540.0,301.0 L552.0,301.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah11)" stroke-linejoin="round"/>
+<path d="M672.0,301.0 L684.0,301.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah12)" stroke-linejoin="round"/>
+<rect x="24.0" y="372.0" width="792.0" height="108.0" rx="10" fill="#FFFFFF" stroke="#E2DBCF" stroke-width="1.2"/>
+<text x="40.0" y="396.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="start">Why this shape matters commercially</text>
+<text x="40.0" y="416.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.1650868328624" font-weight="500" fill="#5F5A53" text-anchor="start">1. The cacheable unit is the context-free story body: one LLM + TTS spend can serve many listeners (production hit rate NOT YET MEASURED).</text>
+<text x="40.0" y="431.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.1650868328624" font-weight="500" fill="#5F5A53" text-anchor="start">2. A model outage degrades to template text for the same target; the model never picks the place, the timing or the length.</text>
+<text x="40.0" y="447.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.1650868328624" font-weight="500" fill="#5F5A53" text-anchor="start">3. Every spoken sentence is checked against evidence before it is voiced, so the failure mode is bland, not invented.</text>
+<rect x="24.0" y="496.0" width="18.0" height="14.0" rx="3" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.4"/>
+<text x="49.0" y="507.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#5F5A53" text-anchor="start">Deterministic code</text>
+<rect x="172.7" y="496.0" width="18.0" height="14.0" rx="3" fill="#FFE3DB" stroke="#B23A1E" stroke-width="1.4"/>
+<text x="197.7" y="507.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#5F5A53" text-anchor="start">Generative model (paid)</text>
+<rect x="349.7" y="496.0" width="18.0" height="14.0" rx="3" fill="#EFEAE1" stroke="#5F5A53" stroke-width="1.4"/>
+<text x="374.7" y="507.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#5F5A53" text-anchor="start">Cache / store</text>
+<text x="24.0" y="522.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Source: DECISIONS.md D-003, D-009, D-018; packages/core (brief, story-primitive, grounding, segment). TTS is a generative provider call even</text>
+<text x="24.0" y="536.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">though text is fixed.</text>
+</svg>

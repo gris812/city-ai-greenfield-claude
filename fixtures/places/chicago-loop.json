@@ -1,0 +1,324 @@
+[
+ {
+  "id": "fx:chi:art-institute",
+  "name": "Art Institute of Chicago",
+  "kind": "museum",
+  "location": {
+   "lat": 41.87944,
+   "lng": -87.62389
+  },
+  "extentM": 120,
+  "significance": 0.95,
+  "tags": [
+   "art",
+   "museum",
+   "beaux_arts"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Art_Institute_of_Chicago"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:cloud-gate",
+  "name": "Cloud Gate",
+  "kind": "landmark",
+  "location": {
+   "lat": 41.8827,
+   "lng": -87.62333
+  },
+  "extentM": 15,
+  "significance": 0.9,
+  "tags": [
+   "public_art",
+   "millennium_park"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Cloud_Gate"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Cloud_Gate",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:millennium-park",
+  "name": "Millennium Park",
+  "kind": "park",
+  "location": {
+   "lat": 41.8825,
+   "lng": -87.6225
+  },
+  "extentM": 300,
+  "significance": 0.88,
+  "tags": [
+   "park",
+   "millennium_park",
+   "public_art"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Millennium_Park"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Millennium_Park",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:cultural-center",
+  "name": "Chicago Cultural Center",
+  "kind": "building",
+  "location": {
+   "lat": 41.88389,
+   "lng": -87.625
+  },
+  "extentM": 50,
+  "significance": 0.75,
+  "tags": [
+   "beaux_arts",
+   "library"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Chicago_Cultural_Center"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Chicago_Cultural_Center",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:pritzker-pavilion",
+  "name": "Jay Pritzker Pavilion",
+  "kind": "venue",
+  "location": {
+   "lat": 41.8827,
+   "lng": -87.6219
+  },
+  "extentM": 60,
+  "significance": 0.8,
+  "tags": [
+   "music",
+   "millennium_park"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:willis-tower",
+  "name": "Willis Tower",
+  "kind": "building",
+  "location": {
+   "lat": 41.8789,
+   "lng": -87.6359
+  },
+  "extentM": 60,
+  "significance": 0.95,
+  "tags": [
+   "skyscraper"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Willis_Tower"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Willis_Tower",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:field-museum",
+  "name": "Field Museum",
+  "kind": "museum",
+  "location": {
+   "lat": 41.8663,
+   "lng": -87.617
+  },
+  "extentM": 120,
+  "significance": 0.9,
+  "tags": [
+   "museum",
+   "natural_history"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Field_Museum_of_Natural_History"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:navy-pier",
+  "name": "Navy Pier",
+  "kind": "venue",
+  "location": {
+   "lat": 41.8917,
+   "lng": -87.6086
+  },
+  "extentM": 500,
+  "significance": 0.82,
+  "tags": [
+   "lakefront"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Navy_Pier"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Navy_Pier",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:buckingham-fountain",
+  "name": "Buckingham Fountain",
+  "kind": "monument",
+  "location": {
+   "lat": 41.8758,
+   "lng": -87.6189
+  },
+  "extentM": 40,
+  "significance": 0.8,
+  "tags": [
+   "fountain",
+   "grant_park"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Buckingham_Fountain"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Buckingham_Fountain",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:chicago",
+  "name": "Chicago",
+  "kind": "city",
+  "location": {
+   "lat": 41.8781,
+   "lng": -87.6298
+  },
+  "extentM": 14000,
+  "significance": 0.97,
+  "tags": [
+   "city"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Chicago"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Chicago",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:chinatown",
+  "name": "Chinatown",
+  "kind": "neighborhood",
+  "location": {
+   "lat": 41.8524,
+   "lng": -87.6325
+  },
+  "extentM": 600,
+  "significance": 0.7,
+  "tags": [
+   "neighborhood"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:coffee-1",
+  "name": "Coffee shop",
+  "kind": "food",
+  "location": {
+   "lat": 41.879,
+   "lng": -87.6252
+  },
+  "extentM": 0,
+  "significance": 0.3,
+  "tags": [
+   "coffee"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:chi:parking-1",
+  "name": "Parking garage",
+  "kind": "transit",
+  "location": {
+   "lat": 41.8772,
+   "lng": -87.6238
+  },
+  "extentM": 0,
+  "significance": 0.2,
+  "tags": [
+   "parking"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ }
+]

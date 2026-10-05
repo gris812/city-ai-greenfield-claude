@@ -188,7 +188,11 @@ export function extractEntities(text: string, locale: string = 'en'): string[] {
       }
       words = words.filter((w, k) => !(k === 0 && GENERIC_CAPITALIZED.has(w)));
       if (words.length === 1 && GENERIC_CAPITALIZED.has(words[0]!)) words = [];
-      if (words.length > 0) out.push({ text: words.join(' '), words });
+      if (words.length > 0) {
+        // possessive on the last word: "Ada Merrow's" → "Ada Merrow"
+        words = [...words.slice(0, -1), words.at(-1)!.replace(/['’]s?$/u, '')];
+        out.push({ text: words.join(' '), words });
+      }
       i = Math.max(j, i + 1);
     }
   }
@@ -239,7 +243,9 @@ export interface GroundingOptions {
 
 export function checkGrounding(text: string, brief: StoryBrief, opts: GroundingOptions = {}): GroundingResult {
   const corpus = corpusOf(brief, opts.allow ?? []);
-  const corpusLower = ` ${normWord(corpus).replace(/\s+/g, ' ')} `;
+  // punctuation-insensitive phrase matching: "Hub (Oculus)" ≡ "Hub Oculus"
+  const flat = (x: string) => ` ${normWord(x).replace(/[^\p{L}\p{N}'&]+/gu, ' ').replace(/\s+/g, ' ').trim()} `;
+  const corpusLower = flat(corpus);
   const corpusNums = new Set(extractNumbers(corpus, 'en'));
   for (const f of brief.facts) for (const n of f.numbers) for (const x of extractNumbers(n, 'en')) corpusNums.add(x);
   const unsupportedNumbers = [...new Set(extractNumbers(text, brief.locale))].filter((n) => !corpusNums.has(n));
@@ -252,8 +258,8 @@ export function checkGrounding(text: string, brief: StoryBrief, opts: GroundingO
   );
   const unsupportedEntities: string[] = [];
   for (const e of extractEntities(text, brief.locale)) {
-    const phrase = ` ${normWord(e)} `;
-    if (corpusLower.includes(phrase) || corpusLower.includes(` ${normWord(e)}`)) continue;
+    const phrase = flat(e);
+    if (corpusLower.includes(phrase)) continue;
     if (ru) {
       const ok = e.split(/\s+/).every((w) => ruStemMatch(w, corpusWords));
       if (ok) continue;

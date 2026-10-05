@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 480" width="840" height="480" role="img" aria-label="Acceptance scenarios status"><title>Acceptance scenarios status</title><desc>27 acceptance scenarios grouped by section with PASS, PARTIAL, NOT RUN</desc><rect width="840" height="480" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">Acceptance status: 13 pass, 8 partial, 0 fail, 6 not run</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">Every scenario is a tile; PARTIAL means the demonstrable part passed and a live, device or human check is missing</text>
+<text x="24.0" y="111.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">A  Discovery and ranking</text>
+<rect x="250.0" y="90.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="286.0" y="109.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">A1</text>
+<rect x="330.0" y="90.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="366.0" y="109.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">A2</text>
+<rect x="410.0" y="90.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="446.0" y="109.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">A3</text>
+<rect x="490.0" y="90.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="526.0" y="109.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">A4</text>
+<rect x="570.0" y="90.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="606.0" y="109.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">A5</text>
+<rect x="650.0" y="90.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="686.0" y="109.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">A6</text>
+<rect x="730.0" y="90.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="766.0" y="109.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">A7</text>
+<text x="24.0" y="157.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">B  Narration quality</text>
+<rect x="250.0" y="136.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="286.0" y="155.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">B1</text>
+<rect x="330.0" y="136.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="366.0" y="155.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">B2</text>
+<rect x="410.0" y="136.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="446.0" y="155.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">B3</text>
+<text x="24.0" y="203.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">C  Conversation</text>
+<rect x="250.0" y="182.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="286.0" y="201.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">C1</text>
+<rect x="330.0" y="182.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="366.0" y="201.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">C2</text>
+<rect x="410.0" y="182.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="446.0" y="201.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">C3</text>
+<text x="24.0" y="249.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">D  Realtime voice</text>
+<rect x="250.0" y="228.0" width="72.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#726C63" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="286.0" y="247.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">D-B1</text>
+<rect x="330.0" y="228.0" width="72.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#726C63" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="366.0" y="247.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">D-B2</text>
+<rect x="410.0" y="228.0" width="72.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#726C63" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="446.0" y="247.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">D-B3</text>
+<rect x="490.0" y="228.0" width="72.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#726C63" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="526.0" y="247.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">D-B4</text>
+<rect x="570.0" y="228.0" width="72.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#726C63" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="606.0" y="247.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">D-B5</text>
+<rect x="650.0" y="228.0" width="72.0" height="30.0" rx="6" fill="#FFFFFF" stroke="#726C63" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="686.0" y="247.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">D-B6</text>
+<text x="24.0" y="295.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">E  Driving and devices</text>
+<rect x="250.0" y="274.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="286.0" y="293.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">E1</text>
+<rect x="330.0" y="274.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="366.0" y="293.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">E2</text>
+<rect x="410.0" y="274.0" width="72.0" height="30.0" rx="6" fill="#FCEBC7" stroke="#B7791F" stroke-width="1.5"/>
+<text x="446.0" y="293.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">E3</text>
+<text x="24.0" y="341.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">F  Failure containment</text>
+<rect x="250.0" y="320.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="286.0" y="339.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">F1</text>
+<rect x="330.0" y="320.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="366.0" y="339.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">F2</text>
+<rect x="410.0" y="320.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="446.0" y="339.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">F3</text>
+<rect x="490.0" y="320.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="526.0" y="339.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">F4</text>
+<rect x="570.0" y="320.0" width="72.0" height="30.0" rx="6" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="606.0" y="339.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="middle">F5</text>
+<rect x="24.0" y="376.0" width="18.0" height="14.0" rx="3" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.4"/>
+<text x="49.0" y="387.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#5F5A53" text-anchor="start">PASS 13</text>
+<rect x="114.7" y="376.0" width="18.0" height="14.0" rx="3" fill="#FCEBC7" stroke="#8F5B00" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="139.7" y="387.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#5F5A53" text-anchor="start">PARTIAL 8</text>
+<rect x="219.6" y="376.0" width="18.0" height="14.0" rx="3" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<text x="244.6" y="387.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#5F5A53" text-anchor="start">NOT RUN 6 (credentials, devices)</text>
+<text x="24.0" y="414.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Zero FAIL does not mean zero risk: 14 of 27 scenarios (8 partial + 6 not run) lack a live-provider, on-device or human-rated check, and the</text>
+<text x="24.0" y="430.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">fixtures use synthetic traces.</text>
+<text x="24.0" y="458.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Source: benchmark/acceptance/results.json (generated 2026-10-04, commit e190bbb+uncommitted);</text>
+<text x="24.0" y="472.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">benchmark/ACCEPTANCE_BENCHMARK.md. MEASURED-tests / MEASURED-replay / MEASURED-harness.</text>
+</svg>

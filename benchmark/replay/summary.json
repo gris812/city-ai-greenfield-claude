@@ -1,0 +1,1289 @@
+[
+ {
+  "scenario": "wtc-walk",
+  "acceptance": [
+   "A1",
+   "A7"
+  ],
+  "trace": "wtc-walk",
+  "synthetic": true,
+  "guide": "ida",
+  "locale": "en-US",
+  "durationS": 910,
+  "frames": 911,
+  "storiesStarted": 5,
+  "orientations": 0,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 17,
+    "id": "fx:nyc:911-memorial",
+    "name": "National September 11 Memorial & Museum",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 361,
+    "reachM": 977
+   },
+   {
+    "t": 103,
+    "id": "fx:nyc:one-wtc",
+    "name": "One World Trade Center",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 393,
+    "reachM": 930
+   },
+   {
+    "t": 183,
+    "id": "fx:nyc:oculus",
+    "name": "World Trade Center Transportation Hub (Oculus)",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 173,
+    "reachM": 673
+   },
+   {
+    "t": 252,
+    "id": "fx:nyc:st-pauls",
+    "name": "St. Paul's Chapel",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 289,
+    "reachM": 361
+   },
+   {
+    "t": 374,
+    "id": "fx:nyc:brooklyn-bridge",
+    "name": "Brooklyn Bridge",
+    "kind": "story",
+    "regime": "stationary",
+    "distanceM": 1435,
+    "reachM": 902
+   }
+  ],
+  "silenceRatio": 0.843,
+  "maxSilentGapS": 524,
+  "regimeTransitions": [
+   {
+    "t": 9,
+    "from": "unknown",
+    "to": "walking"
+   },
+   {
+    "t": 258,
+    "from": "walking",
+    "to": "stationary"
+   },
+   {
+    "t": 394,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 661,
+    "from": "walking",
+    "to": "stationary"
+   },
+   {
+    "t": 798,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 875,
+    "from": "walking",
+    "to": "stationary"
+   }
+  ],
+  "regimeSequence": [
+   "walking",
+   "stationary",
+   "walking",
+   "stationary",
+   "walking",
+   "stationary"
+  ],
+  "densitySequence": [
+   "dense"
+  ],
+  "providerQueries": {
+   "discovery": 7,
+   "densityProbe": 6,
+   "total": 13,
+   "perHour": 51.4,
+   "emptyResults": 0,
+   "framesPerQuery": 70.1
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 5,
+   "completed": 5,
+   "mentions": 0
+  },
+  "rejections": {
+   "fx:nyc:liberty-park": {
+    "name": "Liberty Park",
+    "reasons": {
+     "evidence_thin": 911,
+     "beyond_lookahead": 379
+    }
+   },
+   "fx:nyc:brooklyn-bridge": {
+    "name": "Brooklyn Bridge",
+    "reasons": {
+     "beyond_lookahead": 333,
+     "already_discussed": 536
+    }
+   },
+   "fx:nyc:st-pauls": {
+    "name": "St. Paul's Chapel",
+    "reasons": {
+     "beyond_lookahead": 21,
+     "already_discussed": 658
+    }
+   },
+   "fx:nyc:911-memorial": {
+    "name": "National September 11 Memorial & Museum",
+    "reasons": {
+     "already_discussed": 893
+    }
+   },
+   "fx:nyc:one-wtc": {
+    "name": "One World Trade Center",
+    "reasons": {
+     "already_discussed": 807
+    }
+   },
+   "fx:nyc:oculus": {
+    "name": "World Trade Center Transportation Hub (Oculus)",
+    "reasons": {
+     "already_discussed": 727
+    }
+   }
+  }
+ },
+ {
+  "scenario": "art-institute-walk",
+  "acceptance": [
+   "A3",
+   "A4",
+   "A7"
+  ],
+  "trace": "art-institute-walk",
+  "synthetic": true,
+  "guide": "ida",
+  "locale": "en-US",
+  "durationS": 1214,
+  "frames": 1215,
+  "storiesStarted": 6,
+  "orientations": 1,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 17,
+    "id": "fx:chi:art-institute",
+    "name": "Art Institute of Chicago",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 426,
+    "reachM": 930
+   },
+   {
+    "t": 92,
+    "id": "fx:chi:millennium-park",
+    "name": "Millennium Park",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 680,
+    "reachM": 782
+   },
+   {
+    "t": 151,
+    "id": "fx:chi:cloud-gate",
+    "name": "Cloud Gate",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 606,
+    "reachM": 822
+   },
+   {
+    "t": 243,
+    "id": "fx:chi:cultural-center",
+    "name": "Chicago Cultural Center",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 611,
+    "reachM": 564
+   },
+   {
+    "t": 367,
+    "id": "fx:chi:willis-tower",
+    "name": "Willis Tower",
+    "kind": "story",
+    "regime": "stationary",
+    "distanceM": 938,
+    "reachM": 925
+   },
+   {
+    "t": 470,
+    "id": "fx:chi:buckingham-fountain",
+    "name": "Buckingham Fountain",
+    "kind": "story",
+    "regime": "stationary",
+    "distanceM": 629,
+    "reachM": 623
+   },
+   {
+    "t": 633,
+    "id": "fx:chi:pritzker-pavilion",
+    "name": "Jay Pritzker Pavilion",
+    "kind": "orientation",
+    "regime": "walking",
+    "distanceM": 269,
+    "reachM": 640
+   }
+  ],
+  "silenceRatio": 0.905,
+  "maxSilentGapS": 576,
+  "regimeTransitions": [
+   {
+    "t": 9,
+    "from": "unknown",
+    "to": "walking"
+   },
+   {
+    "t": 362,
+    "from": "walking",
+    "to": "stationary"
+   },
+   {
+    "t": 498,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 803,
+    "from": "walking",
+    "to": "stationary"
+   },
+   {
+    "t": 911,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 1056,
+    "from": "walking",
+    "to": "stationary"
+   }
+  ],
+  "regimeSequence": [
+   "walking",
+   "stationary",
+   "walking",
+   "stationary",
+   "walking",
+   "stationary"
+  ],
+  "densitySequence": [
+   "dense"
+  ],
+  "providerQueries": {
+   "discovery": 9,
+   "densityProbe": 5,
+   "total": 14,
+   "perHour": 41.5,
+   "emptyResults": 0,
+   "framesPerQuery": 86.8
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 7,
+   "completed": 6,
+   "mentions": 1
+  },
+  "rejections": {
+   "fx:chi:chicago": {
+    "name": "Chicago",
+    "reasons": {
+     "enclosing_area": 1215
+    }
+   },
+   "fx:chi:cultural-center": {
+    "name": "Chicago Cultural Center",
+    "reasons": {
+     "beyond_lookahead": 243,
+     "already_discussed": 971
+    }
+   },
+   "fx:chi:pritzker-pavilion": {
+    "name": "Jay Pritzker Pavilion",
+    "reasons": {
+     "beyond_lookahead": 117,
+     "evidence_thin": 1215,
+     "already_discussed": 581
+    }
+   },
+   "fx:chi:willis-tower": {
+    "name": "Willis Tower",
+    "reasons": {
+     "beyond_lookahead": 736,
+     "already_discussed": 543
+    }
+   },
+   "fx:chi:buckingham-fountain": {
+    "name": "Buckingham Fountain",
+    "reasons": {
+     "beyond_lookahead": 1074,
+     "already_discussed": 744
+    }
+   },
+   "fx:chi:art-institute": {
+    "name": "Art Institute of Chicago",
+    "reasons": {
+     "already_discussed": 1197
+    }
+   },
+   "fx:chi:millennium-park": {
+    "name": "Millennium Park",
+    "reasons": {
+     "already_discussed": 1122
+    }
+   },
+   "fx:chi:cloud-gate": {
+    "name": "Cloud Gate",
+    "reasons": {
+     "already_discussed": 1063
+    }
+   },
+   "fx:chi:navy-pier": {
+    "name": "Navy Pier",
+    "reasons": {
+     "beyond_lookahead": 159
+    }
+   }
+  }
+ },
+ {
+  "scenario": "golden-gate",
+  "acceptance": [
+   "A2",
+   "A7",
+   "A6"
+  ],
+  "trace": "golden-gate-drive-walk",
+  "synthetic": true,
+  "guide": "emil",
+  "locale": "en-US",
+  "durationS": 1086,
+  "frames": 1087,
+  "storiesStarted": 4,
+  "orientations": 1,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 39,
+    "id": "fx:sf:golden-gate-bridge",
+    "name": "Golden Gate Bridge",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 5764,
+    "reachM": 12160
+   },
+   {
+    "t": 190,
+    "id": "fx:sf:san-francisco",
+    "name": "San Francisco",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 9164,
+    "reachM": 9628
+   },
+   {
+    "t": 324,
+    "id": "fx:sf:presidio",
+    "name": "Presidio of San Francisco",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 2786,
+    "reachM": 8840
+   },
+   {
+    "t": 570,
+    "id": "fx:sf:fort-point",
+    "name": "Fort Point",
+    "kind": "story",
+    "regime": "stationary",
+    "distanceM": 451,
+    "reachM": 1169
+   },
+   {
+    "t": 646,
+    "id": "fx:sf:welcome-center",
+    "name": "Golden Gate Bridge Welcome Center",
+    "kind": "orientation",
+    "regime": "walking",
+    "distanceM": 13,
+    "reachM": 611
+   }
+  ],
+  "silenceRatio": 0.908,
+  "maxSilentGapS": 437,
+  "regimeTransitions": [
+   {
+    "t": 9,
+    "from": "unknown",
+    "to": "urban_driving"
+   },
+   {
+    "t": 565,
+    "from": "urban_driving",
+    "to": "stationary"
+   },
+   {
+    "t": 629,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 899,
+    "from": "walking",
+    "to": "stationary"
+   }
+  ],
+  "regimeSequence": [
+   "urban_driving",
+   "stationary",
+   "walking",
+   "stationary"
+  ],
+  "densitySequence": [
+   "sparse",
+   "suburban",
+   "sparse",
+   "suburban"
+  ],
+  "providerQueries": {
+   "discovery": 8,
+   "densityProbe": 10,
+   "total": 18,
+   "perHour": 59.7,
+   "emptyResults": 1,
+   "framesPerQuery": 60.4
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 5,
+   "completed": 4,
+   "mentions": 1
+  },
+  "rejections": {
+   "fx:sf:alcatraz": {
+    "name": "Alcatraz Island",
+    "reasons": {
+     "off_course": 545,
+     "too_close_to_pass": 86,
+     "behind": 184
+    }
+   },
+   "fx:sf:coit-tower": {
+    "name": "Coit Tower",
+    "reasons": {
+     "off_course": 541,
+     "beyond_lookahead": 133,
+     "behind": 148
+    }
+   },
+   "fx:sf:fort-point": {
+    "name": "Fort Point",
+    "reasons": {
+     "off_course": 305,
+     "too_close_to_pass": 34,
+     "behind": 175,
+     "already_discussed": 516
+    }
+   },
+   "fx:sf:palace-fine-arts": {
+    "name": "Palace of Fine Arts",
+    "reasons": {
+     "beyond_lookahead": 17,
+     "off_course": 392,
+     "behind": 148
+    }
+   },
+   "fx:sf:vista-point-north": {
+    "name": "Vista Point",
+    "reasons": {
+     "beyond_lookahead": 98,
+     "evidence_thin": 545,
+     "off_course": 316,
+     "too_close_to_pass": 38,
+     "behind": 300
+    }
+   },
+   "fx:sf:welcome-center": {
+    "name": "Golden Gate Bridge Welcome Center",
+    "reasons": {
+     "off_course": 157,
+     "beyond_lookahead": 247,
+     "evidence_thin": 1067,
+     "too_close_to_pass": 186,
+     "already_discussed": 440
+    }
+   },
+   "fx:sf:presidio": {
+    "name": "Presidio of San Francisco",
+    "reasons": {
+     "off_course": 10,
+     "already_discussed": 762,
+     "too_close_to_pass": 44
+    }
+   },
+   "fx:sf:golden-gate-bridge": {
+    "name": "Golden Gate Bridge",
+    "reasons": {
+     "already_discussed": 1047,
+     "too_close_to_pass": 182
+    }
+   },
+   "fx:sf:san-francisco": {
+    "name": "San Francisco",
+    "reasons": {
+     "already_discussed": 896,
+     "too_close_to_pass": 135,
+     "enclosing_area": 242
+    }
+   },
+   "fx:sf:cafe-1": {
+    "name": "Bridge cafe",
+    "reasons": {
+     "utility_kind": 522,
+     "evidence_thin": 522
+    }
+   }
+  }
+ },
+ {
+  "scenario": "interstate",
+  "acceptance": [
+   "A5",
+   "E1",
+   "F1"
+  ],
+  "trace": "i40-westbound",
+  "synthetic": true,
+  "guide": "emil",
+  "locale": "en-US",
+  "durationS": 6314,
+  "frames": 3158,
+  "storiesStarted": 5,
+  "orientations": 0,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 900,
+    "id": "fx:i40:laguna",
+    "name": "Laguna Pueblo",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 23020,
+    "reachM": 41849
+   },
+   {
+    "t": 1636,
+    "id": "fx:i40:mount-taylor",
+    "name": "Mount Taylor",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 29979,
+    "reachM": 62660
+   },
+   {
+    "t": 2360,
+    "id": "fx:i40:grants",
+    "name": "Grants",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 23029,
+    "reachM": 41849
+   },
+   {
+    "t": 4302,
+    "id": "fx:i40:continental-divide",
+    "name": "Continental Divide (Campbell Pass)",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 20896,
+    "reachM": 53837
+   },
+   {
+    "t": 5496,
+    "id": "fx:i40:gallup",
+    "name": "Gallup",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 23673,
+    "reachM": 53837
+   }
+  ],
+  "silenceRatio": 0.987,
+  "maxSilentGapS": 1926,
+  "regimeTransitions": [
+   {
+    "t": 18,
+    "from": "unknown",
+    "to": "urban_driving"
+   },
+   {
+    "t": 86,
+    "from": "urban_driving",
+    "to": "highway_driving"
+   }
+  ],
+  "regimeSequence": [
+   "urban_driving",
+   "highway_driving"
+  ],
+  "densitySequence": [
+   "sparse"
+  ],
+  "providerQueries": {
+   "discovery": 13,
+   "densityProbe": 19,
+   "total": 32,
+   "perHour": 18.2,
+   "emptyResults": 11,
+   "framesPerQuery": 98.7
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 5,
+   "completed": 5,
+   "mentions": 0
+  },
+  "rejections": {
+   "fx:i40:albuquerque": {
+    "name": "Albuquerque",
+    "reasons": {
+     "behind": 923,
+     "off_course": 146
+    }
+   },
+   "fx:i40:laguna": {
+    "name": "Laguna Pueblo",
+    "reasons": {
+     "off_course": 583,
+     "beyond_lookahead": 29,
+     "already_discussed": 1392,
+     "too_close_to_pass": 31,
+     "behind": 965
+    }
+   },
+   "fx:i40:truckstop-laguna": {
+    "name": "Truck stop (Laguna exit)",
+    "reasons": {
+     "off_course": 1018,
+     "beyond_lookahead": 290,
+     "utility_kind": 1823,
+     "evidence_thin": 1823,
+     "too_close_to_pass": 33,
+     "behind": 1057
+    }
+   },
+   "fx:i40:el-malpais": {
+    "name": "El Malpais National Monument",
+    "reasons": {
+     "beyond_lookahead": 589,
+     "off_course": 2085,
+     "too_close_to_pass": 253,
+     "behind": 1041
+    }
+   },
+   "fx:i40:grants": {
+    "name": "Grants",
+    "reasons": {
+     "off_course": 1201,
+     "beyond_lookahead": 755,
+     "already_discussed": 1562,
+     "too_close_to_pass": 31,
+     "behind": 1117
+    }
+   },
+   "fx:i40:mount-taylor": {
+    "name": "Mount Taylor",
+    "reasons": {
+     "off_course": 234,
+     "already_discussed": 1624,
+     "too_close_to_pass": 146,
+     "behind": 1093
+    }
+   },
+   "fx:i40:truckstop-grants": {
+    "name": "Truck stop (Grants)",
+    "reasons": {
+     "off_course": 1346,
+     "beyond_lookahead": 908,
+     "utility_kind": 2400,
+     "evidence_thin": 2400,
+     "too_close_to_pass": 34,
+     "behind": 899
+    }
+   },
+   "fx:i40:truckstop-thoreau": {
+    "name": "Truck stop (Thoreau exit)",
+    "reasons": {
+     "off_course": 1987,
+     "beyond_lookahead": 1858,
+     "utility_kind": 3115,
+     "evidence_thin": 3115,
+     "too_close_to_pass": 34,
+     "behind": 851
+    }
+   },
+   "fx:i40:acoma": {
+    "name": "Acoma Pueblo (Sky City)",
+    "reasons": {
+     "off_course": 1467,
+     "too_close_to_pass": 45,
+     "behind": 781
+    }
+   },
+   "fx:i40:continental-divide": {
+    "name": "Continental Divide (Campbell Pass)",
+    "reasons": {
+     "off_course": 1449,
+     "beyond_lookahead": 1189,
+     "already_discussed": 1006,
+     "too_close_to_pass": 34,
+     "behind": 647
+    }
+   },
+   "fx:i40:gallup": {
+    "name": "Gallup",
+    "reasons": {
+     "off_course": 1023,
+     "beyond_lookahead": 1357,
+     "already_discussed": 409,
+     "too_close_to_pass": 32
+    }
+   },
+   "fx:i40:truckstop-gallup": {
+    "name": "Truck stop (Gallup east)",
+    "reasons": {
+     "off_course": 1171,
+     "beyond_lookahead": 1805,
+     "utility_kind": 2515,
+     "evidence_thin": 2515,
+     "too_close_to_pass": 36,
+     "behind": 136
+    }
+   }
+  }
+ },
+ {
+  "scenario": "interstate-routed",
+  "acceptance": [
+   "A5",
+   "F1"
+  ],
+  "trace": "i40-westbound",
+  "synthetic": true,
+  "guide": "emil",
+  "locale": "en-US",
+  "durationS": 6314,
+  "frames": 3158,
+  "storiesStarted": 5,
+  "orientations": 0,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 900,
+    "id": "fx:i40:laguna",
+    "name": "Laguna Pueblo",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 23020,
+    "reachM": 41849
+   },
+   {
+    "t": 1890,
+    "id": "fx:i40:mount-taylor",
+    "name": "Mount Taylor",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 25330,
+    "reachM": 62660
+   },
+   {
+    "t": 2386,
+    "id": "fx:i40:grants",
+    "name": "Grants",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 22256,
+    "reachM": 41849
+   },
+   {
+    "t": 4330,
+    "id": "fx:i40:continental-divide",
+    "name": "Continental Divide (Campbell Pass)",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 20050,
+    "reachM": 53837
+   },
+   {
+    "t": 5496,
+    "id": "fx:i40:gallup",
+    "name": "Gallup",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 23673,
+    "reachM": 53837
+   }
+  ],
+  "silenceRatio": 0.987,
+  "maxSilentGapS": 1929,
+  "regimeTransitions": [
+   {
+    "t": 18,
+    "from": "unknown",
+    "to": "urban_driving"
+   },
+   {
+    "t": 86,
+    "from": "urban_driving",
+    "to": "highway_driving"
+   }
+  ],
+  "regimeSequence": [
+   "urban_driving",
+   "highway_driving"
+  ],
+  "densitySequence": [
+   "sparse"
+  ],
+  "providerQueries": {
+   "discovery": 26,
+   "densityProbe": 19,
+   "total": 45,
+   "perHour": 25.7,
+   "emptyResults": 11,
+   "framesPerQuery": 70.2
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 5,
+   "completed": 5,
+   "mentions": 0
+  },
+  "rejections": {
+   "fx:i40:albuquerque": {
+    "name": "Albuquerque",
+    "reasons": {
+     "behind": 923
+    }
+   },
+   "fx:i40:laguna": {
+    "name": "Laguna Pueblo",
+    "reasons": {
+     "beyond_lookahead": 58,
+     "already_discussed": 1392,
+     "too_close_to_pass": 31,
+     "behind": 965,
+     "off_course": 509
+    }
+   },
+   "fx:i40:truckstop-laguna": {
+    "name": "Truck stop (Laguna exit)",
+    "reasons": {
+     "beyond_lookahead": 301,
+     "utility_kind": 1823,
+     "evidence_thin": 1823,
+     "too_close_to_pass": 34,
+     "behind": 1056,
+     "off_course": 840
+    }
+   },
+   "fx:i40:acoma": {
+    "name": "Acoma Pueblo (Sky City)",
+    "reasons": {
+     "off_course": 1658,
+     "too_close_to_pass": 46,
+     "behind": 781
+    }
+   },
+   "fx:i40:continental-divide": {
+    "name": "Continental Divide (Campbell Pass)",
+    "reasons": {
+     "beyond_lookahead": 1559,
+     "already_discussed": 947,
+     "too_close_to_pass": 34,
+     "behind": 602
+    }
+   },
+   "fx:i40:el-malpais": {
+    "name": "El Malpais National Monument",
+    "reasons": {
+     "off_course": 2427,
+     "beyond_lookahead": 406,
+     "too_close_to_pass": 335,
+     "behind": 769
+    }
+   },
+   "fx:i40:grants": {
+    "name": "Grants",
+    "reasons": {
+     "beyond_lookahead": 773,
+     "already_discussed": 1276,
+     "too_close_to_pass": 31,
+     "behind": 845,
+     "off_course": 413
+    }
+   },
+   "fx:i40:mount-taylor": {
+    "name": "Mount Taylor",
+    "reasons": {
+     "beyond_lookahead": 173,
+     "already_discussed": 1357,
+     "too_close_to_pass": 130,
+     "behind": 950,
+     "off_course": 178
+    }
+   },
+   "fx:i40:truckstop-grants": {
+    "name": "Truck stop (Grants)",
+    "reasons": {
+     "beyond_lookahead": 942,
+     "utility_kind": 2260,
+     "evidence_thin": 2260,
+     "too_close_to_pass": 34,
+     "behind": 759,
+     "off_course": 602
+    }
+   },
+   "fx:i40:truckstop-thoreau": {
+    "name": "Truck stop (Thoreau exit)",
+    "reasons": {
+     "beyond_lookahead": 1873,
+     "utility_kind": 2887,
+     "evidence_thin": 2887,
+     "too_close_to_pass": 34,
+     "behind": 623,
+     "off_course": 115
+    }
+   },
+   "fx:i40:gallup": {
+    "name": "Gallup",
+    "reasons": {
+     "beyond_lookahead": 1515,
+     "already_discussed": 409,
+     "too_close_to_pass": 32
+    }
+   },
+   "fx:i40:truckstop-gallup": {
+    "name": "Truck stop (Gallup east)",
+    "reasons": {
+     "beyond_lookahead": 1806,
+     "utility_kind": 2515,
+     "evidence_thin": 2515,
+     "too_close_to_pass": 36,
+     "behind": 136
+    }
+   }
+  }
+ },
+ {
+  "scenario": "transition",
+  "acceptance": [
+   "A6",
+   "E1"
+  ],
+  "trace": "highway-to-downtown-walk",
+  "synthetic": true,
+  "guide": "ida",
+  "locale": "en-US",
+  "durationS": 2261,
+  "frames": 2262,
+  "storiesStarted": 8,
+  "orientations": 1,
+  "preemptions": 0,
+  "targets": [
+   {
+    "t": 124,
+    "id": "fx:chi:chicago",
+    "name": "Chicago",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 26661,
+    "reachM": 88455
+   },
+   {
+    "t": 621,
+    "id": "fx:chi:field-museum",
+    "name": "Field Museum",
+    "kind": "story",
+    "regime": "highway_driving",
+    "distanceM": 12651,
+    "reachM": 72586
+   },
+   {
+    "t": 1051,
+    "id": "fx:chi:chinatown",
+    "name": "Chinatown",
+    "kind": "orientation",
+    "regime": "urban_driving",
+    "distanceM": 597,
+    "reachM": 3532
+   },
+   {
+    "t": 1207,
+    "id": "fx:chi:buckingham-fountain",
+    "name": "Buckingham Fountain",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 2548,
+    "reachM": 4682
+   },
+   {
+    "t": 1343,
+    "id": "fx:chi:art-institute",
+    "name": "Art Institute of Chicago",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 2076,
+    "reachM": 7030
+   },
+   {
+    "t": 1497,
+    "id": "fx:chi:cloud-gate",
+    "name": "Cloud Gate",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 1438,
+    "reachM": 4310
+   },
+   {
+    "t": 1636,
+    "id": "fx:chi:millennium-park",
+    "name": "Millennium Park",
+    "kind": "story",
+    "regime": "urban_driving",
+    "distanceM": 854,
+    "reachM": 4084
+   },
+   {
+    "t": 1918,
+    "id": "fx:chi:willis-tower",
+    "name": "Willis Tower",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 981,
+    "reachM": 930
+   },
+   {
+    "t": 2017,
+    "id": "fx:chi:cultural-center",
+    "name": "Chicago Cultural Center",
+    "kind": "story",
+    "regime": "walking",
+    "distanceM": 614,
+    "reachM": 564
+   }
+  ],
+  "silenceRatio": 0.935,
+  "maxSilentGapS": 480,
+  "regimeTransitions": [
+   {
+    "t": 9,
+    "from": "unknown",
+    "to": "urban_driving"
+   },
+   {
+    "t": 64,
+    "from": "urban_driving",
+    "to": "highway_driving"
+   },
+   {
+    "t": 992,
+    "from": "highway_driving",
+    "to": "urban_driving"
+   },
+   {
+    "t": 1826,
+    "from": "urban_driving",
+    "to": "stationary"
+   },
+   {
+    "t": 1910,
+    "from": "stationary",
+    "to": "walking"
+   },
+   {
+    "t": 2134,
+    "from": "walking",
+    "to": "stationary"
+   }
+  ],
+  "regimeSequence": [
+   "urban_driving",
+   "highway_driving",
+   "urban_driving",
+   "stationary",
+   "walking",
+   "stationary"
+  ],
+  "densitySequence": [
+   "suburban",
+   "sparse",
+   "suburban",
+   "urban",
+   "dense"
+  ],
+  "providerQueries": {
+   "discovery": 12,
+   "densityProbe": 18,
+   "total": 30,
+   "perHour": 47.8,
+   "emptyResults": 1,
+   "framesPerQuery": 75.4
+  },
+  "wronglyBehindTargets": 0,
+  "endedAfterPassing": 0,
+  "groundingFailures": 0,
+  "utilityStories": 0,
+  "clutterStories": 0,
+  "sessionRestarts": 0,
+  "memory": {
+   "discussed": 9,
+   "completed": 8,
+   "mentions": 1
+  },
+  "rejections": {
+   "fx:chi:art-institute": {
+    "name": "Art Institute of Chicago",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "off_course": 390,
+     "too_close_to_pass": 7,
+     "already_discussed": 918
+    }
+   },
+   "fx:chi:buckingham-fountain": {
+    "name": "Buckingham Fountain",
+    "reasons": {
+     "beyond_lookahead": 268,
+     "off_course": 769,
+     "already_discussed": 1054,
+     "too_close_to_pass": 74,
+     "behind": 136
+    }
+   },
+   "fx:chi:chicago": {
+    "name": "Chicago",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "already_discussed": 2137,
+     "too_close_to_pass": 79,
+     "enclosing_area": 436
+    }
+   },
+   "fx:chi:chinatown": {
+    "name": "Chinatown",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "evidence_thin": 1806,
+     "too_close_to_pass": 82,
+     "already_discussed": 774,
+     "behind": 631
+    }
+   },
+   "fx:chi:cloud-gate": {
+    "name": "Cloud Gate",
+    "reasons": {
+     "beyond_lookahead": 67,
+     "off_course": 569,
+     "already_discussed": 764
+    }
+   },
+   "fx:chi:cultural-center": {
+    "name": "Chicago Cultural Center",
+    "reasons": {
+     "beyond_lookahead": 235,
+     "off_course": 646,
+     "too_close_to_pass": 6,
+     "already_discussed": 244
+    }
+   },
+   "fx:chi:field-museum": {
+    "name": "Field Museum",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "already_discussed": 1204,
+     "off_course": 755,
+     "too_close_to_pass": 103,
+     "behind": 363
+    }
+   },
+   "fx:chi:millennium-park": {
+    "name": "Millennium Park",
+    "reasons": {
+     "beyond_lookahead": 44,
+     "off_course": 406,
+     "too_close_to_pass": 8,
+     "already_discussed": 625
+    }
+   },
+   "fx:chi:navy-pier": {
+    "name": "Navy Pier",
+    "reasons": {
+     "beyond_lookahead": 52,
+     "off_course": 969
+    }
+   },
+   "fx:chi:pritzker-pavilion": {
+    "name": "Jay Pritzker Pavilion",
+    "reasons": {
+     "beyond_lookahead": 84,
+     "evidence_thin": 2242,
+     "off_course": 499
+    }
+   },
+   "fx:chi:willis-tower": {
+    "name": "Willis Tower",
+    "reasons": {
+     "beyond_lookahead": 303,
+     "off_course": 1301,
+     "too_close_to_pass": 234,
+     "behind": 46,
+     "already_discussed": 343
+    }
+   }
+  }
+ }
+]

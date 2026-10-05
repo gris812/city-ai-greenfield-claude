@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 656" width="840" height="656" role="img" aria-label="Data and cache layers"><title>Data and cache layers</title><desc>Cache layers with keys, TTLs and measured harness hit counters</desc><rect width="840" height="656" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">Data and cache layers</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">Five layers keep expensive calls late and shared; harness counters shown, production rates NOT YET MEASURED</text>
+<text x="34.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="0.6">LAYER</text>
+<text x="182.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="0.6">KEY / SCOPE</text>
+<text x="416.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="0.6">TTL</text>
+<text x="484.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="0.6">COLD</text>
+<text x="548.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="0.6">PROSE WARM</text>
+<text x="650.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="0.6">ALL WARM</text>
+<text x="728.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="0.6">SAVES</text>
+<rect x="24.0" y="104.0" width="804.0" height="70.0" rx="8" fill="#FFFFFF" stroke="#E2DBCF" stroke-width="1.2"/>
+<text x="34.0" y="132.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="start">Discovery places</text>
+<text x="182.0" y="130.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">pl:v1:geohash cell + radius bucket</text>
+<text x="182.0" y="145.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">+ kinds + lang; shared; Wikimedia only</text>
+<text x="416.0" y="132.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#131A1D" text-anchor="start">15 min</text>
+<text x="484.0" y="132.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">90/91</text>
+<text x="548.0" y="132.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">72/72</text>
+<text x="650.0" y="132.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">72/72</text>
+<text x="728.0" y="132.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5F5A53" text-anchor="start">Wikimedia calls</text>
+<text x="34.0" y="156.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="500" fill="#726C63" text-anchor="start">hits / lookups, harness</text>
+<rect x="24.0" y="184.0" width="804.0" height="70.0" rx="8" fill="#FFFFFF" stroke="#E2DBCF" stroke-width="1.2"/>
+<text x="34.0" y="212.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="start">Evidence</text>
+<text x="182.0" y="210.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">ev:v1:placeId:lang, shared;</text>
+<text x="182.0" y="225.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">negative results cached 6 h</text>
+<text x="416.0" y="212.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#131A1D" text-anchor="start">7 days</text>
+<text x="484.0" y="212.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">36/36</text>
+<text x="548.0" y="212.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">36/36</text>
+<text x="650.0" y="212.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">36/36</text>
+<text x="728.0" y="212.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5F5A53" text-anchor="start">Wikimedia calls</text>
+<text x="34.0" y="236.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="500" fill="#726C63" text-anchor="start">hits / lookups, harness</text>
+<rect x="24.0" y="264.0" width="804.0" height="70.0" rx="8" fill="#FFFFFF" stroke="#E2DBCF" stroke-width="1.2"/>
+<text x="34.0" y="292.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="start">Narration body</text>
+<text x="182.0" y="290.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">nb:v1:hash(place, angle, facts, guide,</text>
+<text x="182.0" y="305.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">locale, mode, budget bucket); no user data</text>
+<text x="416.0" y="292.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#131A1D" text-anchor="start">30 days</text>
+<text x="484.0" y="292.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">0/36</text>
+<text x="548.0" y="292.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">36/36</text>
+<text x="650.0" y="292.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">36/36</text>
+<text x="728.0" y="292.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5F5A53" text-anchor="start">LLM call</text>
+<text x="34.0" y="316.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="500" fill="#726C63" text-anchor="start">hits / lookups, harness</text>
+<rect x="24.0" y="344.0" width="804.0" height="70.0" rx="8" fill="#FFFFFF" stroke="#E2DBCF" stroke-width="1.2"/>
+<text x="34.0" y="372.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="start">TTS audio</text>
+<text x="182.0" y="370.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">sha256(segment, provider, model, voice);</text>
+<text x="182.0" y="385.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">immutable URL, disk</text>
+<text x="416.0" y="372.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#131A1D" text-anchor="start">no expiry</text>
+<text x="484.0" y="372.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">0/290</text>
+<text x="548.0" y="372.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">5/132</text>
+<text x="650.0" y="372.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">140/144</text>
+<text x="728.0" y="372.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5F5A53" text-anchor="start">TTS characters</text>
+<text x="34.0" y="396.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="500" fill="#726C63" text-anchor="start">hits / lookups, harness</text>
+<rect x="24.0" y="424.0" width="804.0" height="56.0" rx="8" fill="#FCEBC7" stroke="#8F5B00" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="34.0" y="448.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="start">Prefix (cue + place)</text>
+<text x="182.0" y="448.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">Personal part of every story, spoken as segment 0. Modelled as never cached (0%): conservative.</text>
+<text x="182.0" y="466.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">Harness: prefix-text repeats gave audio hits 5/132 when body audio was evicted.</text>
+<rect x="24.0" y="492.0" width="804.0" height="76.0" rx="8" fill="#FFE3DB" stroke="#B23A1E" stroke-width="1.4"/>
+<text x="36.0" y="516.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="start">Read this honestly</text>
+<text x="36.0" y="536.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="500" fill="#5F5A53" text-anchor="start">These counters come from ONE fixture route (WTC walk) replayed 36 times in one process. A repeated route is the best case for any cache.</text>
+<text x="36.0" y="551.9" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="500" fill="#5F5A53" text-anchor="start">They prove the mechanism works; they say nothing about how often real users share a place, angle, guide and budget bucket.</text>
+<text x="24.0" y="584.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="500" fill="#5F5A53" text-anchor="start">Store of record: Postgres 16 (sessions, journey memory, stories, events, cost ledger, audit).</text>
+<text x="24.0" y="599.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="500" fill="#5F5A53" text-anchor="start">Hot state and rate limits: Redis 7. Redis loss = explicit reduced mode, not outage.</text>
+<text x="24.0" y="630.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Source: benchmark/acceptance/results.json cacheRates (MEASURED-harness, 36 sessions per phase); DECISIONS.md D-011, D-018. Google</text>
+<text x="24.0" y="644.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Places results are never cached (terms).</text>
+</svg>

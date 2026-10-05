@@ -1,0 +1,98 @@
+{
+  "capturedAt": "2026-10-04T15:26:01.826Z",
+  "base": "http://127.0.0.1:3100",
+  "items": [
+    {
+      "file": "s01-guest-entry-mobile.png",
+      "state": "WebApp first run, no account, scenario picker (simulated trips) + \"Use my location\"; offline demo chip"
+    },
+    {
+      "file": "s02-guide-selection-mobile.png",
+      "state": "Guide popover open: Ida selected, talkativeness control (0)"
+    },
+    {
+      "file": "s04-approaching-target-mobile.png",
+      "state": "Moments after the director started the first story on the wtc-walk replay: spatial cue \"straight ahead, about 800 feet\", target ringed on the map, segment 1 of N"
+    },
+    {
+      "file": "s05-active-story-mobile.png",
+      "state": "Same story a few seconds later (segment 2+): transcript in Literata, per-segment progress ticks, Pause/Skip/Not-that-one"
+    },
+    {
+      "file": "s06-listening-mobile.png",
+      "state": "Mic pressed mid-story: narration stopped, listening sheet open (headless Chromium has no speech recognition, so the \"Type instead\" fallback is offered)"
+    },
+    {
+      "file": "s06b-question-typed-mobile.png",
+      "state": "Typed fallback for the C1 coffee question"
+    },
+    {
+      "file": "s07-nearby-result-mobile.png",
+      "state": "Local engine nearby search over fixture places, story paused (was \"segment 2 of 3 · 0:26 left · straight ahead, about 800 feet\", now \"segment 2 of 3 · 0:26 left · straight ahead, about 800 feet\"): grounded caption \"IdaThe closest is Corner coffee bar, about 0.2 miles away. I’ve put 5 options on the map.Text only · no voice available\"; result markers on the schematic map (tiles unreachable)"
+    },
+    {
+      "file": "s12-degraded-text-only-mobile.png",
+      "state": "Degraded delivery in the same frame: \"Text only · no voice available\" (no TTS provider in offline demo; headless browser has no speech-synthesis voice), \"Offline demo mode\" chip, SIMULATED banner. The answer is still delivered as text"
+    },
+    {
+      "file": "s08-resumed-story-mobile.png",
+      "state": "After the answer, ResumePolicy resumed the interrupted plan (progress \"segment 2 of 3 · 0:27 left · straight ahead, about 800 feet\"; before the question: \"segment 2 of 3 · 0:26 left · straight ahead, about 800 feet\"): same story, not restarted"
+    },
+    {
+      "file": "s10-history-mobile.png",
+      "state": "History after the session above (stored in browser localStorage; simulated entries are labelled)"
+    },
+    {
+      "file": "s11-settings-mobile.png",
+      "state": "Settings: guide, talkativeness, language, units, connection (Auto/Local/Live), spoken output, theme, delete my data"
+    },
+    {
+      "file": "s03-explore-idle-quiet-mobile.png",
+      "state": "Explore idle: after Skip the director enforces the cadence gap, so the app shows \"quiet stretch\" (silence is a designed state), walking regime, dense"
+    },
+    {
+      "file": "s09-drive-safe-mobile.png",
+      "state": "Drive-safe HUD auto-activated by the highway regime on the synthetic I-40 replay: dark palette, one status line, one large mic, no lists/text input"
+    },
+    {
+      "file": "s12b-degraded-api-unreachable-mobile.png",
+      "state": "Settings > Connection set to \"Live\" in a build with no API configured: the app falls back to the offline demo and states the reason instead of pretending to be live"
+    },
+    {
+      "file": "s13-webapp-desktop.png",
+      "state": "WebApp/PWA desktop layout, wtc-walk replay at x20, simulation panel visible; offline demo mode"
+    },
+    {
+      "file": "s13b-webapp-debug-explain-desktop.png",
+      "state": "Debug/explain drawer: candidate scores and suppression reasons from the running core (the same data the admin \"explain\" endpoint exposes)"
+    },
+    {
+      "file": "s14-website-desktop-fold.png",
+      "state": "Public website hero (apps/web route group (site)); no deployment exists, captured from the local production build"
+    },
+    {
+      "file": "s14b-website-desktop-full.png",
+      "state": "Public website, full page"
+    },
+    {
+      "file": "s15a-admin-login-desktop.png",
+      "state": "Admin console login (WebAuthn passkey only; no static password exists)"
+    },
+    {
+      "file": "s15-admin-overview-demo-desktop.png",
+      "state": "Admin overview in labelled ILLUSTRATIVE DEMO-DATA preview (no API connected). Not measurements"
+    },
+    {
+      "file": "s15c-admin-latency-demo-desktop.png",
+      "state": "Admin Latency view, ILLUSTRATIVE DEMO-DATA preview"
+    },
+    {
+      "file": "s15d-admin-cost-demo-desktop.png",
+      "state": "Admin Cost view, ILLUSTRATIVE DEMO-DATA preview"
+    },
+    {
+      "file": "s15e-admin-providers-demo-desktop.png",
+      "state": "Admin Providers view, ILLUSTRATIVE DEMO-DATA preview"
+    }
+  ]
+}

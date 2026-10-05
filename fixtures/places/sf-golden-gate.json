@@ -1,0 +1,248 @@
+[
+ {
+  "id": "fx:sf:golden-gate-bridge",
+  "name": "Golden Gate Bridge",
+  "kind": "bridge",
+  "location": {
+   "lat": 37.81972,
+   "lng": -122.47861
+  },
+  "extentM": 1350,
+  "significance": 0.98,
+  "tags": [
+   "bridge",
+   "art_deco",
+   "golden_gate_strait"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Golden_Gate_Bridge"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:fort-point",
+  "name": "Fort Point",
+  "kind": "historic_site",
+  "location": {
+   "lat": 37.81056,
+   "lng": -122.47722
+  },
+  "extentM": 60,
+  "significance": 0.8,
+  "tags": [
+   "fort",
+   "golden_gate_strait"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Fort_Point,_San_Francisco"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Fort_Point,_San_Francisco",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:presidio",
+  "name": "Presidio of San Francisco",
+  "kind": "park",
+  "location": {
+   "lat": 37.79806,
+   "lng": -122.46583
+  },
+  "extentM": 1600,
+  "significance": 0.86,
+  "tags": [
+   "park",
+   "military_history"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Presidio_of_San_Francisco"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Presidio_of_San_Francisco",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:welcome-center",
+  "name": "Golden Gate Bridge Welcome Center",
+  "kind": "landmark",
+  "location": {
+   "lat": 37.8072,
+   "lng": -122.4755
+  },
+  "extentM": 40,
+  "significance": 0.5,
+  "tags": [
+   "visitor_center"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:vista-point-north",
+  "name": "Vista Point",
+  "kind": "landmark",
+  "location": {
+   "lat": 37.8324,
+   "lng": -122.4795
+  },
+  "extentM": 60,
+  "significance": 0.4,
+  "tags": [
+   "viewpoint"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:alcatraz",
+  "name": "Alcatraz Island",
+  "kind": "historic_site",
+  "location": {
+   "lat": 37.8267,
+   "lng": -122.423
+  },
+  "extentM": 400,
+  "significance": 0.93,
+  "tags": [
+   "island",
+   "prison"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Alcatraz_Island"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Alcatraz_Island",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:palace-fine-arts",
+  "name": "Palace of Fine Arts",
+  "kind": "landmark",
+  "location": {
+   "lat": 37.8029,
+   "lng": -122.4484
+  },
+  "extentM": 120,
+  "significance": 0.85,
+  "tags": [
+   "architecture"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Palace_of_Fine_Arts"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Palace_of_Fine_Arts",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:coit-tower",
+  "name": "Coit Tower",
+  "kind": "landmark",
+  "location": {
+   "lat": 37.8024,
+   "lng": -122.4058
+  },
+  "extentM": 30,
+  "significance": 0.85,
+  "tags": [
+   "tower"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "Coit_Tower"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/Coit_Tower",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:san-francisco",
+  "name": "San Francisco",
+  "kind": "city",
+  "location": {
+   "lat": 37.7793,
+   "lng": -122.4193
+  },
+  "extentM": 6000,
+  "significance": 0.97,
+  "tags": [
+   "city"
+  ],
+  "externalRefs": {
+   "wikipediaTitle": "San_Francisco"
+  },
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "https://en.wikipedia.org/wiki/San_Francisco",
+    "license": "CC BY-SA 4.0",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ },
+ {
+  "id": "fx:sf:cafe-1",
+  "name": "Bridge cafe",
+  "kind": "food",
+  "location": {
+   "lat": 37.8074,
+   "lng": -122.4752
+  },
+  "extentM": 0,
+  "significance": 0.3,
+  "tags": [
+   "coffee"
+  ],
+  "externalRefs": {},
+  "sources": [
+   {
+    "provider": "fixture",
+    "ref": "fixture:hand-authored",
+    "retrievedAt": 1790467200000
+   }
+  ]
+ }
+]
