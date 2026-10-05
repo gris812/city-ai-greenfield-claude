@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 560" width="840" height="560" role="img" aria-label="Service and module diagram"><title>Service and module diagram</title><desc>Monorepo packages and apps with dependency direction and test counts</desc><defs><marker id="ah1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah5" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker><marker id="ah6" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F5A53"/></marker></defs><rect width="840" height="560" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">Service and module map</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">One TypeScript monorepo; the same decision code runs in the API, the browser, the phone and the replay harness</text>
+<rect x="24.0" y="86.0" width="792.0" height="140.0" rx="14" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="2"/>
+<text x="40.0" y="110.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#131A1D" text-anchor="start">packages/core  ·  pure, deterministic product brain  ·  189 tests</text>
+<rect x="40.0" y="124.0" width="40.2" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="60.1" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">geo</text>
+<rect x="87.2" y="124.0" width="62.4" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="118.4" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">regime</text>
+<rect x="156.6" y="124.0" width="69.8" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="191.5" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">density</text>
+<rect x="233.4" y="124.0" width="84.6" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="275.7" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">discovery</text>
+<rect x="325.0" y="124.0" width="69.8" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="359.9" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">refresh</text>
+<rect x="401.8" y="124.0" width="77.2" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="440.4" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">director</text>
+<rect x="486.0" y="124.0" width="62.4" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="517.2" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">policy</text>
+<rect x="555.4" y="124.0" width="62.4" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="586.6" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">safety</text>
+<rect x="624.8" y="124.0" width="62.4" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="656.0" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">resume</text>
+<rect x="694.2" y="124.0" width="55.0" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="721.7" y="140.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">brief</text>
+<rect x="40.0" y="156.0" width="129.0" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="104.5" y="172.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">story-primitive</text>
+<rect x="176.0" y="156.0" width="84.6" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="218.3" y="172.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">grounding</text>
+<rect x="267.6" y="156.0" width="69.8" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="302.5" y="172.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">segment</text>
+<rect x="344.4" y="156.0" width="62.4" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="375.6" y="172.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">intent</text>
+<rect x="413.8" y="156.0" width="69.8" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="448.7" y="172.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">journey</text>
+<rect x="490.6" y="156.0" width="62.4" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="521.8" y="172.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">memory</text>
+<rect x="560.0" y="156.0" width="62.4" height="24.0" rx="12" fill="#FFFFFF" stroke="#2A7A88" stroke-width="1.1"/>
+<text x="591.2" y="172.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="middle">guides</text>
+<text x="40.0" y="214.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">No I/O, no clock, no randomness: time and ids are injected. A build-time test forbids city names and fixture imports.</text>
+<rect x="24.0" y="262.0" width="250.0" height="92.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="149.0" y="292.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="middle">packages/providers</text>
+<text x="149.0" y="307.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.582399412088922" font-weight="500" fill="#5F5A53" text-anchor="middle">adapters + router + guard + fakes · 104 tests</text>
+<text x="149.0" y="321.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.582399412088922" font-weight="500" fill="#5F5A53" text-anchor="middle">OpenAI, Gemini, Anthropic, Google TTS/Places,</text>
+<text x="149.0" y="335.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.582399412088922" font-weight="500" fill="#5F5A53" text-anchor="middle">Wikimedia</text>
+<rect x="294.0" y="262.0" width="250.0" height="92.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="419.0" y="301.9" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="middle">packages/client</text>
+<text x="419.0" y="314.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="500" fill="#5F5A53" text-anchor="middle">typed API client, channel, sequencer, LocalEngine · 29 tests</text>
+<text x="419.0" y="325.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="500" fill="#5F5A53" text-anchor="middle">shared by web and mobile</text>
+<rect x="566.0" y="262.0" width="250.0" height="92.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="691.0" y="299.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#131A1D" text-anchor="middle">packages/replay</text>
+<text x="691.0" y="314.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.615329000063795" font-weight="500" fill="#5F5A53" text-anchor="middle">replay harness + acceptance asserts · 35 tests</text>
+<text x="691.0" y="328.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.615329000063795" font-weight="500" fill="#5F5A53" text-anchor="middle">synthetic traces over fixture packs</text>
+<path d="M149.0,262.0 L149.0,226.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah1)" stroke-linejoin="round"/>
+<path d="M419.0,262.0 L419.0,226.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah2)" stroke-linejoin="round"/>
+<path d="M691.0,262.0 L691.0,226.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah3)" stroke-linejoin="round"/>
+<rect x="24.0" y="392.0" width="250.0" height="118.0" rx="10" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="149.0" y="435.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="700" fill="#131A1D" text-anchor="middle">apps/api</text>
+<text x="149.0" y="450.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.801220330181534" font-weight="500" fill="#5F5A53" text-anchor="middle">Fastify, WebSocket, Postgres, Redis · 88 tests</text>
+<text x="149.0" y="464.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.801220330181534" font-weight="500" fill="#5F5A53" text-anchor="middle">sessions, directives, tools, admin API,</text>
+<text x="149.0" y="478.8" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.801220330181534" font-weight="500" fill="#5F5A53" text-anchor="middle">telemetry + cost ledger, migrations</text>
+<rect x="294.0" y="392.0" width="250.0" height="118.0" rx="10" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.6"/>
+<text x="419.0" y="436.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="700" fill="#131A1D" text-anchor="middle">apps/web</text>
+<text x="419.0" y="450.9" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.315683613795574" font-weight="500" fill="#5F5A53" text-anchor="middle">Next.js 15: site + /app + /admin</text>
+<text x="419.0" y="464.3" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.315683613795574" font-weight="500" fill="#5F5A53" text-anchor="middle">5 Playwright smoke tests (+5 screenshot specs)</text>
+<text x="419.0" y="477.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.315683613795574" font-weight="500" fill="#5F5A53" text-anchor="middle">runs LocalEngine in-browser for offline demo</text>
+<rect x="566.0" y="392.0" width="250.0" height="118.0" rx="10" fill="#FCEBC7" stroke="#8F5B00" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="691.0" y="434.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="700" fill="#131A1D" text-anchor="middle">apps/mobile</text>
+<text x="691.0" y="450.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.249915490418491" font-weight="500" fill="#5F5A53" text-anchor="middle">Expo SDK 57 / RN, dev-client · 15 logic tests</text>
+<text x="691.0" y="465.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.249915490418491" font-weight="500" fill="#5F5A53" text-anchor="middle">Explore, Drive HUD, History, Settings, admin</text>
+<text x="691.0" y="479.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.249915490418491" font-weight="500" fill="#5F5A53" text-anchor="middle">bundles build; no device run</text>
+<path d="M149.0,392.0 L149.0,354.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah4)" stroke-linejoin="round"/>
+<path d="M419.0,392.0 L419.0,354.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah5)" stroke-linejoin="round"/>
+<path d="M691.0,392.0 L691.0,374.0 L480.0,374.0 L480.0,354.0" fill="none" stroke="#5F5A53" stroke-width="1.5" marker-end="url(#ah6)" stroke-linejoin="round"/>
+<text x="24.0" y="534.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">Arrows point from a package to what it depends on. fixtures/ is loaded only by tests, replay and a labelled demo mode (D-005).</text>
+<text x="24.0" y="548.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Source: DECISIONS.md D-001; `pnpm -r test` run 2026-10-04 (460 tests, 0 failures). Web e2e: 5/5 smoke tests pass (Playwright, offline demo).</text>
+</svg>

@@ -52,3 +52,8 @@ tmp/
 data/local/
 benchmark/runs/raw/
 dump.rdb
+
+# Report build intermediates and the unpacked packet (the zip is committed)
+deliverables/report-build/
+deliverables/packet/
+__pycache__/

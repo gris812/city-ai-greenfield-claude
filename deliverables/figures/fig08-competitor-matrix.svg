@@ -1,0 +1,363 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 706" width="840" height="706" role="img" aria-label="Competitor feature matrix"><title>Competitor feature matrix</title><desc>Feature matrix from competitors.json plus Telvey as built</desc><rect width="840" height="706" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">Competitor feature matrix</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">Sourced competitor cells (as of 2026-09-27) next to what Telvey actually has today</text>
+<text x="240.1" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Any place</text>
+<text x="240.1" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">(dynamic)</text>
+<text x="292.3" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Proactive</text>
+<text x="292.3" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">narration</text>
+<text x="344.5" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Voice</text>
+<text x="344.5" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Q&amp;A</text>
+<text x="396.7" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Driving</text>
+<text x="396.7" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">mode</text>
+<text x="448.9" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Looks</text>
+<text x="448.9" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">ahead</text>
+<text x="501.1" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Walking</text>
+<text x="501.1" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">mode</text>
+<text x="553.3" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Journey</text>
+<text x="553.3" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">memory</text>
+<text x="605.5" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Silence</text>
+<text x="605.5" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">policy</text>
+<text x="657.7" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Choice of</text>
+<text x="657.7" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">voices</text>
+<text x="709.9" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">CarPlay /</text>
+<text x="709.9" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Andr. Auto</text>
+<text x="762.1" y="82.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Offline</text>
+<text x="814.3" y="76.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">Global</text>
+<text x="814.3" y="89.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#5F5A53" text-anchor="middle">coverage</text>
+<rect x="18.0" y="109.0" width="804.0" height="27.0" rx="6" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="24.0" y="126.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="start">Telvey as built (fixtures, fakes)</text>
+<circle cx="240.1" cy="122.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M240.1,115.5 A7,7 0 0 0 240.1,129.5 Z" fill="#B7791F"/>
+<circle cx="292.3" cy="122.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="122.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M344.5,115.5 A7,7 0 0 0 344.5,129.5 Z" fill="#B7791F"/>
+<circle cx="396.7" cy="122.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M396.7,115.5 A7,7 0 0 0 396.7,129.5 Z" fill="#B7791F"/>
+<circle cx="448.9" cy="122.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="501.1" cy="122.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="553.3" cy="122.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="605.5" cy="122.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="657.7" cy="122.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M657.7,115.5 A7,7 0 0 0 657.7,129.5 Z" fill="#B7791F"/>
+<circle cx="709.9" cy="122.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="705.9" y1="122.5" x2="713.9" y2="122.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="762.1" cy="122.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M762.1,115.5 A7,7 0 0 0 762.1,129.5 Z" fill="#B7791F"/>
+<circle cx="814.3" cy="122.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M814.3,115.5 A7,7 0 0 0 814.3,129.5 Z" fill="#B7791F"/>
+<rect x="18.0" y="136.0" width="804.0" height="27.0" rx="6" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="24.0" y="153.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#131A1D" text-anchor="start">Telvey target (not built)</text>
+<circle cx="240.1" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="292.3" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="396.7" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="501.1" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="553.3" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="605.5" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="657.7" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="709.9" cy="149.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M709.9,142.5 A7,7 0 0 0 709.9,156.5 Z" fill="#B7791F"/>
+<circle cx="762.1" cy="149.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M762.1,142.5 A7,7 0 0 0 762.1,156.5 Z" fill="#B7791F"/>
+<circle cx="814.3" cy="149.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<rect x="18.0" y="163.0" width="804.0" height="27.0" rx="4" fill="#FFFFFF" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<text x="24.0" y="180.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Google Maps + Gemini</text>
+<circle cx="240.1" cy="176.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="292.3" cy="176.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="288.3" y1="176.5" x2="296.3" y2="176.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="344.5" cy="176.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="396.7" cy="176.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="176.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M448.9,169.5 A7,7 0 0 0 448.9,183.5 Z" fill="#B7791F"/>
+<circle cx="501.1" cy="176.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="553.3" y="181.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="605.5" cy="176.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="176.5" x2="609.5" y2="176.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="176.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="176.5" x2="661.7" y2="176.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="709.9" cy="176.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="762.1" cy="176.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M762.1,169.5 A7,7 0 0 0 762.1,183.5 Z" fill="#B7791F"/>
+<circle cx="814.3" cy="176.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="24.0" y="207.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Gemini in Android Auto</text>
+<circle cx="240.1" cy="203.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="292.3" cy="203.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="288.3" y1="203.5" x2="296.3" y2="203.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="344.5" cy="203.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="396.7" cy="203.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="203.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M448.9,196.5 A7,7 0 0 0 448.9,210.5 Z" fill="#B7791F"/>
+<circle cx="501.1" cy="203.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="497.1" y1="203.5" x2="505.1" y2="203.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="553.3" y="208.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="605.5" cy="203.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="203.5" x2="609.5" y2="203.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="203.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="203.5" x2="661.7" y2="203.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="709.9" cy="203.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="762.1" cy="203.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="758.1" y1="203.5" x2="766.1" y2="203.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="814.3" cy="203.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<rect x="18.0" y="217.0" width="804.0" height="27.0" rx="4" fill="#FFFFFF" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<text x="24.0" y="234.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Apple Siri AI + Maps</text>
+<circle cx="240.1" cy="230.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M240.1,223.5 A7,7 0 0 0 240.1,237.5 Z" fill="#B7791F"/>
+<circle cx="292.3" cy="230.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="288.3" y1="230.5" x2="296.3" y2="230.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="344.5" cy="230.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="396.7" cy="230.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="230.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="230.5" x2="452.9" y2="230.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="230.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M501.1,223.5 A7,7 0 0 0 501.1,237.5 Z" fill="#B7791F"/>
+<text x="553.3" y="235.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="605.5" cy="230.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="230.5" x2="609.5" y2="230.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="230.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="230.5" x2="661.7" y2="230.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="709.9" cy="230.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="762.1" cy="230.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M762.1,223.5 A7,7 0 0 0 762.1,237.5 Z" fill="#B7791F"/>
+<circle cx="814.3" cy="230.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="24.0" y="261.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">ChatGPT voice</text>
+<circle cx="240.1" cy="257.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M240.1,250.5 A7,7 0 0 0 240.1,264.5 Z" fill="#B7791F"/>
+<circle cx="292.3" cy="257.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="288.3" y1="257.5" x2="296.3" y2="257.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="344.5" cy="257.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="396.7" cy="257.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M396.7,250.5 A7,7 0 0 0 396.7,264.5 Z" fill="#B7791F"/>
+<circle cx="448.9" cy="257.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="257.5" x2="452.9" y2="257.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="257.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M501.1,250.5 A7,7 0 0 0 501.1,264.5 Z" fill="#B7791F"/>
+<circle cx="553.3" cy="257.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M553.3,250.5 A7,7 0 0 0 553.3,264.5 Z" fill="#B7791F"/>
+<circle cx="605.5" cy="257.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="257.5" x2="609.5" y2="257.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="257.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="257.5" x2="661.7" y2="257.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="709.9" cy="257.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="762.1" cy="257.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="758.1" y1="257.5" x2="766.1" y2="257.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="814.3" cy="257.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<rect x="18.0" y="271.0" width="804.0" height="27.0" rx="4" fill="#FFFFFF" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<text x="24.0" y="288.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Autio</text>
+<circle cx="240.1" cy="284.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="236.1" y1="284.5" x2="244.1" y2="284.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="292.3" cy="284.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="284.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="284.5" x2="348.5" y2="284.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="396.7" cy="284.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="284.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M448.9,277.5 A7,7 0 0 0 448.9,291.5 Z" fill="#B7791F"/>
+<circle cx="501.1" cy="284.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="497.1" y1="284.5" x2="505.1" y2="284.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="553.3" cy="284.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M553.3,277.5 A7,7 0 0 0 553.3,291.5 Z" fill="#B7791F"/>
+<text x="605.5" y="289.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="657.7" cy="284.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="284.5" x2="661.7" y2="284.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="709.9" cy="284.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="762.1" y="289.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="814.3" cy="284.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M814.3,277.5 A7,7 0 0 0 814.3,291.5 Z" fill="#B7791F"/>
+<text x="24.0" y="315.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">VoiceMap</text>
+<circle cx="240.1" cy="311.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="236.1" y1="311.5" x2="244.1" y2="311.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="292.3" cy="311.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="311.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="311.5" x2="348.5" y2="311.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="396.7" cy="311.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M396.7,304.5 A7,7 0 0 0 396.7,318.5 Z" fill="#B7791F"/>
+<circle cx="448.9" cy="311.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="311.5" x2="452.9" y2="311.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="311.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="553.3" cy="311.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="549.3" y1="311.5" x2="557.3" y2="311.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="605.5" cy="311.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="311.5" x2="609.5" y2="311.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="311.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="311.5" x2="661.7" y2="311.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="709.9" y="316.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="762.1" cy="311.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="814.3" cy="311.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M814.3,304.5 A7,7 0 0 0 814.3,318.5 Z" fill="#B7791F"/>
+<rect x="18.0" y="325.0" width="804.0" height="27.0" rx="4" fill="#FFFFFF" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<text x="24.0" y="342.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">GuideAlong</text>
+<circle cx="240.1" cy="338.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="236.1" y1="338.5" x2="244.1" y2="338.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="292.3" cy="338.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="338.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="338.5" x2="348.5" y2="338.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="396.7" cy="338.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="338.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="338.5" x2="452.9" y2="338.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="338.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M501.1,331.5 A7,7 0 0 0 501.1,345.5 Z" fill="#B7791F"/>
+<circle cx="553.3" cy="338.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="549.3" y1="338.5" x2="557.3" y2="338.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="605.5" cy="338.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="338.5" x2="609.5" y2="338.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="338.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="338.5" x2="661.7" y2="338.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="709.9" cy="338.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="762.1" cy="338.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="814.3" cy="338.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M814.3,331.5 A7,7 0 0 0 814.3,345.5 Z" fill="#B7791F"/>
+<text x="24.0" y="369.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Shaka Guide</text>
+<circle cx="240.1" cy="365.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="236.1" y1="365.5" x2="244.1" y2="365.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="292.3" cy="365.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="365.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="365.5" x2="348.5" y2="365.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="396.7" cy="365.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="365.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="365.5" x2="452.9" y2="365.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="365.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="553.3" cy="365.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="549.3" y1="365.5" x2="557.3" y2="365.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="605.5" cy="365.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="365.5" x2="609.5" y2="365.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="365.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="365.5" x2="661.7" y2="365.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="709.9" y="370.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="762.1" cy="365.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="814.3" cy="365.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M814.3,358.5 A7,7 0 0 0 814.3,372.5 Z" fill="#B7791F"/>
+<rect x="18.0" y="379.0" width="804.0" height="27.0" rx="4" fill="#FFFFFF" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<text x="24.0" y="396.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">SmartGuide</text>
+<circle cx="240.1" cy="392.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="236.1" y1="392.5" x2="244.1" y2="392.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="292.3" cy="392.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="392.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="392.5" x2="348.5" y2="392.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="396.7" cy="392.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="392.7" y1="392.5" x2="400.7" y2="392.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="448.9" cy="392.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="392.5" x2="452.9" y2="392.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="392.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="553.3" cy="392.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="549.3" y1="392.5" x2="557.3" y2="392.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="605.5" cy="392.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="392.5" x2="609.5" y2="392.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="392.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="392.5" x2="661.7" y2="392.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="709.9" y="397.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="762.1" cy="392.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="814.3" cy="392.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M814.3,385.5 A7,7 0 0 0 814.3,399.5 Z" fill="#B7791F"/>
+<text x="24.0" y="423.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">izi.TRAVEL</text>
+<circle cx="240.1" cy="419.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="236.1" y1="419.5" x2="244.1" y2="419.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="292.3" cy="419.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="419.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="419.5" x2="348.5" y2="419.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="396.7" cy="419.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="392.7" y1="419.5" x2="400.7" y2="419.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="448.9" cy="419.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="419.5" x2="452.9" y2="419.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="419.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="553.3" cy="419.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="549.3" y1="419.5" x2="557.3" y2="419.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="605.5" cy="419.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="419.5" x2="609.5" y2="419.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="419.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="653.7" y1="419.5" x2="661.7" y2="419.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="709.9" y="424.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="762.1" cy="419.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="814.3" cy="419.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M814.3,412.5 A7,7 0 0 0 814.3,426.5 Z" fill="#B7791F"/>
+<rect x="18.0" y="433.0" width="804.0" height="27.0" rx="4" fill="#FFFFFF" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<text x="24.0" y="450.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">RoadWhisper</text>
+<circle cx="240.1" cy="446.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="292.3" cy="446.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="446.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="446.5" x2="348.5" y2="446.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="396.7" cy="446.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="448.9" cy="446.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="446.5" x2="452.9" y2="446.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="446.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="497.1" y1="446.5" x2="505.1" y2="446.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="553.3" y="451.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="605.5" cy="446.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M605.5,439.5 A7,7 0 0 0 605.5,453.5 Z" fill="#B7791F"/>
+<circle cx="657.7" cy="446.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M657.7,439.5 A7,7 0 0 0 657.7,453.5 Z" fill="#B7791F"/>
+<circle cx="709.9" cy="446.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="705.9" y1="446.5" x2="713.9" y2="446.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="762.1" cy="446.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="758.1" y1="446.5" x2="766.1" y2="446.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="814.3" cy="446.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="24.0" y="477.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Nextour</text>
+<circle cx="240.1" cy="473.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="292.3" cy="473.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M292.3,466.5 A7,7 0 0 0 292.3,480.5 Z" fill="#B7791F"/>
+<circle cx="344.5" cy="473.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="396.7" cy="473.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="392.7" y1="473.5" x2="400.7" y2="473.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="448.9" cy="473.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="473.5" x2="452.9" y2="473.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="473.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="553.3" y="478.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="605.5" cy="473.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="473.5" x2="609.5" y2="473.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="473.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="709.9" y="478.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="762.1" cy="473.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="758.1" y1="473.5" x2="766.1" y2="473.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="814.3" cy="473.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<rect x="18.0" y="487.0" width="804.0" height="27.0" rx="4" fill="#FFFFFF" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<text x="24.0" y="504.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Narrativ</text>
+<circle cx="240.1" cy="500.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="292.3" cy="500.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="500.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M344.5,493.5 A7,7 0 0 0 344.5,507.5 Z" fill="#B7791F"/>
+<circle cx="396.7" cy="500.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="392.7" y1="500.5" x2="400.7" y2="500.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="448.9" cy="500.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="444.9" y1="500.5" x2="452.9" y2="500.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="501.1" cy="500.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="553.3" y="505.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="605.5" cy="500.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="601.5" y1="500.5" x2="609.5" y2="500.5" stroke="#A39D93" stroke-width="1.4"/>
+<circle cx="657.7" cy="500.5" r="7" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M657.7,493.5 A7,7 0 0 0 657.7,507.5 Z" fill="#B7791F"/>
+<text x="709.9" y="505.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="762.1" cy="500.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="814.3" cy="500.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<text x="24.0" y="531.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#131A1D" text-anchor="start">Waytale (listing read 2026-10-04)</text>
+<text x="240.1" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="292.3" cy="527.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="344.5" cy="527.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="340.5" y1="527.5" x2="348.5" y2="527.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="396.7" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<text x="448.9" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<text x="501.1" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<text x="553.3" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<text x="605.5" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="657.7" cy="527.5" r="7" fill="#1A6B45" stroke="#1A6B45" stroke-width="1"/>
+<circle cx="709.9" cy="527.5" r="7" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="705.9" y1="527.5" x2="713.9" y2="527.5" stroke="#A39D93" stroke-width="1.4"/>
+<text x="762.1" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<text x="814.3" y="532.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="middle">?</text>
+<circle cx="30.0" cy="558.0" r="6" fill="#1A6B45" stroke="#1A6B45" stroke-width="1.5"/>
+<text x="42.0" y="562.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">Yes (sourced for competitors)</text>
+<circle cx="215.0" cy="558.0" r="6" fill="#FFFFFF" stroke="#B7791F" stroke-width="1.8"/>
+<path d="M215,552 A6,6 0 0 0 215,564 Z" fill="#B7791F"/>
+<text x="227.0" y="562.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">Partial</text>
+<circle cx="290.0" cy="558.0" r="6" fill="#FFFFFF" stroke="#A39D93" stroke-width="1.4"/>
+<line x1="286.0" y1="558.0" x2="294.0" y2="558.0" stroke="#A39D93" stroke-width="1.4"/>
+<text x="302.0" y="562.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">No / not found</text>
+<text x="410.0" y="562.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#726C63" text-anchor="start">?</text>
+<text x="422.0" y="562.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#5F5A53" text-anchor="start">Unknown</text>
+<text x="24.0" y="586.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">Telvey as built: Yes = works end to end in tests, replay or the harness with fake providers; Partial = built but not proven live, on a device or with real</text>
+<text x="24.0" y="599.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">providers; No = not built. Our own assessment.</text>
+<text x="24.0" y="615.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">Telvey target row is the aspiration from the earlier feature matrix and is NOT what exists today (CarPlay / Android Auto: not built, needs an Apple</text>
+<text x="24.0" y="628.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">entitlement; offline: prefetch only).</text>
+<text x="24.0" y="644.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">Waytale (AI audio city guide, first released 2025-09-03): proactive, voices and the No cells come from its App Store listing read on 2026-10-04; whether</text>
+<text x="24.0" y="657.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">stories are generated live is unknown. No / not found means not found in public sources, not proof of absence. Voice choice for Telvey is Partial because</text>
+<text x="24.0" y="671.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">no voice has been heard.</text>
+<text x="24.0" y="692.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#726C63" text-anchor="start">Source: benchmark/research/competitors.json (featureMatrix, retrieved 2026-09-27); Telvey as-built row from results.json and docs/STATUS.md.</text>
+</svg>

@@ -1,0 +1,46 @@
+// Short demo recording: WebApp (offline demo mode, SIMULATED location) running wtc-walk, a typed coffee interruption + resume,
+// then switching to the interstate scenario (drive-safe HUD). Playwright recordVideo -> webm; ffmpeg converts to mp4.
+import { createRequire } from 'node:module';
+import { mkdirSync, readdirSync, renameSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const require = createRequire(import.meta.url);
+const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const { chromium } = require(join(root, 'node_modules/.pnpm/playwright-core@1.56.1/node_modules/playwright-core'));
+const BASE = `http://127.0.0.1:${process.env.E2E_PORT ?? '3100'}`;
+const OUT = join(root, 'deliverables', 'demo');
+mkdirSync(OUT, { recursive: true });
+const browser = await chromium.launch();
+const ctx = await browser.newContext({ viewport: { width: 1100, height: 700 }, recordVideo: { dir: OUT, size: { width: 1100, height: 700 } }, locale: 'en-US' });
+const page = await ctx.newPage();
+await page.goto(`${BASE}/app`);
+await page.getByTestId('start-card').waitFor();
+await page.waitForTimeout(1800);
+await page.getByTestId('scenario-select').selectOption('wtc-walk');
+await page.getByTestId('sim-play').click();
+await page.getByTestId('now-playing').waitFor({ timeout: 60000 });
+await page.waitForFunction(() => /segment [2-9] of/.test(document.querySelector('.np-meta')?.textContent ?? ''), null, { timeout: 90000 });
+await page.waitForTimeout(2500);
+await page.getByTestId('mic').dispatchEvent('pointerdown');
+await page.getByTestId('listening-sheet').waitFor();
+await page.waitForTimeout(1500);
+if ((await page.getByTestId('ask-input').count()) === 0) await page.getByRole('button', { name: 'Type instead' }).click();
+await page.getByTestId('ask-input').pressSequentially('Where can I get coffee nearby?', { delay: 55 });
+await page.waitForTimeout(600);
+await page.getByTestId('ask-input').press('Enter');
+await page.getByTestId('caption').waitFor({ timeout: 20000 });
+await page.waitForTimeout(5000);
+await page.getByTestId('caption').waitFor({ state: 'detached', timeout: 60000 }).catch(() => {});
+await page.waitForTimeout(6000);
+// switch scenario (the simulation panel stays visible on desktop)
+await page.getByTestId('scenario-select').selectOption('interstate');
+await page.getByTestId('speed-20').click();
+await page.getByTestId('sim-play').click().catch(() => {});
+await page.getByTestId('drive-hud').waitFor({ timeout: 60000 });
+await page.waitForTimeout(9000);
+const vid = page.video();
+await ctx.close();
+const p = await vid.path();
+renameSync(p, join(OUT, 'telvey-web-demo.webm'));
+await browser.close();
+console.log('saved', join(OUT, 'telvey-web-demo.webm'));

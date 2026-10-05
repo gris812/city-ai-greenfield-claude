@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 432" width="840" height="432" role="img" aria-label="Free tier unit economics"><title>Free tier unit economics</title><desc>Per monthly active user: net revenue vs variable cost under the modelled usage</desc><rect width="840" height="432" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">Why the free tier is unaffordable as specified</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">Per monthly active user per month, USD; HYPOTHESIS revenue and usage, ESTIMATED cost (list prices)</text>
+<text x="24.0" y="125.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">Net revenue per MAU</text>
+<rect x="250.0" y="110.0" width="45.3" height="24.0" rx="4" fill="#1A6B45" stroke="none" stroke-width="1.5"/>
+<text x="303.3" y="127.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">$0.059</text>
+<text x="250.0" y="150.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#726C63" text-anchor="start">HYPOTHESIS: 2.1% pay $39.99/yr, 15% store fee</text>
+<text x="24.0" y="191.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">Variable cost, 50% shared-cache hit</text>
+<rect x="250.0" y="176.0" width="241.8" height="24.0" rx="4" fill="#2A7A88" stroke="none" stroke-width="1.5"/>
+<text x="499.8" y="193.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">$0.317</text>
+<text x="250.0" y="216.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#726C63" text-anchor="start">ESTIMATED: 2.08 sessions x $0.153; 50% is ASSUMED</text>
+<text x="24.0" y="257.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="start">Variable cost, no shared cache</text>
+<rect x="250.0" y="242.0" width="443.5" height="24.0" rx="4" fill="#B23A1E" stroke="none" stroke-width="1.5"/>
+<text x="701.5" y="259.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="start">$0.582</text>
+<text x="250.0" y="282.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="500" fill="#726C63" text-anchor="start">ESTIMATED: 2.08 sessions x $0.280</text>
+<rect x="24.0" y="318.0" width="792.0" height="64.0" rx="8" fill="#FCEBC7" stroke="#8F5B00" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="36.0" y="340.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#131A1D" text-anchor="start">At the modelled usage a free user costs about 5.3 to 9.8 times the revenue they bring. Revenue funds only 0.21 sessions per MAU per month</text>
+<text x="36.0" y="355.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#131A1D" text-anchor="start">at the default voice mix; break-even needs 34% of users paying with no shared cache (the 2.1% freemium median is the hypothesis). Free</text>
+<text x="36.0" y="370.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#131A1D" text-anchor="start">access must be capped to a few trial sessions.</text>
+<text x="24.0" y="404.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Source: benchmark/cost/cost_model.json unitEconomics (Medium case, 25,000 MAU); label: engineering model, not telemetry. Free-tier caps and</text>
+<text x="24.0" y="418.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Google free quotas ignored.</text>
+</svg>

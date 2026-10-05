@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 590" width="840" height="590" role="img" aria-label="Provider abstraction, routing, fallback and budget"><title>Provider abstraction, routing, fallback and budget</title><desc>Interfaces, router chains, guard and adapters</desc><defs><marker id="ah1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah5" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah6" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah7" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah8" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah9" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah10" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah11" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah12" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah13" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker><marker id="ah14" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#726C63"/></marker></defs><rect width="840" height="590" fill="#F7F4EE"/>
+<text x="24.0" y="34.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#131A1D" text-anchor="start">Provider abstraction, routing and budget</text>
+<text x="24.0" y="56.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#5F5A53" text-anchor="start">Every paid or external call passes one guard; a refusal stops the chain instead of fanning out</text>
+<text x="24.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="1.2">CORE INTERFACES</text>
+<rect x="24.0" y="104.0" width="170.0" height="42.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="109.0" y="129.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">TextGenerator</text>
+<rect x="24.0" y="156.0" width="170.0" height="42.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="109.0" y="181.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">SpeechSynthesizer</text>
+<rect x="24.0" y="208.0" width="170.0" height="42.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="109.0" y="233.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">SpeechRecognizer</text>
+<rect x="24.0" y="260.0" width="170.0" height="42.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="109.0" y="285.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">RealtimeTokenIssuer</text>
+<rect x="24.0" y="312.0" width="170.0" height="42.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="109.0" y="337.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">PlaceSource</text>
+<rect x="24.0" y="364.0" width="170.0" height="42.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="109.0" y="389.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">KnowledgeSource</text>
+<rect x="24.0" y="416.0" width="170.0" height="42.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="109.0" y="441.6" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">NearbySearch</text>
+<rect x="236.0" y="104.0" width="250.0" height="358.0" rx="14" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="2"/>
+<text x="361.0" y="130.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#131A1D" text-anchor="middle">ProviderRouter</text>
+<text x="361.0" y="148.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#5F5A53" text-anchor="middle">ordered chain per task</text>
+<rect x="252.0" y="164.0" width="218.0" height="120.0" rx="8" fill="#EEF6F7" stroke="#0F4C5C" stroke-width="1.6"/>
+<text x="361.0" y="204.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#131A1D" text-anchor="middle">ProviderGuard</text>
+<text x="361.0" y="218.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.231252588435229" font-weight="500" fill="#5F5A53" text-anchor="middle">per-session call caps + global per-minute caps</text>
+<text x="361.0" y="230.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.231252588435229" font-weight="500" fill="#5F5A53" text-anchor="middle">$1.00 estimated per-session USD cap</text>
+<text x="361.0" y="242.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.231252588435229" font-weight="500" fill="#5F5A53" text-anchor="middle">circuit breaker, 1 retry max, timeout</text>
+<text x="361.0" y="254.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="9.231252588435229" font-weight="500" fill="#5F5A53" text-anchor="middle">metered(): cost + latency + cache flag</text>
+<rect x="252.0" y="296.0" width="218.0" height="62.0" rx="8" fill="#FCEBC7" stroke="#8F5B00" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="361.0" y="317.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">Fallback rule</text>
+<text x="361.0" y="333.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">provider error: next in chain</text>
+<text x="361.0" y="347.5" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">budget refusal / abort: STOP</text>
+<rect x="252.0" y="370.0" width="218.0" height="78.0" rx="8" fill="#DDF1E6" stroke="#1A6B45" stroke-width="1.6"/>
+<text x="361.0" y="392.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#131A1D" text-anchor="middle">Floors (always available)</text>
+<text x="361.0" y="408.1" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">story: deterministic template</text>
+<text x="361.0" y="422.4" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">voice: text + device TTS</text>
+<text x="361.0" y="436.7" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">intent: heuristic rules</text>
+<path d="M194.0,125.0 L236.0,125.0" fill="none" stroke="#726C63" stroke-width="1.1" marker-end="url(#ah1)" stroke-linejoin="round"/>
+<path d="M194.0,177.0 L236.0,177.0" fill="none" stroke="#726C63" stroke-width="1.1" marker-end="url(#ah2)" stroke-linejoin="round"/>
+<path d="M194.0,229.0 L236.0,229.0" fill="none" stroke="#726C63" stroke-width="1.1" marker-end="url(#ah3)" stroke-linejoin="round"/>
+<path d="M194.0,281.0 L236.0,281.0" fill="none" stroke="#726C63" stroke-width="1.1" marker-end="url(#ah4)" stroke-linejoin="round"/>
+<path d="M194.0,333.0 L236.0,333.0" fill="none" stroke="#726C63" stroke-width="1.1" marker-end="url(#ah5)" stroke-linejoin="round"/>
+<path d="M194.0,385.0 L236.0,385.0" fill="none" stroke="#726C63" stroke-width="1.1" marker-end="url(#ah6)" stroke-linejoin="round"/>
+<path d="M194.0,437.0 L236.0,437.0" fill="none" stroke="#726C63" stroke-width="1.1" marker-end="url(#ah7)" stroke-linejoin="round"/>
+<text x="530.0" y="92.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#726C63" text-anchor="start" letter-spacing="1.2">ADAPTERS (chain order)</text>
+<rect x="530.0" y="104.0" width="286.0" height="44.0" rx="8" fill="#FFFFFF" stroke="#726C63" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="673.0" y="123.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">Story / intent / follow-up</text>
+<text x="673.0" y="139.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">OpenAI  &gt;  Gemini  &gt;  Anthropic</text>
+<path d="M486.0,213.0 L530.0,126.0" fill="none" stroke="#726C63" stroke-width="1.0" stroke-dasharray="3 3" marker-end="url(#ah8)" stroke-linejoin="round"/>
+<rect x="530.0" y="156.0" width="286.0" height="44.0" rx="8" fill="#FFFFFF" stroke="#726C63" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="673.0" y="175.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">TTS standard</text>
+<text x="673.0" y="191.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">OpenAI gpt-4o-mini-tts  &gt;  Gemini</text>
+<path d="M486.0,213.0 L530.0,178.0" fill="none" stroke="#726C63" stroke-width="1.0" stroke-dasharray="3 3" marker-end="url(#ah9)" stroke-linejoin="round"/>
+<rect x="530.0" y="208.0" width="286.0" height="44.0" rx="8" fill="#FFFFFF" stroke="#726C63" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="673.0" y="227.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">TTS economy (highway)</text>
+<text x="673.0" y="243.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">Google Cloud WaveNet  &gt;  standard chain</text>
+<path d="M486.0,213.0 L530.0,230.0" fill="none" stroke="#726C63" stroke-width="1.0" stroke-dasharray="3 3" marker-end="url(#ah10)" stroke-linejoin="round"/>
+<rect x="530.0" y="260.0" width="286.0" height="44.0" rx="8" fill="#FFFFFF" stroke="#726C63" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="673.0" y="279.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">STT</text>
+<text x="673.0" y="295.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">device  &gt;  OpenAI  &gt;  Gemini</text>
+<path d="M486.0,213.0 L530.0,282.0" fill="none" stroke="#726C63" stroke-width="1.0" stroke-dasharray="3 3" marker-end="url(#ah11)" stroke-linejoin="round"/>
+<rect x="530.0" y="312.0" width="286.0" height="44.0" rx="8" fill="#FCEBC7" stroke="#8F5B00" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="673.0" y="331.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">Realtime token</text>
+<text x="673.0" y="347.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">OpenAI Realtime  &gt;  Gemini Live  (NOT RUN)</text>
+<path d="M486.0,213.0 L530.0,334.0" fill="none" stroke="#726C63" stroke-width="1.0" stroke-dasharray="3 3" marker-end="url(#ah12)" stroke-linejoin="round"/>
+<rect x="530.0" y="364.0" width="286.0" height="44.0" rx="8" fill="#FFFFFF" stroke="#726C63" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="673.0" y="383.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">Discovery + evidence</text>
+<text x="673.0" y="399.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">Wikimedia  (Google Places: opt-in, never cached)</text>
+<path d="M486.0,213.0 L530.0,386.0" fill="none" stroke="#726C63" stroke-width="1.0" stroke-dasharray="3 3" marker-end="url(#ah13)" stroke-linejoin="round"/>
+<rect x="530.0" y="416.0" width="286.0" height="44.0" rx="8" fill="#FFFFFF" stroke="#726C63" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="673.0" y="435.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#131A1D" text-anchor="middle">Nearby search (tool)</text>
+<text x="673.0" y="451.2" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#5F5A53" text-anchor="middle">Google Places Nearby Pro, on user question</text>
+<path d="M486.0,213.0 L530.0,438.0" fill="none" stroke="#726C63" stroke-width="1.0" stroke-dasharray="3 3" marker-end="url(#ah14)" stroke-linejoin="round"/>
+<rect x="24.0" y="478.0" width="792.0" height="76.0" rx="10" fill="#FFFFFF" stroke="#E2DBCF" stroke-width="1.2"/>
+<text x="40.0" y="502.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.669430785494681" font-weight="700" fill="#131A1D" text-anchor="start">Deterministic fakes implement every interface, with injectable simulated latency. All 460 tests and the whole benchmark run on fakes:</text>
+<text x="40.0" y="517.8" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.669430785494681" font-weight="700" fill="#131A1D" text-anchor="start">no real provider has been exercised.</text>
+<text x="40.0" y="540.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="10.915358795246304" font-weight="500" fill="#5F5A53" text-anchor="start">Model ids are env-configurable; `pnpm bench:providers` checks ids against each provider's model list before any switch (NOT YET RUN: no keys).</text>
+<text x="24.0" y="578.0" font-family="Onest, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="500" fill="#726C63" text-anchor="start">Source: packages/providers (router.ts, resilience.ts, metered.ts, pricing.ts), docs/PERFORMANCE_COST.md §12.</text>
+</svg>
